@@ -1,11 +1,20 @@
 <?php
+
+namespace Models;
+use PDO;
+use PDOException;
+
 class database {
     private static $dsn = 'mysql:host=localhost;dbname=my_guitar_shop2';
     private static $username = 'mgs_user';
     private static $password = 'pa55word';
     private static $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
     private static $db;
-    private function __construct() {}
+
+    private function __construct()
+    {
+    }
+
     public static function getDB() {
         if (!isset(self::$db)) {
             try {
@@ -16,9 +25,10 @@ class database {
         }
         return self::$db;
     }
+
     public static function displayError($error_message) {
         global $app_path;
-        include 'errors/db_error.php';
+        include 'Errors/db_error.php';
         exit;
     }
 }
