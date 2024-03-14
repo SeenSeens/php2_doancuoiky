@@ -5,9 +5,9 @@ use PDO;
 use PDOException;
 
 class database {
-    private static $dsn = 'mysql:host=localhost;dbname=my_guitar_shop2';
-    private static $username = 'mgs_user';
-    private static $password = 'pa55word';
+    private static $dsn = 'mysql:host=localhost;dbname=doancuoiky';
+    private static $username = 'root';
+    private static $password = '12345678';
     private static $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
     private static $db;
 

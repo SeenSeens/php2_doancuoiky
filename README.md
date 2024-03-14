@@ -10,12 +10,26 @@
     - backend
     - frontend
   - App.php
-- errors
+- configs
+- core
+  - Connection.php
+  - Controller.php
+  - Database.php
+  - Model.php
+  - Route.php
 - public
+- docs
   - css
   - fonts
   - images
   - js
+- ultils
+- access.log
+- bootstrap.php
+- db.json
+- error.php
+- index.php
+- README.md
 
 ## Mô tả thư mục dự án
 ### Controller
@@ -27,7 +41,12 @@
 ### Views
 ### errors
 ### public
+> Lưu trữ style, scripts, fonts, images
 ### core
 > Chứa các thành phần cốt lõi của dự án
 > * Route.php **Chịu trách nhiệm xử lý router**
-> * 
+### docs
+> Chứa tài liệu chi tiết của dự án
+
+
+## Query Builder

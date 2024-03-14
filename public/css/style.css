@@ -19,7 +19,7 @@
 3.  Header Section
 4.  Hero Section
 5.  Service Section
-6.  Categories Section
+6.  CategoriesModel Section
 7.  Featured Section
 8.  Latest Product Section
 9.  Contact
@@ -754,7 +754,7 @@ ol {
 }
 
 /*---------------------
-  Categories
+  CategoriesModel
 -----------------------*/
 
 .categories__item {

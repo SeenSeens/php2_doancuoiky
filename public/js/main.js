@@ -61,7 +61,7 @@
     });
 
     /*-----------------------
-        Categories Slider
+        CategoriesModel Slider
     ------------------------*/
     $(".categories__slider").owlCarousel({
         loop: true,

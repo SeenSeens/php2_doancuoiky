@@ -48,51 +48,21 @@
   "products" : [
     {
       "id" : 1,
-      "cat_id" : 1,
-      "name" : "Crab Pool Security",
-      "price" : 1
-    },
-    {
-      "id" : 2,
-      "cat_id" : 1,
-      "name" : "Crab Pool Security",
-      "price" : 1
-    },
-    {
-      "id" : 3,
-      "cat_id" : 1,
-      "name" : "Crab Pool Security",
-      "price" : 1
-    },
-    {
-      "id" : 4,
-      "cat_id" : 1,
-      "name" : "Crab Pool Security",
-      "price" : 1
-    },
-    {
-      "id" : 5,
-      "cat_id" : 1,
-      "name" : "Crab Pool Security",
-      "price" : 1
-    },
-    {
-      "id" : 6,
-      "cat_id" : 1,
-      "name" : "Crab Pool Security",
-      "price" : 1
-    },
-    {
-      "id" : 7,
-      "cat_id" : 1,
-      "name" : "Crab Pool Security",
-      "price" : 1
-    },
-    {
-      "id" : 8,
-      "cat_id" : 1,
-      "name" : "Crab Pool Security",
-      "price" : 1
+      "title" : "Crab Pool Security",
+      "slug" : "crab-pool-security",
+      "description" : "",
+      "excerpt" : "",
+      "thumbnail": "",
+      "price": 40,
+      "discount" : "",
+      "outstanding" : "false",
+      "trending" : "false",
+      "hot" : "false",
+      "bestseller" : "false",
+      "category_id" : 1,
+      "created_at" : "",
+      "updated_at" : ""
     }
+
   ]
 }
