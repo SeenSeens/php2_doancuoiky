@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <base href="http://doancuoiky.local/">
+    <base href="<?= __WEB_ROOT__ ?>/">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -10,14 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
     <title><?= (!empty($page_title)) ? $page_title : 'Đồ án cuối kỳ' ?></title>
     <!-- Css Styles -->
-    <link rel="stylesheet" href="./public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./public/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./public/css/elegant-icons.css">
-    <link rel="stylesheet" href="./public/css/nice-select.css">
-    <link rel="stylesheet" href="./public/css/jquery-ui.min.css">
-    <link rel="stylesheet" href="./public/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="./public/css/slicknav.min.css">
-    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ ?>/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ ?>/public/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ ?>/public/css/elegant-icons.css">
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ ?>/public/css/nice-select.css">
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ ?>/public/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ ?>/public/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ ?>/public/css/slicknav.min.css">
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ ?>/public/css/style.css">
 </head>
 <body>
     <!-- Page Preloder -->
@@ -28,7 +28,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="./public/img/logo.png" alt=""></a>
+            <a href="#"><img src="<?= __WEB_ROOT__ ?>/public/img/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -39,7 +39,7 @@
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
-                <img src="./public/img/language.png" alt="">
+                <img src="<?= __WEB_ROOT__ ?>/public/img/language.png" alt="">
                 <div>English</div>
                 <span class="arrow_carrot-down"></span>
                 <ul>
@@ -53,18 +53,18 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
+                <li class="active"><a href="<?= __WEB_ROOT__ ?>">Trang chủ</a></li>
+                <li><a href="<?= __WEB_ROOT__ ?>/cua-hang">Cửa hàng</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Shop Details</a></li>
-                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                        <li><a href="./checkout.html">Check Out</a></li>
-                        <li><a href="./blog-details.html">Blog Details</a></li>
+                        <li><a href="<?= __WEB_ROOT__ ?>/shop-details.html">Shop Details</a></li>
+                        <li><a href="<?= __WEB_ROOT__ ?>/shoping-cart.html">Shoping Cart</a></li>
+                        <li><a href="<?= __WEB_ROOT__ ?>/checkout.html">Check Out</a></li>
+                        <li><a href="<?= __WEB_ROOT__ ?>/blog-details.html">Blog Details</a></li>
                     </ul>
                 </li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="<?= __WEB_ROOT__ ?>/blog">Blog</a></li>
+                <li><a href="<?= __WEB_ROOT__ ?>/lien-he">Liên hệ</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -104,7 +104,7 @@
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
                             <div class="header__top__right__language">
-                                <img src="./public/img/language.png" alt="">
+                                <img src="<?= __WEB_ROOT__ ?>/public/img/language.png" alt="">
                                 <div>English</div>
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
@@ -124,24 +124,24 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="./public/img/logo.png" alt=""></a>
+                        <a href="<?= __WEB_ROOT__ ?>"><img src="<?= __WEB_ROOT__ ?>/public/img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="/">Home</a></li>
-                            <li><a href="">Shop</a></li>
+                            <li><a href="<?= __WEB_ROOT__ ?>">Trang chủ</a></li>
+                            <li><a href="<?= __WEB_ROOT__ ?>/cua-hang">Cửa hàng</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                    <li><a href="<?= __WEB_ROOT__ ?>/shop-details.html">Shop Details</a></li>
+                                    <li><a href="<?= __WEB_ROOT__ ?>/shoping-cart.html">Shoping Cart</a></li>
+                                    <li><a href="<?= __WEB_ROOT__ ?>/checkout.html">Check Out</a></li>
+                                    <li><a href="<?= __WEB_ROOT__ ?>/blog-details.html">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
+                            <li><a href="<?= __WEB_ROOT__ ?>/blog">Blog</a></li>
+                            <li><a href="<?= __WEB_ROOT__ ?>/lien-he">Liên hệ</a></li>
                         </ul>
                     </nav>
                 </div>

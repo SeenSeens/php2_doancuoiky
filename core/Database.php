@@ -1,5 +1,4 @@
 <?php
-
 class Database {
     private $__conn;
     use QueryBuilder;

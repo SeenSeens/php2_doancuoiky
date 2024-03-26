@@ -1,11 +1,11 @@
 <?php
-
 class App {
-    private $__controller, $__action, $__params, $__db;
+    private $__controller, $__action, $__params, $__routes, $__db;
     static public $app;
     public function __construct() {
         global $routes, $config;
         self::$app = $this;
+
         $this->__routes = new Route();
 
         if( !empty( $routes['default_controller'] )) :
@@ -28,7 +28,7 @@ class App {
      * REQUEST_URI
      * PATH_INFO
      */
-    private function getUrl() {
+    public function getUrl() {
         if( !empty($_SERVER['PATH_INFO']) ) :
             $url = $_SERVER['PATH_INFO'];
         else:
@@ -37,7 +37,7 @@ class App {
         return $url;
     }
 
-    private function handleUrl() {
+    public      function handleUrl() {
         $url = $this->getUrl();
         $url = $this->__routes->handleRoute($url);
 

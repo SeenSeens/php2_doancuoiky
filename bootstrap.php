@@ -7,9 +7,10 @@ if( !empty( $_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
     $web_root = 'http://' . $_SERVER['HTTP_HOST'];
 }
 
-/*$folder = str_replace( strtolower( $_SERVER['DOCUMENT_ROOT']), '', __DIR_ROOT__);
-$web_root = $_SERVER['DOCUMENT_ROOT'];*/
-
+$dirRoot = str_replace('\\', '/', __DIR_ROOT__);
+$documentRoot = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']);
+$folder = str_replace( strtolower($documentRoot), '', strtolower($dirRoot));
+$web_root = $web_root . $folder;
 define('__WEB_ROOT__', $web_root);
 
 /**

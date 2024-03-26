@@ -1,6 +1,6 @@
 <?php
 class CategoriesModel extends Model {
-    private $__table = 'categories';
+    public $__table = 'categories';
 
     #[\Override] function tableFill()
     {
@@ -16,5 +16,11 @@ class CategoriesModel extends Model {
     // Lấy ra danh sách chuyên mục sản phẩm
     public function getListCategory() {
         return $this->db->table('categories')->get();
+    }
+    public function categoryName($id){
+        return $this->db->table('categories')
+            ->select('name')
+            ->where('id', '=', $id)
+            ->first();
     }
 }

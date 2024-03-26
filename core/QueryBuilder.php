@@ -105,6 +105,7 @@ trait QueryBuilder{
         $statusDelete = $this->deleteData($tableName, $whereDelete);
         return $statusDelete;
     }
+    // Lấy 1 bản ghi
     public function first(){
         $sqlQuery = "SELECT $this->selectField FROM $this->tableName $this->where $this->limit";
         $query = $this->query($sqlQuery);

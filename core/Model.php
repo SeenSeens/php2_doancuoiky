@@ -37,5 +37,40 @@ abstract class Model extends Database {
         }
         return false;
     }
+
+    public function paginate($perPage = 10, $currentPage = 1) {
+        $tableName = $this->tableFill();
+        $fieldSelect = $this->fieldFill();
+        $primaryKey = $this->primaryKey();
+
+        // Tính toán vị trí bắt đầu của bản ghi
+        $start = ($currentPage - 1) * $perPage;
+
+        if(empty($fieldSelect)) {
+            $fieldSelect = ' * ';
+        }
+
+        // Thực hiện truy vấn để lấy dữ liệu phân trang
+        $sql = "SELECT $fieldSelect FROM $tableName LIMIT $start, $perPage";
+        $query = $this->db->query($sql);
+
+        if(!empty($query)) {
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            // Lấy tổng số lượng bản ghi
+            $totalRecords = $this->count();
+
+            // Tính toán số trang
+            $totalPages = ceil($totalRecords / $perPage);
+
+            return [
+                'data' => $data,
+                'total_pages' => $totalPages,
+                'current_page' => $currentPage
+            ];
+        }
+        return false;
+    }
+
 }
 ?>

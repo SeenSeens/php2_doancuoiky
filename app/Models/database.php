@@ -1,8 +1,5 @@
 <?php
 
-namespace Models;
-use PDO;
-use PDOException;
 
 class database {
     private static $dsn = 'mysql:host=localhost;dbname=doancuoiky';
