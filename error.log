@@ -1,0 +1,717 @@
+2024/03/12 14:28:07 [error] 6147#6147: *192 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(./featured_product.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php on line 98PHP message: PHP Fatal error:  Uncaught Error: Failed opening required './featured_product.php' (include_pa" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 14:28:07 [error] 6147#6147: *192 FastCGI sent in stderr: "th='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php:98
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/HomeController.php(7): require_once()
+#1 /opt/lampp/htdocs/doancuoiky/index.php(11): require_once('...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php on line 98" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 14:28:15 [error] 6147#6147: *192 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(./featured_product.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php on line 98PHP message: PHP Fatal error:  Uncaught Error: Failed opening required './featured_product.php' (include_pa" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 14:28:15 [error] 6147#6147: *192 FastCGI sent in stderr: "th='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php:98
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/HomeController.php(7): require_once()
+#1 /opt/lampp/htdocs/doancuoiky/index.php(11): require_once('...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php on line 98" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 14:28:21 [error] 6147#6147: *192 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(./featured_product.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php on line 98PHP message: PHP Fatal error:  Uncaught Error: Failed opening required './featured_product.php' (include_pa" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 14:28:21 [error] 6147#6147: *192 FastCGI sent in stderr: "th='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php:98
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/HomeController.php(7): require_once()
+#1 /opt/lampp/htdocs/doancuoiky/index.php(11): require_once('...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php on line 98" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 14:28:39 [error] 6147#6147: *192 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(../featured_product.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php on line 98PHP message: PHP Fatal error:  Uncaught Error: Failed opening required '../featured_product.php' (include_" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 14:28:39 [error] 6147#6147: *192 FastCGI sent in stderr: "path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php:98
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/HomeController.php(7): require_once()
+#1 /opt/lampp/htdocs/doancuoiky/index.php(11): require_once('...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php on line 98" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 14:28:52 [error] 6147#6147: *192 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(../home/featured_product.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php on line 98PHP message: PHP Fatal error:  Uncaught Error: Failed opening required '../home/featured_product.php'" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 14:28:52 [error] 6147#6147: *192 FastCGI sent in stderr: " (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php:98
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/HomeController.php(7): require_once()
+#1 /opt/lampp/htdocs/doancuoiky/index.php(11): require_once('...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php on line 98" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 14:28:53 [error] 6147#6147: *192 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(../home/featured_product.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php on line 98PHP message: PHP Fatal error:  Uncaught Error: Failed opening required '../home/featured_product.php'" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 14:28:53 [error] 6147#6147: *192 FastCGI sent in stderr: " (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php:98
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/HomeController.php(7): require_once()
+#1 /opt/lampp/htdocs/doancuoiky/index.php(11): require_once('...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php on line 98" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 14:28:59 [error] 6147#6147: *192 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(./home/featured_product.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php on line 98PHP message: PHP Fatal error:  Uncaught Error: Failed opening required './home/featured_product.php' (" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 14:28:59 [error] 6147#6147: *192 FastCGI sent in stderr: "include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php:98
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/HomeController.php(7): require_once()
+#1 /opt/lampp/htdocs/doancuoiky/index.php(11): require_once('...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php on line 98" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 14:29:04 [error] 6147#6147: *192 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(/featured_product.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php on line 98PHP message: PHP Fatal error:  Uncaught Error: Failed opening required '/featured_product.php' (include_path" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 14:29:04 [error] 6147#6147: *192 FastCGI sent in stderr: "='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php:98
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/HomeController.php(7): require_once()
+#1 /opt/lampp/htdocs/doancuoiky/index.php(11): require_once('...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/main.php on line 98" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 14:32:42 [error] 6147#6147: *220 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Class "Database" not found in /opt/lampp/htdocs/doancuoiky/core/Model.php:3
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/bootstrap.php(37): require_once()
+#1 /opt/lampp/htdocs/doancuoiky/index.php(15): require_once('...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Model.php on line 3" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 18:25:54 [error] 17920#17920: *557 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function getList() on null in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php:18
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/App.php(104): Home->index()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(16): App->handleUrl()
+#2 /opt/lampp/htdocs/doancuoiky/index.php(16): App->__construct()
+#3 {main}
+  thro" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/12 18:25:54 [error] 17920#17920: *557 FastCGI sent in stderr: "wn in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 18" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/12 18:25:59 [error] 17920#17920: *557 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function getList() on null in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php:18
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/App.php(104): Home->index()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(16): App->handleUrl()
+#2 /opt/lampp/htdocs/doancuoiky/index.php(16): App->__construct()
+#3 {main}
+  thro" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/12 18:25:59 [error] 17920#17920: *557 FastCGI sent in stderr: "wn in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 18" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/12 18:26:01 [error] 17920#17920: *557 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function getList() on null in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php:18
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/App.php(104): Home->index()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(16): App->handleUrl()
+#2 /opt/lampp/htdocs/doancuoiky/index.php(16): App->__construct()
+#3 {main}
+  thro" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /home/index HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 18:26:01 [error] 17920#17920: *557 FastCGI sent in stderr: "wn in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 18" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /home/index HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 18:26:06 [error] 17920#17920: *557 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function getList() on null in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php:18
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/App.php(104): Home->index()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(16): App->handleUrl()
+#2 /opt/lampp/htdocs/doancuoiky/index.php(16): App->__construct()
+#3 {main}
+  thro" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/12 18:26:06 [error] 17920#17920: *557 FastCGI sent in stderr: "wn in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 18" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 00:40:58 [error] 926#926: *995 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Class CategoriesModel contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (Model::primaryKey) in /opt/lampp/htdocs/doancuoiky/app/Models/CategoriesModel.php on line 0" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 00:42:35 [error] 926#926: *1029 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Class CategoriesModel contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (Model::primaryKey) in /opt/lampp/htdocs/doancuoiky/app/Models/CategoriesModel.php on line 0" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 00:42:36 [error] 926#926: *1029 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Class CategoriesModel contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (Model::primaryKey) in /opt/lampp/htdocs/doancuoiky/app/Models/CategoriesModel.php on line 0" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 00:42:57 [error] 926#926: *1029 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Class CategoriesModel contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (Model::primaryKey) in /opt/lampp/htdocs/doancuoiky/app/Models/CategoriesModel.php on line 0" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 00:42:58 [error] 926#926: *1029 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Class CategoriesModel contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (Model::primaryKey) in /opt/lampp/htdocs/doancuoiky/app/Models/CategoriesModel.php on line 0" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 02:07:39 [error] 926#926: *1647 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Warning:  Undefined variable $sub_content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Fatal error:  Uncaught TypeError: Controller::render(): Argument #2 ($data) mus" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 02:07:39 [error] 926#926: *1647 FastCGI sent in stderr: "t be of type array, null given, called in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2 and defined in /opt/lampp/htdocs/doancuoiky/core/Controller.php:19
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(13): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 19" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 02:07:52 [error] 926#926: *1647 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Warning:  Undefined variable $sub_content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Fatal error:  Uncaught TypeError: Controller::render(): Argument #2 ($data) mus" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 02:07:52 [error] 926#926: *1647 FastCGI sent in stderr: "t be of type array, null given, called in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2 and defined in /opt/lampp/htdocs/doancuoiky/core/Controller.php:19
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(13): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 19" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 02:08:09 [error] 926#926: *1647 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Warning:  Undefined variable $sub_content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Fatal error:  Uncaught TypeError: Controller::render(): Argument #2 ($data) mus" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 02:08:09 [error] 926#926: *1647 FastCGI sent in stderr: "t be of type array, null given, called in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2 and defined in /opt/lampp/htdocs/doancuoiky/core/Controller.php:19
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(13): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 19" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 02:08:16 [error] 926#926: *1647 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Warning:  Undefined variable $sub_content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Fatal error:  Uncaught TypeError: Controller::render(): Argument #2 ($data) must be of type array, null given, called in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2 and defined in /opt/lampp/htdocs/doancuoiky/core/Controller.php:19
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(13): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 19" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 02:08:17 [error] 926#926: *1647 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Warning:  Undefined variable $sub_content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Fatal error:  Uncaught TypeError: Controller::render(): Argument #2 ($data) must be of type array, null given, called in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2 and defined in /opt/lampp/htdocs/doancuoiky/core/Controller.php:19
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(13): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 19" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 02:12:37 [error] 926#926: *1679 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Warning:  Undefined variable $sub_content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Fatal error:  Uncaught TypeError: Controller::render(): Argument #2 ($data) mus" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 02:12:37 [error] 926#926: *1679 FastCGI sent in stderr: "t be of type array, null given, called in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2 and defined in /opt/lampp/htdocs/doancuoiky/core/Controller.php:19
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(13): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 19" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 02:12:50 [error] 926#926: *1679 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Warning:  Undefined variable $sub_content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Fatal error:  Uncaught TypeError: Controller::render(): Argument #2 ($data) mus" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 02:12:50 [error] 926#926: *1679 FastCGI sent in stderr: "t be of type array, null given, called in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2 and defined in /opt/lampp/htdocs/doancuoiky/core/Controller.php:19
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(13): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 19" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 02:12:51 [error] 926#926: *1679 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Warning:  Undefined variable $sub_content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Fatal error:  Uncaught TypeError: Controller::render(): Argument #2 ($data) mus" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 02:12:51 [error] 926#926: *1679 FastCGI sent in stderr: "t be of type array, null given, called in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2 and defined in /opt/lampp/htdocs/doancuoiky/core/Controller.php:19
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(13): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 19" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 02:13:39 [error] 926#926: *1679 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected token "}" in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 14" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 02:13:41 [error] 926#926: *1679 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected token "}" in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 14" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 02:37:18 [error] 926#926: *1709 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Warning:  Undefined variable $sub_content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Fatal error:  Uncaught TypeError: Controller::render(): Argument #2 ($data) mus" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 02:37:18 [error] 926#926: *1709 FastCGI sent in stderr: "t be of type array, null given, called in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2 and defined in /opt/lampp/htdocs/doancuoiky/core/Controller.php:19
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(13): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 19" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 03:26:56 [error] 926#926: *1844 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /shop HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/shop"
+2024/03/15 03:30:50 [error] 926#926: *1891 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /shop HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/shop"
+2024/03/15 13:47:05 [error] 725#725: *237 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected token "(" in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 16" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /shop HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/shop"
+2024/03/15 13:47:07 [error] 725#725: *237 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected token "(" in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 16" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /shop HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/shop"
+2024/03/15 13:47:07 [error] 725#725: *237 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected token "(" in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 16" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /shop HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/shop"
+2024/03/15 13:47:15 [error] 725#725: *237 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected token "(" in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 16" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /cua-hang HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/15 13:47:18 [error] 725#725: *237 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected token "(" in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 16" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/24 19:49:44 [error] 26910#26910: *1 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "pass" in /opt/lampp/htdocs/doancuoiky/core/Connection.php on line 7" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/24 21:36:01 [error] 26910#26910: *84 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function all() on bool in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php:14
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#2 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#3 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 14" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/cua-hang"
+2024/03/24 21:36:09 [error] 26910#26910: *84 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function all() on bool in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php:14
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#2 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#3 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 14" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/cua-hang"
+2024/03/24 21:36:12 [error] 26910#26910: *84 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function all() on bool in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php:14
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#2 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#3 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 14" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/cua-hang"
+2024/03/24 21:36:19 [error] 26910#26910: *84 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function all() on bool in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php:14
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#2 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#3 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 14" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/cua-hang"
+2024/03/24 21:36:20 [error] 26910#26910: *84 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function all() on bool in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php:14
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#2 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#3 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 14" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/cua-hang"
+2024/03/24 21:36:45 [error] 26910#26910: *84 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function all() on bool in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php:14
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#2 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#3 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 14" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/cua-hang"
+2024/03/24 21:36:46 [error] 26910#26910: *84 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function all() on bool in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php:14
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#2 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#3 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 14" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/cua-hang"
+2024/03/24 21:37:39 [error] 26910#26910: *84 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /opt/lampp/htdocs/doancuoiky/core/Model.php:18
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(14): Model->all()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Model.php on line 18" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/cua-hang"
+2024/03/24 21:37:40 [error] 26910#26910: *84 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /opt/lampp/htdocs/doancuoiky/core/Model.php:18
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(14): Model->all()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Model.php on line 18" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/cua-hang"
+2024/03/24 21:37:45 [error] 26910#26910: *84 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function all() on null in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php:11
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#2 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#3 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 11" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/cua-hang"
+2024/03/24 21:37:45 [error] 26910#26910: *84 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function all() on null in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php:11
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#2 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#3 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php on line 11" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/cua-hang"
+2024/03/24 21:37:55 [error] 26910#26910: *84 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /opt/lampp/htdocs/doancuoiky/core/Model.php:18
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(14): Model->all()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Model.php on line 18" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/cua-hang"
+2024/03/24 21:37:56 [error] 26910#26910: *84 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /opt/lampp/htdocs/doancuoiky/core/Model.php:18
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(14): Model->all()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Model.php on line 18" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/cua-hang"
+2024/03/24 21:39:03 [error] 26910#26910: *84 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "category_menu" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 16" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/cua-hang"
+2024/03/24 21:39:03 [error] 26910#26910: *84 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "category_menu" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 16" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/cua-hang"
+2024/03/24 23:36:42 [error] 26910#26910: *370 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Cannot access private property Home::$data in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php:3
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once()
+#1 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/pages/main.php(2): Controller->render()
+#2 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#3 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#4 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#5 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#6 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#7 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#8 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#9 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /san-pham/2 HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/24 23:36:45 [error] 26910#26910: *370 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Cannot access private property Home::$data in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php:3
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once()
+#1 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/pages/main.php(2): Controller->render()
+#2 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#3 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#4 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#5 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#6 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#7 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#8 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#9 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/24 23:36:45 [error] 26910#26910: *377 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Cannot access private property Home::$data in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php:3
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once()
+#1 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/pages/main.php(2): Controller->render()
+#2 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#3 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#4 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#5 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#6 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#7 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#8 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#9 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /public/css/bootstrap.min.css.map HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/24 23:40:54 [error] 26910#26910: *399 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Warning:  Undefined variable $sub_content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Fatal error:  Uncaught TypeError: Controller::render(): Argument #2 ($data) must be of type array, null given, called in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2 and defined in /opt/lampp/htdocs/doancuoiky/core/Controller.php:19
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 19" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /san-pham/2 HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/24 23:40:57 [error] 26910#26910: *399 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Warning:  Undefined variable $sub_content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Fatal error:  Uncaught TypeError: Controller::render(): Argument #2 ($data) must be of type array, null given, called in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2 and defined in /opt/lampp/htdocs/doancuoiky/core/Controller.php:19
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 19" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/24 23:41:31 [error] 26910#26910: *399 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Warning:  Undefined variable $sub_content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Fatal error:  Uncaught TypeError: Controller::render(): Argument #2 ($data) must be of type array, null given, called in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2 and defined in /opt/lampp/htdocs/doancuoiky/core/Controller.php:19
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 19" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/24 23:41:33 [error] 26910#26910: *399 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Warning:  Undefined variable $sub_content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Fatal error:  Uncaught TypeError: Controller::render(): Argument #2 ($data) must be of type array, null given, called in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2 and defined in /opt/lampp/htdocs/doancuoiky/core/Controller.php:19
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 19" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/24 23:41:34 [error] 26910#26910: *399 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Warning:  Undefined variable $sub_content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Fatal error:  Uncaught TypeError: Controller::render(): Argument #2 ($data) must be of type array, null given, called in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2 and defined in /opt/lampp/htdocs/doancuoiky/core/Controller.php:19
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(22): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 19" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /san-pham/2 HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/24 23:54:12 [error] 26910#26910: *415 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Warning:  Undefined variable $sub_content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Fatal error:  Uncaught TypeError: Controller::render(): Argument #2 ($data) must be of type array, null given, called in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2 and defined in /opt/lampp/htdocs/doancuoiky/core/Controller.php:19
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(28): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 19" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/24 23:54:15 [error] 26910#26910: *415 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Warning:  Undefined variable $sub_content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Fatal error:  Uncaught TypeError: Controller::render(): Argument #2 ($data) must be of type array, null given, called in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2 and defined in /opt/lampp/htdocs/doancuoiky/core/Controller.php:19
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(2): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(28): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 19" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /san-pham/2 HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/24 23:58:18 [error] 26910#26910: *427 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 16" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /san-pham/2 HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/24 23:58:18 [error] 26910#26910: *427 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Undefined array key "products" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 5PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 18PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 26" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /san-pham/2 HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/24 23:58:22 [error] 26910#26910: *427 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 16" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/24 23:58:22 [error] 26910#26910: *427 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Undefined array key "products" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 5PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 18PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 26" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/24 23:58:24 [error] 26910#26910: *427 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 16" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /lien-he HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/24 23:58:24 [error] 26910#26910: *427 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Undefined array key "products" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 5PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 18PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 26" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /lien-he HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/24 23:58:28 [error] 26910#26910: *427 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 16" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /blog HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/lien-he"
+2024/03/24 23:58:28 [error] 26910#26910: *427 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Undefined array key "products" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 5PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 18PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 26" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /blog HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/lien-he"
+2024/03/24 23:58:29 [error] 26910#26910: *427 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 16" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/blog"
+2024/03/24 23:58:29 [error] 26910#26910: *427 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Undefined array key "products" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 5PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 18PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 26" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/blog"
+2024/03/24 23:58:30 [error] 26910#26910: *427 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 16" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/24 23:58:30 [error] 26910#26910: *427 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Undefined array key "products" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 5PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 18PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 26" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:00:58 [error] 26910#26910: *452 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 16PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Undefined array key "products" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 5PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 18" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:00:58 [error] 26910#26910: *452 FastCGI sent in stderr: "PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 26" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:01:00 [error] 26910#26910: *452 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 16PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Undefined array key "products" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 5PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 18" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /san-pham/2 HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:01:00 [error] 26910#26910: *452 FastCGI sent in stderr: "PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 26" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /san-pham/2 HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:01:34 [error] 26910#26910: *452 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 16" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /san-pham/2 HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:01:34 [error] 26910#26910: *452 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Undefined array key "products" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 5PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 18PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 26" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /san-pham/2 HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:01:35 [error] 26910#26910: *452 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 3PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/header_home.php on line 16" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:01:35 [error] 26910#26910: *452 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "sub_content" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 3PHP message: PHP Warning:  Undefined array key "products" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 5PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 18PHP message: PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/featured_product.php on line 26" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:04:14 [error] 26910#26910: *461 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(Views/frontend/layouts/app_layout.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 33PHP message: PHP Fatal error:  Uncaught Error: Failed opening required 'Views/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:33
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 33" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:04:37 [error] 26910#26910: *461 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(Views/frontend/layouts/app_layout.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 33PHP message: PHP Fatal error:  Uncaught Error: Failed opening required 'Views/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:33
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 33" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:08:08 [error] 26910#26910: *466 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(Views/frontend/layouts/app_layout.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35PHP message: PHP Fatal error:  Uncaught Error: Failed opening required 'Views/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:35
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:08:10 [error] 26910#26910: *466 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(Views/frontend/layouts/app_layout.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35PHP message: PHP Fatal error:  Uncaught Error: Failed opening required 'Views/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:35
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /san-pham/2 HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:08:17 [error] 26910#26910: *466 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(Views/frontend/layouts/app_layout.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35PHP message: PHP Fatal error:  Uncaught Error: Failed opening required 'Views/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:35
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /san-pham/2 HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:08:56 [error] 26910#26910: *466 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(Views/frontend/layouts/app_layout.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35PHP message: PHP Fatal error:  Uncaught Error: Failed opening required 'Views/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:35
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /san-pham/2 HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:09:00 [error] 26910#26910: *466 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(Views/frontend/layouts/app_layout.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35PHP message: PHP Fatal error:  Uncaught Error: Failed opening required 'Views/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:35
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:09:01 [error] 26910#26910: *466 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(Views/frontend/layouts/app_layout.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35PHP message: PHP Fatal error:  Uncaught Error: Failed opening required 'Views/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:35
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:09:43 [error] 26910#26910: *466 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(__DIR_ROOT__/frontend/layouts/app_layout.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35PHP message: PHP Fatal error:  Uncaught Error: Failed opening required '__DIR_ROOT__/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:35
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:09:44 [error] 26910#26910: *466 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(__DIR_ROOT__/frontend/layouts/app_layout.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35PHP message: PHP Fatal error:  Uncaught Error: Failed opening required '__DIR_ROOT__/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:35
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:09:58 [error] 26910#26910: *466 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:09:58 [error] 26910#26910: *466 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(__DIR_ROOT__/frontend/layouts/app_layout.php): Failed to open st" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:09:58 [error] 26910#26910: *466 FastCGI sent in stderr: "ream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35PHP message: PHP Fatal error:  Uncaught Error: Failed opening required '__DIR_ROOT__/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:35
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:10:05 [error] 26910#26910: *466 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(__DIR_ROOT__/frontend/layouts/app_layout.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35PHP message: PHP Fatal error:  Uncaught Error: Failed opening required '__DIR_ROOT__/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:35
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:10:10 [error] 26910#26910: *466 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(__DIR_ROOT__/frontend/layouts/app_layout.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35PHP message: PHP Fatal error:  Uncaught Error: Failed opening required '__DIR_ROOT__/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:35
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /cua-hang HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:10:16 [error] 26910#26910: *482 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(__DIR_ROOT__/frontend/layouts/app_layout.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35PHP message: PHP Fatal error:  Uncaught Error: Failed opening required '__DIR_ROOT__/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:35
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /public/css/bootstrap.min.css.map HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:10:20 [error] 26910#26910: *466 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(__DIR_ROOT__/frontend/layouts/app_layout.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35PHP message: PHP Fatal error:  Uncaught Error: Failed opening required '__DIR_ROOT__/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:35
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /cua-hang HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:10:48 [error] 26910#26910: *487 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(__DIR_ROOT__/frontend/layouts/app_layout.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35PHP message: PHP Fatal error:  Uncaught Error: Failed opening required '__DIR_ROOT__/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:35
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 35" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:11:58 [error] 26910#26910: *487 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(__DIR_ROOT__/frontend/layouts/app_layout.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 37PHP message: PHP Fatal error:  Uncaught Error: Failed opening required '__DIR_ROOT__/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:37
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 37" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /cua-hang HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:12:08 [error] 26910#26910: *487 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(__DIR_ROOT__/frontend/layouts/app_layout.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 37PHP message: PHP Fatal error:  Uncaught Error: Failed opening required '__DIR_ROOT__/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:37
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 37" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:12:30 [error] 26910#26910: *487 FastCGI sent in stderr: "PHP message: PHP Warning:  require_once(__DIR_ROOT__/frontend/layouts/app_layout.php): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 37PHP message: PHP Fatal error:  Uncaught Error: Failed opening required '__DIR_ROOT__/frontend/layouts/app_layout.php' (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/core/Controller.php:37
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(18): Controller->view()
+#1 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#2 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#3 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#4 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 37" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:16:59 [error] 26910#26910: *495 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Controller::render(), 1 passed in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 1 and at least 2 expected in /opt/lampp/htdocs/doancuoiky/core/Controller.php:19
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(1): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(23): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 19" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:17:04 [error] 26910#26910: *495 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Controller::render(), 1 passed in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 1 and at least 2 expected in /opt/lampp/htdocs/doancuoiky/core/Controller.php:19
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(1): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(23): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 19" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:17:54 [error] 26910#26910: *495 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Controller::render(), 1 passed in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 1 and at least 2 expected in /opt/lampp/htdocs/doancuoiky/core/Controller.php:15
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(1): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(19): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 15" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:17:55 [error] 26910#26910: *495 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Controller::render(), 1 passed in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 1 and at least 2 expected in /opt/lampp/htdocs/doancuoiky/core/Controller.php:15
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(1): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(19): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 15" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:19:00 [error] 26910#26910: *495 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Controller::render(), 1 passed in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 1 and at least 2 expected in /opt/lampp/htdocs/doancuoiky/core/Controller.php:15
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(1): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(19): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 15" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:21:29 [error] 26910#26910: *505 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Controller::render(), 1 passed in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 1 and at least 2 expected in /opt/lampp/htdocs/doancuoiky/core/Controller.php:15
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(1): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(19): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 15" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:21:30 [error] 26910#26910: *505 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Controller::render(), 1 passed in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 1 and at least 2 expected in /opt/lampp/htdocs/doancuoiky/core/Controller.php:15
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(1): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(19): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 15" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:21:30 [error] 26910#26910: *505 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Controller::render(), 1 passed in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 1 and at least 2 expected in /opt/lampp/htdocs/doancuoiky/core/Controller.php:15
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(1): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(19): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 15" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:21:41 [error] 26910#26910: *505 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Controller::render(), 1 passed in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 1 and at least 2 expected in /opt/lampp/htdocs/doancuoiky/core/Controller.php:15
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(1): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(19): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 15" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:21:47 [error] 26910#26910: *505 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Controller::render(), 1 passed in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 1 and at least 2 expected in /opt/lampp/htdocs/doancuoiky/core/Controller.php:15
+Stack trace:
+#0 /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php(1): Controller->render()
+#1 /opt/lampp/htdocs/doancuoiky/core/Controller.php(19): require_once('...')
+#2 /opt/lampp/htdocs/doancuoiky/app/Controllers/Home.php(17): Controller->render()
+#3 /opt/lampp/htdocs/doancuoiky/app/App.php(116): Home->index()
+#4 /opt/lampp/htdocs/doancuoiky/app/App.php(23): App->handleUrl()
+#5 /opt/lampp/htdocs/doancuoiky/index.php(4): App->__construct()
+#6 {main}
+  thrown in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 15" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:22:57 [error] 26910#26910: *505 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Warning:  Array to string conversion in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 17" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:23:17 [error] 26910#26910: *505 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2PHP message: PHP Warning:  Array to string conversion in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 17" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:24:04 [error] 26910#26910: *505 FastCGI sent in stderr: "PHP message: PHP Warning:  Array to string conversion in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 17" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:24:05 [error] 26910#26910: *505 FastCGI sent in stderr: "PHP message: PHP Warning:  Array to string conversion in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 17" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:24:06 [error] 26910#26910: *505 FastCGI sent in stderr: "PHP message: PHP Warning:  Array to string conversion in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 17" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:24:06 [error] 26910#26910: *505 FastCGI sent in stderr: "PHP message: PHP Warning:  Array to string conversion in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 17" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:24:24 [error] 26910#26910: *505 FastCGI sent in stderr: "PHP message: PHP Warning:  Array to string conversion in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 17" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:24:25 [error] 26910#26910: *505 FastCGI sent in stderr: "PHP message: PHP Warning:  Array to string conversion in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 17" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:30:57 [error] 26910#26910: *541 FastCGI sent in stderr: "PHP message: PHP Warning:  Array to string conversion in /opt/lampp/htdocs/doancuoiky/core/Controller.php on line 17" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:34:27 [error] 26912#26912: *553 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /lien-he HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 00:58:58 [error] 26910#26910: *606 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /lien-he HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 00:59:00 [error] 26910#26910: *606 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /lien-he HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/lien-he"
+2024/03/25 00:59:02 [error] 26910#26910: *606 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/lien-he"
+2024/03/25 00:59:04 [error] 26910#26910: *606 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 01:01:25 [error] 26910#26910: *622 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /san-pham/1 HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 01:01:28 [error] 26910#26910: *622 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 01:01:29 [error] 26910#26910: *622 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /lien-he HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 01:28:57 [error] 26910#26910: *678 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined variable $content in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 2" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /lien-he HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 01:30:36 [error] 26910#26910: *678 FastCGI sent in stderr: "PHP message: PHP Warning:  include_once(frontend/pages/main): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 3PHP message: PHP Warning:  include_once(): Failed opening 'frontend/pages/main' for inclusion (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 3" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /lien-he HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 01:30:39 [error] 26910#26910: *678 FastCGI sent in stderr: "PHP message: PHP Warning:  include_once(frontend/pages/main): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 3PHP message: PHP Warning:  include_once(): Failed opening 'frontend/pages/main' for inclusion (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 3" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/lien-he"
+2024/03/25 01:30:54 [error] 26910#26910: *678 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected token "," in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 3" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/lien-he"
+2024/03/25 01:30:55 [error] 26910#26910: *678 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected token "," in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 3" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/lien-he"
+2024/03/25 01:31:07 [error] 26910#26910: *678 FastCGI sent in stderr: "PHP message: PHP Warning:  include_once(frontend/pages/main): Failed to open stream: No such file or directory in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 3PHP message: PHP Warning:  include_once(): Failed opening 'frontend/pages/main' for inclusion (include_path='.:/usr/share/php') in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/layouts/app_layout.php on line 3" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/lien-he"
+2024/03/25 08:04:02 [error] 966#966: *1 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "pass" in /opt/lampp/htdocs/doancuoiky/core/Connection.php on line 7" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 08:04:32 [error] 966#966: *1 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
+2024/03/25 08:04:34 [error] 966#966: *2 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /lien-he HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 11:20:54 [error] 14620#14620: *64 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /lien-he HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 11:20:57 [error] 14620#14620: *64 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/lien-he"
+2024/03/25 11:20:59 [error] 14620#14620: *64 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /cua-hang HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/"
+2024/03/25 11:21:01 [error] 14620#14620: *64 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12PHP message: PHP Warning:  Undefined array key "thumbail" in /opt/lampp/htdocs/doancuoiky/app/Views/frontend/home/categories_slide.php on line 12" while reading upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET /blog HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local", referrer: "http://doancuoiky.local/cua-hang"
+2024/03/25 15:13:59 [error] 960#960: *3 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "pass" in /opt/lampp/htdocs/doancuoiky/core/Connection.php on line 7" while reading response header from upstream, client: 127.0.0.1, server: doancuoiky.local, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/run/php/php8.1-fpm.sock:", host: "doancuoiky.local"
