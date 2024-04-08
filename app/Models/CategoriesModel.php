@@ -23,4 +23,18 @@ class CategoriesModel extends Model {
             ->where('id', '=', $id)
             ->first();
     }
+    public function insert($data){
+        $this->db->table('categories')
+            ->insert($data);
+    }
+//    public function update($data, $id){
+//        $this->db->table('categories')
+//            ->where('id', '=', $id)
+//            ->update($data);
+//    }
+    public function deleteCategory($id){
+        $this->db->table('categories')
+            ->where('id', '=', $id)
+            ->delete();
+    }
 }

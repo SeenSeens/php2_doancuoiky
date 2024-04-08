@@ -8,5 +8,14 @@ class Shop extends Controller {
         $this->products = $this->model('ProductsModel');
     }
 
+    public function addToCart() {
+
+    }
+    public function shopingCart() {
+
+    }
+    public function checkout() {
+
+    }
 
 }

@@ -1010,3 +1010,4 @@
 127.0.0.1 - - [25/Mar/2024:11:20:59 +0700] "GET /cua-hang HTTP/1.1" 200 3949 "http://doancuoiky.local/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
 127.0.0.1 - - [25/Mar/2024:11:21:01 +0700] "GET /blog HTTP/1.1" 200 3949 "http://doancuoiky.local/cua-hang" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
 127.0.0.1 - - [25/Mar/2024:15:13:59 +0700] "GET / HTTP/1.1" 200 113 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+127.0.0.1 - - [31/Mar/2024:15:50:32 +0700] "GET / HTTP/1.1" 500 5 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"

@@ -18,7 +18,7 @@ class Home extends Controller {
         $this->data['sub_content']['products'] = $dataProduct;
         $this->data['sub_content']['posts'] = $dataPosts;
         $this->data['content'] = 'frontend/pages/home'; // truyền dữ liệu qua bên view
-        $this->render('frontend/layouts/app_layout', $this->data);
+        $this->render('frontend/app_layout', $this->data);
     }
 }
 
