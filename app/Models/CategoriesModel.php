@@ -7,14 +7,14 @@ class CategoriesModel extends Model {
         return $this->__table;
     }
 
-    #[\Override] function fieldFill(){
+    #[\Override] function fieldFill(): string {
         return '*';
     }
     #[\Override] function primaryKey(){
         // TODO: Implement primaryKey() method.
     }
     // Lấy ra danh sách chuyên mục sản phẩm
-    public function getListCategory() {
+    public function getListCategory(): false|array {
         return $this->db->table('categories')->get();
     }
     public function categoryName($id){
@@ -23,16 +23,15 @@ class CategoriesModel extends Model {
             ->where('id', '=', $id)
             ->first();
     }
-    public function insert($data){
-        $this->db->table('categories')
-            ->insert($data);
+    public function insertCategory($data): void {
+        $this->db->table('categories')->insert($data);
     }
-//    public function update($data, $id){
-//        $this->db->table('categories')
-//            ->where('id', '=', $id)
-//            ->update($data);
-//    }
-    public function deleteCategory($id){
+    public function updateCategory($data, $id): void {
+        $this->db->table('categories')
+            ->where('id', '=', $id)
+            ->update($data);
+    }
+    public function deleteCategory($id): void{
         $this->db->table('categories')
             ->where('id', '=', $id)
             ->delete();

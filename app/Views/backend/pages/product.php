@@ -33,8 +33,8 @@ $product_json = json_encode($this->data['sub_content']['product']);
 <!--end breadcrumb-->
 <h6 class="mb-0 text-uppercase">Sản phẩm</h6>
 <hr/>
-<div class="card" ng-app="App">
-    <div class="card-body" ng-controller="Controller" ng-init="fetchData()">
+<div class="card" ng-controller="productController">
+    <div class="card-body">
         <div class="table-responsive">
             <table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead>
@@ -66,43 +66,3 @@ $product_json = json_encode($this->data['sub_content']['product']);
         </div>
     </div>
 </div>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/angular.min.js' ?>"></script>
-<script>
-    const app = angular.module('App', []);
-    const products = <?php echo $product_json; ?>;
-    app.controller('Controller', ( $scope, $http ) => {
-        $scope.Columns = [ "STT", "Tên sản phẩm", "Hình ảnh", "Giá bán", "Giá giảm", "Chuyên mục"];
-        $scope.init = () => {
-            $scope.fetchData();
-        }
-        $scope.fetchData = () => {
-            $scope.products = products; // Dữ liệu sản phẩm từ backend
-        }
-        $scope.categories = {}; // Khởi tạo mảng chứa thông tin về chuyên mục
-        // Hàm để lấy tên chuyên mục từ id
-        // Lặp qua sản phẩm để xây dựng mảng thông tin chuyên mục
-        angular.forEach($scope.products, function(product) {
-            $scope.categories[product.category_id] = product.category_name;
-        });
-        $scope.deleteData = (productId) =>{
-            if(confirm("Bạn có muốn xóa sản phẩm này hay không?")) {
-                $http.post('<?= __WEB_ROOT__ . '/admin/san-pham/delete/'; ?>' + productId)
-                    .then(function(response) {
-                        if (response.data.success) {
-                            // Xóa sản phẩm khỏi danh sách
-                            $scope.products = $scope.products.filter(function(product) {
-                                return product.id !== productId;
-                            });
-                            alert("Sản phẩm đã được xóa thành công.");
-                        } else {
-                            alert("Đã xảy ra lỗi khi xóa sản phẩm.");
-                        }
-                    })
-                    .catch(function(error) {
-                        console.error('Lỗi xóa sản phẩm:', error);
-                        alert("Đã xảy ra lỗi khi xóa sản phẩm.");
-                    });
-            }
-        }
-    });
-</script>

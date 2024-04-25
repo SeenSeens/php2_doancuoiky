@@ -1,4 +1,6 @@
 const app = angular.module('App', []);
-app.controller('Controller', ( $scope ) => {
-    $scope.Columns = [ "STT", "Tên chuyên mục", "Hình ảnh" ]
+
+
+app.controller('productController', ( $scope ) => {
+    $scope.Columns = [ "STT", "Tên sản phẩm", "Hình ảnh", "Giá bán", "Giá giảm", "Chuyên mục"];
 });

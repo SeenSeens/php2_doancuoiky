@@ -7,61 +7,76 @@ class Category extends Controller {
     }
     public function index() {
         $dataCategory = $this->categories->all(); // Lấy tất cả chuyên mục
-        $this->data['sub_content']['page_title'] = "Trang chủ";
+        $this->data['sub_content']['page_title'] = "Chuyên mục sản phẩm";
         $this->data['sub_content']['category'] = $dataCategory;
-        $this->data['content'] = 'backend/pages/category'; // truyền dữ liệu qua bên view
+        $this->data['content'] = 'backend/pages/category'; // truyền dữ liệu qua bên view dưới dạng json
         $this->render('backend/dashboard', $this->data);
     }
-    public function indert(){
-        $error = '';
-        $message = '';
-        $validation_error = '';
-        $first_name = '';
-        $last_name = '';
-
+    public function insert(){
         try {
-            if ( !empty($form_data->first_name) && !empty($form_data->last_name)) :
-                $first_name = $form_data->first_name;
-                $last_name = $form_data->last_name;
+            if ( isset($_POST['saveCategory'])) :
+                $name = $_POST['name'];
+                $slug = $_POST['slug'];
+                $description = $_POST['description'];
+                $thumbnail = $_POST['thumbnail'];
+                $data = [
+                    'name' => $name,
+                    'slug' => $slug,
+                    'description' => $description,
+                    'thumbnail' => $thumbnail,
+                ];
+                $this->categories->insertCategory($data);
+                header('Location: ' . __WEB_ROOT__ . '/admin/chuyen-muc');
+                exit();
             endif;
-
-            if (empty($error)) :
-                if ($form_data->action === 'Insert') :
-                    $data = [
-                        ':first_name' => $first_name,
-                        ':last_name' => $last_name
-                    ];
-                    $query = "INSERT INTO sinhvien (first_name, last_name) VALUES (:first_name, :last_name)";
-                    $statement = $this->connection->prepare($query);
-                    if ($statement->execute($data)) :
-                        $message = 'Data Inserted';
-                    endif;
-                endif;
-
-            else :
-                $validation_error = implode(", ", $error);
-            endif;
-
-            $output = [
-                'error' => $validation_error,
-                'message' => $message
-            ];
-
-            return json_encode($output);
-        }catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
+        } catch ( \Exception $e ) {
+            
         }
 
     }
     public function update(){
-
+        try {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') :
+                $data = json_decode(file_get_contents('php://input'), true);
+                if (isset($data['id'])) :
+                    $categoryId = $data['id'];
+                    $this->categories->updateCategory($data, $categoryId);
+                    echo json_encode(['success' => true]);
+                    return;
+                else:
+                    echo json_encode(['error' => 'Category Id is missing']);
+                    return;
+                endif;
+            else:
+                echo json_encode(['error' => 'Invalid request method']);
+                return;
+            endif;
+        } catch ( \Exception $e ) {
+            echo json_encode(['error' => 'An error occurred while deleting category']);
+            return;
+        }
     }
     public function delete(){
-        $catId = $_POST['cat_id']; // Lấy ID của danh mục từ request
-        if ($this->categories->deleteCategory($catId)) {
-            echo json_encode(["success" => true, "message" => "Danh mục đã được xóa thành công."]);
-        } else {
-            echo json_encode(["success" => false, "message" => "Đã xảy ra lỗi khi xóa danh mục."]);
+        try {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') :
+                $data = json_decode(file_get_contents('php://input'), true);
+                var_dump($data);
+                if (isset($data['id'])) :
+                    $categoryId = $data['id'];
+                    $this->categories->deleteCategory($categoryId);
+                    echo json_encode(['success' => true]);
+                    return;
+                else:
+                    echo json_encode(['error' => 'Category Id is missing']);
+                    return;
+                endif;
+            else:
+                echo json_encode(['error' => 'Invalid request method']);
+                return;
+            endif;
+        } catch ( \Exception $e ) {
+            echo json_encode(['error' => 'An error occurred while deleting category']);
+            return;
         }
     }
 }
