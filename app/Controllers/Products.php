@@ -30,10 +30,9 @@ class Products extends Controller {
      */
     public function getProductDetailById($id){
         $productDetail = $this->products->find($id);
-
         $productCatId = $productDetail['category_id']; // Lấy id chuyên mục
+        var_dump($productCatId);
         $productId = $productDetail['id']; // Lấy ra id sản phẩm
-
         $this->data['sub_content']['title'] = $productDetail['title'];
         $this->data['sub_content']['product-content'] = $productDetail;
         $this->data['sub_content']['related-product'] = self::getRelatedProduct($productCatId, $productId);
@@ -61,5 +60,12 @@ class Products extends Controller {
     }
     public function getProductCategoryName($productCatId){
         return $this->categories->categoryName($productCatId);
+    }
+
+    // Hiển thị sản phẩm theo chuyên mục
+    function ProductCategory(){
+        $this->data['sub_content']['page_title'] = "Danh mục sản phẩm";
+        $this->data['content'] = 'frontend/pages/product_category';
+        $this->render('frontend/app_layout', $this->data);
     }
 }

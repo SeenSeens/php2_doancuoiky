@@ -23,7 +23,7 @@ $cat_title = $this->data['sub_content']['cat_title'];
 <!-- Breadcrumb Section End -->
 <!-- Product Details Section Begin -->
 <section class="product-details spad">
-    <div class="container">
+    <div class="container" ng-app="shoppingCart" ng-controller="shoppingCartController">
         <div class="row">
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__pic">
@@ -58,11 +58,11 @@ $cat_title = $this->data['sub_content']['cat_title'];
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
-                                <input type="text" value="1">
+                                <input type="text" value="1" ng-model="product.quantity">
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="primary-btn">ADD TO CARD</a>
+                    <a href="#" class="primary-btn" ng-click="addToCart(product)">ADD TO CARD</a>
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
                         <li><b>Availability</b> <span>In Stock</span></li>
@@ -103,3 +103,41 @@ $cat_title = $this->data['sub_content']['cat_title'];
 <!-- Related Product Section Begin -->
 <?php $this->render('frontend/component/products/related_product'); ?>
 <!-- Related Product Section End -->
+
+<script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/angular.min.js' ?>"></script>
+<script>
+    const app = angular.module('shoppingCart', []);
+
+    // AngularJS Service
+    app.factory('CartProduct', function(localStorageService) {
+        var cartProducts = [];
+
+        function init() {
+            if (localStorageService.get('cart-products')) {
+                cartProducts = localStorageService.get('cart-products');
+            }
+        }
+
+        init();
+
+        function getAll() {
+            return cartProducts;
+        }
+
+        function add(product) {
+            cartProducts.push(product);
+            localStorageService.set('cart-products', cartProducts);
+        }
+
+        return {
+            add: add,
+            getAll: getAll
+        };
+    });
+
+    app.controller('shoppingCartController', function($scope, CartProduct) {
+        $scope.addToCart = function(product) {
+            CartProduct.add(product);
+        }
+    });
+</script>

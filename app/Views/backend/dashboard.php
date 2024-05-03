@@ -17,6 +17,7 @@
     <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/pace.min.js' ?>"></script>
     <!-- Bootstrap CSS -->
     <link href="<?= __WEB_ROOT__ . '/public/admin/assets/css/bootstrap.min.css' ?>" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="<?= __WEB_ROOT__ . '/public/admin/assets/css/app.css' ?>" rel="stylesheet">
     <link href="<?= __WEB_ROOT__ . '/public/admin/assets/css/icons.css' ?>" rel="stylesheet">
     <!-- Theme Style CSS -->
@@ -68,7 +69,6 @@
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/sparkline-charts/jquery.sparkline.min.js' ?>"></script>
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/jquery-knob/excanvas.js' ?>"></script>
 <script src="<?= __WEB_ROOT__ , '/public/admin/assets/plugins/jquery-knob/jquery.knob.js' ?>"></script>
-
 <script>
     $(function() {
         $(".knob").knob();
@@ -77,5 +77,16 @@
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/index.js' ?>"></script>
 <!--app JS-->
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/app.js' ?>"></script>
+<!-- Place the first <script> tag in your HTML's <head> -->
+<script src="https://cdn.tiny.cloud/1/1qa5t0dn0b46dukvifb2b500e7ausw3qelzj0jie038xyejf/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
+<!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    });
+</script>
 </body>
 </html>

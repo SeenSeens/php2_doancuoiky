@@ -14,7 +14,7 @@ $categories = $this->data['sub_content']['category_menu'];
                     </div>
                     <ul>
                         <?php foreach ($categories as $category): ?>
-                        <li><a href="#"><?= $category['name']; ?></a></li>
+                        <li><a href="<?= __WEB_ROOT__ . '/danh-muc-san-pham/' . $category['id'] ?>"><?= $category['name']; ?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>

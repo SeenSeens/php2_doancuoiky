@@ -1,10 +1,3 @@
-<?php
-$product_json = json_encode($this->data['sub_content']['product']);
-//$a = $this->data['sub_content']['product'];
-//echo '<pre>';
-//var_dump($a[0]['category_id']);
-//echo '<pre>';
-?>
 <!--breadcrumb-->
 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
     <div class="breadcrumb-title pe-3">Tables</div>
@@ -33,7 +26,7 @@ $product_json = json_encode($this->data['sub_content']['product']);
 <!--end breadcrumb-->
 <h6 class="mb-0 text-uppercase">Sản phẩm</h6>
 <hr/>
-<div class="card" ng-controller="productController">
+<div class="card" ng-app="App" ng-controller="productController" ng-init="fetchData()">
     <div class="card-body">
         <div class="table-responsive">
             <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -44,16 +37,15 @@ $product_json = json_encode($this->data['sub_content']['product']);
                 </thead>
                 <tbody>
                 <tr ng-repeat="product in products">
-                    <td>{{ $index + 1 }}</td>
+                    <td><img ng-src="<?= __WEB_ROOT__ . '/public/images/'?>{{ product.thumbnail }}" alt="" class="img-fluid"></td>
                     <td>{{ product.title }}</td>
-                    <td class="col-1 text-center">
-                        <img ng-src="<?= __WEB_ROOT__ . '/public/images/'?>{{ product.thumbnail }}" alt="" class="img-fluid">
-                    </td>
                     <td>{{ product.price }}</td>
                     <td>{{ product.discount }}</td>
                     <td>{{ categories[product.category_id] }}</td>
-                    <td>
-                        <button type="button" ng-click="deleteData(1)" class="btn btn-danger btn-sm">Delete</button>
+                    <td class="text-center">
+                        <a href="<?= __WEB_ROOT__ . '/admin/san-pham/{{ product.id }}' ?>" class="btn-sm btn-primary">View</a>
+                        <a href="<?= __WEB_ROOT__ . '/admin/san-pham/sua-san-pham/{{ product.id }}' ?>" class="btn-sm btn-warning">Edit</a>
+                        <a href="<?= __WEB_ROOT__ . '/admin/san-pham/xoa-san-pham/{{ product.id }}' ?>" class="btn-sm btn-danger">Delete</a>
                     </td>
                 </tr>
                 </tbody>
@@ -66,3 +58,16 @@ $product_json = json_encode($this->data['sub_content']['product']);
         </div>
     </div>
 </div>
+<script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/angular.min.js' ?>"></script>
+<script>
+    const app = angular.module('App', []);
+    app.controller('productController', ( $scope ) => {
+        $scope.Columns = [ "Ảnh", "Tên", "Giá bán", "Giá giảm", "Danh mục"];
+        $scope.init = () => {
+            $scope.fetchData();
+        }
+        $scope.fetchData = () => {
+            $scope.products = <?= json_encode($this->data['sub_content']['product']); ?>
+        }
+    });
+</script>

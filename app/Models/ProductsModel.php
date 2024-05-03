@@ -46,7 +46,24 @@ class ProductsModel extends Model {
             ->limit(4)
             ->get();
     }
-    public function deletedProduct($id) {
+
+    /**
+     * @param $data
+     * @return bool
+     */
+    public function addProduct($data) {
+        return $this->db->table('products')->insert($data);
+    }
+    function editProduct($data, $id) {
+        return $this->db->table('products')
+            ->where('id', '=', $id)
+            ->update($data);
+    }
+    /**
+     * @param $id
+     * @return bool
+     */
+    public function deleteProduct($id) {
         return $this->db->table('products')
             ->where('id', '=', $id)
             ->delete();
