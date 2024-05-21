@@ -23,7 +23,7 @@ $cat_title = $this->data['sub_content']['cat_title'];
 <!-- Breadcrumb Section End -->
 <!-- Product Details Section Begin -->
 <section class="product-details spad">
-    <div class="container" ng-app="shoppingCart" ng-controller="shoppingCartController">
+    <div class="container" ng-app="shoppingCart" ng-controller="CartController">
         <div class="row">
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__pic">
@@ -62,7 +62,7 @@ $cat_title = $this->data['sub_content']['cat_title'];
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="primary-btn" ng-click="addToCart(product)">ADD TO CARD</a>
+                    <button type="button" class="btn primary-btn" ng-click="addToCart(product.id, product.name, product.price)">ADD TO CARD</button>
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
                         <li><b>Availability</b> <span>In Stock</span></li>
@@ -108,36 +108,24 @@ $cat_title = $this->data['sub_content']['cat_title'];
 <script>
     const app = angular.module('shoppingCart', []);
 
-    // AngularJS Service
-    app.factory('CartProduct', function(localStorageService) {
-        var cartProducts = [];
-
-        function init() {
-            if (localStorageService.get('cart-products')) {
-                cartProducts = localStorageService.get('cart-products');
-            }
+    app.controller('CartController', function($scope, $http) {
+        // Tải giỏ hàng từ Local Storage khi trang được tải
+        var cart = localStorage.getItem('cart');
+        $scope.cart = cart ? JSON.parse(cart) : [];
+        $scope.addToCart = (product) => {
+            $http.post( '<?= __WEB_ROOT__ . '/add-to-cart' ?>', {
+                id: ProductId,
+                name: productName,
+                price: productPrice
+            }).then( res => {
+                // Xử lý phản hồi từ server
+                // Ví dụ cập nhật giỏ hàng trên giao diện người dùng
+                $scope.cart = res.data;
+                localStorage.setItem('cart', JSON.stringify(res.data));
+            }).catch( err => {
+                console.error('Error adding to cart: ', err);
+            })
         }
 
-        init();
-
-        function getAll() {
-            return cartProducts;
-        }
-
-        function add(product) {
-            cartProducts.push(product);
-            localStorageService.set('cart-products', cartProducts);
-        }
-
-        return {
-            add: add,
-            getAll: getAll
-        };
-    });
-
-    app.controller('shoppingCartController', function($scope, CartProduct) {
-        $scope.addToCart = function(product) {
-            CartProduct.add(product);
-        }
     });
 </script>

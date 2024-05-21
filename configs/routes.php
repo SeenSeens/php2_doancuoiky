@@ -5,6 +5,8 @@ $routes['lien-he'] = 'contact';
 $routes['san-pham'] = 'products';
 $routes['san-pham/(.+)'] = 'products/getProductDetailById/$1';
 $routes['danh-muc-san-pham/(.+)'] = 'productscategories';
+
+$routes['add-to-cart'] = 'shop/addToCart';
 /**
  * Route admin
  */

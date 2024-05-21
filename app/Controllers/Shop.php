@@ -9,14 +9,13 @@ class Shop extends Controller {
     }
 
     public function addToCart() {
-        session_start();
 
         // Lấy dữ liệu từ yêu cầu POST
         $data = json_decode(file_get_contents('php://input'), true);
 
         // Kiểm tra xem giỏ hàng đã được khởi tạo trong phiên hay chưa
         if (!isset($_SESSION['cart'])) {
-            $_SESSION['cart'] = array();
+            $_SESSION['cart'] = [];
         }
 
         // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng hay chưa
@@ -27,12 +26,12 @@ class Shop extends Controller {
             $_SESSION['cart'][$existingItem]['quantity']++;
         } else {
             // Nếu sản phẩm chưa tồn tại, thêm vào giỏ hàng
-            $item = array(
+            $item = [
                 'id' => $data['id'],
                 'name' => $data['name'],
                 'price' => $data['price'],
                 'quantity' => 1
-            );
+            ];
             array_push($_SESSION['cart'], $item);
         }
 
