@@ -17,51 +17,26 @@ class Productcategory extends Controller {
         }
     }
     public function insert(){
-        // V1
         /*try {
-            if ( isset($_POST['saveCategory'])) :
-                $name = $_POST['name'];
-                $slug = $_POST['slug'];
-                $description = $_POST['description'];
-                $thumbnail = $_POST['thumbnail'];
-                $data = [
-                    'name' => $name,
-                    'slug' => $slug,
-                    'description' => $description,
-                    'thumbnail' => $thumbnail,
-                ];
-                $this->categories->insertCategory($data);
-                header('Location: ' . __WEB_ROOT__ . '/admin/chuyen-muc-san-pham');
-                exit();
-            endif;
-        } catch ( \Exception $e ) {
-        }*/
-
-        try {
             $form_data = json_decode(file_get_contents('php://input'),true);
             $message = '';
             $validation_error = '';
-            if ( !empty($form_data['name']) && !empty($form_data['slug'])) :
+            // Kiểm tra xem các trường bắt buộc có được cung cấp không
+            if ( !empty($form_data['name']) ) :
                 $name = $form_data['name'];
-                $slug = $form_data['slug'];
-                $description = isset($form_data['description']) ? $form_data['description'] : '';
-                $thumbnail = isset($form_data['thumbnail']) ? $form_data['thumbnail'] : '';
-//                $parent_id = isset($form_data['parent_id']) ? $form_data['parent_id'] : '';
-
+                $description = $form_data['description'];
+                // Sử dụng lớp ImageUpload
+                $imageUpload = new ImageUpload();
+                $thumbnail = $imageUpload->upload();
                 $data = [
                     'name' => $name,
-                    'slug' => $slug,
                     'description' => $description,
-                    'thumbnail' => $thumbnail,
-//                    'parent_id' => $parent_id
+                    'thumbnail' => basename($thumbnail),
                 ];
                 $this->categories->insertCategory($data);
-               /* if ($statement->execute($data)) :
-                    $message = 'Dữ liệu đã được chèn';
-                endif;*/
-
+                $message = 'Chuyên mục đã được thêm thành công!';
             else :
-                $validation_error = 'Tên và slug là các trường bắt buộc';
+                $validation_error = 'Tên và mô tả là các trường bắt buộc';
             endif;
 
             $output = [
@@ -71,25 +46,67 @@ class Productcategory extends Controller {
 
             return json_encode($output);
         }catch (PDOException $e) {
-            echo json_encode(['error' => 'Đã xảy ra lỗi khi chèn danh mục']);
-        }
+            echo json_encode(['error' => 'Đã xảy ra lỗi khi chèn danh mục: ' . $e->getMessage()]);
+        }*/
 
+        try {
+            // Decode form data
+            $form_data = json_decode(file_get_contents('php://input'), true);
+
+            // Kiểm tra xem các trường bắt buộc có được cung cấp không
+            if (!isset($form_data['name']) || empty($form_data['name']) || !isset($form_data['description']) || empty($form_data['description'])) {
+                throw new Exception('Tên và mô tả là các trường bắt buộc.');
+            }
+
+            $name = $form_data['name'];
+            $description = $form_data['description'];
+
+            // Sử dụng lớp ImageUpload để xử lý ảnh
+            $imageUpload = new ImageUpload();
+            $thumbnail = $imageUpload->upload();
+
+            // Chuẩn bị dữ liệu để thêm vào cơ sở dữ liệu
+            $data = [
+                'name' => $name,
+                'description' => $description,
+                'thumbnail' => basename($thumbnail),
+            ];
+
+            // Thêm dữ liệu vào cơ sở dữ liệu
+            $this->categories->insertCategory($data);
+
+            // Trả về phản hồi thành công
+            echo json_encode(['message' => 'Chuyên mục đã được thêm thành công!']);
+        } catch (PDOException $e) {
+            // Trả về phản hồi lỗi nếu có ngoại lệ
+            error_log("PDOException: " . $e->getMessage());
+            echo json_encode(['error' => 'Đã xảy ra lỗi khi chèn danh mục: ' . $e->getMessage()]);
+        } catch (Exception $e) {
+            // Trả về phản hồi lỗi nếu có ngoại lệ khác hoặc các trường bắt buộc không được cung cấp
+            error_log("Exception: " . $e->getMessage());
+            echo json_encode(['error' => $e->getMessage()]);
+        }
     }
     public function update() {
         try {
             $form_data = json_decode(file_get_contents('php://input'), true);
             if (isset($form_data['id'])) :
                 $id = $form_data['id'];
+                // Lấy thông tin chuyên mục hiện tại
+                $cat = $this->categories->find($id);
                 $name = $form_data['name'];
-                $slug = $form_data['slug'];
                 $description = $form_data['description'];
-                $thumbnail = $form_data['thumbnail'];
-                // Perform validation if required
+                // Sử dụng lớp ImageUpload để xử lý ảnh mới
+                $imageUpload = new ImageUpload();
+                $thumbnail = $imageUpload->upload();
+                // Nếu không có ảnh mới, giữ lại ảnh cũ
+                if (empty($thumbnail)) {
+                    $thumbnail = $cat['thumbnail'];
+                }
 
                 // Assuming $this->categories is your model
                 $data = [
                     'name' => $name,
-                    'slug' => $slug,
                     'description' => $description,
                     'thumbnail' => $thumbnail,
                 ];
@@ -116,7 +133,19 @@ class Productcategory extends Controller {
                 $data = json_decode(file_get_contents('php://input'), true);
                 if (isset($data['id'])) :
                     $categoryId = $data['id'];
+//                    $cat = $this->categories->find($categoryId);
+                    // Lấy đường dẫn ảnh của chuyên mục
+//                    $thumbnail = $cat['thumbnail'];
                     $this->categories->deleteCategory($categoryId);
+                    // Xóa tệp ảnh khỏi thư mục lưu trữ nếu nó tồn tại
+                    /*$imageUpload = new ImageUpload();
+                    if ($imageUpload->delete($thumbnail)) {
+                        // Xóa thành công
+                        echo "Xóa ảnh thành công.";
+                    } else {
+                        // Xóa không thành công hoặc tệp không tồn tại
+                        echo "Không thể xóa ảnh.";
+                    }*/
                     echo json_encode(['success' => true]);
                     return;
                 else:

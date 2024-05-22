@@ -7,7 +7,7 @@
                 <?php foreach ($latest_products as $latest_product) : ?>
                     <a href="<?= __WEB_ROOT__ . '/san-pham/' . $latest_product['id']; ?>" class="latest-product__item">
                         <div class="latest-product__item__pic">
-                            <img src="<?= __WEB_ROOT__ . '/public/images/' . $latest_product['thumbnail'] ?>" alt="">
+                            <img src="<?= __WEB_ROOT__ . '/public/uploads/' . $latest_product['thumbnail'] ?>" alt="">
                         </div>
                         <div class="latest-product__item__text">
                             <h6><?= $latest_product['title']; ?></h6>

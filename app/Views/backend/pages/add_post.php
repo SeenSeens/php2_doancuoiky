@@ -1,18 +1,12 @@
 <h6 class="mb-0 ps-3 text-uppercase">Thêm bài viết</h6>
 <hr/>
 <div class="container-fluid">
-    <form class="row" action="" method="POST" enctype="multipart/form-data">
+    <form class="row" action="<?= __WEB_ROOT__ . '/admin/post/add' ?>" method="POST" enctype="multipart/form-data">
         <div class="col-8">
             <div class="card">
                 <div class="card-header">Tên bài viết</div>
                 <div class="card-body">
-                    <input type="text" class="form-control" placeholder="Thêm tiêu đề" name="title">
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">Đường dẫn</div>
-                <div class="card-body">
-                    <input type="text" class="form-control" placeholder="Đường dẫn" name="slug">
+                    <input type="text" class="form-control" placeholder="Thêm tiêu đề" name="title" required>
                 </div>
             </div>
             <div class="card">
@@ -32,50 +26,14 @@
             <div class="card">
                 <div class="card-header fw-bold">Đăng</div>
                 <div class="card-body">
-                    <button type="submit" class="btn btn-primary" name="uploadProduct">Đăng</button>
+                    <button type="submit" class="btn btn-primary" name="addPost">Đăng</button>
                 </div>
             </div>
-            <div class="card accordion accordion-flush">
-                <div class="card-body accordion-item p-0">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-cat" aria-expanded="false" aria-controls="flush-cat">
-                            Chuyên mục
-                        </button>
-                    </h2>
-                    <div id="flush-cat" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-
-                        </div>
-                    </div>
-                </div>
+            <div class="card">
+                <div class="card-header">Chuyên mục</div>
             </div>
-            <div class="card accordion accordion-flush">
-                <div class="card-body accordion-item p-0">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-tag" aria-expanded="false" aria-controls="flush-tag">
-                            Thẻ
-                        </button>
-                    </h2>
-                    <div id="flush-tag" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <textarea name="" id="" cols="5" rows="5" class="form-control"></textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card accordion accordion-flush">
-                <div class="card-body accordion-item p-0">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-thumbnail" aria-expanded="false" aria-controls="flush-thumbnail">
-                            Ảnh đại diện
-                        </button>
-                    </h2>
-                    <div id="flush-thumbnail" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <input id="image-uploadify" name="thumbnail" type="file" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
-                        </div>
-                    </div>
-                </div>
+            <div class="card">
+                <div class="card-header">Ảnh đại diện</div>
             </div>
         </div>
     </form>

@@ -9,7 +9,7 @@ $categories = $this->data['sub_content']['category_menu'];
             <div class="categories__slider owl-carousel">
                 <?php foreach ($categories as $category): ?>
                 <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="<?= __WEB_ROOT__ . '/public/images/' . $category['thumbnail']; ?>">
+                    <div class="categories__item set-bg" data-setbg="<?= __WEB_ROOT__ . '/public/uploads/' . $category['thumbnail']; ?>">
                         <h5><a href="#"><?= $category['name']; ?></a></h5>
                     </div>
                 </div>

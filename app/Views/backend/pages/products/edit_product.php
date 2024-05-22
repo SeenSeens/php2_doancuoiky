@@ -1,5 +1,8 @@
-<?php $product = $this->data['sub_content']['product']; ?>
 <link href="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/Drag-And-Drop/dist/imageuploadify.min.css' ?>" rel="stylesheet" />
+<?php
+$product = $this->data['sub_content']['product'];
+$categories = $this->data['sub_content']['category'];
+?>
 <!--breadcrumb-->
 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
     <div class="ps-3">
@@ -24,7 +27,7 @@
     </div>
 </div>
 <!--end breadcrumb-->
-<h6 class="mb-0 ps-3 text-uppercase">Sửa sản phẩm</h6>
+<h6 class="mb-0 ps-3 text-uppercase"><?= $page_title; ?></h6>
 <hr/>
 <div class="container-fluid">
     <form class="row" action="<?= __WEB_ROOT__ . '/admin/product/edit/' . $product['id'] ?>" method="POST" enctype="multipart/form-data">
@@ -33,12 +36,6 @@
                 <div class="card-header">Tên sản</div>
                 <div class="card-body">
                     <input type="text" class="form-control" placeholder="Tên sản phẩm" name="title" value="<?= $product['title']; ?>">
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">Đường dẫn</div>
-                <div class="card-body">
-                    <input type="text" class="form-control" placeholder="Đường dẫn" name="slug" value="<?= $product['slug'] ?>">
                 </div>
             </div>
             <div class="card">
@@ -68,11 +65,11 @@
                                 <div class="row row-cols-2 gy-3">
                                     <div class="col">Giá bán thường</div>
                                     <div class="col">
-                                        <input type="text" class="form-control" placeholder="Giá bán thường" name="price" value="<?= $product['price'] ?>">
+                                        <input type="number" class="form-control" placeholder="Giá bán thường" name="price" value="<?= $product['price'] ?>">
                                     </div>
                                     <div class="col">Giá khuyến mãi</div>
                                     <div class="col">
-                                        <input type="text" class="form-control" placeholder="Giá khuyến mãi" name="discount" value="<?= $product['discount'] ?>">
+                                        <input type="number" class="form-control" placeholder="Giá khuyến mãi" name="discount" value="<?= $product['discount'] ?>">
                                     </div>
                                 </div>
                             </div>
@@ -91,61 +88,26 @@
                     <button type="submit" class="btn btn-primary" name="editProduct">Cập nhật</button>
                 </div>
             </div>
-            <div class="card accordion accordion-flush">
-                <div class="card-body accordion-item p-0">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-thumbnail" aria-expanded="false" aria-controls="flush-thumbnail">
-                            Ảnh sản phẩm
-                        </button>
-                    </h2>
-                    <div id="flush-thumbnail" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <input id="image-uploadify" name="thumbnail" type="file" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
-                        </div>
-                    </div>
+            <div class="card">
+                <div class="card-header">Danh mục sản phẩm</div>
+                <div class="card-body">
+                    <select class="form-select" name="category">
+                        <?php foreach ($categories as $category) : ?>
+                            <option value="<?= $category['id'] ?>" <?= $product['category_id'] == $category['id'] ? 'selected' : '' ?>><?= $category['name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
             </div>
-            <div class="card accordion accordion-flush">
-                <div class="card-body accordion-item p-0">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-album" aria-expanded="false" aria-controls="flush-album   ">
-                            Album hinh ảnh sản phẩm
-                        </button>
-                    </h2>
-                    <div id="flush-album" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <input id="image-uploadify" type="file" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
-                        </div>
-                    </div>
+            <div class="card">
+                <div class="card-header">Ảnh sản phẩm</div>
+                <div class="card-body">
+                    <img src="<?= __WEB_ROOT__ . '/public/uploads/' . $product['thumbnail']; ?>" class="img-thumbnail">
+                    <input type="file" class="form-control mt-2" name="thumbnail" value="<?= $product['thumbnail'] ?>">
                 </div>
             </div>
-            <div class="card accordion accordion-flush">
-                <div class="card-body accordion-item p-0">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-cat" aria-expanded="false" aria-controls="flush-cat">
-                            Danh mục sản phẩm
-                        </button>
-                    </h2>
-                    <div id="flush-cat" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card accordion accordion-flush">
-                <div class="card-body accordion-item p-0">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-tag" aria-expanded="false" aria-controls="flush-tag">
-                            Từ khóa sản phẩm
-                        </button>
-                    </h2>
-                    <div id="flush-tag" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <textarea name="" id="" cols="5" rows="5" class="form-control"></textarea>
-                        </div>
-                    </div>
-                </div>
+            <div class="card">
+                <div class="card-header">Album hinh ảnh sản phẩm</div>
+                <div class="card-body"></div>
             </div>
         </div>
     </form>

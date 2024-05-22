@@ -39,4 +39,5 @@ if( !empty( $config['database']) ) {
 }
 require_once 'core/Model.php'; // Load Base Model
 require_once 'core/Controller.php'; // Load base controller
+require_once 'ultils/ImageUpload.php'; // Load ultils images
 ?>

@@ -26,7 +26,7 @@ $products = $this->data['sub_content']['products'];
             <?php foreach ($products as $product): ?>
             <div class="col-lg-3 col-md-4 col-sm-6 mix">
                 <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="<?= __WEB_ROOT__ . '/public/images/' . $product['thumbnail'] ?>">
+                    <div class="featured__item__pic set-bg" data-setbg="<?= __WEB_ROOT__ . '/public/uploads/' . $product['thumbnail'] ?>">
                         <ul class="featured__item__pic__hover">
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -35,7 +35,7 @@ $products = $this->data['sub_content']['products'];
                     </div>
                     <div class="featured__item__text">
                         <h6><a href="<?= __WEB_ROOT__ . '/san-pham/'. $product['id'] ?>"><?= $product['title'] ?></a></h6>
-                        <h5>$30.00</h5>
+                        <h5><?= $product['price'] ?></h5>
                     </div>
                 </div>
             </div>

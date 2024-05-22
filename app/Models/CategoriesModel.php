@@ -15,8 +15,11 @@ class CategoriesModel extends Model {
     }
     // Lấy ra danh sách chuyên mục sản phẩm
     public function getListCategory(): false|array {
-        return $this->db->table('categories')->get();
+        return $this->db->table('categories')
+            ->select('id, name')
+            ->get();
     }
+    // Lấy ra tên chuyên mục dựa vào id
     public function categoryName($id){
         return $this->db->table('categories')
             ->select('name')

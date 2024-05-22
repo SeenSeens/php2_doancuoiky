@@ -39,10 +39,10 @@ class ProductsModel extends Model {
      * @return array|false
      */
     public function relatedProduct($catId, $proId) {
-        return $this->db->table('products')
-            ->join('categories', 'products.category_id = categories.id')
-            ->where('products.id', '!=', $proId)
-            ->where('categories.id', '=', $catId )
+        return $this->db->table('products as p')
+            ->join('categories as c', 'p.category_id = c.id')
+            ->where('p.id', '!=', $proId)
+            ->where('c.id', '=', $catId )
             ->limit(4)
             ->get();
     }

@@ -36,18 +36,12 @@ $categories = $this->data['sub_content']['category_menu'];
                             <i class="fa fa-phone"></i>
                         </div>
                         <div class="hero__search__phone__text">
-                            <h5>+65 11.188.888</h5>
+                            <h5>0385 573 558</h5>
                             <span>support 24/7 time</span>
                         </div>
                     </div>
                 </div>
-                <div class="hero__item set-bg" data-setbg="<?= __WEB_ROOT__ ?>/public/img/hero/banner.jpg">
-                    <div class="hero__text">
-                        <span>FRUIT FRESH</span>
-                        <h2>Vegetable <br />100% Organic</h2>
-                        <p>Free Pickup and Delivery Available</p>
-                        <a href="#" class="primary-btn">SHOP NOW</a>
-                    </div>
+                <div class="hero__item set-bg" data-setbg="<?= __WEB_ROOT__ ?>/public/uploads/638513562914241889_F-C1_1200x300.jpg">
                 </div>
             </div>
         </div>

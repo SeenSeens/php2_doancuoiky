@@ -29,4 +29,10 @@ $routes['admin/san-pham/(.+)'] = 'admin/product/viewProductById/$1';
 $routes['admin/san-pham/them-moi'] = 'admin/product/add';
 $routes['admin/san-pham/xoa-san-pham/(.+)'] = 'admin/product/delete/$1';
 $routes['admin/san-pham/sua-san-pham/(.+)'] = 'admin/product/edit/$1';
+
+
+$routes['admin/don-hang'] = 'admin/product/orders';
+
+
+$routes['admin/upload'] = 'admin/upload/uploadimage';
 ?>

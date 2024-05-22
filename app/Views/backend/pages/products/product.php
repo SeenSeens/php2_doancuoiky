@@ -37,11 +37,11 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="product in products">
-                    <td><img ng-src="<?= __WEB_ROOT__ . '/public/images/'?>{{ product.thumbnail }}" alt="" class="img-fluid"></td>
+                    <td><img ng-src="<?= __WEB_ROOT__ . '/public/uploads/'?>{{ product.thumbnail }}" alt="" class="img-fluid"></td>
                     <td>{{ product.title }}</td>
                     <td>{{ product.price }}</td>
                     <td>{{ product.discount }}</td>
-                    <td>{{ categories[product.category_id] }}</td>
+                    <td>{{ product.category_name }}</td>
                     <td class="text-center">
                         <a href="<?= __WEB_ROOT__ . '/admin/san-pham/{{ product.id }}' ?>" class="btn-sm btn-primary">View</a>
                         <a href="<?= __WEB_ROOT__ . '/admin/san-pham/sua-san-pham/{{ product.id }}' ?>" class="btn-sm btn-warning">Edit</a>
@@ -58,7 +58,7 @@
         </div>
     </div>
 </div>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/angular.min.js' ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/js/angular.min.js' ?>"></script>
 <script>
     const app = angular.module('App', []);
     app.controller('productController', ( $scope ) => {
@@ -68,6 +68,7 @@
         }
         $scope.fetchData = () => {
             $scope.products = <?= json_encode($this->data['sub_content']['product']); ?>
+
         }
     });
 </script>

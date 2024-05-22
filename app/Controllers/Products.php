@@ -31,7 +31,6 @@ class Products extends Controller {
     public function getProductDetailById($id){
         $productDetail = $this->products->find($id);
         $productCatId = $productDetail['category_id']; // Lấy id chuyên mục
-        var_dump($productCatId);
         $productId = $productDetail['id']; // Lấy ra id sản phẩm
         $this->data['sub_content']['title'] = $productDetail['title'];
         $this->data['sub_content']['product-content'] = $productDetail;
@@ -58,6 +57,10 @@ class Products extends Controller {
     public function getRelatedProduct($productCatId, $productId){
         return $this->products->relatedProduct($productCatId, $productId);
     }
+
+    /**
+     * Giải thích hàm này dùng lấy ra tên chuyên mục của sản phẩm
+     */
     public function getProductCategoryName($productCatId){
         return $this->categories->categoryName($productCatId);
     }

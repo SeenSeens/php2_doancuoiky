@@ -90,7 +90,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                                <li><i class="fa fa-envelope"></i> truongtuan829@gmail.com</li>
                                 <li>Free Shipping for all Order of $99</li>
                             </ul>
                         </div>
@@ -148,10 +148,10 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i> <span>0</span></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>0</span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                        <div class="header__cart__price">item: <span>0</span></div>
                     </div>
                 </div>
             </div>

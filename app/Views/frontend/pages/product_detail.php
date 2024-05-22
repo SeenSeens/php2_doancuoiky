@@ -1,5 +1,6 @@
 <?php
 $product = $this->data['sub_content']['product-content'];
+
 $title = $this->data['sub_content']['title'];
 $cat_title = $this->data['sub_content']['cat_title'];
 ?>
@@ -28,46 +29,27 @@ $cat_title = $this->data['sub_content']['cat_title'];
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
-                        <img class="product__details__pic__item--large" src="<?= __WEB_ROOT__ . '/public/images/' . $product['thumbnail']; ?>" alt="<?= $product['title'] ?>">
+                        <img class="product__details__pic__item--large" src="<?= __WEB_ROOT__ . '/public/uploads/' . $product['thumbnail']; ?>" alt="<?= $product['title'] ?>">
                     </div>
-                    <!--<div class="product__details__pic__slider owl-carousel">
-                        <img data-imgbigurl="img/product/details/product-details-2.jpg"
-                             src="img/product/details/thumb-1.jpg" alt="">
-                        <img data-imgbigurl="img/product/details/product-details-3.jpg"
-                             src="img/product/details/thumb-2.jpg" alt="">
-                        <img data-imgbigurl="img/product/details/product-details-5.jpg"
-                             src="img/product/details/thumb-3.jpg" alt="">
-                        <img data-imgbigurl="img/product/details/product-details-4.jpg"
-                             src="img/product/details/thumb-4.jpg" alt="">
-                    </div>-->
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
                     <h3><?= $product['title'] ?></h3>
-                    <div class="product__details__rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                        <span>(18 reviews)</span>
-                    </div>
-                    <div class="product__details__price"><?= $product['price'] ?></div>
+                    <div class="product__details__price">Giá bán <?= $product['price'] ?></div>
                     <p><?= $product['excerpt'] ?></p>
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
-                                <input type="text" value="1" ng-model="product.quantity">
+                                <input type="number" value="1" ng-model="product.quantity">
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn primary-btn" ng-click="addToCart(product.id, product.name, product.price)">ADD TO CARD</button>
+
+                    <button type="button" class="btn primary-btn" ng-click="addToCart()">ADD TO CARD</button>
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
-                        <li><b>Availability</b> <span>In Stock</span></li>
-                        <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
-                        <li><b>Weight</b> <span>0.5 kg</span></li>
+                        <li><b>Chuyên mục</b> <span><?= $cat_title['name']; ?></span></li>
                         <li><b>Share on</b>
                             <div class="share">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -104,19 +86,19 @@ $cat_title = $this->data['sub_content']['cat_title'];
 <?php $this->render('frontend/component/products/related_product'); ?>
 <!-- Related Product Section End -->
 
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/angular.min.js' ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/js/angular.min.js' ?>"></script>
 <script>
     const app = angular.module('shoppingCart', []);
 
     app.controller('CartController', function($scope, $http) {
         // Tải giỏ hàng từ Local Storage khi trang được tải
-        var cart = localStorage.getItem('cart');
-        $scope.cart = cart ? JSON.parse(cart) : [];
+        $scope.cart = JSON.parse(localStorage.getItem('cart')) || [];
         $scope.addToCart = (product) => {
             $http.post( '<?= __WEB_ROOT__ . '/add-to-cart' ?>', {
-                id: ProductId,
-                name: productName,
-                price: productPrice
+                id: '<?= $product['id'] ?>',
+                title: '<?= $product['title'] ?>',
+                price: '<?= $product['price'] ?>',
+                cart: JSON.stringify($scope.cart)
             }).then( res => {
                 // Xử lý phản hồi từ server
                 // Ví dụ cập nhật giỏ hàng trên giao diện người dùng
@@ -126,6 +108,5 @@ $cat_title = $this->data['sub_content']['cat_title'];
                 console.error('Error adding to cart: ', err);
             })
         }
-
     });
 </script>

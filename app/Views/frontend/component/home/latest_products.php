@@ -9,7 +9,7 @@ $latestProducts = $this->data['sub_content']['latest_products'];
                 <?php foreach ($latestProducts as $latestProduct) : ?>
                 <a href="#" class="latest-product__item">
                     <div class="latest-product__item__pic">
-                        <img src="<?= __WEB_ROOT__ . '/public/images/' . $latestProduct['thumbnail'] ?>" alt="">
+                        <img src="<?= __WEB_ROOT__ . '/public/uploads/' . $latestProduct['thumbnail'] ?>" alt="">
                     </div>
                     <div class="latest-product__item__text">
                         <h6><?= $latestProduct['title'] ?></h6>

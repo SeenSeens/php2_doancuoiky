@@ -34,18 +34,7 @@
                     <form method="POST" class="row row-cols-1 g-3" ng-submit="submitForm()" enctype="multipart/form-data">
                         <div class="col">
                             <label>Tên chuyên mục</label>
-                            <input type="text" class="form-control" placeholder="Tên chuyên mục" name="name" ng-model="name">
-                        </div>
-                        <div class="col">
-                            <label>Đường dẫn</label>
-                            <input type="text" class="form-control" placeholder="Đường dẫn" name="slug" ng-model="slug">
-                        </div>
-                        <div class="col">
-                            <label>Danh mục cha</label>
-                            <select class="form-select" name="parent_id" ng-model="parent_id">
-                                <option value="">Trống</option>
-                                <option value=""></option>
-                            </select>
+                            <input type="text" class="form-control" placeholder="Tên chuyên mục" name="name" ng-model="name" required>
                         </div>
                         <div class="col">
                             <label>Mô tả</label>
@@ -53,13 +42,13 @@
                         </div>
                         <div class="col">
                             <label for="image" class="form-label">Ảnh đại diện chuyên mục</label>
-                            <input type="file" accept="image/png, image/jpg" name="thumbnail" ng-model="thumbnail">
-                            <img class="img-fluid" src="" alt="">
+                            <input type="file" accept="image/png, image/jpg" name="thumbnail" file-input="file" ng-model="thumbnail">
+                            <img class="img-fluid" ng-src="{{thumbnailPreview}}" alt="" ng-if="thumbnailPreview">
                         </div>
                         <div class="col">
                             <input type="hidden" name="hidden_id" value="{{hidden_id}}" />
 <!--                            <button type="submit" class="btn btn-primary px-3 radius-30" name="saveCategory">Save</button>-->
-                            <button type="submit" class="btn btn-warning px-3 radius-30" name="submit">{{ submit_button_title }}</button>
+                            <button class="btn btn-warning px-3 radius-30">{{ submit_button_title }}</button>
                         </div>
                     </form>
                 </div>
@@ -81,7 +70,6 @@
                                     <td><img ng-src="<?= __WEB_ROOT__ . '/public/images/'?>{{ category.thumbnail }}" alt="" class="img-fluid"></td>
                                     <td>{{ category.name }}</td>
                                     <td class="text-wrap">{{ category.description }}</td>
-                                    <td>{{ category.slug }}</td>
                                     <td>
                                         <input type="hidden" name="id" value="{{ category.id }}">
 <!--                                        <a href="--><?php //= __WEB_ROOT__ . '/admin/chuyen-muc/sua-chuyen-muc' ?><!--" class="btn btn-warning btn-sm" ng-click="updateCategory(category.id)">Edit</a>-->
@@ -103,13 +91,24 @@
         </div>
     </div>
 </div>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/angular.min.js' ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/js/angular.min.js' ?>"></script>
 <script>
     const app = angular.module('App', []);
+    app.directive('fileInput', ['$parse', function($parse) {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                element.bind('change', function() {
+                    $parse(attrs.fileInput).assign(scope, element[0].files[0]);
+                    scope.$apply();
+                });
+            }
+        };
+    }]);
     app.controller('categoryController', ( $scope, $http, $window ) => {
-        $scope.Columns = [ "Ảnh", "Tên", "Mô tả", "Đường dẫn" ];
+        $scope.Columns = [ "Ảnh", "Tên", "Mô tả" ];
         $scope.selectedCategory = {};
-        $scope.submit_button = "insert";
+        // $scope.submit_button = "insert";
         $scope.submit_button_title = "Add";
         $scope.success = false;
         $scope.error = false;
@@ -119,34 +118,51 @@
         $scope.fetchData = () => {
             $scope.categories = <?= json_encode( $this->data['sub_content']['category'] ); ?>;
         }
+        $scope.submitForm = () => {
+            let formData = new FormData();
+            formData.append('name', $scope.name);
+            formData.append('description', $scope.description);
+            formData.append('thumbnail', $scope.thumbnail);
+            $http.post('<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham/them-moi' ?>', formData, {
+                transformRequest: angular.identity,
+                headers: {'Content-Type': undefined}
+            }).then(response => {
+                if(response.data.error) {
+                    alert(response.data.error);
+                } else {
+                    alert('Chuyên mục đã được thêm thành công!');
+                    $window.location.reload();
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+            });
+        }
         $scope.deleteCategory = (categoryId) => {
             // Confirm deletion with the user
             if (confirm('Are you sure you want to delete this category?')) {
                 // Send AJAX request to delete the category
                 $http({
                     method: 'POST',
-                    url: '<?= __WEB_ROOT__ . '/admin/chuyen-muc/xoa-chuyen-muc' ?>', // Change the URL to your delete endpoint
+                    url: '<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham/xoa-chuyen-muc' ?>', // Change the URL to your delete endpoint
                     data:{'id': categoryId, 'action':'delete'}
                 }).then( res => {
-                    $window.location.href = '<?= __WEB_ROOT__ . '/admin/chuyen-muc' ?>';
+                    $window.location.href = '<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham' ?>';
                 }).catch( err => {
                     console.log('Lỗi: ', err);
                 })
             }
         }
-        $scope.submitForm = () => {
+        /*$scope.submitForm = () => {
             if($scope.submit_button === 'insert') {
                 $http({
                     method: 'POST',
-                    url: '<?= __WEB_ROOT__ . '/admin/category/insert' ?>',
+                    url: '<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham/them-moi' ?>',
                     data: {
                         'name': $scope.name,
-                        'slug': $scope.slug,
                         'description': $scope.description,
                         'thumbnail': $scope.thumbnail,
-                        'parent_id': $scope.parent_id,
-                        /*'action': $scope.submit_button,
-                        'id': $scope.hidden_id*/
+                        /!*'action': $scope.submit_button,
+                        'id': $scope.hidden_id*!/
                     }
                 }).then( res => {
                     $scope.success = true;
@@ -154,7 +170,7 @@
                     $scope.successMessage = res.data.message;
                     $scope.form_data = {};
                     $scope.fetchData();
-                    $window.location.href = '<?= __WEB_ROOT__ . '/admin/chuyen-muc' ?>';
+                    $window.location.href = '<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham' ?>';
                     $scope.clear();
                 }).catch( err => {
                     $scope.success = false;
@@ -163,16 +179,14 @@
                     console.log('Loi: ' + err);
                 })
             }
-            /*if($scope.submit_button === 'update') {
+            /!*if($scope.submit_button === 'update') {
                 $http({
                     method: 'POST',
                     url: '<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham/sua-chuyen-muc' ?>',
                     data: {
                         'name': $scope.name,
-                        'slug': $scope.slug,
                         'description': $scope.description,
                         'thumbnail': $scope.thumbnail,
-                        'parent_id': $scope.parent_id,
                         'action': 'update',
                         'id': $scope.hidden_id
                     }
@@ -185,13 +199,12 @@
                 }).catch( err => {
                     console.log('Loi: ' + err);
                 })
-            }*/
-        }
+            }*!/
+        }*/
         $scope.updateCategory = async (categoryId) => {
             const requestData = {
                 id: categoryId,
                 name: $scope.name,
-                slug: $scope.slug,
                 description: $scope.description,
                 thumbnail: $scope.thumbnail,
                 action: 'update'
@@ -208,7 +221,6 @@
                 console.log(data);
                 $scope.id = categoryId;
                 // $scope.name = data.name;
-                // $scope.slug = data.slug;
                 $scope.hidden_id = categoryId;
                 $scope.submit_button = 'update';
                 $scope.submit_button_title = 'Edit';
@@ -223,10 +235,8 @@
         $scope.fillForm = (category) => {
             $scope.id = category.id;
             $scope.name = category.name;
-            $scope.slug = category.slug;
             $scope.description = category.description;
             $scope.thumbnail = category.thumbnail;
-            $scope.parent_id = category.parent_id;
             // Cập nhật selectedStudent
             $scope.selectedCategory = category;
         }
@@ -236,11 +246,21 @@
         $scope.clear = () => {
             $scope.id = "";
             $scope.name = "";
-            $scope.slug = "";
             $scope.hidden_id = "";
             $scope.description = "";
-            $scope.thumbnail = "";
-            $scope.parent_id = "";
+            $scope.thumbnail = null;
+            $scope.thumbnailPreview = "";
         }
+
+        $scope.$watch('thumbnail', function(newVal) {
+            if(newVal) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    $scope.thumbnailPreview = e.target.result;
+                    $scope.$apply();
+                }
+                reader.readAsDataURL(newVal);
+            }
+        });
     });
 </script>
