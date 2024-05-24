@@ -37,7 +37,7 @@ class App {
         return $url;
     }
 
-    public      function handleUrl() {
+    public function handleUrl() {
         $url = $this->getUrl();
         $url = $this->__routes->handleRoute($url);
 
