@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/css/owl.carousel.min.css' ?>">
     <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/css/slicknav.min.css' ?>">
     <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/css/style.css' ?>">
+    <script src="<?= __WEB_ROOT__ . '/public/js/jquery-3.3.1.min.js' ?>"></script>
+    <script src="<?= __WEB_ROOT__ . '/public/js/angular.min.js' ?>"></script>
+    <script src="<?= __WEB_ROOT__ . '/public/js/app.js' ?>"></script>
 </head>
 <body ng-app="App">
     <!-- Page Preloder -->
