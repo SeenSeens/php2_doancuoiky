@@ -1,5 +1,6 @@
 <?php
 $product = $this->data['sub_content']['product-content'];
+
 $title = $this->data['sub_content']['title'];
 $cat_title = $this->data['sub_content']['cat_title'];
 ?>
@@ -23,37 +24,19 @@ $cat_title = $this->data['sub_content']['cat_title'];
 <!-- Breadcrumb Section End -->
 <!-- Product Details Section Begin -->
 <section class="product-details spad">
-    <div class="container">
+    <div class="container" ng-controller="CartController">
         <div class="row">
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
-                        <img class="product__details__pic__item--large" src="<?= __WEB_ROOT__ . '/public/images/' . $product['thumbnail']; ?>" alt="<?= $product['title'] ?>">
+                        <img class="product__details__pic__item--large" src="<?= __WEB_ROOT__ . '/public/uploads/' . $product['thumbnail']; ?>" alt="<?= $product['title'] ?>">
                     </div>
-                    <!--<div class="product__details__pic__slider owl-carousel">
-                        <img data-imgbigurl="img/product/details/product-details-2.jpg"
-                             src="img/product/details/thumb-1.jpg" alt="">
-                        <img data-imgbigurl="img/product/details/product-details-3.jpg"
-                             src="img/product/details/thumb-2.jpg" alt="">
-                        <img data-imgbigurl="img/product/details/product-details-5.jpg"
-                             src="img/product/details/thumb-3.jpg" alt="">
-                        <img data-imgbigurl="img/product/details/product-details-4.jpg"
-                             src="img/product/details/thumb-4.jpg" alt="">
-                    </div>-->
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
                     <h3><?= $product['title'] ?></h3>
-                    <div class="product__details__rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                        <span>(18 reviews)</span>
-                    </div>
-                    <div class="product__details__price"><?= $product['price'] ?></div>
+                    <div class="product__details__price">Giá bán <?= $product['price'] ?></div>
                     <p><?= $product['excerpt'] ?></p>
                     <div class="product__details__quantity">
                         <div class="quantity">
@@ -62,12 +45,11 @@ $cat_title = $this->data['sub_content']['cat_title'];
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="primary-btn">ADD TO CARD</a>
+
+                    <button type="button" class="btn primary-btn" ng-click="addToCart(product)">ADD TO CARD</button>
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
-                        <li><b>Availability</b> <span>In Stock</span></li>
-                        <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
-                        <li><b>Weight</b> <span>0.5 kg</span></li>
+                        <li><b>Chuyên mục</b> <span><?= $cat_title['name']; ?></span></li>
                         <li><b>Share on</b>
                             <div class="share">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -98,8 +80,54 @@ $cat_title = $this->data['sub_content']['cat_title'];
         </div>
     </div>
 </section>
+
 <!-- Product Details Section End -->
 
 <!-- Related Product Section Begin -->
 <?php $this->render('frontend/component/products/related_product'); ?>
 <!-- Related Product Section End -->
+
+<script>
+    app.controller('CartController', function($scope, $http, $window) {
+        // Khai báo biến để lưu thông tin sản phẩm
+        $scope.product = {
+            id: '<?= $product['id'] ?>',
+            title: '<?= $product['title'] ?>',
+            price: '<?= $product['price'] ?>',
+            thumbnail: '<?= $product['thumbnail'] ?>'
+        };
+        // Khởi tạo giỏ hàng từ local storage
+        $scope.cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Hàm thêm sản phẩm vào giỏ hàng
+        $scope.addToCart = function(product) {
+            // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng hay chưa
+            var existingItem = $scope.cart.find(item => item.id === product.id);
+            if (existingItem) {
+                // Nếu sản phẩm đã tồn tại, tăng số lượng
+                existingItem.quantity++;
+                $window.location.href = '<?= __WEB_ROOT__ . '/gio-hang' ?>';
+            } else {
+                // Nếu sản phẩm chưa tồn tại, thêm vào giỏ hàng
+                $scope.cart.push({
+                    id: product.id,
+                    title: product.title,
+                    price: product.price,
+                    thumbnail: product.thumbnail,
+                    quantity: 1
+                });
+                $window.location.href = '<?= __WEB_ROOT__ . '/gio-hang' ?>';
+            }
+
+            // Lưu giỏ hàng mới vào local storage
+            localStorage.setItem('cart', JSON.stringify($scope.cart));
+        };
+
+        // Hàm tính tổng số lượng sản phẩm
+        $scope.getTotalItems = function() {
+            return $scope.cart.reduce((total, item) => {
+                return total + item.quantity;
+            }, 0);
+        };
+    });
+</script>

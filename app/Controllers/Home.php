@@ -10,15 +10,13 @@ class Home extends Controller {
         $this->posts = $this->model('PostsModel');
     }
     public function index () {
-        $dataCategory = $this->categories->all();
-        $dataProduct = $this->products->all();
-        $dataPosts = $this->posts->getLatestPosts();
         $this->data['sub_content']['page_title'] = "Trang chủ";
-        $this->data['sub_content']['category_menu'] = $dataCategory;
-        $this->data['sub_content']['products'] = $dataProduct;
-        $this->data['sub_content']['posts'] = $dataPosts;
+        $this->data['sub_content']['category_menu'] = $this->categories->all();
+        $this->data['sub_content']['products'] = $this->products->all();
+        $this->data['sub_content']['posts'] = $this->posts->getLatestPosts();
+        $this->data['sub_content']['latest_products'] = $this->products->latestProducts();
         $this->data['content'] = 'frontend/pages/home'; // truyền dữ liệu qua bên view
-        $this->render('frontend/layouts/app_layout', $this->data);
+        $this->render('frontend/app_layout', $this->data);
     }
 }
 
