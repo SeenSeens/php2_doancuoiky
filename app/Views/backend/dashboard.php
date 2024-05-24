@@ -78,7 +78,7 @@
 <!--app JS-->
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/app.js' ?>"></script>
 <!-- Place the first <script> tag in your HTML's <head> -->
-<script src="https://cdn.tiny.cloud/1/1qa5t0dn0b46dukvifb2b500e7ausw3qelzj0jie038xyejf/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="<?=__WEB_ROOT__ . '/public/js/tinymce.min.js' ?>" referrerpolicy="origin"></script>
 
 <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
 <script>

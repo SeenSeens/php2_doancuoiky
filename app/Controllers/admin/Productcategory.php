@@ -17,7 +17,7 @@ class Productcategory extends Controller {
         }
     }
     public function insert(){
-        /*try {
+        try {
             $form_data = json_decode(file_get_contents('php://input'),true);
             $message = '';
             $validation_error = '';
@@ -26,8 +26,8 @@ class Productcategory extends Controller {
                 $name = $form_data['name'];
                 $description = $form_data['description'];
                 // Sử dụng lớp ImageUpload
-                $imageUpload = new ImageUpload();
-                $thumbnail = $imageUpload->upload();
+                $imageUpload = new ImageUpload("public/uploads/");
+                $thumbnail = $imageUpload->upload($_FILES['thumbnail']);
                 $data = [
                     'name' => $name,
                     'description' => $description,
@@ -47,44 +47,6 @@ class Productcategory extends Controller {
             return json_encode($output);
         }catch (PDOException $e) {
             echo json_encode(['error' => 'Đã xảy ra lỗi khi chèn danh mục: ' . $e->getMessage()]);
-        }*/
-
-        try {
-            // Decode form data
-            $form_data = json_decode(file_get_contents('php://input'), true);
-
-            // Kiểm tra xem các trường bắt buộc có được cung cấp không
-            if (!isset($form_data['name']) || empty($form_data['name']) || !isset($form_data['description']) || empty($form_data['description'])) {
-                throw new Exception('Tên và mô tả là các trường bắt buộc.');
-            }
-
-            $name = $form_data['name'];
-            $description = $form_data['description'];
-
-            // Sử dụng lớp ImageUpload để xử lý ảnh
-            $imageUpload = new ImageUpload();
-            $thumbnail = $imageUpload->upload();
-
-            // Chuẩn bị dữ liệu để thêm vào cơ sở dữ liệu
-            $data = [
-                'name' => $name,
-                'description' => $description,
-                'thumbnail' => basename($thumbnail),
-            ];
-
-            // Thêm dữ liệu vào cơ sở dữ liệu
-            $this->categories->insertCategory($data);
-
-            // Trả về phản hồi thành công
-            echo json_encode(['message' => 'Chuyên mục đã được thêm thành công!']);
-        } catch (PDOException $e) {
-            // Trả về phản hồi lỗi nếu có ngoại lệ
-            error_log("PDOException: " . $e->getMessage());
-            echo json_encode(['error' => 'Đã xảy ra lỗi khi chèn danh mục: ' . $e->getMessage()]);
-        } catch (Exception $e) {
-            // Trả về phản hồi lỗi nếu có ngoại lệ khác hoặc các trường bắt buộc không được cung cấp
-            error_log("Exception: " . $e->getMessage());
-            echo json_encode(['error' => $e->getMessage()]);
         }
     }
     public function update() {

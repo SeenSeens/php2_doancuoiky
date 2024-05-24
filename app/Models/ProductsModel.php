@@ -12,6 +12,13 @@ class ProductsModel extends Model {
     #[\Override] function primaryKey(){
         return 'id';
     }
+    // Lấy ra id chuyên mục từ id sản phẩm
+    function getCategoryId($id){
+        return$this->db->table('products as p')
+            ->where('p.id', '=', $id)
+            ->select('p.category_id')
+            ->get();
+    }
     public function allProduct() {
         return $this->db->table('products as p')
             ->join('categories as c', 'p.category_id = c.id')
@@ -19,7 +26,10 @@ class ProductsModel extends Model {
             ->get();
     }
     // Lấy ra sản phẩm theo chuyên mục
-    public function getProductCategory(){
+    public function getProductCategory($id){
+        return $this->db->table('products as p')
+            ->where('p.category_id', '=', $id)
+            ->get();
     }
 
     /**

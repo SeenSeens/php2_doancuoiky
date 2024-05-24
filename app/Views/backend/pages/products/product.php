@@ -37,7 +37,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="product in products">
-                    <td><img ng-src="<?= __WEB_ROOT__ . '/public/uploads/'?>{{ product.thumbnail }}" alt="" class="img-fluid"></td>
+                    <td class="col-2"><img ng-src="<?= __WEB_ROOT__ . '/public/uploads/{{ product.thumbnail }}'?>" alt="" class="img-fluid"></td>
                     <td>{{ product.title }}</td>
                     <td>{{ product.price }}</td>
                     <td>{{ product.discount }}</td>

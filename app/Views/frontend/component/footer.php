@@ -66,13 +66,16 @@
     </footer>
     <!-- Footer Section End -->
     <!-- Js Plugins -->
-    <script src="<?= __WEB_ROOT__ ?>/public/js/jquery-3.3.1.min.js"></script>
-    <script src="<?= __WEB_ROOT__ ?>/public/js/bootstrap.min.js"></script>
+    <script src="<?= __WEB_ROOT__ . '/public/js/jquery-3.3.1.min.js' ?>"></script>
+    <script src="<?= __WEB_ROOT__ . '/public/js/bootstrap.min.js' ?>"></script>
     <script src="<?= __WEB_ROOT__ ?>/public/js/jquery.nice-select.min.js"></script>
     <script src="<?= __WEB_ROOT__ ?>/public/js/jquery-ui.min.js"></script>
     <script src="<?= __WEB_ROOT__ ?>/public/js/jquery.slicknav.js"></script>
     <script src="<?= __WEB_ROOT__ ?>/public/js/mixitup.min.js"></script>
     <script src="<?= __WEB_ROOT__ ?>/public/js/owl.carousel.min.js"></script>
     <script src="<?= __WEB_ROOT__ ?>/public/js/main.js"></script>
+    <script src="<?= __WEB_ROOT__ . '/public/js/isotope.pkgd.min.js' ?>"></script>
+    <script src="<?= __WEB_ROOT__ . '/public/js/angular.min.js' ?>"></script>
+    <script src="<?= __WEB_ROOT__ . '/public/js/app.js' ?>"></script>
 </body>
 </html>

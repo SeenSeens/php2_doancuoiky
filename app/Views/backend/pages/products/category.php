@@ -42,8 +42,8 @@
                         </div>
                         <div class="col">
                             <label for="image" class="form-label">Ảnh đại diện chuyên mục</label>
-                            <input type="file" accept="image/png, image/jpg" name="thumbnail" file-input="file" ng-model="thumbnail">
-                            <img class="img-fluid" ng-src="{{thumbnailPreview}}" alt="" ng-if="thumbnailPreview">
+                            <input type="file" name="thumbnail" ngf-select ng-model="thumbnail" ngf-change="onFileSelect($file)">
+                            <img class="img-fluid" ng-src="{{thumbnailPreview}}" ng-if="thumbnailPreview">
                         </div>
                         <div class="col">
                             <input type="hidden" name="hidden_id" value="{{hidden_id}}" />
@@ -67,7 +67,7 @@
                             </thead>
                             <tbody>
                                 <tr ng-repeat="category in categories" ng-click="fillForm(category)">
-                                    <td><img ng-src="<?= __WEB_ROOT__ . '/public/images/'?>{{ category.thumbnail }}" alt="" class="img-fluid"></td>
+                                    <td><img ng-src="<?= __WEB_ROOT__ . '/public/images/{{ category.thumbnail }}'?>" alt="" class="img-fluid"></td>
                                     <td>{{ category.name }}</td>
                                     <td class="text-wrap">{{ category.description }}</td>
                                     <td>
@@ -92,8 +92,9 @@
     </div>
 </div>
 <script src="<?= __WEB_ROOT__ . '/public/js/angular.min.js' ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/js/ng-file-upload-all.min.js' ?>"></script>
 <script>
-    const app = angular.module('App', []);
+    const app = angular.module('App', ['ngFileUpload']);
     app.directive('fileInput', ['$parse', function($parse) {
         return {
             restrict: 'A',
@@ -105,13 +106,16 @@
             }
         };
     }]);
-    app.controller('categoryController', ( $scope, $http, $window ) => {
+    app.controller('categoryController', ['$scope', '$window', '$http', 'Upload', ( $scope, $window, $http, Upload ) => {
         $scope.Columns = [ "Ảnh", "Tên", "Mô tả" ];
         $scope.selectedCategory = {};
-        // $scope.submit_button = "insert";
+        $scope.submit_button = "insert";
         $scope.submit_button_title = "Add";
         $scope.success = false;
         $scope.error = false;
+        $scope.thumbnail = null;
+        $scope.thumbnailPreview = null;
+
         $scope.init = () => {
             $scope.fetchData();
         }
@@ -119,23 +123,28 @@
             $scope.categories = <?= json_encode( $this->data['sub_content']['category'] ); ?>;
         }
         $scope.submitForm = () => {
-            let formData = new FormData();
-            formData.append('name', $scope.name);
-            formData.append('description', $scope.description);
-            formData.append('thumbnail', $scope.thumbnail);
-            $http.post('<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham/them-moi' ?>', formData, {
-                transformRequest: angular.identity,
-                headers: {'Content-Type': undefined}
-            }).then(response => {
-                if(response.data.error) {
-                    alert(response.data.error);
-                } else {
-                    alert('Chuyên mục đã được thêm thành công!');
-                    $window.location.reload();
+            $http({
+                method: 'POST',
+                url: '<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham/them-moi' ?>',
+                data: {
+                    'name': $scope.name,
+                    'description': $scope.description,
+                    'thumbnail': $scope.thumbnail,
                 }
-            }).catch(error => {
-                console.error('Error:', error);
-            });
+            }).then( res => {
+                $scope.success = true;
+                $scope.error = false;
+                $scope.successMessage = res.data.message;
+                $scope.form_data = {};
+                $scope.fetchData();
+                $window.location.href = '<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham' ?>';
+                $scope.clear();
+            }).catch( err => {
+                $scope.success = false;
+                $scope.error = true;
+                $scope.errorMessage = err.data.error;
+                console.log('Loi: ' + err);
+            })
         }
         $scope.deleteCategory = (categoryId) => {
             // Confirm deletion with the user
@@ -154,31 +163,7 @@
         }
         /*$scope.submitForm = () => {
             if($scope.submit_button === 'insert') {
-                $http({
-                    method: 'POST',
-                    url: '<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham/them-moi' ?>',
-                    data: {
-                        'name': $scope.name,
-                        'description': $scope.description,
-                        'thumbnail': $scope.thumbnail,
-                        /!*'action': $scope.submit_button,
-                        'id': $scope.hidden_id*!/
-                    }
-                }).then( res => {
-                    $scope.success = true;
-                    $scope.error = false;
-                    $scope.successMessage = res.data.message;
-                    $scope.form_data = {};
-                    $scope.fetchData();
-                    $window.location.href = '<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham' ?>';
-                    $scope.clear();
-                }).catch( err => {
-                    $scope.success = false;
-                    $scope.error = true;
-                    $scope.errorMessage = err.data.error;
-                    console.log('Loi: ' + err);
-                })
-            }
+
             /!*if($scope.submit_button === 'update') {
                 $http({
                     method: 'POST',
@@ -252,6 +237,18 @@
             $scope.thumbnailPreview = "";
         }
 
+        // Chức năng xử lý lựa chọn tập tin
+        $scope.onFileSelect = function(file) {
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    $scope.$apply(function() {
+                        $scope.thumbnailPreview = e.target.result;
+                    });
+                };
+                reader.readAsDataURL(file);
+            }
+        };
         $scope.$watch('thumbnail', function(newVal) {
             if(newVal) {
                 const reader = new FileReader();
@@ -262,5 +259,5 @@
                 reader.readAsDataURL(newVal);
             }
         });
-    });
+    }]);
 </script>

@@ -4,13 +4,17 @@ $routes['cua-hang'] = 'products/store';
 $routes['lien-he'] = 'contact';
 $routes['san-pham'] = 'products';
 $routes['san-pham/(.+)'] = 'products/getProductDetailById/$1';
-$routes['danh-muc-san-pham/(.+)'] = 'productscategories';
+$routes['danh-muc-san-pham/(.+)'] = 'products/ProductCategory/$1';
 
-$routes['add-to-cart'] = 'shop/addToCart';
+//$routes['add-to-cart'] = 'shop/addToCart';
+$routes['gio-hang'] = 'shop/shopingCart';
+$routes['thanh-toan'] = 'shop/checkout';
+$routes['dat-hang'] = 'shop/order';
 /**
  * Route admin
  */
-//$routes['admin'] = 'admin/dashboard';
+$routes['admin/login'] = 'admin/user/login';
+$routes['admin'] = 'admin/dashboard';
 $routes['admin/bai-viet'] = 'admin/post';
 $routes['admin/bai-viet/them-moi'] = 'admin/post/add';
 

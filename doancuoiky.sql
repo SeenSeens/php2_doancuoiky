@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1deb5ubuntu1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Mar 25, 2024 at 01:34 AM
--- Server version: 10.6.16-MariaDB-0ubuntu0.22.04.1
--- PHP Version: 8.1.2-1ubuntu2.14
+-- Máy chủ: localhost
+-- Thời gian đã tạo: Th5 23, 2024 lúc 02:31 PM
+-- Phiên bản máy phục vụ: 10.4.32-MariaDB
+-- Phiên bản PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `doancuoiky`
+-- Cơ sở dữ liệu: `doancuoiky`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bills`
+-- Cấu trúc bảng cho bảng `bills`
 --
 
 CREATE TABLE `bills` (
@@ -39,7 +39,7 @@ CREATE TABLE `bills` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bill_details`
+-- Cấu trúc bảng cho bảng `bill_details`
 --
 
 CREATE TABLE `bill_details` (
@@ -56,32 +56,29 @@ CREATE TABLE `bill_details` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Cấu trúc bảng cho bảng `categories`
 --
 
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(150) NOT NULL,
-  `slug` varchar(150) NOT NULL,
-  `parent_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `thumbnail` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `categories`
+-- Đang đổ dữ liệu cho bảng `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`, `slug`, `parent_id`, `created_at`, `updated_at`) VALUES
-(1, 'Fresh Meat', 'fresh-meat', NULL, NULL, NULL),
-(2, 'Vegetables', 'vegetables', NULL, NULL, NULL),
-(3, 'Fruit & Nut Gifts', 'fruit-nut-gifts', NULL, NULL, NULL),
-(4, 'Fresh Berries', 'fresh-berries', NULL, NULL, NULL);
+INSERT INTO `categories` (`id`, `name`, `description`, `thumbnail`) VALUES
+(68, 'IPhone', NULL, 'iphone-15-plus-128gb-hong-2.jpg'),
+(69, 'Nokia', NULL, 'nokia-8210-4g-trang-1.jpg'),
+(84, 'Samsung', '', 'samsung-galaxy-s23-fe-xanh-5.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category_posts`
+-- Cấu trúc bảng cho bảng `category_posts`
 --
 
 CREATE TABLE `category_posts` (
@@ -97,7 +94,23 @@ CREATE TABLE `category_posts` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `feedback`
+-- Cấu trúc bảng cho bảng `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `feedback`
 --
 
 CREATE TABLE `feedback` (
@@ -112,7 +125,7 @@ CREATE TABLE `feedback` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `galleries`
+-- Cấu trúc bảng cho bảng `galleries`
 --
 
 CREATE TABLE `galleries` (
@@ -125,153 +138,122 @@ CREATE TABLE `galleries` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menus`
---
-
-CREATE TABLE `menus` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `orders`
+-- Cấu trúc bảng cho bảng `orders`
 --
 
 CREATE TABLE `orders` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `order_date` date NOT NULL,
-  `total_money` int(11) NOT NULL,
-  `delivery_address` varchar(255) NOT NULL,
-  `payment_methods` varchar(255) NOT NULL,
-  `note` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `buyername` varchar(150) NOT NULL,
+  `address` text NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `products` text DEFAULT NULL,
+  `subtotal` int(11) DEFAULT NULL,
+  `total` int(11) DEFAULT NULL,
+  `notes` varchar(250) DEFAULT NULL,
+  `orderdate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_details`
+-- Cấu trúc bảng cho bảng `order_details`
 --
 
 CREATE TABLE `order_details` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `order_id` bigint(20) UNSIGNED NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
-  `status_id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `quantity` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `order_details_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages`
+-- Cấu trúc bảng cho bảng `pages`
 --
 
 CREATE TABLE `pages` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   `excerpt` varchar(255) DEFAULT NULL,
-  `thumbnail` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `thumbnail` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_reset_tokens`
---
-
-CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `personal_access_tokens`
---
-
-CREATE TABLE `personal_access_tokens` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) NOT NULL,
-  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `token` varchar(64) NOT NULL,
-  `abilities` text DEFAULT NULL,
-  `last_used_at` timestamp NULL DEFAULT NULL,
-  `expires_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `posts`
+-- Cấu trúc bảng cho bảng `posts`
 --
 
 CREATE TABLE `posts` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   `excerpt` varchar(255) DEFAULT NULL,
   `thumbnail` varchar(255) DEFAULT NULL,
-  `cat_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `cat_id` bigint(20) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Cấu trúc bảng cho bảng `products`
 --
 
 CREATE TABLE `products` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
   `description` text DEFAULT NULL,
   `excerpt` varchar(255) DEFAULT NULL,
   `thumbnail` varchar(255) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `discount` int(11) DEFAULT NULL,
-  `outstanding` enum('true','false') NOT NULL,
-  `trending` enum('true','false') NOT NULL,
-  `hot` enum('true','false') NOT NULL,
-  `bestseller` enum('true','false') NOT NULL,
   `category_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `gallery_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `gallery_id` bigint(20) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `products`
+-- Đang đổ dữ liệu cho bảng `products`
 --
 
-INSERT INTO `products` (`id`, `title`, `slug`, `description`, `excerpt`, `thumbnail`, `price`, `discount`, `outstanding`, `trending`, `hot`, `bestseller`, `category_id`, `gallery_id`, `created_at`, `updated_at`) VALUES
-(1, 'Crab Pool Security', 'crab-pool-security', NULL, NULL, 'feature-1.jpg', 30000, NULL, 'false', 'false', 'false', 'false', 1, NULL, '2024-03-14 18:33:48', '2024-03-14 18:33:48'),
-(2, 'Crab Pool Security', 'crab-pool-security', NULL, NULL, 'feature-3.jpg', 30000, NULL, 'false', 'false', 'false', 'false', 1, NULL, '2024-03-14 18:33:48', '2024-03-14 18:33:48');
+INSERT INTO `products` (`id`, `title`, `description`, `excerpt`, `thumbnail`, `price`, `discount`, `category_id`, `gallery_id`) VALUES
+(83, 'iPhone 15 Pro Max 256GB', '', '', 'iphone-15-pro-max-blue-2-1.jpg', 29590000, 0, 68, NULL),
+(84, 'iPhone 13 128GB', '', '', 'iphone-13-xanh-glr-1.jpg', 13690000, 0, 68, NULL),
+(85, 'iPhone 15 Pro 128GB', '', '', 'iphone-15-pro-white-2.jpg', 24590000, 0, 68, NULL),
+(86, 'iPhone 15 Plus 128GB', '', '', 'iphone-15-plus-128gb-hong-2.jpg', 22190000, 0, 68, NULL),
+(87, 'Nokia 8210 4G ', '', '', 'nokia-8210-4g-trang-1.jpg', 1590000, 0, 69, NULL),
+(89, 'Nokia 215 4G ', '', '', 'nokia-215-1-org.jpg', 990000, 0, 69, NULL),
+(92, 'Galaxy S23 Ultra 5G 256GB', '', '', 'samsung-galaxy-s-ultra-tim-1.jpg', 21990000, 0, 84, NULL),
+(93, 'Galaxy S23 FE 5G 128GB', '', '', 'samsung-galaxy-s23-fe-xanh-5.jpg', 11890000, 0, 84, NULL),
+(94, 'Galaxy S23 FE 5G 128GB', '', '', 'samsung-galaxy-s23-fe-xanh-5.jpg', 11890000, 0, 84, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- Cấu trúc bảng cho bảng `product_details`
+--
+
+CREATE TABLE `product_details` (
+  `product_id` bigint(20) UNSIGNED NOT NULL,
+  `category_id` bigint(20) UNSIGNED NOT NULL,
+  `type_id` bigint(20) UNSIGNED NOT NULL,
+  `stock_id` bigint(20) UNSIGNED NOT NULL,
+  `gallery_id` bigint(20) UNSIGNED NOT NULL,
+  `supplier_id` bigint(20) UNSIGNED NOT NULL,
+  `producer_id` bigint(20) UNSIGNED NOT NULL,
+  `trademark_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `roles`
 --
 
 CREATE TABLE `roles` (
@@ -281,10 +263,17 @@ CREATE TABLE `roles` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'user', '2024-05-02 06:38:22', '2024-05-02 06:38:22');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sessions`
+-- Cấu trúc bảng cho bảng `sessions`
 --
 
 CREATE TABLE `sessions` (
@@ -299,7 +288,7 @@ CREATE TABLE `sessions` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `statuses`
+-- Cấu trúc bảng cho bảng `statuses`
 --
 
 CREATE TABLE `statuses` (
@@ -315,7 +304,7 @@ CREATE TABLE `statuses` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `teams`
+-- Cấu trúc bảng cho bảng `teams`
 --
 
 CREATE TABLE `teams` (
@@ -330,7 +319,37 @@ CREATE TABLE `teams` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `team_invitations`
+--
+
+CREATE TABLE `team_invitations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `team_id` bigint(20) UNSIGNED NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `role` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `team_user`
+--
+
+CREATE TABLE `team_user` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `team_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `role` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -339,30 +358,31 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
-  `two_factor_secret` text DEFAULT NULL,
-  `two_factor_recovery_codes` text DEFAULT NULL,
-  `two_factor_confirmed_at` timestamp NULL DEFAULT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
   `current_team_id` bigint(20) UNSIGNED DEFAULT NULL,
   `profile_photo_path` varchar(2048) DEFAULT NULL,
   `role` enum('admin','vendor','user') NOT NULL DEFAULT 'user',
-  `status` enum('active','inactive') NOT NULL DEFAULT 'active',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `status` enum('active','inactive') NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Indexes for dumped tables
+-- Đang đổ dữ liệu cho bảng `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `current_team_id`, `profile_photo_path`, `role`, `status`) VALUES
+(29, 'Admin', 'admin@gmail.com', NULL, 'admin123', NULL, NULL, 'admin', 'active');
+
+--
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `bills`
+-- Chỉ mục cho bảng `bills`
 --
 ALTER TABLE `bills`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `bill_details`
+-- Chỉ mục cho bảng `bill_details`
 --
 ALTER TABLE `bill_details`
   ADD PRIMARY KEY (`id`),
@@ -373,82 +393,66 @@ ALTER TABLE `bill_details`
   ADD KEY `bill_details_status_id_foreign` (`status_id`);
 
 --
--- Indexes for table `categories`
+-- Chỉ mục cho bảng `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `categories_parent_id_foreign` (`parent_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `category_posts`
+-- Chỉ mục cho bảng `category_posts`
 --
 ALTER TABLE `category_posts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `feedback`
+-- Chỉ mục cho bảng `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Chỉ mục cho bảng `feedback`
 --
 ALTER TABLE `feedback`
   ADD PRIMARY KEY (`id`),
   ADD KEY `feedback_user_id_foreign` (`user_id`);
 
 --
--- Indexes for table `galleries`
+-- Chỉ mục cho bảng `galleries`
 --
 ALTER TABLE `galleries`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `menus`
---
-ALTER TABLE `menus`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `orders`
+-- Chỉ mục cho bảng `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `order_details`
+-- Chỉ mục cho bảng `order_details`
 --
 ALTER TABLE `order_details`
   ADD PRIMARY KEY (`id`),
   ADD KEY `order_details_order_id_foreign` (`order_id`),
-  ADD KEY `order_details_product_id_foreign` (`product_id`),
-  ADD KEY `order_details_status_id_foreign` (`status_id`),
-  ADD KEY `order_details_user_id_foreign` (`user_id`);
+  ADD KEY `order_details_product_id_foreign` (`product_id`);
 
 --
--- Indexes for table `pages`
+-- Chỉ mục cho bảng `pages`
 --
 ALTER TABLE `pages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `password_reset_tokens`
---
-ALTER TABLE `password_reset_tokens`
-  ADD PRIMARY KEY (`email`);
-
---
--- Indexes for table `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
-  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
-
---
--- Indexes for table `posts`
+-- Chỉ mục cho bảng `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `posts_cat_id_foreign` (`cat_id`);
 
 --
--- Indexes for table `products`
+-- Chỉ mục cho bảng `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
@@ -456,13 +460,26 @@ ALTER TABLE `products`
   ADD KEY `products_gallery_id_foreign` (`gallery_id`);
 
 --
--- Indexes for table `roles`
+-- Chỉ mục cho bảng `product_details`
+--
+ALTER TABLE `product_details`
+  ADD KEY `product_details_product_id_foreign` (`product_id`),
+  ADD KEY `product_details_category_id_foreign` (`category_id`),
+  ADD KEY `product_details_type_id_foreign` (`type_id`),
+  ADD KEY `product_details_stock_id_foreign` (`stock_id`),
+  ADD KEY `product_details_gallery_id_foreign` (`gallery_id`),
+  ADD KEY `product_details_supplier_id_foreign` (`supplier_id`),
+  ADD KEY `product_details_producer_id_foreign` (`producer_id`),
+  ADD KEY `product_details_trademark_id_foreign` (`trademark_id`);
+
+--
+-- Chỉ mục cho bảng `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sessions`
+-- Chỉ mục cho bảng `sessions`
 --
 ALTER TABLE `sessions`
   ADD PRIMARY KEY (`id`),
@@ -470,137 +487,157 @@ ALTER TABLE `sessions`
   ADD KEY `sessions_last_activity_index` (`last_activity`);
 
 --
--- Indexes for table `statuses`
+-- Chỉ mục cho bảng `statuses`
 --
 ALTER TABLE `statuses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `teams`
+-- Chỉ mục cho bảng `teams`
 --
 ALTER TABLE `teams`
   ADD PRIMARY KEY (`id`),
   ADD KEY `teams_user_id_index` (`user_id`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `team_invitations`
+--
+ALTER TABLE `team_invitations`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `team_invitations_team_id_email_unique` (`team_id`,`email`);
+
+--
+-- Chỉ mục cho bảng `team_user`
+--
+ALTER TABLE `team_user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `team_user_team_id_user_id_unique` (`team_id`,`user_id`);
+
+--
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `bills`
+-- AUTO_INCREMENT cho bảng `bills`
 --
 ALTER TABLE `bills`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `bill_details`
+-- AUTO_INCREMENT cho bảng `bill_details`
 --
 ALTER TABLE `bill_details`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT cho bảng `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
--- AUTO_INCREMENT for table `category_posts`
+-- AUTO_INCREMENT cho bảng `category_posts`
 --
 ALTER TABLE `category_posts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT cho bảng `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `feedback`
+-- AUTO_INCREMENT cho bảng `feedback`
 --
 ALTER TABLE `feedback`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `galleries`
+-- AUTO_INCREMENT cho bảng `galleries`
 --
 ALTER TABLE `galleries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `menus`
---
-ALTER TABLE `menus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT for table `order_details`
+-- AUTO_INCREMENT cho bảng `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `pages`
+-- AUTO_INCREMENT cho bảng `pages`
 --
 ALTER TABLE `pages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `posts`
+-- AUTO_INCREMENT cho bảng `posts`
 --
 ALTER TABLE `posts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
--- AUTO_INCREMENT for table `roles`
+-- AUTO_INCREMENT cho bảng `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `statuses`
+-- AUTO_INCREMENT cho bảng `statuses`
 --
 ALTER TABLE `statuses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `teams`
+-- AUTO_INCREMENT cho bảng `teams`
 --
 ALTER TABLE `teams`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `team_invitations`
 --
-ALTER TABLE `users`
+ALTER TABLE `team_invitations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT cho bảng `team_user`
+--
+ALTER TABLE `team_user`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `bill_details`
+-- Các ràng buộc cho bảng `bill_details`
 --
 ALTER TABLE `bill_details`
   ADD CONSTRAINT `bill_details_bill_id_foreign` FOREIGN KEY (`bill_id`) REFERENCES `bills` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -610,34 +647,26 @@ ALTER TABLE `bill_details`
   ADD CONSTRAINT `bill_details_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `categories`
---
-ALTER TABLE `categories`
-  ADD CONSTRAINT `categories_parent_id_foreign` FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `feedback`
+-- Các ràng buộc cho bảng `feedback`
 --
 ALTER TABLE `feedback`
   ADD CONSTRAINT `feedback_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `order_details`
+-- Các ràng buộc cho bảng `order_details`
 --
 ALTER TABLE `order_details`
   ADD CONSTRAINT `order_details_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_details_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_details_status_id_foreign` FOREIGN KEY (`status_id`) REFERENCES `statuses` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_details_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `order_details_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `posts`
+-- Các ràng buộc cho bảng `posts`
 --
 ALTER TABLE `posts`
   ADD CONSTRAINT `posts_cat_id_foreign` FOREIGN KEY (`cat_id`) REFERENCES `category_posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `products`
+-- Các ràng buộc cho bảng `products`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,

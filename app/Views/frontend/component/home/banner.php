@@ -9,7 +9,7 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="banner__pic">
-                    <img src="<?= __WEB_ROOT__ . '/public/uploads/1200x300-1200x300-10.png' ?>" alt="">
+                    <img src="<?= __WEB_ROOT__ . '/public/uploads/720x220-720x220.jpg' ?>" alt="">
                 </div>
             </div>
         </div>

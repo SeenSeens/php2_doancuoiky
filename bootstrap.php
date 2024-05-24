@@ -12,7 +12,7 @@ $documentRoot = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']);
 $folder = str_replace( strtolower($documentRoot), '', strtolower($dirRoot));
 $web_root = $web_root . $folder;
 define('__WEB_ROOT__', $web_root);
-
+echo "<script>window.data = { __WEB_ROOT__: '" . __WEB_ROOT__ . "' };</script>";
 /**
  * Tự động load configs
  */

@@ -13,11 +13,9 @@ class Products extends Controller {
      * Trang cửa hàng
      */
     public function store() {
-        $dataCategory = $this->categories->all();
-        $dataProduct = $this->products->all();
         $this->data['sub_content']['title'] = 'Cửa hàng';
-        $this->data['sub_content']['category'] = $dataCategory;
-        $this->data['sub_content']['products'] = $dataProduct;
+        $this->data['sub_content']['category'] = $this->categories->all();
+        $this->data['sub_content']['products'] = $this->products->all();
         $this->data['sub_content']['latest-products'] = self::getLatestProducts();
         $this->data['content'] = 'frontend/pages/shop'; // truyền dữ liệu qua bên view
         $this->render('frontend/app_layout', $this->data);
@@ -31,10 +29,9 @@ class Products extends Controller {
     public function getProductDetailById($id){
         $productDetail = $this->products->find($id);
         $productCatId = $productDetail['category_id']; // Lấy id chuyên mục
-        $productId = $productDetail['id']; // Lấy ra id sản phẩm
         $this->data['sub_content']['title'] = $productDetail['title'];
         $this->data['sub_content']['product-content'] = $productDetail;
-        $this->data['sub_content']['related-product'] = self::getRelatedProduct($productCatId, $productId);
+        $this->data['sub_content']['related-product'] = self::getRelatedProduct($productCatId, $id);
         $this->data['sub_content']['cat_title'] = self::getProductCategoryName($productCatId);
         $this->data['content'] = 'frontend/pages/product_detail';
         $this->render('frontend/app_layout', $this->data);
@@ -66,8 +63,11 @@ class Products extends Controller {
     }
 
     // Hiển thị sản phẩm theo chuyên mục
-    function ProductCategory(){
+    function ProductCategory($id){
         $this->data['sub_content']['page_title'] = "Danh mục sản phẩm";
+        $this->data['sub_content']['category'] = $this->categories->all();
+        $this->data['sub_content']['products'] = $this->products->getProductCategory($id);
+        $this->data['sub_content']['latest-products'] = self::getLatestProducts();
         $this->data['content'] = 'frontend/pages/product_category';
         $this->render('frontend/app_layout', $this->data);
     }

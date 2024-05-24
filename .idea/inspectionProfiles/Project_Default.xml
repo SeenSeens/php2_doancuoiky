@@ -4,7 +4,7 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="11">
+          <list size="13">
             <item index="0" class="java.lang.String" itemvalue="ng-app" />
             <item index="1" class="java.lang.String" itemvalue="ng-click" />
             <item index="2" class="java.lang.String" itemvalue="ng-submit" />
@@ -16,6 +16,8 @@
             <item index="8" class="java.lang.String" itemvalue="ngf-select" />
             <item index="9" class="java.lang.String" itemvalue="file-input" />
             <item index="10" class="java.lang.String" itemvalue="ng-if" />
+            <item index="11" class="java.lang.String" itemvalue="ng-style" />
+            <item index="12" class="java.lang.String" itemvalue="ngf-change" />
           </list>
         </value>
       </option>

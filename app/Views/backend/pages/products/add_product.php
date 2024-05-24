@@ -86,10 +86,6 @@
             <div class="card">
                 <div class="card-header">Ảnh sản phẩm</div>
                 <div class="card-body">
-<!--                    <form class="row" ng-submit="uploadFile()" enctype="multipart/form-data">-->
-<!--                        <input type="text" class="form-control mt-2" name="thumbnail">-->
-<!--                        <input type="file" ngf-select ng-model="thumbnail" name="thumbnail" accept="image/*" required>-->
-<!--                    </form>-->
                     <input type="file" class="form-control mt-2" name="thumbnail">
                 </div>
             </div>

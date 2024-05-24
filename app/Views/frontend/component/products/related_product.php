@@ -1,4 +1,5 @@
-<?php $relatedProduct = $this->data['sub_content']['related-product']; ?>
+<?php $relatedProduct = $this->data['sub_content']['related-product'];
+?>
 <section class="related-product">
     <div class="container">
         <div class="row">
@@ -16,7 +17,7 @@
                             <ul class="product__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a ><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
