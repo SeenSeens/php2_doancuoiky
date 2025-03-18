@@ -12,6 +12,13 @@
     <!--navigation-->
     <ul class="metismenu" id="menu">
         <li>
+            <a href="<?= __WEB_ROOT__ . '/admin/dashboard' ?>">
+                <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                </div>
+                <div class="menu-title">Trang quản trị</div>
+            </a>
+        </li>
+        <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bi bi-signpost"></i></div>
                 <div class="menu-title">Bài viết</div>
@@ -20,7 +27,17 @@
                 <li><a href="<?= __WEB_ROOT__ . '/admin/bai-viet' ?>"><i class="bx bx-right-arrow-alt"></i>Tất cả bài viết</a></li>
                 <li><a href="<?= __WEB_ROOT__ . '/admin/bai-viet/them-moi' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm bài viết</a></li>
                 <li><a href="<?= __WEB_ROOT__ . '/admin/chuyen-muc' ?>"><i class="bx bx-right-arrow-alt"></i>Chuyên mục</a></li>
-<!--                <li> <a href="--><?php //= __WEB_ROOT__ . '/' ?><!--"><i class="bx bx-right-arrow-alt"></i>Thẻ</a></li>-->
+                <li><a href="<?= __WEB_ROOT__ . '/admin/the' ?>"><i class="bx bx-right-arrow-alt"></i>Thẻ</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bi bi-signpost"></i></div>
+                <div class="menu-title">Media</div>
+            </a>
+            <ul>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/media' ?>"><i class="bx bx-right-arrow-alt"></i>Thư viện</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/media/them-moi' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm tệp tin mới</a></li>
             </ul>
         </li>
         <li>
@@ -33,13 +50,13 @@
                 <li><a href="<?= __WEB_ROOT__ . '/admin/trang/them-moi' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm trang mới</a></li>
             </ul>
         </li>
-        <!--<li>
-            <a href="<?php /*= __WEB_ROOT__ */?>">
-                <div class="parent-icon"><i class='bx bx-cookie'></i>
+        <li>
+            <a href="<?= __WEB_ROOT__ . '/admin/comments' ?>">
+                <div class="parent-icon"><i class='bx bx-home-circle'></i>
                 </div>
-                <div class="menu-title">Phản hồi</div>
+                <div class="menu-title">Bình luận</div>
             </a>
-        </li>-->
+        </li>
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i></div>
@@ -52,17 +69,17 @@
                 <li> <a href="<?= __WEB_ROOT__ . '/admin/don-hang' ?>"><i class="bx bx-right-arrow-alt"></i>Đơn hàng</a></li>
             </ul>
         </li>
-        <!--<li>
+        <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-user-circle"></i></div>
                 <div class="menu-title">Thành viên</div>
             </a>
             <ul>
-                <li><a href="<?php /*= __WEB_ROOT__ */?>"><i class="bx bx-right-arrow-alt"></i>Tất cả người dùng</a></li>
-                <li><a href="<?php /*= __WEB_ROOT__ */?>"><i class="bx bx-right-arrow-alt"></i>Thêm người dùng mới</a></li>
-                <li> <a href="<?php /*= __WEB_ROOT__ */?>"><i class="bx bx-right-arrow-alt"></i>Hồ sơ</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/user' ?>"><i class="bx bx-right-arrow-alt"></i>Tất cả người dùng</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/user/them-moi' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm người dùng mới</a></li>
+                <li> <a href="<?= __WEB_ROOT__ . '/admin/user/profile'?>"><i class="bx bx-right-arrow-alt"></i>Hồ sơ</a></li>
             </ul>
-        </li>-->
+        </li>
     </ul>
     <!--end navigation-->
 </div>

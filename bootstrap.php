@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/vendor/autoload.php';
 const __DIR_ROOT__ = __DIR__;
 // Xử lý http root
 if( !empty( $_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
@@ -10,9 +11,14 @@ if( !empty( $_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
 $dirRoot = str_replace('\\', '/', __DIR_ROOT__);
 $documentRoot = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']);
 $folder = str_replace( strtolower($documentRoot), '', strtolower($dirRoot));
-$web_root = $web_root . $folder;
+$web_root = $web_root . '/' . $folder;
 define('__WEB_ROOT__', $web_root);
 echo "<script>window.data = { __WEB_ROOT__: '" . __WEB_ROOT__ . "' };</script>";
+
+// Load dotenv
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR_ROOT__);
+$dotenv->load();
+
 /**
  * Tự động load configs
  */

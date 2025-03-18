@@ -240,7 +240,7 @@ jQuery('#dashboard-map').vectorMap(
         data: {
           labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
           datasets: [{
-            label: 'Page Views',
+            label: 'Page views',
             data: [0, 8, 12, 5, 12, 8, 16, 25, 15, 10, 20, 10, 30],
             backgroundColor: 'rgba(0, 150, 136, 0.33)',
             borderColor: '#009688',

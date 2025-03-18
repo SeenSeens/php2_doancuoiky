@@ -151,7 +151,7 @@ $(function() {
 	new ApexCharts(document.querySelector("#chart2"), e).render();
 	e = {
 		series: [{
-			name: "Page Views",
+			name: "Page views",
 			data: [240, 160, 671, 414, 555, 257, 901, 613, 727, 414, 555, 257]
 		}],
 		chart: {

@@ -1,4 +1,5 @@
 <?php
+
 class App {
     private $__controller, $__action, $__params, $__routes, $__db;
     static public $app;
@@ -29,20 +30,21 @@ class App {
      * PATH_INFO
      */
     public function getUrl() {
-        if( !empty($_SERVER['PATH_INFO']) ) :
-            $url = $_SERVER['PATH_INFO'];
-        else:
-            $url = '/';
-        endif;
-        return $url;
+        $url = $_SERVER['REQUEST_URI'] ?? '/';
+        $scriptName = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
+        
+        if ($scriptName !== '/') {
+            $url = str_replace($scriptName, '', $url);
+        }
+        
+        return rtrim($url, '/');
     }
 
     public function handleUrl() {
         $url = $this->getUrl();
         $url = $this->__routes->handleRoute($url);
 
-        $urlArr = array_filter(explode('/', $url));
-        $urlArr = array_values( $urlArr );
+        $urlArr = array_values( array_filter( explode( '/', $url ) ) );
 
         $urlCheck = '';
         if( !empty( $urlArr )) {
@@ -57,7 +59,7 @@ class App {
                     unset( $urlArr[ $key - 1]);
                 }
 
-                $checkFilePath = 'app/Controllers/' . $fileCheck . '.php';
+                $checkFilePath = 'app/controllers/' . $fileCheck . '.php';
                 if ( file_exists( $checkFilePath )) {
                     $urlCheck = $fileCheck;
                     break;
@@ -83,7 +85,7 @@ class App {
             $urlCheck = $this->__controller;
         }
 
-        $controllerFilePath = 'app/Controllers/' . $urlCheck . '.php';
+        $controllerFilePath = 'app/controllers/' . $urlCheck . '.php';
         if( file_exists( $controllerFilePath )) :
             require_once $controllerFilePath;
             // Kiểm tra class $this->__controller tồn tại
@@ -121,7 +123,7 @@ class App {
 
     public function loadError($name = '404', $data = [] ) {
         extract( $data );
-        require_once 'Errors/' . $name . '.php';
+        require_once  '/app/errors/' . $name . '.php';
     }
 }
 ?>

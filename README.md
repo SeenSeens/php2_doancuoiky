@@ -18,11 +18,11 @@
   - Model.php
   - Route.php
 - public
-- docs
   - css
   - fonts
   - images
   - js
+  - upload
 - ultils
 - access.log
 - bootstrap.php

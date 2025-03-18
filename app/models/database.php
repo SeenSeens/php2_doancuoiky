@@ -2,9 +2,9 @@
 
 
 class database {
-    private static $dsn = 'mysql:host=localhost;dbname=doancuoiky';
+    private static $dsn = 'mysql:host=localhost;dbname=php_mvc_cms';
     private static $username = 'root';
-    private static $password = '12345678';
+    private static $password = '';
     private static $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
     private static $db;
 
@@ -25,7 +25,7 @@ class database {
 
     public static function displayError($error_message) {
         global $app_path;
-        include 'Errors/db_error.php';
+        include 'errors/db_error.php';
         exit;
     }
 }

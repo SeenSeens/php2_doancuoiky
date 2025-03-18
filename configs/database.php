@@ -2,7 +2,7 @@
 $config['database'] = [
     'host' => 'localhost',
     'user' => 'root',
-    'pass' => '',
-    'db' => 'doancuoiky'
+    'pass' => '12345678',
+    'db' => 'php_mvc_cms'
 ];
 ?>
