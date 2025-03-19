@@ -6,8 +6,7 @@
         <div>
             <h4 class="logo-text">Rukada</h4>
         </div>
-        <div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
-        </div>
+        <div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i></div>
     </div>
     <!--navigation-->
     <ul class="metismenu" id="menu">
@@ -24,10 +23,10 @@
                 <div class="menu-title">Bài viết</div>
             </a>
             <ul>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/bai-viet' ?>"><i class="bx bx-right-arrow-alt"></i>Tất cả bài viết</a></li>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/bai-viet/them-moi' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm bài viết</a></li>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/chuyen-muc' ?>"><i class="bx bx-right-arrow-alt"></i>Chuyên mục</a></li>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/the' ?>"><i class="bx bx-right-arrow-alt"></i>Thẻ</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/posts' ?>"><i class="bx bx-right-arrow-alt"></i>Tất cả bài viết</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/post-new' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm bài viết</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/category' ?>"><i class="bx bx-right-arrow-alt"></i>Danh mục</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/post_tag' ?>"><i class="bx bx-right-arrow-alt"></i>Thẻ</a></li>
             </ul>
         </li>
         <li>
@@ -60,12 +59,32 @@
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i></div>
+                <div class="menu-title">WooCommerce</div>
+            </a>
+            <ul>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/wc-admin' ?>"><i class="bx bx-right-arrow-alt"></i>Tổng quan</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/wc-orders' ?>"><i class="bx bx-right-arrow-alt"></i>Đơn hàng</a></li>
+                <li> <a href="<?= __WEB_ROOT__ . '/admin/wc-customers' ?>"><i class="bx bx-right-arrow-alt"></i>Khách hàng</a></li>
+                <li> <a href="<?= __WEB_ROOT__ . '/admin/wc-coupon' ?>"><i class="bx bx-right-arrow-alt"></i>Mã ưu đãi</a></li>
+                <li> <a href="<?= __WEB_ROOT__ . '/admin/wc-reports' ?>"><i class="bx bx-right-arrow-alt"></i>Báo cáo</a></li>
+                <li> <a href="<?= __WEB_ROOT__ . '/admin/wc-settings' ?>"><i class="bx bx-right-arrow-alt"></i>Cài đặt</a></li>
+                <li> <a href="<?= __WEB_ROOT__ . '/admin/wc-status' ?>"><i class="bx bx-right-arrow-alt"></i>Trạng thái</a></li>
+                <li> <a href="<?= __WEB_ROOT__ . '/admin/wc-extensions' ?>"><i class="bx bx-right-arrow-alt"></i>Mở rộng</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-cart'></i></div>
                 <div class="menu-title">Sản phẩm</div>
             </a>
             <ul>
                 <li><a href="<?= __WEB_ROOT__ . '/admin/san-pham' ?>"><i class="bx bx-right-arrow-alt"></i>Tất cả sản phẩm</a></li>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/san-pham/them-moi' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm mới</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/san-pham/them-moi' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm sản phẩm mới</a></li>
+                <li> <a href="<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham' ?>"><i class="bx bx-right-arrow-alt"></i>Thương hiệu</a></li>
                 <li> <a href="<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham' ?>"><i class="bx bx-right-arrow-alt"></i>Danh mục</a></li>
+                <li> <a href="<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham' ?>"><i class="bx bx-right-arrow-alt"></i>Thẻ</a></li>
+                <li> <a href="<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham' ?>"><i class="bx bx-right-arrow-alt"></i>Các thuộc tính</a></li>
+                <li> <a href="<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham' ?>"><i class="bx bx-right-arrow-alt"></i>Đánh giá</a></li>
                 <li> <a href="<?= __WEB_ROOT__ . '/admin/don-hang' ?>"><i class="bx bx-right-arrow-alt"></i>Đơn hàng</a></li>
             </ul>
         </li>
@@ -76,7 +95,7 @@
             </a>
             <ul>
                 <li><a href="<?= __WEB_ROOT__ . '/admin/user' ?>"><i class="bx bx-right-arrow-alt"></i>Tất cả người dùng</a></li>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/user/them-moi' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm người dùng mới</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/user/add-user' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm người dùng mới</a></li>
                 <li> <a href="<?= __WEB_ROOT__ . '/admin/user/profile'?>"><i class="bx bx-right-arrow-alt"></i>Hồ sơ</a></li>
             </ul>
         </li>
