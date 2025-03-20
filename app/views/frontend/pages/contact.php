@@ -1,10 +1,10 @@
-<?php $this->render('frontend/component/header'); ?>
+<?php $this->render('frontend/layout/header'); ?>
 <!-- Hero Section Begin -->
 <section class="hero hero-normal">
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <?php $this->render('frontend/component/header/hero__categories') ?>
+                <?php $this->render('frontend/layout/header/hero__categories') ?>
             </div>
             <div class="col-lg-9">
                 <div class="hero__search">
@@ -34,7 +34,7 @@
 </section>
 <!-- Hero Section End -->
 <!-- Breadcrumb Section Begin -->
-<?php $this->render('frontend/component/breadcrumb') ?>
+<?php $this->render('frontend/layout/breadcrumb') ?>
 <!-- Breadcrumb Section End -->
 <!-- Contact Section Begin -->
 <section class="contact spad">
@@ -114,4 +114,4 @@
     </div>
 </div>
 <!-- Contact Form End -->
-<?php $this->render('frontend/component/footer'); ?>
+<?php $this->render('frontend/layout/footer'); ?>

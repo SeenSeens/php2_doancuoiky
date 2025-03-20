@@ -10,28 +10,28 @@ class Product extends Controller {
     }
 
     public function index() {
-        $this->data['sub_content']['page_title'] = "Trang chủ";
-        $this->data['sub_content']['product'] = $this->products->allProduct();
-        $this->data['content'] = 'backend/pages/products/product';
-        $this->render('backend/dashboard', $this->data);
+        $this->data['sub_content']['page_title'] = "Sản phẩm";
+//        $this->data['sub_content']['product'] = $this->products->allProduct();
+        $this->data['content'] = 'backend/products/product';
+        $this->render('backend/admin_layout', $this->data);
     }
 
     function viewProductById($id) {
         $this->data['sub_content']['page_title'] = "Trang chủ";
         $this->data['sub_content']['product'] = $this->products->find($id);
         $this->data['sub_content']['category'] = $this->categories->getListCategory();
-        $this->data['content'] = 'backend/pages/products/product_detail';
+        $this->data['content'] = 'backend/products/product_detail';
         $this->render('backend/dashboard', $this->data);
     }
     /**
      * Thêm mới sản phẩm
      * @return void
      */
-    public function add(){
+    public function create(){
         $this->data['sub_content']['page_title'] = "Thêm mới sản phẩm";
-        $this->data['sub_content']['category'] = $this->categories->getListCategory();
-        $this->data['content'] = 'backend/pages/products/add_product';
-        $this->render('backend/dashboard', $this->data);
+//        $this->data['sub_content']['category'] = $this->categories->getListCategory();
+        $this->data['content'] = 'backend/products/add_product';
+        $this->render('backend/admin_layout', $this->data);
         try {
             if (isset($_POST['uploadProduct'])) :
                 $title = isset($_POST['title']) ? $_POST['title'] : '';

@@ -1,1 +1,1 @@
-<?php
+<?php $this->render('backend/components/breadcrumb'); ?>

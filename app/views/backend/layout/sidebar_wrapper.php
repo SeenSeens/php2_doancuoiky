@@ -26,7 +26,7 @@
                 <li><a href="<?= __WEB_ROOT__ . '/admin/posts' ?>"><i class="bx bx-right-arrow-alt"></i>Tất cả bài viết</a></li>
                 <li><a href="<?= __WEB_ROOT__ . '/admin/post-new' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm bài viết</a></li>
                 <li><a href="<?= __WEB_ROOT__ . '/admin/category' ?>"><i class="bx bx-right-arrow-alt"></i>Danh mục</a></li>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/post_tag' ?>"><i class="bx bx-right-arrow-alt"></i>Thẻ</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/post-tag' ?>"><i class="bx bx-right-arrow-alt"></i>Thẻ</a></li>
             </ul>
         </li>
         <li>
@@ -35,8 +35,8 @@
                 <div class="menu-title">Media</div>
             </a>
             <ul>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/media' ?>"><i class="bx bx-right-arrow-alt"></i>Thư viện</a></li>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/media/them-moi' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm tệp tin mới</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/upload' ?>"><i class="bx bx-right-arrow-alt"></i>Thư viện</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/media-new' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm tệp tin mới</a></li>
             </ul>
         </li>
         <li>
@@ -45,14 +45,13 @@
                 <div class="menu-title">Trang</div>
             </a>
             <ul>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/trang' ?>"><i class="bx bx-right-arrow-alt"></i>Tất cả các trang</a></li>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/trang/them-moi' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm trang mới</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/page' ?>"><i class="bx bx-right-arrow-alt"></i>Tất cả các trang</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/page-new' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm trang mới</a></li>
             </ul>
         </li>
         <li>
             <a href="<?= __WEB_ROOT__ . '/admin/comments' ?>">
-                <div class="parent-icon"><i class='bx bx-home-circle'></i>
-                </div>
+                <div class="parent-icon"><i class='bx bx-home-circle'></i></div>
                 <div class="menu-title">Bình luận</div>
             </a>
         </li>
@@ -78,14 +77,13 @@
                 <div class="menu-title">Sản phẩm</div>
             </a>
             <ul>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/san-pham' ?>"><i class="bx bx-right-arrow-alt"></i>Tất cả sản phẩm</a></li>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/san-pham/them-moi' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm sản phẩm mới</a></li>
-                <li> <a href="<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham' ?>"><i class="bx bx-right-arrow-alt"></i>Thương hiệu</a></li>
-                <li> <a href="<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham' ?>"><i class="bx bx-right-arrow-alt"></i>Danh mục</a></li>
-                <li> <a href="<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham' ?>"><i class="bx bx-right-arrow-alt"></i>Thẻ</a></li>
-                <li> <a href="<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham' ?>"><i class="bx bx-right-arrow-alt"></i>Các thuộc tính</a></li>
-                <li> <a href="<?= __WEB_ROOT__ . '/admin/chuyen-muc-san-pham' ?>"><i class="bx bx-right-arrow-alt"></i>Đánh giá</a></li>
-                <li> <a href="<?= __WEB_ROOT__ . '/admin/don-hang' ?>"><i class="bx bx-right-arrow-alt"></i>Đơn hàng</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/product' ?>"><i class="bx bx-right-arrow-alt"></i>Tất cả sản phẩm</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/product-new' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm sản phẩm mới</a></li>
+                <li> <a href="<?= __WEB_ROOT__ . '/admin/product-brand' ?>"><i class="bx bx-right-arrow-alt"></i>Thương hiệu</a></li>
+                <li> <a href="<?= __WEB_ROOT__ . '/admin/product-cat' ?>"><i class="bx bx-right-arrow-alt"></i>Danh mục</a></li>
+                <li> <a href="<?= __WEB_ROOT__ . '/admin/product-tag' ?>"><i class="bx bx-right-arrow-alt"></i>Thẻ</a></li>
+                <li> <a href="<?= __WEB_ROOT__ . '/admin/product-attributes' ?>"><i class="bx bx-right-arrow-alt"></i>Các thuộc tính</a></li>
+                <li> <a href="<?= __WEB_ROOT__ . '/admin/product-reviews' ?>"><i class="bx bx-right-arrow-alt"></i>Đánh giá</a></li>
             </ul>
         </li>
         <li>

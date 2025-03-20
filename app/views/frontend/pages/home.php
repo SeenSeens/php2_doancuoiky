@@ -1,17 +1,17 @@
 
-<?php $this->render('frontend/component/home/header_home'); ?>
+<?php $this->render('frontend/layout/home/header_home'); ?>
 
-<?php $this->render('frontend/component/home/categories_slide'); ?>
+<?php $this->render('frontend/layout/home/categories_slide'); ?>
 
-<?php $this->render('frontend/component/home/featured_product'); ?>
+<?php $this->render('frontend/layout/home/featured_product'); ?>
 
-<?php $this->render('frontend/component/home/banner'); ?>
+<?php $this->render('frontend/layout/home/banner'); ?>
 
 <!-- Latest Product Section Begin -->
 <section class="latest-product spad">
     <div class="container">
         <div class="row">
-            <?php $this->render('frontend/component/home/latest_products') ?>
+            <?php $this->render('frontend/layout/home/latest_products') ?>
             <div class="col-lg-4 col-md-6">
                 <div class="latest-product__text">
                     <h4>Top Rated Products</h4>
@@ -148,5 +148,5 @@
 <!-- Latest Product Section End -->
 
 <!-- Blog Section Begin -->
-<?php $this->render('frontend/component/home/blog'); ?>
+<?php $this->render('frontend/layout/home/blog'); ?>
 <!-- Blog Section End -->

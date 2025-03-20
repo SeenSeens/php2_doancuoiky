@@ -10,33 +10,67 @@ $routes['danh-muc-san-pham/(.+)'] = 'products/ProductCategory/$1';
 $routes['gio-hang'] = 'shop/shopingCart';
 $routes['thanh-toan'] = 'shop/checkout';
 $routes['dat-hang'] = 'shop/order';
+
+
+
 /**
  * Route admin
  */
 $routes['admin/login'] = 'admin/user/login';
-$routes['admin'] = 'admin/dashboard';
-$routes['admin/bai-viet'] = 'admin/post';
-$routes['admin/bai-viet/them-moi'] = 'admin/post/add';
+$routes['admin/dashboard'] = 'admin/dashboard';
 
-$routes['admin/chuyen-muc'] = 'admin/postcategory';
+// Post
+$routes['admin/posts'] = 'admin/post';
+$routes['admin/post-new'] = 'admin/post/create';
 
-$routes['admin/trang'] = 'admin/page';
-$routes['admin/trang/them-moi'] = 'admin/page/add';
+// Page
+$routes['admin/page'] = 'admin/page';
+$routes['admin/page-new'] = 'admin/page/create';
 
-$routes['admin/chuyen-muc-san-pham'] = 'admin/productcategory';
-$routes['admin/chuyen-muc-san-pham/them-moi'] = 'admin/productcategory/insert';
-$routes['admin/chuyen-muc-san-pham/sua-chuyen-muc'] = 'admin/productcategory/update';
-$routes['admin/chuyen-muc-san-pham/xoa-chuyen-muc'] = 'admin/productcategory/delete';
-
-$routes['admin/san-pham'] = 'admin/product';
-$routes['admin/san-pham/(.+)'] = 'admin/product/viewProductById/$1';
-$routes['admin/san-pham/them-moi'] = 'admin/product/add';
-$routes['admin/san-pham/xoa-san-pham/(.+)'] = 'admin/product/delete/$1';
-$routes['admin/san-pham/sua-san-pham/(.+)'] = 'admin/product/edit/$1';
+// Product
+$routes['admin/product'] = 'admin/product';
+$routes['admin/product-new'] = 'admin/product/create';
 
 
-$routes['admin/don-hang'] = 'admin/product/orders';
+// Taxonomy
+$routes['admin/category'] = 'admin/taxonomy/category';
+$routes['admin/category/(.+)'] = 'admin/taxonomy/category/$1';
+$routes['admin/post-tag'] = 'admin/taxonomy/postTag';
+$routes['admin/product-cat'] = 'admin/taxonomy/productCat';
+$routes['admin/product-tag'] = 'admin/taxonomy/productTag';
+$routes['admin/product-brand'] = 'admin/taxonomy/productBrand';
+$routes['admin/product-attributes'] = 'admin/taxonomy/productAttributes';
+$routes['admin/product-reviews'] = 'admin/taxonomy/productReviews';
+
+// Media
+$routes['admin/upload'] = 'admin/media';
+$routes['admin/media-new'] = 'admin/media/create';
 
 
-$routes['admin/upload'] = 'admin/upload/uploadimage';
+// User
+$routes['admin/user'] = 'admin/user';
+$routes['admin/user/add-user'] = 'admin/user/create';
+$routes['admin/user/profile'] = 'admin/user/profile';
+
+
+//$routes['admin/chuyen-muc-san-pham'] = 'admin/productcategory';
+//$routes['admin/chuyen-muc-san-pham/them-moi'] = 'admin/productcategory/insert';
+//$routes['admin/chuyen-muc-san-pham/sua-chuyen-muc'] = 'admin/productcategory/update';
+//$routes['admin/chuyen-muc-san-pham/xoa-chuyen-muc'] = 'admin/productcategory/delete';
+//
+
+//$routes['admin/san-pham/(.+)'] = 'admin/product/viewProductById/$1';
+
+//$routes['admin/san-pham/xoa-san-pham/(.+)'] = 'admin/product/delete/$1';
+//$routes['admin/san-pham/sua-san-pham/(.+)'] = 'admin/product/edit/$1';
+//
+//$routes['admin/don-hang'] = 'admin/product/orders';
+//
+//
+//$routes['admin/upload'] = 'admin/upload/uploadimage';
+
+
+
+
+$routes['admin/comments'] = 'admin/comment';
 ?>

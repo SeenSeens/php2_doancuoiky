@@ -1,19 +1,6 @@
 <link href="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/Drag-And-Drop/dist/imageuploadify.min.css' ?>" rel="stylesheet" />
 <?php $categories =  $this->data['sub_content']['category']; ?>
-<!--breadcrumb-->
-<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-    <div class="ps-3">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb mb-0 p-0">
-                <li class="breadcrumb-item">Sản phẩm</li>
-                <li class="breadcrumb-item active" aria-current="page">Thêm mới sản phẩm</li>
-            </ol>
-        </nav>
-    </div>
-</div>
-<!--end breadcrumb-->
-<h6 class="mb-0 ps-3 text-uppercase">Thêm sản phẩm</h6>
-<hr/>
+<?php $this->render('backend/components/breadcrumb'); ?>
 <div class="container-fluid" >
     <form class="row" action="<?= __WEB_ROOT__ . '/admin/product/add' ?>" method="POST" enctype="multipart/form-data" >
         <div class="col-8">

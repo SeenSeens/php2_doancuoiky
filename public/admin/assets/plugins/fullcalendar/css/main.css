@@ -869,7 +869,7 @@ A HORIZONTAL event
 .fc-liquid-hack .fc-daygrid-day-frame {
     position: static; /* will cause inner absolute stuff to expand to <td> */
   }
-.fc-daygrid-event { /* make root-level, because will be dragged-and-dropped outside of a component root */
+.fc-daygrid-event { /* make root-level, because will be dragged-and-dropped outside of a layout root */
   position: relative; /* for z-indexes assigned later */
   white-space: nowrap;
   border-radius: 3px; /* dot event needs this to when selected */

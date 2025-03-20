@@ -84,7 +84,7 @@ $cat_title = $this->data['sub_content']['cat_title'];
 <!-- Product Details Section End -->
 
 <!-- Related Product Section Begin -->
-<?php $this->render('frontend/component/products/related_product'); ?>
+<?php $this->render('frontend/layout/products/related_product'); ?>
 <!-- Related Product Section End -->
 
 <script>

@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <?php $this->render('frontend/component/header/hero__categories') ?>
+                <?php $this->render('frontend/layout/header/hero__categories') ?>
             </div>
             <div class="col-lg-9">
                 <div class="hero__search">

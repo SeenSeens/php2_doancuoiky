@@ -1,6 +1,4 @@
-<?php $posts = $this->data['sub_content']['posts']; ?>
-<h6 class="mb-0 ps-3 text-uppercase">Bài viết</h6>
-<hr/>
+<?php $this->render('backend/components/breadcrumb'); ?>
 <div class="card">
     <div class="card-body">
         <table class="table">

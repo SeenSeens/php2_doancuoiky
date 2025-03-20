@@ -65,7 +65,7 @@ function DatePicker( picker, settings ) {
         enable: 'activate'
     }
 
-    // The component's item object.
+    // The layout's item object.
     calendar.item = {}
 
     calendar.item.clear = null

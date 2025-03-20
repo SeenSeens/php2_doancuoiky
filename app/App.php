@@ -123,7 +123,7 @@ class App {
 
     public function loadError($name = '404', $data = [] ) {
         extract( $data );
-        require_once  '/app/errors/' . $name . '.php';
+        require_once  'errors/' . $name . '.php';
     }
 }
 ?>

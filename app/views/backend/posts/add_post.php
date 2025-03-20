@@ -1,5 +1,4 @@
-<h6 class="mb-0 ps-3 text-uppercase">Thêm bài viết</h6>
-<hr/>
+<?php $this->render('backend/components/breadcrumb'); ?>
 <div class="container-fluid">
     <form class="row" action="<?= __WEB_ROOT__ . '/admin/post/add' ?>" method="POST" enctype="multipart/form-data">
         <div class="col-8">
@@ -30,7 +29,10 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-header">Chuyên mục</div>
+                <div class="card-header">Danh mục</div>
+            </div>
+            <div class="card">
+                <div class="card-header">Thẻ</div>
             </div>
             <div class="card">
                 <div class="card-header">Ảnh đại diện</div>

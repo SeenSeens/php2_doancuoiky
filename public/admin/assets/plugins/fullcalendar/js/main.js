@@ -5292,7 +5292,7 @@ var FullCalendar = (function (exports) {
                 }
             }
             // allow (a function)
-            var calendarEventStore = currentState.eventStore; // need global-to-calendar, not local to component (splittable)state
+            var calendarEventStore = currentState.eventStore; // need global-to-calendar, not local to layout (splittable)state
             for (var _i = 0, _a = subjectConfig.allows; _i < _a.length; _i++) {
                 var subjectAllow = _a[_i];
                 var subjectDateSpan = __assign(__assign({}, dateSpanMeta), { range: subjectInstance.range, allDay: subjectDef.allDay });
@@ -5403,7 +5403,7 @@ var FullCalendar = (function (exports) {
     }
 
     /*
-    an INTERACTABLE date component
+    an INTERACTABLE date layout
 
     PURPOSES:
     - hook up to fg, fill, and mirror renderers
@@ -5452,8 +5452,8 @@ var FullCalendar = (function (exports) {
                 !this.props.eventResize && // HACK
                 !elementClosest(el, '.fc-event-mirror') &&
                 (this.isPopover() || !this.isInPopover(el));
-            // ^above line ensures we don't detect a seg interaction within a nested component.
-            // it's a HACK because it only supports a popover as the nested component.
+            // ^above line ensures we don't detect a seg interaction within a nested layout.
+            // it's a HACK because it only supports a popover as the nested layout.
         };
         DateComponent.prototype.isValidDateDownEl = function (el) {
             return !elementClosest(el, '.fc-event:not(.fc-bg-event)') &&
@@ -5868,7 +5868,7 @@ var FullCalendar = (function (exports) {
         return {
             superType: rawOptions.type,
             component: component,
-            rawOptions: rawOptions // includes type and component too :(
+            rawOptions: rawOptions // includes type and layout too :(
         };
     }
     function createViewHookComponent(options) {
@@ -7721,7 +7721,7 @@ var FullCalendar = (function (exports) {
         return ToolbarSection;
     }(BaseComponent));
 
-    // TODO: do function component?
+    // TODO: do function layout?
     var ViewContainer = /** @class */ (function (_super) {
         __extends(ViewContainer, _super);
         function ViewContainer() {
@@ -7820,7 +7820,7 @@ var FullCalendar = (function (exports) {
 
     /*
     Triggers events and adds/removes core classNames when the user's pointer
-    enters/leaves event-elements of a component.
+    enters/leaves event-elements of a layout.
     */
     var EventHovering = /** @class */ (function (_super) {
         __extends(EventHovering, _super);
@@ -8489,7 +8489,7 @@ var FullCalendar = (function (exports) {
             return segs;
         };
         /*
-        "complete" seg means it has component and eventRange
+        "complete" seg means it has layout and eventRange
         */
         Slicer.prototype.sliceEventRanges = function (eventRanges, extraArgs) {
             var segs = [];
@@ -8500,7 +8500,7 @@ var FullCalendar = (function (exports) {
             return segs;
         };
         /*
-        "complete" seg means it has component and eventRange
+        "complete" seg means it has layout and eventRange
         */
         Slicer.prototype.sliceEventRange = function (eventRange, extraArgs) {
             var dateRange = eventRange.range;
@@ -10328,7 +10328,7 @@ var FullCalendar = (function (exports) {
     }
 
     /*
-    Monitors when the user clicks on a specific date/time of a component.
+    Monitors when the user clicks on a specific date/time of a layout.
     A pointerdown+pointerup on the same "hit" constitutes a click.
     */
     var DateClicking = /** @class */ (function (_super) {
@@ -10369,7 +10369,7 @@ var FullCalendar = (function (exports) {
     }(Interaction));
 
     /*
-    Tracks when the user selects a portion of time of a component,
+    Tracks when the user selects a portion of time of a layout,
     constituted by a drag over date cells, with a possible delay at the beginning of the drag.
     */
     var DateSelecting = /** @class */ (function (_super) {
@@ -10382,7 +10382,7 @@ var FullCalendar = (function (exports) {
                 var options = component.context.options;
                 var canSelect = options.selectable &&
                     component.isValidDateDownEl(ev.origEvent.target);
-                // don't bother to watch expensive moves if component won't do selection
+                // don't bother to watch expensive moves if layout won't do selection
                 dragging.setIgnoreMove(!canSelect);
                 // if touch, require user to hold down
                 dragging.delay = ev.isTouch ? getComponentTouchDelay(component) : null;
@@ -11153,7 +11153,7 @@ var FullCalendar = (function (exports) {
                 _this.droppableEvent = null;
             };
             var hitDragging = this.hitDragging = new HitDragging(dragging, interactionSettingsStore);
-            hitDragging.requireInitial = false; // will start outside of a component
+            hitDragging.requireInitial = false; // will start outside of a layout
             hitDragging.emitter.on('dragstart', this.handleDragStart);
             hitDragging.emitter.on('hitupdate', this.handleHitUpdate);
             hitDragging.emitter.on('dragend', this.handleDragEnd);
@@ -13460,7 +13460,7 @@ var FullCalendar = (function (exports) {
         return cells.map(function (cell) { return elMap[cell.key]; });
     }
 
-    /* A component that renders one or more columns of vertical time slots
+    /* A layout that renders one or more columns of vertical time slots
     ----------------------------------------------------------------------------------------------------------------------*/
     var TimeCols = /** @class */ (function (_super) {
         __extends(TimeCols, _super);

@@ -8,7 +8,6 @@
     <!--favicon-->
     <link rel="icon" href="<?= __WEB_ROOT__ . '/public/admin/assets/images/favicon-32x32.png'; ?>" type="image/png" />
     <!--plugins-->
-    <link href="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css'; ?>" rel="stylesheet"/>
     <link href="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/simplebar/css/simplebar.css'; ?>" rel="stylesheet" />
     <link href="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css'; ?>" rel="stylesheet" />
     <link href="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/metismenu/css/metisMenu.min.css'; ?>" rel="stylesheet" />
@@ -24,16 +23,16 @@
     <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/admin/assets/css/dark-theme.css' ?>" />
     <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/admin/assets/css/semi-dark.css' ?>" />
     <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/admin/assets/css/header-colors.css' ?>" />
-    <title>Document</title>
+    <title><?= $page_title = $this->data['sub_content']['page_title']; ?></title>
 </head>
 <body>
 <!--wrapper-->
 <div class="wrapper">
     <!--sidebar wrapper -->
-    <?php $this->render('backend/component/sidebar_wrapper') ?>
+    <?php $this->render('backend/layout/sidebar_wrapper') ?>
     <!--end sidebar wrapper -->
     <!--start header -->
-    <?php $this->render('backend/component/header') ?>
+    <?php $this->render('backend/layout/header') ?>
     <!--end header -->
     <!--start page wrapper -->
     <div class="page-wrapper">
@@ -53,7 +52,7 @@
 </div>
 <!--end wrapper-->
 <!--start switcher-->
-<?php $this->render('backend/component/switcher') ?>
+<?php $this->render('backend/layout/switcher') ?>
 <!--end switcher-->
 <!-- Bootstrap JS -->
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/bootstrap.bundle.min.js' ?>"></script>
@@ -62,31 +61,7 @@
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/simplebar/js/simplebar.min.js' ?>"></script>
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/metismenu/js/metisMenu.min.js' ?>"></script>
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js' ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/chartjs/js/Chart.min.js' ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js' ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js' ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js' ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/sparkline-charts/jquery.sparkline.min.js' ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/jquery-knob/excanvas.js' ?>"></script>
-<script src="<?= __WEB_ROOT__ , '/public/admin/assets/plugins/jquery-knob/jquery.knob.js' ?>"></script>
-<script>
-    $(function() {
-        $(".knob").knob();
-    });
-</script>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/index.js' ?>"></script>
 <!--app JS-->
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/app.js' ?>"></script>
-<!-- Place the first <script> tag in your HTML's <head> -->
-<script src="<?=__WEB_ROOT__ . '/public/js/tinymce.min.js' ?>" referrerpolicy="origin"></script>
-
-<!-- Place the following <script> and <textarea> tags your HTML's <body> -->
-<script>
-    tinymce.init({
-        selector: 'textarea',
-        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
-        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-    });
-</script>
 </body>
 </html>

@@ -2,9 +2,9 @@
 class Dashboard extends Controller {
     public array $data = [];
     public function index() {
-        $this->data['sub_content']['page_title'] = "Trang";
-        $this->render('backend/dashboard');
-        $this->render('backend/dashboard', $this->data);
+        $this->data['sub_content']['page_title'] = "Trang quản trị";
+        $this->data['content'] = 'backend/dashboard';
+        $this->render('backend/admin_layout', $this->data);
     }
 
 }

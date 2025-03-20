@@ -1,5 +1,4 @@
-<h6 class="mb-0 ps-3 text-uppercase">Thêm trang mới</h6>
-<hr/>
+<?php $this->render('backend/components/breadcrumb'); ?>
 <div class="container-fluid">
     <form class="row" action="" method="POST" enctype="multipart/form-data">
         <div class="col-8">

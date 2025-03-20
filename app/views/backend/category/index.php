@@ -1,6 +1,4 @@
-<?php $postCategories = $this->data['sub_content']['post_category']; ?>
-<h6 class="mb-0 ps-3 text-uppercase">Chuyên mục</h6>
-<hr/>
+<?php $this->render('backend/components/breadcrumb'); ?>
 <div class="container-fluid">
     <div class="row g-3">
         <div class="col-4">
@@ -10,18 +8,20 @@
                         <div class="col fw-bold">Thêm chuyên mục</div>
                         <div class="col">Tên</div>
                         <div class="col"><input type="text" class="form-control" placeholder="Thêm tiêu đề"></div>
+                        <div class="col">Đường dẫn</div>
+                        <div class="col"><input type="text" class="form-control" placeholder="Đường dẫn"></div>
                         <div class="col">Mô tả</div>
                         <div class="col">
-                            <textarea></textarea>
+                            <textarea class="form-control" rows="10" placeholder="Thêm nội dung" name="description"></textarea>
                         </div>
                         <div class="col">
-                            <button type="submit" class="btn btn-warning px-3 radius-30" name="submit">Add</button>
+                            <button type="submit" class="btn btn-primary px-5" name="submit">Thêm danh mục</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="col-8 mt-4">
+        <div class="col-8">
             <div class="card">
                 <div class="card-body">
                     <table class="table">

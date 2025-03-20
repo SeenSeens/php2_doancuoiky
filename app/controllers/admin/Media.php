@@ -1,15 +1,18 @@
 <?php
-class Page extends Controller {
+class Media extends Controller{
     public array $data = [];
-    function index() {
-        $this->data['sub_content']['page_title'] = "Trang";
-        $this->data['content'] = 'backend/pages/index';
+
+    function index(){
+        $this->data['sub_content']['page_title'] = "Thư viện";
+        $this->data['content'] = 'backend/media/index';
         $this->render('backend/admin_layout', $this->data);
     }
-    function create() {
-        $this->data['sub_content']['page_title'] = "Thêm trang mới";
-        $this->data['content'] = 'backend/pages/add_page';
+
+    function create(){
+        $this->data['sub_content']['page_title'] = "Tải lên";
+        $this->data['content'] = 'backend/media/index';
         $this->render('backend/admin_layout', $this->data);
     }
 }
+
 ?>
