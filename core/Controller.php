@@ -3,6 +3,10 @@
  * Lớp base controller
  */
 class Controller {
+    public function __construct(){
+        AuthMiddleware::checkLogin();
+    }
+
     public function model( $model ) {
         if( file_exists(__DIR_ROOT__ . '/app/models/' . $model . '.php')) {
             require_once __DIR_ROOT__ . '/app/models/' . $model . '.php';

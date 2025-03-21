@@ -344,8 +344,7 @@
                     <li>
                         <div class="dropdown-divider mb-0"></div>
                     </li>
-                    <li><a class="dropdown-item" href="javascript:;"><i class='bx bx-log-out-circle'></i><span>Logout</span></a>
-                    </li>
+                    <li><a class="dropdown-item" href="<?= __WEB_ROOT__ . '/admin/logout' ?>"><i class='bx bx-log-out-circle'></i><span>Logout</span></a></li>
                 </ul>
             </div>
         </nav>

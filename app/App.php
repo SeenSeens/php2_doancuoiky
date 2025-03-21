@@ -93,7 +93,7 @@ class App {
                 $this->__controller = new $this->__controller();
                 unset( $urlArr[0] );
                 if (!empty($this->__db)) :
-                    $this->__controller->db = $this->__db;
+                    $this->__controller = new $this->__controller($this->__db);
                 endif;
             else:
                 $this->loadError();
@@ -123,7 +123,7 @@ class App {
 
     public function loadError($name = '404', $data = [] ) {
         extract( $data );
-        require_once  'errors/' . $name . '.php';
+//        require_once  'errors/' . $name . '.php';
     }
 }
 ?>

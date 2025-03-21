@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/admin/assets/css/dark-theme.css' ?>" />
     <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/admin/assets/css/semi-dark.css' ?>" />
     <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/admin/assets/css/header-colors.css' ?>" />
-    <title><?= $page_title = $this->data['sub_content']['page_title']; ?></title>
+    <title><?= $this->data['sub_content']['page_title']; ?></title>
 </head>
 <body>
 <!--wrapper-->

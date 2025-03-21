@@ -16,9 +16,16 @@ $routes['dat-hang'] = 'shop/order';
 /**
  * Route admin
  */
-$routes['admin/login'] = 'admin/user/login';
+
+
+// Dashboard
 $routes['admin/dashboard'] = 'admin/dashboard';
 
+// Auth
+$routes['admin/register'] = 'admin/auth/register';
+$routes['admin/login'] = 'admin/auth/login';
+$routes['admin/forgot-password'] = 'admin/auth/forgotPassword';
+$routes['admin/logout'] = 'admin/auth/logout';
 // Post
 $routes['admin/posts'] = 'admin/post';
 $routes['admin/post-new'] = 'admin/post/create';

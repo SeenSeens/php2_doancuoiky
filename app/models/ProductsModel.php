@@ -14,7 +14,7 @@ class ProductsModel extends Model {
     }
     // Lấy ra id chuyên mục từ id sản phẩm
     function getCategoryId($id){
-        return$this->db->table('products as p')
+        return $this->db->table('products as p')
             ->where('p.id', '=', $id)
             ->select('p.category_id')
             ->get();

@@ -2,11 +2,11 @@
 
 ## Cấu trúc thư mục dự án
 - app
-  - Controllers
-  - Errors
-  - Helpers
-  - Models
-  - Views
+  - controllers
+  - errors
+  - helpers
+  - models
+  - views
     - backend
     - frontend
   - App.php
@@ -17,6 +17,7 @@
   - Database.php
   - Model.php
   - Route.php
+- docs
 - public
   - css
   - fonts
