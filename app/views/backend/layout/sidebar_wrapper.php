@@ -11,7 +11,7 @@
     <!--navigation-->
     <ul class="metismenu" id="menu">
         <li>
-            <a href="<?= __WEB_ROOT__ . '/admin/dashboard' ?>">
+            <a href="<?= __WEB_ROOT__ . '/admin' ?>">
                 <div class="parent-icon"><i class='bx bx-home-circle'></i>
                 </div>
                 <div class="menu-title">Trang quản trị</div>

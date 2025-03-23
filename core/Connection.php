@@ -5,9 +5,9 @@ class Connection {
     public function __construct( $config ) {
         try {
             $host = $config['host'] ?? 'localhost';
-            $db = $config['db'] ?? '';
+            $db = $config['db'] ?? 'php_mvc_cms';
             $user = $config['user'] ?? 'root';
-            $pass = $config['pass'] ?? '';
+            $pass = $config['pass'] ?? '12345678';
             $this->connection = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {

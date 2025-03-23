@@ -91,7 +91,7 @@
         </div>
     </div>
 </div>
-<script src="<?= __WEB_ROOT__ . '/public/js/angular.min.js' ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/angular.min.js' ?>"></script>
 <script src="<?= __WEB_ROOT__ . '/public/js/ng-file-upload-all.min.js' ?>"></script>
 <script>
     const app = angular.module('App', ['ngFileUpload']);

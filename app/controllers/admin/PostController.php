@@ -1,5 +1,5 @@
 <?php
-class Post extends Controller {
+class PostController extends Controller {
     public array $data = [];
     public $posts;
     public function __construct() {

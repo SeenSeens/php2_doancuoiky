@@ -17,67 +17,71 @@ $routes['dat-hang'] = 'shop/order';
  * Route admin
  */
 
-
-// Dashboard
-$routes['admin/dashboard'] = 'admin/dashboard';
-
-// Auth
-$routes['admin/register'] = 'admin/auth/register';
-$routes['admin/login'] = 'admin/auth/login';
-$routes['admin/forgot-password'] = 'admin/auth/forgotPassword';
-$routes['admin/logout'] = 'admin/auth/logout';
-// Post
-$routes['admin/posts'] = 'admin/post';
-$routes['admin/post-new'] = 'admin/post/create';
-
-// Page
-$routes['admin/page'] = 'admin/page';
-$routes['admin/page-new'] = 'admin/page/create';
-
-// Product
-$routes['admin/product'] = 'admin/product';
-$routes['admin/product-new'] = 'admin/product/create';
-
-
-// Taxonomy
-$routes['admin/category'] = 'admin/taxonomy/category';
-$routes['admin/category/(.+)'] = 'admin/taxonomy/category/$1';
-$routes['admin/post-tag'] = 'admin/taxonomy/postTag';
-$routes['admin/product-cat'] = 'admin/taxonomy/productCat';
-$routes['admin/product-tag'] = 'admin/taxonomy/productTag';
-$routes['admin/product-brand'] = 'admin/taxonomy/productBrand';
-$routes['admin/product-attributes'] = 'admin/taxonomy/productAttributes';
-$routes['admin/product-reviews'] = 'admin/taxonomy/productReviews';
-
-// Media
-$routes['admin/upload'] = 'admin/media';
-$routes['admin/media-new'] = 'admin/media/create';
-
-
-// User
-$routes['admin/user'] = 'admin/user';
-$routes['admin/user/add-user'] = 'admin/user/create';
-$routes['admin/user/profile'] = 'admin/user/profile';
-
+//$routes['admin'] = 'admin/DashboardController';
 
 //$routes['admin/chuyen-muc-san-pham'] = 'admin/productcategory';
 //$routes['admin/chuyen-muc-san-pham/them-moi'] = 'admin/productcategory/insert';
 //$routes['admin/chuyen-muc-san-pham/sua-chuyen-muc'] = 'admin/productcategory/update';
 //$routes['admin/chuyen-muc-san-pham/xoa-chuyen-muc'] = 'admin/productcategory/delete';
-//
+
 
 //$routes['admin/san-pham/(.+)'] = 'admin/product/viewProductById/$1';
 
 //$routes['admin/san-pham/xoa-san-pham/(.+)'] = 'admin/product/delete/$1';
 //$routes['admin/san-pham/sua-san-pham/(.+)'] = 'admin/product/edit/$1';
-//
+
 //$routes['admin/don-hang'] = 'admin/product/orders';
-//
-//
+
 //$routes['admin/upload'] = 'admin/upload/uploadimage';
 
+//$routes['admin/comments'] = 'admin/comment';
 
+// Cải tiến
+$routes = [
+    // Dashboard
+    'admin' => 'admin/DashboardController',
+    'admin/dashboard' => 'DashboardController/index',
 
+    // PostController
+    'admin/posts' => 'admin/PostController',
+    'admin/post-new' => 'admin/PostController/create',
 
-$routes['admin/comments'] = 'admin/comment';
+    // PageController
+    'admin/page' => 'admin/PageController',
+    'admin/page-new' => 'admin/PageController/create',
+
+    // ProductController
+    'admin/product' => 'admin/ProductController',
+    'admin/product-new' => 'admin/ProductController/create',
+
+    // TaxonomyController
+    'admin/category' => 'admin/TaxonomyController/category',
+    'admin/category/(.+)' => 'admin/TaxonomyController/category/$1',
+    'admin/post-tag' => 'admin/TaxonomyController/postTag',
+    'admin/product-cat' => 'admin/TaxonomyController/productCat',
+    'admin/product-tag' => 'admin/TaxonomyController/productTag',
+    'admin/product-brand' => 'admin/TaxonomyController/productBrand',
+    'admin/product-attributes' => 'admin/TaxonomyController/productAttributes',
+    'admin/product-reviews' => 'admin/TaxonomyController/productReviews',
+
+    // MediaController
+    'admin/upload' => 'admin/MediaController',
+    'admin/media-new' => 'admin/MediaController/create',
+
+    // UserController
+    'admin/user' => 'admin/UserController',
+    'admin/user/add-user' => 'admin/UserController/create',
+    'admin/user/profile' => 'admin/UserController/profile',
+    'admin/user/profile/(.+)' => 'admin/UserController/profile/$1',
+
+    // CommentController
+    'admin/comments' => 'admin/CommentController',
+
+    // AuthController
+    'admin/login' => 'admin/AuthController/login',
+    'admin/register' => 'admin/AuthController/register',
+    'admin/forgot-password' => 'admin/AuthController/forgotPassword',
+    'admin/logout' => 'admin/AuthController/logout',
+];
+
 ?>

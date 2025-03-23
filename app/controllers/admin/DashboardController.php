@@ -1,5 +1,5 @@
 <?php
-class Dashboard extends Controller {
+class DashboardController extends Controller {
     public array $data = [];
     public function index() {
         $this->data['sub_content']['page_title'] = "Trang quản trị";

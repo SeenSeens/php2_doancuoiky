@@ -1,5 +1,5 @@
 <?php
-class Taxonomy extends Controller{
+class TaxonomyController extends Controller{
     public array $data = [];
     public function __construct(){}
 

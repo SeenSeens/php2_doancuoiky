@@ -4,7 +4,8 @@
  */
 class Controller {
     public function __construct(){
-        AuthMiddleware::checkLogin();
+//        AuthMiddleware::checkLogin();
+        $this->requireLogin();
     }
 
     public function model( $model ) {
@@ -25,6 +26,11 @@ class Controller {
             echo 'Err';
         endif;
     }
-
+    private function requireLogin() {
+        if (!isset($_SESSION['user_id'])) {
+            header("Location: " . __WEB_ROOT__ . '/admin/login');
+            exit();
+        }
+    }
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-class Media extends Controller{
+class MediaController extends Controller{
     public array $data = [];
 
     function index(){

@@ -34,8 +34,6 @@ class UserModel extends Model {
 
         return $user && $user['role'] === 'admin';  // Kiểm tra role = admin
     }
-
-
     public function findId($email){
         return $this->db->table('users')
             ->where('email', '=', $email)

@@ -1,5 +1,5 @@
 <?php
-class Auth extends Controller{
+class AuthController extends Controller{
     public array $data = [];
     public $users;
     public function __construct() {
@@ -61,11 +61,6 @@ class Auth extends Controller{
         $this->render('backend/account', $this->data);
     }
     public function login() {
-        // Nếu đã đăng nhập, chuyển hướng về dashboard hoặc trang chủ
-        if (isset($_SESSION['user_id'])) {
-            header("Location: " . __WEB_ROOT__ . "/admin/dashboard");
-            exit();
-        }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $email = trim(htmlspecialchars(strip_tags($_POST['email']), ENT_QUOTES, 'UTF-8'));
             $password = trim(htmlspecialchars(strip_tags($_POST['password']), ENT_QUOTES, 'UTF-8'));
@@ -80,10 +75,12 @@ class Auth extends Controller{
             }
             // Thiết lập session sau khi đăng nhập thành công
             $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['role'] = $user['role'];
 
             // Chuyển hướng người dùng dựa trên vai trò
             if ($this->users->isAdmin($email)) {
-                header("Location: " . __WEB_ROOT__ . "/admin/dashboard");
+                header("Location: " . __WEB_ROOT__ . "/admin");
             } else {
                 header("Location: " . __WEB_ROOT__ );
             }
@@ -103,14 +100,6 @@ class Auth extends Controller{
         $this->data['sub_content']['page_title'] = 'Quên mật khẩu';
         $this->data['content'] = 'backend/auth/forgot_password';
         $this->render('backend/account', $this->data);
-    }
-
-    private function requireLogin() {
-        session_start();
-        if (!isset($_SESSION['user_id'])) {
-            header("Location: /login");
-            exit();
-        }
     }
 
 }

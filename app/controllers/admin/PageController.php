@@ -1,5 +1,5 @@
 <?php
-class Page extends Controller {
+class PageController extends Controller {
     public array $data = [];
     function index() {
         $this->data['sub_content']['page_title'] = "Trang";

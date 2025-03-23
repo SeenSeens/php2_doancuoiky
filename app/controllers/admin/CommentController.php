@@ -1,5 +1,5 @@
 <?php
-class Comment extends Controller {
+class CommentController extends Controller {
     public array $data = [];
     function index() {
         $this->data['sub_content']['page_title'] = "Bình luận";

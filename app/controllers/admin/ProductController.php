@@ -1,6 +1,6 @@
 <?php
 //require_once 'ultils/image_helper.php';
-class Product extends Controller {
+class ProductController extends Controller {
     public array $data = [];
     public $categories;
     public $products;

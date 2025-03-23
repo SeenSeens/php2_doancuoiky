@@ -201,7 +201,7 @@ $(function() {
             },
       colors: ["#8f50ff", "#f1076f", "#ffd200", "#cddc35"],
             series: [90, 80, 70, 60],
-            labels: ['Career Page', 'Referral', 'Agency', 'Job Boards'],
+            labels: ['Career PageController', 'Referral', 'Agency', 'Job Boards'],
 			responsive: [{
                 breakpoint: 1280,
                 options: {

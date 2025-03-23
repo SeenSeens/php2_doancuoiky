@@ -169,7 +169,7 @@ chart.render();
 // chart 3
 var options = {
     series: [{
-        name: 'Page views',
+        name: 'PageController views',
         data: [414, 555, 257, 901, 613, 727, 414, 555, 257]
     }],
     chart: {
