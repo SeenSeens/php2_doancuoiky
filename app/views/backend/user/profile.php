@@ -1,6 +1,13 @@
-<?php $this->render('backend/components/breadcrumb'); ?>
-<?php $users = $this->data['sub_content']['user']; ?>
-<?php $meta = $this->data['sub_content']['metaData']; ?>
+<?php
+$this->render('backend/components/breadcrumb');
+$users = $this->data['sub_content']['user'];
+$meta = $this->data['sub_content']['metaData'];
+// Chuyển mảng indexed thành mảng liên kết (map theo `meta_key`)
+$mappedMeta = [];
+foreach ($meta as $item) {
+    $mappedMeta[$item['meta_key']] = $item['meta_value'];
+}
+?>
 <div class="container">
     <div class="main-body">
         <div class="row">
@@ -51,7 +58,7 @@
                                 <h6 class="mb-0">Full Name</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="text" class="form-control" name="full_name" id="full_name" value="<?= $meta['full_name'] ?? ''; ?>" />
+                                <input type="text" class="form-control" name="full_name" id="full_name" value="<?= $mappedMeta['full_name'] ?? ''; ?>" />
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -67,7 +74,7 @@
                                 <h6 class="mb-0">Phone</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="text" class="form-control" name="phone" id="phone" value="<?= $meta['phone'] ?? ''; ?>" />
+                                <input type="text" class="form-control" name="phone" id="phone" value="<?= $mappedMeta['phone'] ?? ''; ?>" />
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -75,7 +82,7 @@
                                 <h6 class="mb-0">Address</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="text" class="form-control" name="address" id="address" value="<?= $meta['address'] ?? ''; ?>" />
+                                <input type="text" class="form-control" name="address" id="address" value="<?= $mappedMeta['address'] ?? ''; ?>" />
                             </div>
                         </div>
                         <div class="row">

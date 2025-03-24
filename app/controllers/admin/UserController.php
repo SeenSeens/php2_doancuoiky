@@ -36,14 +36,14 @@ class UserController extends Controller{
             $phone = isset( $_POST['phone']) ? trim(htmlspecialchars(strip_tags($_POST['phone']), ENT_QUOTES, 'UTF-8')) : '';
             $address = isset( $_POST['address']) ? trim(htmlspecialchars(strip_tags($_POST['address']), ENT_QUOTES, 'UTF-8')) : '';
 
-            $data = [
+            $metaData = [
                 ['meta_key' => 'full_name', 'meta_value' => $full_name],
                 ['meta_key' => 'phone', 'meta_value' => $phone],
                 ['meta_key' => 'address', 'meta_value' => $address],
             ];
 
             // Thực hiện insert hoặc update
-            $result = $this->user_meta->insertOrUpdate($data, $id);
+            $result = $this->user_meta->insertOrUpdateUserMeta($id, $metaData);
 //            foreach ($metaData as $meta) {
 //                $metaKey = $meta['meta_key'];
 //                $metaValue = $meta['meta_value'];
@@ -52,7 +52,7 @@ class UserController extends Controller{
 //                $this->user_meta->updateOrInsert($id, $metaKey, $metaValue);
 //            }
             // Redirect sau khi lưu
-            header("Location: " . __WEB_ROOT__ . "/user/profile");
+            header("Location: " . __WEB_ROOT__ . "/admin/user/profile/" . $id);
             exit;
         }
 
