@@ -118,6 +118,40 @@ trait QueryBuilder{
         }
         return false;
     }
+    public function insertOrUpdate($data, $updateFields = [], $parentId = null, $parentKey = '') {
+
+        // Thêm parent ID vào dữ liệu nếu cần
+        if ($parentId !== null) {
+            $data[$parentKey] = $parentId;
+        }
+
+        // Tạo danh sách cột và giá trị để chèn
+        $columns = implode(', ', array_keys($data));
+        $placeholders = ':' . implode(', :', array_keys($data));
+
+        // Xử lý phần `ON DUPLICATE KEY UPDATE`
+        $updateQuery = '';
+        if (!empty($updateFields)) {
+            $updateSet = [];
+            foreach ($updateFields as $field) {
+                $updateSet[] = "$field = VALUES($field)";
+            }
+            $updateQuery = 'ON DUPLICATE KEY UPDATE ' . implode(', ', $updateSet);
+        }
+
+        // Xây dựng câu SQL hoàn chỉnh
+        $sql = "INSERT INTO $this->tableName ($columns) VALUES ($placeholders) $updateQuery";
+
+        // Thực hiện chuẩn bị và bind dữ liệu
+        $stmt = $this->query($sql);
+        foreach ($data as $key => $value) {
+            $stmt->bindValue(":$key", $value);
+        }
+
+        // Thực thi query và trả về kết quả
+        return $stmt->execute();
+    }
+
     public function resetQuery(){
         $this->tableName = '';
         $this->where = '';

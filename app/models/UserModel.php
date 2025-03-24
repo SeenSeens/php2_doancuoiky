@@ -40,4 +40,9 @@ class UserModel extends Model {
             ->select('id')
             ->get();
     }
+    function deleteUser($id): bool {
+        return $this->db->table($this->__table)
+            ->where('id', '=', $id)
+            ->delete();
+    }
 }

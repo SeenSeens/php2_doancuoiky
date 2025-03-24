@@ -21,13 +21,25 @@ class UserController extends Controller{
     public function edit() {
 
     }
-    public function delete() {}
+    public function delete() {
+        if($_SERVER['REQUEST_METHOD'] == 'DELETE') {
+            $data = json_decode(file_get_contents('php://input'), true);
+            if ( isset( $data['id'] ) ) :
+                $this->users->deleteUser($data['id']);
+                echo json_encode(['success' => true]);
+                return;
+            else:
+                echo json_encode(['error' => 'Thiếu ID danh mục']);
+                return;
+            endif;
+        }
+    }
 
     public function profile($id) {
         $this->data['sub_content']['page_title'] = 'Hồ sơ';
         $this->data['sub_content']['user'] = $this->users->find($id);
         // Lấy metadata của user
-        $this->data['sub_content']['metaData'] = $this->user_meta->all($id);
+        $this->data['sub_content']['metaData'] = $this->user_meta->selectMetabyId($id);
 
         // Dùng với Form 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -44,13 +56,6 @@ class UserController extends Controller{
 
             // Thực hiện insert hoặc update
             $result = $this->user_meta->insertOrUpdateUserMeta($id, $metaData);
-//            foreach ($metaData as $meta) {
-//                $metaKey = $meta['meta_key'];
-//                $metaValue = $meta['meta_value'];
-//
-//                // Update meta vào database (giả sử model UserMeta đã có)
-//                $this->user_meta->updateOrInsert($id, $metaKey, $metaValue);
-//            }
             // Redirect sau khi lưu
             header("Location: " . __WEB_ROOT__ . "/admin/user/profile/" . $id);
             exit;

@@ -71,8 +71,9 @@ $routes = [
     // UserController
     'admin/user' => 'admin/UserController',
     'admin/user/add-user' => 'admin/UserController/create',
-//    'admin/user/profile' => 'admin/UserController/profile',
+    'admin/user/profile' => 'admin/UserController/profile',
     'admin/user/profile/(.+)' => 'admin/UserController/profile/$1',
+    'admin/user/delete' => 'admin/UserController/delete',
 
     // CommentController
     'admin/comments' => 'admin/CommentController',
