@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/admin/assets/css/header-colors.css' ?>" />
     <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/jquery.min.js' ?>"></script>
     <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/angular.min.js' ?>"></script>
+    <script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/notifications/js/lobibox.min.js'; ?>"></script>
     <title><?= $this->data['sub_content']['page_title']; ?></title>
 </head>
 <body>
@@ -37,7 +38,7 @@
     <?php $this->render('backend/layout/header') ?>
     <!--end header -->
     <!--start page wrapper -->
-    <div class="page-wrapper">
+     <div class="page-wrapper">
         <div class="page-content">
             <?php $this->render($content, $sub_content); ?>
         </div>
@@ -59,11 +60,38 @@
 <!-- Bootstrap JS -->
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/bootstrap.bundle.min.js' ?>"></script>
 <!--plugins-->
-
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/simplebar/js/simplebar.min.js' ?>"></script>
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/metismenu/js/metisMenu.min.js' ?>"></script>
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js' ?>"></script>
+
 <!--app JS-->
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/app.js' ?>"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        <?php if (!empty($_SESSION['error'])) : ?>
+        Lobibox.notify('error', {
+            size: 'mini',
+            rounded: true,
+            delay: 3000,
+            sound: false,
+            title: 'Lỗi',
+            msg: "<?php echo $_SESSION['error']; ?>"
+        });
+        <?php unset($_SESSION['error']); ?>
+        <?php endif; ?>
+
+        <?php if (!empty($_SESSION['success'])) : ?>
+        Lobibox.notify('success', {
+            size: 'mini',
+            rounded: true,
+            delay: 3000,
+            sound: false,
+            title: 'Thành công',
+            msg: "<?php echo $_SESSION['success']; ?>"
+        });
+        <?php unset($_SESSION['success']); ?>
+        <?php endif; ?>
+    });
+</script>
 </body>
 </html>

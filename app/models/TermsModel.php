@@ -1,20 +1,19 @@
 <?php
-require_once __DIR_ROOT__ . '/app/models/TermsModel.php';
-class CategoriesModel extends TermsModel {
+class TermsModel extends Model {
+    private string $__table = 'terms';
+    protected function tableFill(){
+        return $this->__table;
+    }
 
-    public function getCategory() {
-        return $this->db->table( $this->tableFill() )
-            ->join('term_taxonomy', 'terms.id = term_taxonomy.term_id')
-            ->where('term_taxonomy.taxonomy', '=', 'category')
-            ->get();
+    protected function fieldFill(){
+        return '*';
     }
-    public function findCategory($id) {
-        return $this->db->table( $this->tableFill() )
-            ->join('term_taxonomy', 'terms.id = term_taxonomy.term_id')
-            ->where('terms.id', '=', $id)
-            ->first();
+
+    protected function primaryKey(){
+        return 'id';
     }
-    public function insertCategory($data){
+
+    /*public function insertTerm($data, $taxonomy = ''){
         try {
             // Khởi động transaction để đảm bảo tính toàn vẹn dữ liệu
 
@@ -24,7 +23,7 @@ class CategoriesModel extends TermsModel {
             $termId = $this->db->lastInsertId();
             $dataTerm = [
                 'term_id' => $termId,
-                'taxonomy' => 'category',
+                'taxonomy' => $taxonomy,
             ];
             // Thêm vào bảng term_taxonomy
             $this->db->table('term_taxonomy')->insert($dataTerm);
@@ -39,4 +38,14 @@ class CategoriesModel extends TermsModel {
             return false;
         }
     }
+    public function updateTerm($data, $id){
+        return $this->db->table('terms')
+            ->where('id', '=', $id)
+            ->update($data);
+    }
+    public function deleteTerm($id){
+        return $this->db->table('terms')
+            ->where('id', '=', $id)
+            ->delete();
+    }*/
 }

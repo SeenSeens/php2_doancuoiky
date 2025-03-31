@@ -5,7 +5,7 @@ class Home extends Controller {
     public $products;
     public $posts;
     public function __construct() {
-        // $this->categories = $this->model('CategoriesModel');
+        // $this->categories = $this->model('CategoriesModelBk');
         // $this->products = $this->model('ProductsModel');
         // $this->posts = $this->model('PostsModel');
     }

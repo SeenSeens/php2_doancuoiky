@@ -6,6 +6,7 @@
   - errors
   - helpers
   - models
+  - repositories
   - views
     - backend
     - frontend

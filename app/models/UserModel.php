@@ -1,15 +1,15 @@
 <?php
 class UserModel extends Model {
     private string $__table = 'users';
-    #[\Override] function tableFill(){
+    protected function tableFill(){
         return $this->__table;
     }
 
-    #[\Override] function fieldFill(){
+    protected function fieldFill(){
         return '*';
     }
 
-    #[\Override] function primaryKey(){
+    protected function primaryKey(){
         return 'id';
     }
     function selectUser($email){
@@ -40,7 +40,7 @@ class UserModel extends Model {
             ->select('id')
             ->get();
     }
-    function deleteUser($id): bool {
+    function deleteUser($id) {
         return $this->db->table($this->__table)
             ->where('id', '=', $id)
             ->delete();

@@ -6,7 +6,7 @@
         "psr-4": {
             "App\\": "app/",
             "Core\\": "core/",
-            "Utils\\": "ultils/"
+            "Utils\\": "utils/"
         }
     },
     "authors": [

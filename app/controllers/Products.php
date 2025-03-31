@@ -6,7 +6,7 @@ class Products extends Controller {
     public mixed $products;
     public function __construct() {
         $this->products = $this->model('ProductsModel');
-        $this->categories = $this->model('CategoriesModel');
+        $this->categories = $this->model('CategoriesModelBk');
     }
 
     /**

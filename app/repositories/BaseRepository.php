@@ -1,16 +1,13 @@
 <?php
-abstract class Model extends Database {
-    protected $db;
-    abstract protected function tableFill();
-    abstract protected function fieldFill();
-    abstract protected function primaryKey();
-    public function __construct() {
-        $this->db = new Database();
+class BaseRepository {
+    protected $model;
+    public function __construct( $model ) {
+        $this->model = $model;
     }
     // Lấy tất cả bản ghi
     public function all() {
-        $tableName = $this->tableFill();
-        $fieldSelect = $this->fieldFill();
+        $tableName = $this->model->tableFill();
+        $fieldSelect = $this->model->fieldFill();
         if( empty( $fieldSelect )) {
             $fieldSelect = ' * ';
         }
@@ -24,9 +21,9 @@ abstract class Model extends Database {
 
     // Lấy 1 bản ghi
     public function find($id) {
-        $tableName = $this->tableFill();
-        $fieldSelect = $this->fieldFill();
-        $primaryKey = $this->primaryKey();
+        $tableName = $this->model->tableFill();
+        $fieldSelect = $this->model->fieldFill();
+        $primaryKey = $this->model->primaryKey();
         if( empty( $fieldSelect )) {
             $fieldSelect = ' * ';
         }
@@ -39,9 +36,9 @@ abstract class Model extends Database {
     }
 
     public function paginate($perPage = 10, $currentPage = 1) {
-        $tableName = $this->tableFill();
-        $fieldSelect = $this->fieldFill();
-        $primaryKey = $this->primaryKey();
+        $tableName = $this->model->tableFill();
+        $fieldSelect = $this->model->fieldFill();
+        $primaryKey = $this->model->primaryKey();
 
         // Tính toán vị trí bắt đầu của bản ghi
         $start = ($currentPage - 1) * $perPage;
@@ -73,4 +70,3 @@ abstract class Model extends Database {
     }
 
 }
-?>

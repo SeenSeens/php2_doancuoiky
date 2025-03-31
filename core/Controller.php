@@ -21,7 +21,6 @@ class Controller {
         extract( $data );
         if( file_exists(__DIR_ROOT__ . '/app/views/' . $view . '.php')) :
             require_once __DIR_ROOT__ . '/app/views/' . $view . '.php';
-//            require_once __DIR_ROOT__ . '/app/views/' . $layout . '.php';
         else:
             echo 'Err';
         endif;

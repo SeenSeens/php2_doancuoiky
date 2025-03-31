@@ -1,4 +1,7 @@
-<?php //$this->render('backend/components/breadcrumb'); ?>
+<?php
+$this->render('backend/components/breadcrumb');
+
+?>
 <div class="container-fluid">
     <div class="row g-3">
         <div class="col-4">

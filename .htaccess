@@ -7,3 +7,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
 
 # RewriteRule . /index.php [L]
+
+<LimitExcept GET POST DELETE>
+    Require all granted
+</LimitExcept>

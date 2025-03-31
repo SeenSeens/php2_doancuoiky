@@ -1,11 +1,11 @@
 <?php
-//require_once 'ultils/image_helper.php';
+//require_once 'utils/image_helper.php';
 class ProductController extends Controller {
     public array $data = [];
     public $categories;
     public $products;
     public function __construct() {
-        $this->categories = $this->model('CategoriesModel');
+        $this->categories = $this->model('CategoriesModelBk');
         $this->products = $this->model('ProductsModel');
     }
 

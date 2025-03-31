@@ -3,7 +3,7 @@ class Productcategory extends Controller {
     public array $data = [];
     public $categories;
     public function __construct() {
-        $this->categories = $this->model('CategoriesModel');
+        $this->categories = $this->model('CategoriesModelBk');
     }
     public function index() {
         try {

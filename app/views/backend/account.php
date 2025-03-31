@@ -33,8 +33,6 @@
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js' ?>"></script>
 <!--notification js -->
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/notifications/js/lobibox.min.js'; ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/notifications/js/notifications.min.js'; ?>"></script>
-<!--<script src="--><?php //= __WEB_ROOT__ . '/public/admin/assets/plugins/notifications/js/notification-account.js'; ?><!--"></script>-->
 <!--app JS-->
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/app.js' ?>"></script>
 <script>

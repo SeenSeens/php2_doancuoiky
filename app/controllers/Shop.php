@@ -6,7 +6,7 @@ class Shop extends Controller {
     public $orders;
     public $order_details;
     public function __construct() {
-        $this->categories = $this->model('CategoriesModel');
+        $this->categories = $this->model('CategoriesModelBk');
         $this->products = $this->model('ProductsModel');
         $this->orders = $this->model('OrdersModel');
         $this->order_details = $this->model('OrderDetailsModel');

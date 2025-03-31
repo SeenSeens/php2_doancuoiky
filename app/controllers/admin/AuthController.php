@@ -6,7 +6,7 @@ class AuthController extends Controller{
         $this->users = $this->model('UserModel');
     }
     public function register(){
-        if( $_SERVER['REQUEST_METHOD'] == 'POST'){
+        if( $_SERVER['REQUEST_METHOD'] == 'POST' ){
             $username = trim(htmlspecialchars(strip_tags($_POST['username']), ENT_QUOTES, 'UTF-8'));
             $email = trim(filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL));
             $password = trim(htmlspecialchars(strip_tags($_POST['password']), ENT_QUOTES, 'UTF-8'));

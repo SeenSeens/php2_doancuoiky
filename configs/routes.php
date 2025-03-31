@@ -55,8 +55,13 @@ $routes = [
     'admin/product-new' => 'admin/ProductController/create',
 
     // TaxonomyController
-    'admin/category' => 'admin/TaxonomyController/category',
-    'admin/category/(.+)' => 'admin/TaxonomyController/category/$1',
+    'admin/category' => 'admin/taxonomy/CategoryController/category',
+    'admin/category-new' => 'admin/taxonomy/CategoryController/createCategory',
+    'admin/category/(.+)' => 'admin/taxonomy/CategoryController/category/$1',
+    'admin/category/delete' => 'admin/taxonomy/CategoryController/deleteCategory',
+    'admin/category/edit_id=(.+)' => 'admin/taxonomy/CategoryController/editCategory/$1',
+
+
     'admin/post-tag' => 'admin/TaxonomyController/postTag',
     'admin/product-cat' => 'admin/TaxonomyController/productCat',
     'admin/product-tag' => 'admin/TaxonomyController/productTag',

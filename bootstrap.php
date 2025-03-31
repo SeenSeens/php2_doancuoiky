@@ -45,6 +45,17 @@ if( !empty( $config['database']) ) {
 }
 require_once 'core/Model.php'; // Load Base Model
 require_once 'core/Controller.php'; // Load base controller
-require_once 'ultils/ImageUpload.php'; // Load ultils images
 require_once 'helper/AuthMiddleware.php';
+
+/**
+ * Tự động load utils
+ */
+$utils_dir = scandir( 'utils' );
+if( !empty( $utils_dir )) {
+    foreach ( $utils_dir as $item ) {
+        if( $item !== '.' && $item !== '..' && file_exists('utils/' . $item) ) {
+            require_once 'utils/' . $item ; // Load routes config
+        }
+    }
+}
 ?>
