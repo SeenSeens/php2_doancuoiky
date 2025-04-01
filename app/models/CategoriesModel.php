@@ -14,29 +14,4 @@ class CategoriesModel extends TermsModel {
             ->where('terms.id', '=', $id)
             ->first();
     }
-    public function insertCategory($data){
-        try {
-            // Khởi động transaction để đảm bảo tính toàn vẹn dữ liệu
-
-            // Thêm vào bảng terms
-            $this->db->table( $this->tableFill() )->insert($data);
-            // Lấy term_id vừa thêm vào
-            $termId = $this->db->lastInsertId();
-            $dataTerm = [
-                'term_id' => $termId,
-                'taxonomy' => 'category',
-            ];
-            // Thêm vào bảng term_taxonomy
-            $this->db->table('term_taxonomy')->insert($dataTerm);
-
-            // Commit transaction
-
-            return $termId; // Trả về term_id mới thêm
-        } catch (Exception $e) {
-            // Rollback nếu có lỗi
-
-            echo "Lỗi thêm danh mục: " . $e->getMessage();
-            return false;
-        }
-    }
 }

@@ -13,7 +13,10 @@ $documentRoot = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']);
 $folder = str_replace( strtolower($documentRoot), '', strtolower($dirRoot));
 $web_root = $web_root . '/' . $folder;
 define('__WEB_ROOT__', $web_root);
-echo "<script>window.data = { __WEB_ROOT__: '" . __WEB_ROOT__ . "' };</script>";
+
+if (php_sapi_name() !== 'cli' && empty($_SERVER['HTTP_X_REQUESTED_WITH'])) :
+    echo "<script>window.data = { __WEB_ROOT__: '" . __WEB_ROOT__ . "' };</script>";
+endif;
 
 // Load dotenv
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR_ROOT__);
@@ -58,4 +61,27 @@ if( !empty( $utils_dir )) {
         }
     }
 }
+/**
+ * Tự động load repositories
+ */
+// $repositories_dir = scandir( __DIR_ROOT__ . '/app/repositories' );
+// if( !empty( $repositories_dir )) {
+//     foreach ( $repositories_dir as $item ) {
+//         if( $item !== '.' && $item !== '..' && file_exists('repositories/' . $item) ) {
+//             require_once 'app/repositories/' . $item ; // Load repositories
+//         }
+//     }
+// }
+/**
+ * Tự động load services
+ */
+// $services_dir = scandir( __DIR_ROOT__ . '/app/services' );
+// if( !empty( $services_dir )) {
+//     foreach ( $services_dir as $item ) {
+//         echo $item; echo '</br>';
+//         if( $item !== '.' && $item !== '..' && file_exists('services/' . $item) ) {
+//             require_once 'app/services/' . $item ; // Load services
+//         }
+//     }
+// }
 ?>

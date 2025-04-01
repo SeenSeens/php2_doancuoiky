@@ -1,15 +1,15 @@
 <?php
 class UserModel extends Model {
     private string $__table = 'users';
-    protected function tableFill(){
+     function tableFill(){
         return $this->__table;
     }
 
-    protected function fieldFill(){
+     function fieldFill(){
         return '*';
     }
 
-    protected function primaryKey(){
+     function primaryKey(){
         return 'id';
     }
     function selectUser($email){

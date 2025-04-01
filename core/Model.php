@@ -1,9 +1,9 @@
 <?php
 abstract class Model extends Database {
     protected $db;
-    abstract protected function tableFill();
-    abstract protected function fieldFill();
-    abstract protected function primaryKey();
+    abstract public function tableFill();
+    abstract public function fieldFill();
+    abstract public function primaryKey();
     public function __construct() {
         $this->db = new Database();
     }
