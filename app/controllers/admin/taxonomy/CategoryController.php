@@ -17,7 +17,10 @@ class CategoryController extends Controller{
 
     }
     public function createCategory() {
-        $this->termService->saveTerm(null, 'category', 'category');
+        $result = $this->termService->saveTerm(null, 'category', 'category');
+        $_SESSION[$result['success'] ? 'success' : 'error'] = $result['message'];
+        header("Location: " . __WEB_ROOT__ . "/admin/category");
+        exit();
     }
 
     public function editCategory( $id ) {
@@ -26,20 +29,16 @@ class CategoryController extends Controller{
         $this->category();
     }
     public function deleteCategory() {
-        header('Content-Type: application/json');
-
         if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['id'])) {
             echo json_encode(['success' => false, 'message' => 'Yêu cầu không hợp lệ!']);
             exit;
         }
-
         $termId = intval($_POST['id']);
-
         // Gọi Service để xử lý xóa term
-        $result = $this->termService->deleteTerm($termId);
+        $deleted = $this->termService->deleteTerm($termId);
 
-        echo json_encode($result);
-        ob_clean(); // Xóa tất cả dữ liệu đệm (loại bỏ HTML không mong muốn)
+        echo json_encode(['success' => $deleted, 'message' => $deleted ? 'Xóa thành công' : 'Xóa thất bại']);
+        ob_clean(); // Xóa tất cả dữ liệu đệm ( loại bỏ HTML không mong muốn )
         exit;
     }
 

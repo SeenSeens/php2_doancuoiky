@@ -30,7 +30,7 @@ class TermRepository extends BaseRepository {
             $this->db->table('term_taxonomy')->insert($dataTerm);
             return $termId; // Trả về term_id mới thêm
         } catch (Exception $e) {
-            echo "Lỗi thêm danh mục: " . $e->getMessage();
+            error_log("Lỗi thêm danh mục: " . $e->getMessage());
             return false;
         }
     }

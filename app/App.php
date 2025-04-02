@@ -94,6 +94,8 @@ class App {
                 unset( $urlArr[0] );
                 if (!empty($this->__db)) :
                     $this->__controller = new $this->__controller($this->__db);
+                else:
+                    $this->__controller = new $this->__controller();
                 endif;
             else:
                 $this->loadError();
