@@ -1003,7 +1003,7 @@ chart.render();
 			}
 		},
 		xAxis: {
-			type: 'category'
+			type: 'terms'
 		},
 		yAxis: {
 			title: {
@@ -1071,7 +1071,7 @@ chart.render();
 			}
 		},
 		xAxis: {
-			type: 'category'
+			type: 'terms'
 		},
 		yAxis: {
 			title: {

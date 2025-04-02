@@ -7,10 +7,10 @@ $this->render('backend/components/breadcrumb');
             <div class="card">
                 <div class="card-body">
                     <?php
-                    if (!empty($this->data['category'])) {
-                        $this->render('backend/category/update');
+                    if (!empty($this->data['term'])) {
+                        $this->render('backend/terms/update');
                     } else {
-                        $this->render('backend/category/create');
+                        $this->render('backend/terms/create');
                     }
                     ?>
                 </div>
@@ -19,8 +19,7 @@ $this->render('backend/components/breadcrumb');
         <div class="col-8">
             <div class="card">
                 <div class="card-body">
-                    <?php //$this->render($content, $sub_content); ?>
-                    <?php $this->render('backend/components/table'); ?>
+                    <?php $this->render('backend/terms/table'); ?>
                 </div>
             </div>
         </div>

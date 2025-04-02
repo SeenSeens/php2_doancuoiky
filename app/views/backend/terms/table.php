@@ -1,6 +1,4 @@
-<?php
-$categories = $this->data['sub_content']['categories'];
-?>
+<?php $terms = $this->data['sub_content']['terms']; ?>
 <table class="table">
     <thead>
     <tr>
@@ -12,15 +10,15 @@ $categories = $this->data['sub_content']['categories'];
     </tr>
     </thead>
     <tbody>
-    <?php foreach ( $categories as $index => $category ) : ?>
-        <tr id="row-<?= $category['term_id']; ?>">
+    <?php foreach ( $terms as $index => $term ) : ?>
+        <tr id="row-<?= $term['term_id']; ?>">
             <td><?= $index + 1; ?></td>
-            <td><?= $category['name']; ?></td>
-            <td class="col-2"><?= $category['slug']; ?></td>
-            <td class="text-wrap"><?= $category['description']; ?></td>
+            <td><?= $term['name']; ?></td>
+            <td class="col-2"><?= $term['slug']; ?></td>
+            <td class="text-wrap"><?= $term['description']; ?></td>
             <td class="col-3">
-                <a href="<?= __WEB_ROOT__ . '/admin/category/edit_id=' . $category['term_id']; ?>" class="btn btn-sm btn-warning ">Edit</a>
-                <button class="btn btn-sm btn-danger delete-term"  data-id="<?= $category['term_id']; ?>">Delete</button>
+                <a href="<?= __WEB_ROOT__ . '/admin/' . $this->data['taxonomy'] .'/edit_id=' . $term['term_id']; ?>" class="btn btn-sm btn-warning ">Edit</a>
+                <button class="btn btn-sm btn-danger delete-term"  data-id="<?= $term['term_id']; ?>">Delete</button>
             </td>
         </tr>
     <?php endforeach; ?>
@@ -31,7 +29,7 @@ $categories = $this->data['sub_content']['categories'];
         document.querySelectorAll('.delete-term').forEach(button => {
             button.addEventListener('click', function() {
                 let termId = this.getAttribute('data-id');
-                let url = '<?= __WEB_ROOT__ . '/admin/category/delete'; ?>'
+                let url = '<?= __WEB_ROOT__ . '/admin/' . $this->data['taxonomy'] . '/delete'; ?>'
 
                 if (confirm("Bạn có chắc chắn muốn xóa term này?")) {
                     fetch(url, {

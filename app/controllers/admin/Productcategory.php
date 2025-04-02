@@ -9,8 +9,8 @@ class Productcategory extends Controller {
         try {
             $dataCategory = $this->categories->all(); // Lấy tất cả chuyên mục
             $this->data['sub_content']['page_title'] = "Chuyên mục sản phẩm";
-            $this->data['sub_content']['category'] = $dataCategory;
-            $this->data['content'] = 'backend/products/category';
+            $this->data['sub_content']['terms'] = $dataCategory;
+            $this->data['content'] = 'backend/products/terms';
             $this->render('backend/dashboard', $this->data);
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();

@@ -19,7 +19,7 @@ class ProductController extends Controller {
     function viewProductById($id) {
         $this->data['sub_content']['page_title'] = "Trang chủ";
         $this->data['sub_content']['product'] = $this->products->find($id);
-        $this->data['sub_content']['category'] = $this->categories->getListCategory();
+        $this->data['sub_content']['terms'] = $this->categories->getListCategory();
         $this->data['content'] = 'backend/products/product_detail';
         $this->render('backend/dashboard', $this->data);
     }
@@ -29,7 +29,7 @@ class ProductController extends Controller {
      */
     public function create(){
         $this->data['sub_content']['page_title'] = "Thêm mới sản phẩm";
-//        $this->data['sub_content']['category'] = $this->categories->getListCategory();
+//        $this->data['sub_content']['terms'] = $this->categories->getListCategory();
         $this->data['content'] = 'backend/products/add_product';
         $this->render('backend/admin_layout', $this->data);
         try {
@@ -39,7 +39,7 @@ class ProductController extends Controller {
                 $excerpt = !empty($_POST['excerpt']) ? $_POST['excerpt'] : '';
                 $price = !empty($_POST['price']) ? intval($_POST['price']) : 0;
                 $discount = !empty($_POST['discount']) ? intval($_POST['discount']) : 0;
-                $category_id = !empty($_POST['category']) ? $_POST['category'] : '';
+                $category_id = !empty($_POST['terms']) ? $_POST['terms'] : '';
 
                 // Sử dụng lớp ImageUpload
                 $imageUpload = new ImageUpload();
@@ -67,7 +67,7 @@ class ProductController extends Controller {
         $product = $this->products->find($id);
         $this->data['sub_content']['page_title'] = "Sửa sản phẩm";
         $this->data['sub_content']['product'] = $product;
-        $this->data['sub_content']['category'] = $this->categories->getListCategory();
+        $this->data['sub_content']['terms'] = $this->categories->getListCategory();
         $this->data['content'] = 'backend/pages/products/edit_product';
         $this->render('backend/dashboard', $this->data);
         try {
@@ -77,7 +77,7 @@ class ProductController extends Controller {
                 $excerpt = !empty($_POST['excerpt']) ? $_POST['excerpt'] : '';
                 $price = !empty($_POST['price']) ? intval($_POST['price']) : 0;
                 $discount = !empty($_POST['discount']) ? intval($_POST['discount']) : 0;
-                $category_id = !empty($_POST['category']) ? $_POST['category'] : '';
+                $category_id = !empty($_POST['terms']) ? $_POST['terms'] : '';
 
                 // Sử dụng lớp ImageUpload để xử lý ảnh mới
                 $imageUpload = new ImageUpload();

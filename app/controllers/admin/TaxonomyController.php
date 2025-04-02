@@ -6,12 +6,12 @@ class TaxonomyController extends Controller{
         $this->terms = $this->model('TermsModel');
     }
 
-    // category
+    // terms
     public function category() {
         $this->data['sub_content']['page_title'] = "Danh mục";
-        $this->data['sub_content']['routes'] = '/admin/category-new';
+        $this->data['sub_content']['routes'] = '/admin/terms-new';
         $this->data['sub_content']['categories'] = $this->terms->getCategory();
-        $this->data['content'] = 'backend/category/index';
+        $this->data['content'] = 'backend/terms/index';
         $this->render('backend/admin_layout', $this->data);
     }
     public function createCategory() {
@@ -24,7 +24,7 @@ class TaxonomyController extends Controller{
                 // Kiểm tra xem các trường có bị bỏ trống
                 if ( empty($name) || empty($slug) ) {
                     $_SESSION['error'] = "Vui lòng điền đầy đủ thông tin!";
-                    header("Location: " . __WEB_ROOT__ . "/admin/category");
+                    header("Location: " . __WEB_ROOT__ . "/admin/terms");
                     exit();
                 }
 
@@ -39,11 +39,11 @@ class TaxonomyController extends Controller{
 
                 if ($result) {
                     $_SESSION['success'] = "Đăng ký thành công!";
-                    header("Location: " . __WEB_ROOT__ . "/admin/category");
+                    header("Location: " . __WEB_ROOT__ . "/admin/terms");
                     exit();
                 } else {
                     $_SESSION['error'] = "Đăng ký thất bại.";
-                    header("Location: " . __WEB_ROOT__ . "/admin/category");
+                    header("Location: " . __WEB_ROOT__ . "/admin/terms");
                     exit();
                 }
             }

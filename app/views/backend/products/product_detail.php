@@ -1,6 +1,6 @@
 <?php
 $product = $this->data['sub_content']['product'];
-$categories = $this->data['sub_content']['category'];
+$categories = $this->data['sub_content']['terms'];
 ?>
 <!--breadcrumb-->
 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">

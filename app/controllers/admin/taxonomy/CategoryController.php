@@ -4,47 +4,58 @@ require_once __DIR_ROOT__ . '/app/services/TermService.php';
 class CategoryController extends Controller{
     public array $data = [];
     private TermService $termService;
+    private string $taxonomy = 'category';
+    private string $router = 'category';
     public function __construct(){
         $this->termService = new TermService();
     }
 
-    // category
-    public function category() {
+    // terms
+    public function index() {
         $this->data['sub_content']['page_title'] = "Danh mục";
-        $this->dataCategory();
-        $this->data['content'] = 'backend/category/index';
+        $this->data['routes-new'] = $this->router . "-new";
+        $this->data['text-form'] = [
+            'title' => 'Thêm danh mục',
+            'button' => 'Thêm danh mục'
+        ];
+        $this->data();
+        $this->data['content'] = 'backend/terms/index';
         $this->render('backend/admin_layout', $this->data);
 
     }
-    public function createCategory() {
-        $result = $this->termService->saveTerm(null, 'category', 'category');
+    public function create() {
+        $result = $this->termService->saveTerm(null, $this->taxonomy, $this->router );
         $_SESSION[$result['success'] ? 'success' : 'error'] = $result['message'];
-        header("Location: " . __WEB_ROOT__ . "/admin/category");
+        header("Location: " . __WEB_ROOT__ . "/admin/terms");
         exit();
     }
 
-    public function editCategory( $id ) {
-        $this->data['category'] = $this->termService->findTerm( $id );
-        $this->termService->saveTerm( $id, 'category', 'category' );
-        $this->category();
+    public function edit( $id ) {
+        $this->data['term'] = $this->termService->findTerm( $id );
+        $this->data['routes-edit'] = $this->router . "/edit_id";
+        $this->data['text-edit-form'] = [
+            'title' => 'Sửa danh mục',
+            'button' => 'Sửa danh mục'
+        ];
+        $this->termService->saveTerm( $id, $this->taxonomy, $this->router );
+        $this->index();
     }
-    public function deleteCategory() {
+    public function delete() {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['id'])) {
             echo json_encode(['success' => false, 'message' => 'Yêu cầu không hợp lệ!']);
             exit;
         }
         $termId = intval($_POST['id']);
-        // Gọi Service để xử lý xóa term
         $deleted = $this->termService->deleteTerm($termId);
-
         echo json_encode(['success' => $deleted, 'message' => $deleted ? 'Xóa thành công' : 'Xóa thất bại']);
-        ob_clean(); // Xóa tất cả dữ liệu đệm ( loại bỏ HTML không mong muốn )
+        ob_clean();
         exit;
     }
 
+    private function data(){
+        $this->data['taxonomy'] = $this->router;
+        $this->data['sub_content']['terms'] = $this->termService->getTerms( $this->taxonomy );
 
-    private function dataCategory(){
-        $this->data['sub_content']['categories'] = $this->termService->getTerms('category');
     }
 
 }

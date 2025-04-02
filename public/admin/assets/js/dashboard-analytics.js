@@ -400,7 +400,7 @@ $(function() {
 			}
 		},
 		xAxis: {
-			type: "category"
+			type: "terms"
 		},
 		yAxis: {
 			title: {

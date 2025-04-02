@@ -52,7 +52,6 @@ class TermService extends BaseService {
             $termId = intval($_POST['id']);
             $deleted = $this->termRepository->deleteTerm($termId);
 
-            // ✅ Chỉ trả JSON, không có HTML / script
             echo json_encode(['success' => $deleted]);
             exit;
         }

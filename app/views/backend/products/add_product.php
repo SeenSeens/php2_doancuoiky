@@ -1,5 +1,5 @@
 <link href="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/Drag-And-Drop/dist/imageuploadify.min.css' ?>" rel="stylesheet" />
-<?php $categories =  $this->data['sub_content']['category']; ?>
+<?php $categories =  $this->data['sub_content']['terms']; ?>
 <?php $this->render('backend/components/breadcrumb'); ?>
 <div class="container-fluid" >
     <form class="row" action="<?= __WEB_ROOT__ . '/admin/product/add' ?>" method="POST" enctype="multipart/form-data" >

@@ -14,7 +14,7 @@ class Products extends Controller {
      */
     public function store() {
         $this->data['sub_content']['title'] = 'Cửa hàng';
-        $this->data['sub_content']['category'] = $this->categories->all();
+        $this->data['sub_content']['terms'] = $this->categories->all();
         $this->data['sub_content']['products'] = $this->products->all();
         $this->data['sub_content']['latest-products'] = self::getLatestProducts();
         $this->data['content'] = 'frontend/pages/shop'; // truyền dữ liệu qua bên view
@@ -65,7 +65,7 @@ class Products extends Controller {
     // Hiển thị sản phẩm theo chuyên mục
     function ProductCategory($id){
         $this->data['sub_content']['page_title'] = "Danh mục sản phẩm";
-        $this->data['sub_content']['category'] = $this->categories->all();
+        $this->data['sub_content']['terms'] = $this->categories->all();
         $this->data['sub_content']['products'] = $this->products->getProductCategory($id);
         $this->data['sub_content']['latest-products'] = self::getLatestProducts();
         $this->data['content'] = 'frontend/pages/product_category';

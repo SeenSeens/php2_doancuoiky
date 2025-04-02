@@ -5,7 +5,7 @@ class TermsHelper {
         $this->terms = $this->model('CategoriesModel');
 
     }
-    public static function insertTerm($id = null, $taxonomy = '', $routes = 'category'){
+    public static function insertTerm($id = null, $taxonomy = '', $routes = 'terms'){
         try {
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $name = trim(htmlspecialchars(strip_tags($_POST['name']), ENT_QUOTES, 'UTF-8'));
@@ -23,7 +23,7 @@ class TermsHelper {
                     $message = "Cập nhật thành công!";
                 } else {
                     // Nếu không có ID => tạo mới
-                    $result = $this->terms->insertTerm($data, 'category');
+                    $result = $this->terms->insertTerm($data, 'terms');
                     $message = "Đăng ký thành công!";
                 }
 

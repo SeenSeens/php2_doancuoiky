@@ -67,7 +67,7 @@
                             </thead>
                             <tbody>
                                 <tr ng-repeat="category in categories" ng-click="fillForm(category)">
-                                    <td><img ng-src="<?= __WEB_ROOT__ . '/public/images/{{ category.thumbnail }}'?>" alt="" class="img-fluid"></td>
+                                    <td><img ng-src="<?= __WEB_ROOT__ . '/public/images/{{ terms.thumbnail }}'?>" alt="" class="img-fluid"></td>
                                     <td>{{ category.name }}</td>
                                     <td class="text-wrap">{{ category.description }}</td>
                                     <td>
@@ -120,7 +120,7 @@
             $scope.fetchData();
         }
         $scope.fetchData = () => {
-            $scope.categories = <?= json_encode( $this->data['sub_content']['category'] ); ?>;
+            $scope.categories = <?= json_encode( $this->data['sub_content']['terms'] ); ?>;
         }
         $scope.submitForm = () => {
             $http({
@@ -148,7 +148,7 @@
         }
         $scope.deleteCategory = (categoryId) => {
             // Confirm deletion with the user
-            if (confirm('Are you sure you want to delete this category?')) {
+            if (confirm('Are you sure you want to delete this terms?')) {
                 // Send AJAX request to delete the category
                 $http({
                     method: 'POST',

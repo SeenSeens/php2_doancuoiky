@@ -110,7 +110,7 @@ CREATE TABLE terms (
 CREATE TABLE term_taxonomy (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     term_id BIGINT UNSIGNED NOT NULL,
-    taxonomy ENUM('category', 'tag', 'product_cat', 'product_tag', 'product_brand') NOT NULL,
+    taxonomy ENUM('terms', 'tag', 'product_cat', 'product_tag', 'product_brand') NOT NULL,
     parent BIGINT UNSIGNED DEFAULT NULL,
     count BIGINT UNSIGNED NOT NULL DEFAULT 0,
     FOREIGN KEY (term_id) REFERENCES terms(id) ON DELETE CASCADE,
