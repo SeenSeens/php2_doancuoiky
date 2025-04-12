@@ -7,7 +7,7 @@ class Home extends Controller {
     public function __construct() {
         // $this->categories = $this->model('CategoriesModelBk');
         // $this->products = $this->model('ProductsModel');
-        // $this->posts = $this->model('PostsModel');
+        // $this->posts = $this->model('PostModel');
     }
     public function index () {
         $this->data['sub_content']['page_title'] = "Trang chủ";

@@ -1,15 +1,17 @@
 <?php
 class TermRelationshipsModel extends Model {
     private string $__table = 'term_relationships';
-    protected function tableFill(){
+     function tableFill(){
         return $this->__table;
-    }
+     }
 
-    protected function fieldFill(){
+     function fieldFill(){
         return '*';
-    }
+     }
 
-    protected function primaryKey(){
+     function primaryKey(){
         return 'id';
     }
+
+
 }

@@ -97,6 +97,36 @@
                 <li> <a href="<?= __WEB_ROOT__ . '/admin/user/profile'?>"><i class="bx bx-right-arrow-alt"></i>Hồ sơ</a></li>
             </ul>
         </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-user-circle"></i></div>
+                <div class="menu-title">Công cụ</div>
+            </a>
+            <ul>
+                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Các công cụ có sẵn</a></li>
+                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Nhập dữ liệu</a></li>
+                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Xuất dữ liệu</a></li>
+                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Tình trạng website</a></li>
+                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Xuất dữ liệu cá nhân</a></li>
+                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Xóa dữ liệu cá nhân</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-user-circle"></i></div>
+                <div class="menu-title">Cài đặt</div>
+            </a>
+            <ul>
+                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Tổng quan</a></li>
+                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Viết</a></li>
+                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Đọc</a></li>
+                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Bình luận</a></li>
+                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Media</a></li>
+                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Đường dẫn cố định</a></li>
+                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Riêng tư</a></li>
+                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Mục lục</a></li>
+            </ul>
+        </li>
     </ul>
     <!--end navigation-->
 </div>

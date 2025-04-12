@@ -1,5 +1,4 @@
 <?php
-require_once __DIR_ROOT__ . '/helper/FormInputHelper.php';
 require_once __DIR_ROOT__ . '/app/services/TermService.php';
 class CategoryController extends Controller{
     public array $data = [];

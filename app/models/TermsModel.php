@@ -12,4 +12,6 @@ class TermsModel extends Model {
     public function primaryKey(){
         return 'id';
     }
+
+
 }

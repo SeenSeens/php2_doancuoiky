@@ -1,15 +1,15 @@
 <?php
 class TermTaxonomyModel extends Model{
     private string $__table = 'term_taxonomy';
-    protected function tableFill(){
+    public function tableFill(){
         return $this->__table;
     }
 
-    protected function fieldFill(){
+    public function fieldFill(){
         return '*';
     }
 
-    protected function primaryKey(){
+    public function primaryKey(){
         return 'id';
     }
 

@@ -1,9 +1,9 @@
 <?php
-// require_once __DIR_ROOT__ . '/helper/FormInputHelper.php';
+require_once __DIR_ROOT__ . '/helper/FormInputHelper.php';
 require_once __DIR_ROOT__ . '/app/services/BaseService.php';
 require_once __DIR_ROOT__ . '/app/repositories/TermRepository.php';
 class TermService extends BaseService {
-    protected $termRepository;
+    protected TermRepository $termRepository;
 
     public function __construct() {
         $this->termRepository = new TermRepository();

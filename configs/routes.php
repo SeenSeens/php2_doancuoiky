@@ -45,6 +45,7 @@ $routes = [
     // PostController
     'admin/posts' => 'admin/PostController',
     'admin/post-new' => 'admin/PostController/create',
+    'admin/post/edit_id=(.+)' => 'admin/PostController/edit/$1',
 
     // PageController
     'admin/page' => 'admin/PageController',
@@ -88,6 +89,7 @@ $routes = [
     'admin/product-brand/(.+)' => 'admin/taxonomy/ProductBrandController/category/$1',
     'admin/product-brand/delete' => 'admin/taxonomy/ProductBrandController/delete',
     'admin/product-brand/edit_id=(.+)' => 'admin/taxonomy/ProductBrandController/edit/$1',
+
 
     // MediaController
     'admin/upload' => 'admin/MediaController',

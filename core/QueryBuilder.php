@@ -1,12 +1,14 @@
 <?php
 trait QueryBuilder{
-    public $tableName = '';
-    public $where = '';
-    public $operator = '';
-    public $selectField = '*';
-    public $limit = '';
-    public $orderBy = '';
-    public $innerJoin = '';
+    protected string $tableName = '';
+    protected string $where = '';
+    protected string $operator = '';
+    protected string $selectField = '*';
+    protected string $limit = '';
+    protected string $orderBy = '';
+    protected string $innerJoin = '';
+    protected array $groupConcatFields = [];
+    protected string $groupBy = '';
     public function table( $tableName ){
         $this->tableName = $tableName;
         return $this;
@@ -63,7 +65,14 @@ trait QueryBuilder{
         return $this;
     }
     public function get(){
-        $sqlQuery = "SELECT $this->selectField FROM $this->tableName $this->innerJoin $this->where $this->orderBy $this->limit";
+        if (!empty($this->groupConcatFields)) {
+            if ($this->selectField === '*') {
+                $this->selectField = implode(', ', $this->groupConcatFields);
+            } else {
+                $this->selectField .= ', ' . implode(', ', $this->groupConcatFields);
+            }
+        }
+        $sqlQuery = "SELECT $this->selectField FROM $this->tableName $this->innerJoin $this->where $this->groupBy $this->orderBy $this->limit";
         $sqlQuery = trim($sqlQuery);
         $query = $this->query($sqlQuery);
         // Reset field
@@ -74,16 +83,54 @@ trait QueryBuilder{
         }
         return false;
     }
+    // Group by
+
+    public function groupBy($field) {
+        $this->groupBy = "GROUP BY " . $field . " ";
+        return $this;
+    }
+
     // Inner join
     public function join($tableName, $relationShip){
         $this->innerJoin .= " INNER JOIN " . $tableName . " ON " . $relationShip . " ";
         return $this;
     }
+    // Left join
+    public function leftJoin($tableName, $relationship) {
+        $this->innerJoin .= " LEFT JOIN " . $tableName . " ON " . $relationship . " ";
+        return $this;
+    }
+    // groupConcat() – hỗ trợ thêm các field GROUP_CONCAT(...) vào câu lệnh SELECT
+    public function groupConcat($field, $alias = null, $separator = ', ', $distinct = false, $orderBy = null, $condition = null) {
+        $gc = "GROUP_CONCAT(";
+        if ($distinct) $gc .= "DISTINCT ";
+
+        // Nếu có điều kiện (CASE WHEN ...)
+        if ($condition) {
+            $gc .= "CASE WHEN $condition THEN $field END";
+        } else {
+            $gc .= $field;
+        }
+
+        // ORDER BY bên trong GROUP_CONCAT
+        if ($orderBy) {
+            $gc .= " ORDER BY $orderBy";
+        }
+
+        $gc .= " SEPARATOR '$separator')";
+
+        if ($alias) {
+            $gc .= " AS $alias";
+        }
+
+        $this->groupConcatFields[] = $gc;
+        return $this;
+    }
+
     // Insert
     public function insert($data){
         $tableName = $this->tableName;
-        $insertStatus = $this->insertData($tableName, $data);
-        return $insertStatus;
+        return $this->insertData($tableName, $data);
     }
     // LastId
     public function lastId(){
@@ -159,7 +206,11 @@ trait QueryBuilder{
         $this->selectField = '*';
         $this->limit = '';
         $this->orderBy = '';
+        $this->groupBy = '';
+        $this->groupConcatFields = [];
         $this->innerJoin = '';
+
+
     }
 }
 ?>

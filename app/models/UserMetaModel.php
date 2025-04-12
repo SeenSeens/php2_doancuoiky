@@ -2,15 +2,13 @@
 class UserMetaModel extends Model{
     private string $__table = 'user_meta';
 
-    protected function tableFill(){
+     function tableFill(){
         return $this->__table;
-    }
-
-    protected function fieldFill(){
+     }
+     function fieldFill(){
         return '*';
-    }
-
-    protected function primaryKey(){
+     }
+    function primaryKey(){
         return 'user_id';
     }
     function selectMetabyId($id){

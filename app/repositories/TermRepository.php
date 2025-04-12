@@ -20,7 +20,6 @@ class TermRepository extends BaseRepository {
     public function insertTerm($data, $taxonomy = ''){
         try {
             $this->db->table( $this->table )->insert($data);
-            // Lấy term_id vừa thêm vào
             $termId = $this->db->lastInsertId();
             $dataTerm = [
                 'term_id' => $termId,

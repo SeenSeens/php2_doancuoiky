@@ -23,6 +23,7 @@ CREATE TABLE posts (
     title VARCHAR(255) NOT NULL,
     slug VARCHAR(255) UNIQUE NOT NULL,
     content LONGTEXT NOT NULL,
+    excerpt TEXT NULL,
     status ENUM('publish', 'draft', 'pending', 'private', 'trash') NOT NULL DEFAULT 'draft',
     type ENUM('post', 'page', 'attachment') NOT NULL DEFAULT 'post',
     author_id BIGINT UNSIGNED NOT NULL,
