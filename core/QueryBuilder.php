@@ -154,7 +154,7 @@ trait QueryBuilder{
     }
     // Lấy 1 bản ghi
     public function first(){
-        $sqlQuery = "SELECT $this->selectField FROM $this->tableName $this->where $this->limit";
+        $sqlQuery = "SELECT $this->selectField FROM $this->tableName $this->innerJoin $this->where $this->groupBy $this->orderBy $this->limit";
         $query = $this->query($sqlQuery);
 
         // Reset field
@@ -206,9 +206,9 @@ trait QueryBuilder{
         $this->selectField = '*';
         $this->limit = '';
         $this->orderBy = '';
-        $this->groupBy = '';
-        $this->groupConcatFields = [];
         $this->innerJoin = '';
+        $this->groupConcatFields = [];
+        $this->groupBy = '';
 
 
     }

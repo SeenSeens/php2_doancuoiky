@@ -5,7 +5,6 @@ class PostController extends Controller {
     public array $data = [];
     private PostService $postService;
     private TermService $termService;
-    private string $router = 'post-new';
     private mixed $post, $term_relationships, $term_taxonomy;
     public function __construct() {
         $this->postService = new PostService();
@@ -26,8 +25,9 @@ class PostController extends Controller {
         $this->data['sub_content']['page_title'] = "Thêm bài viết";
         $this->categories();
         $this->tags();
-        $this->postService->savePost(null, $this->router );
+        $this->postService->savePost(null, 'post-new' );
         $this->data['text-add-form'] = [
+            'routes' => 'post-new',
             'button' => 'Xuất bản',
         ];
         $this->data['content'] = 'backend/posts/add_post';
@@ -35,18 +35,30 @@ class PostController extends Controller {
     }
 
     public function edit($id){
-        $this->data['posts'] = $this->postService->findPost( $id );
+        $this->data['post'] = $this->postService->findPost( $id );
         $this->data['sub_content']['page_title'] = "Sửa bài viết";
         $this->categories();
         $this->tags();
         $this->data['text-edit-form'] = [
+            'routes' => 'post/edit_id=' . $id,
             'button' => 'Cập nhập',
         ];
+        $this->postService->savePost( intval( $id ), 'post/edit_id=' . $id );
         $this->data['content'] = 'backend/posts/add_post';
         $this->render('backend/admin_layout', $this->data);
     }
 
-    public function delete(){}
+    public function delete(){
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['id'])) {
+            echo json_encode(['success' => false, 'message' => 'Yêu cầu không hợp lệ!']);
+            exit;
+        }
+        $postId = intval($_POST['id']);
+        $deleted = $this->postService->deletePost($postId);
+        echo json_encode(['success' => $deleted, 'message' => $deleted ? 'Xóa thành công' : 'Xóa thất bại']);
+        ob_clean();
+        exit;
+    }
 
     private function categories(){
         $this->data['categories'] = $this->termService->getTerms('category');

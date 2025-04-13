@@ -1,7 +1,7 @@
 <?php
 $this->render('backend/components/breadcrumb');
 $posts = $this->data['sub_content']['posts'];
-require_once __DIR_ROOT__ . '/helper/PostHelper.php'; // Gọi hàm lấy trạng
+require_once __DIR_ROOT__ . '/helper/PostHelper.php'; // Gọi hàm lấy trạng thái
 
 ?>
 <div class="card">
@@ -20,7 +20,7 @@ require_once __DIR_ROOT__ . '/helper/PostHelper.php'; // Gọi hàm lấy trạn
             </thead>
             <tbody>
             <?php foreach ($posts as $index => $post) : ?>
-                <tr>
+                <tr id="row-<?= $post['id']; ?>">
                     <td><?= $index + 1; ?></td>
                     <td><?= $post['title']; ?></td>
                     <td><?= $post['username']; ?></td>
@@ -30,7 +30,7 @@ require_once __DIR_ROOT__ . '/helper/PostHelper.php'; // Gọi hàm lấy trạn
                     <td>
                         <a href="#" class="btn btn-sm btn-primary">View</a>
                         <a href="<?= __WEB_ROOT__ . '/admin/post/edit_id=' . $post['id']; ?>" class="btn btn-sm btn-warning ">Edit</a>
-                        <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                        <button class="btn btn-sm btn-danger delete-post"  data-id="<?= $post['id']; ?>">Delete</button>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -38,3 +38,43 @@ require_once __DIR_ROOT__ . '/helper/PostHelper.php'; // Gọi hàm lấy trạn
         </table>
     </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('.delete-post').forEach(button => {
+            button.addEventListener('click', function() {
+                let postId = this.getAttribute('data-id');
+                let url = '<?= __WEB_ROOT__ . '/admin/post/delete'; ?>'
+
+                if (confirm("Bạn có chắc chắn muốn xóa bài viết này?")) {
+                    fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'X-Requested-With': 'XMLHttpRequest'  // Quan trọng để nhận diện đây là yêu cầu AJAX
+                        },
+                        body: 'id=' + postId
+                    })
+                        .then(response => response.text()) // Lấy text trước khi parse JSON
+                        .then(text => {
+                            try {
+                                // Chỉ lấy phần JSON, bỏ HTML/script nếu có
+                                let jsonStart = text.indexOf('{');
+                                let jsonText = text.substring(jsonStart);
+                                let data = JSON.parse(jsonText);
+                                if (data.success) {
+                                    document.getElementById('row-' + postId).remove();
+                                } else {
+                                    alert("Lỗi: " + data.message);
+                                }
+                            } catch (error) {
+                                console.error("Không thể parse JSON:", text);
+                                alert("Phản hồi từ server không hợp lệ!");
+                            }
+                        })
+                        .catch(error => console.error('Lỗi:', error));
+
+                }
+            });
+        });
+    });
+</script>

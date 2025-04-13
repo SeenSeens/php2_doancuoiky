@@ -17,9 +17,9 @@ class TermRepository extends BaseRepository {
             ->where('terms.id', '=', $id)
             ->first();
     }
-    public function insertTerm($data, $taxonomy = ''){
+    public function insertTerm( $data, $taxonomy = '' ){
         try {
-            $this->db->table( $this->table )->insert($data);
+            $this->db->table( $this->table )->insert( $data );
             $termId = $this->db->lastInsertId();
             $dataTerm = [
                 'term_id' => $termId,

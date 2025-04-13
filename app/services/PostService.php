@@ -23,7 +23,7 @@ class PostService extends BaseService {
             if( $_SERVER['REQUEST_METHOD'] == 'POST' ) :
                 $data = FormInputHelper::inputValuePost();
 
-                if ($id) {
+                if ( !empty( $id )) {
                     $this->postRepository->updatePost($data, $id);
                     $post_id = $id;
                     $message = "Cập nhật thành công!";
@@ -48,8 +48,8 @@ class PostService extends BaseService {
 
 
     public function deletePost( $id ) {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (!isset($_POST['id']) || empty($_POST['id'])) {
+        if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
+            if ( !isset($_POST['id'] ) || empty( $_POST['id'] ) ) {
                 echo json_encode(['success' => false, 'message' => 'Thiếu ID post']);
                 exit;
             }
@@ -61,11 +61,6 @@ class PostService extends BaseService {
             exit;
         }
     }
-
-    /*public function createPostWithTerms(int $post_id, array $categories = [], array $tags = []) {
-        $term_taxonomy_ids = array_merge($categories, $tags);
-        $this->termRelationshipRepository->attachTermsToPost($post_id, $term_taxonomy_ids);
-    }*/
 
     private function handleTerms(int $post_id) {
         $category_ids = SanitizeUtils::sanitizeInputArray($_POST['category'] ?? []);

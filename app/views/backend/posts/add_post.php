@@ -1,38 +1,44 @@
 <?php
+require_once __DIR_ROOT__ . '/helper/PostHelper.php'; // Gọi hàm lấy trạng thái
 $this->render('backend/components/breadcrumb');
 $categories = $this->data['categories'];
 $tags = $this->data['tags'];
-if( !empty( $this->data['posts'] ) ) :
+if( !empty( $this->data['post'] ) ) :
     $text = $this->data['text-edit-form'];
+    $post = $this->data['post'];
+    $post = $post[0];
+    $status = PostHelper::getStatusText( $post['status'] );
+    $category = $post['categories'];
+    $tag = $post['tags'];
 else:
     $text = $this->data['text-add-form'];
 endif;
 ?>
 <div class="container-fluid">
-    <form class="row" action="<?= __WEB_ROOT__ . '/admin/post-new' ?>" method="POST" enctype="multipart/form-data">
+    <form class="row" action="<?= __WEB_ROOT__ . '/admin/' . $text['routes']; ?>" method="POST" enctype="multipart/form-data">
         <div class="col-8">
             <div class="card">
                 <div class="card-header fw-bold">Tên bài viết</div>
                 <div class="card-body">
-                    <input type="text" class="form-control" placeholder="Thêm tiêu đề" name="title" required>
+                    <input type="text" class="form-control" placeholder="Thêm tiêu đề" name="title" value="<?= $post['title'] ?? ''; ?>" required>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header fw-bold">Đường dẫn</div>
                 <div class="card-body">
-                    <input type="text" class="form-control" placeholder="Thêm đường dẫn" name="slug" required>
+                    <input type="text" class="form-control" placeholder="Thêm đường dẫn" name="slug" value="<?= $post['slug'] ?? ''; ?>" required>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header fw-bold">Nội dung</div>
                 <div class="card-body">
-                    <textarea class="form-control" rows="10" placeholder="Thêm nội dung" name="content"></textarea>
+                    <textarea class="form-control" rows="10" placeholder="Thêm nội dung" name="content"><?= $post['content'] ?? ''; ?></textarea>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header fw-bold">Tóm tắt</div>
                 <div class="card-body">
-                    <textarea class="form-control" rows="10" placeholder="Thêm tóm tắt" name="excerpt"></textarea>
+                    <textarea class="form-control" rows="10" placeholder="Thêm tóm tắt" name="excerpt"><?= $post['excerpt'] ?? ''; ?></textarea>
                 </div>
             </div>
         </div>
@@ -47,7 +53,7 @@ endif;
                     <ul class="list-inline">
                         <li class="list-inline-item mb-2">
                             Trạng thái:
-                            <strong>Bản nháp</strong>
+                            <strong><?= $status ?? ''; ?></strong>
                             <a href=""> Chỉnh sửa</a>
                         </li>
                         <li class="list-inline-item mb-2">
@@ -67,9 +73,9 @@ endif;
             <div class="card">
                 <div class="card-header fw-bold">Danh mục</div>
                 <div class="card-body">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <select class="form-select" name="category">
+                    <select class="form-select" name="category">
                         <?php foreach ($categories as $category) : ?>
-                            <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                            <option value="<?= $category['id'] ?>" <?= $category['name'] == $category ? 'selected' : '' ?>><?= $category['name'] ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -79,7 +85,7 @@ endif;
                 <div class="card-body">
                     <select class="form-select" name="tag">
                         <?php foreach ($tags as $tag) : ?>
-                            <option value="<?= $tag['id'] ?>"><?= $tag['name'] ?></option>
+                            <option value="<?= $tag['id'] ?>" <?= $tag['name'] == $tag ? 'selected' : '' ?>><?= $tag['name'] ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>

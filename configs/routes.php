@@ -46,7 +46,7 @@ $routes = [
     'admin/posts' => 'admin/PostController',
     'admin/post-new' => 'admin/PostController/create',
     'admin/post/edit_id=(.+)' => 'admin/PostController/edit/$1',
-
+    'admin/post/delete' => 'admin/PostController/delete',
     // PageController
     'admin/page' => 'admin/PageController',
     'admin/page-new' => 'admin/PageController/create',
