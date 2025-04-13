@@ -15,13 +15,13 @@ class PostService extends BaseService {
     public function findPost( $id ) {
         return $this->postRepository->findPost( $id );
     }
-    public function allPosts() {
-        return $this->postRepository->allPosts();
+    public function allPosts( $type ) {
+        return $this->postRepository->allPosts( $type );
     }
-    public function savePost( $id, $routes) {
+    public function savePost( $id, $type, $routes ) {
         try {
             if( $_SERVER['REQUEST_METHOD'] == 'POST' ) :
-                $data = FormInputHelper::inputValuePost();
+                $data = FormInputHelper::inputValuePost( $type );
 
                 if ( !empty( $id )) {
                     $this->postRepository->updatePost($data, $id);

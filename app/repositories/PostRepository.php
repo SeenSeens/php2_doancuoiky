@@ -26,9 +26,10 @@ class PostRepository extends BaseRepository {
             ->get();
     }
 
-    public function allPosts() {
+    public function allPosts( $type ) {
         return $this->db->table( $this->table )
-            ->select('posts.id, posts.title, posts.status, users.username')
+            ->select('posts.id, posts.title, posts.status, posts.type, users.username')
+            ->where('posts.type', '=', $type )
             ->join('users', 'posts.author_id = users.id')
             ->leftJoin('term_relationships', 'posts.id = term_relationships.post_id')
             ->leftJoin('term_taxonomy', 'term_relationships.term_taxonomy_id = term_taxonomy.id')

@@ -9,28 +9,24 @@ class PostController extends Controller {
     public function __construct() {
         $this->postService = new PostService();
         $this->termService = new TermService();
-
-//        $this->post = $this->model('PostModel');
-//        $this->term_relationships = $this->model('TermRelationshipsModel');
-//        $this->term_taxonomy = $this->model('TermTaxonomyModel');
     }
 
     public function index() {
         $this->data['sub_content']['page_title'] = "Bài viết";
-        $this->data['sub_content']['posts'] = $this->postService->allPosts();
-        $this->data['content'] = 'backend/posts/index';
+        $this->data['sub_content']['posts'] = $this->postService->allPosts( 'post' );
+        $this->data['content'] = 'backend/post/index';
         $this->render('backend/admin_layout', $this->data);
     }
     public function create() {
         $this->data['sub_content']['page_title'] = "Thêm bài viết";
         $this->categories();
         $this->tags();
-        $this->postService->savePost(null, 'post-new' );
+        $this->postService->savePost(null, 'post', 'post-new' );
         $this->data['text-add-form'] = [
             'routes' => 'post-new',
             'button' => 'Xuất bản',
         ];
-        $this->data['content'] = 'backend/posts/add_post';
+        $this->data['content'] = 'backend/post/post';
         $this->render('backend/admin_layout', $this->data);
     }
 
@@ -43,8 +39,8 @@ class PostController extends Controller {
             'routes' => 'post/edit_id=' . $id,
             'button' => 'Cập nhập',
         ];
-        $this->postService->savePost( intval( $id ), 'post/edit_id=' . $id );
-        $this->data['content'] = 'backend/posts/add_post';
+        $this->postService->savePost( intval( $id ),'post','post/edit_id=' . $id );
+        $this->data['content'] = 'backend/post/post';
         $this->render('backend/admin_layout', $this->data);
     }
 

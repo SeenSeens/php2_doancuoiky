@@ -8,7 +8,7 @@ class FormInputHelper {
         ];
     }
 
-    public static function inputValuePost(){
+    public static function inputValuePost( $type ) {
         // Mặc định là draft
         $status = 'draft';
         switch (true) {
@@ -28,7 +28,7 @@ class FormInputHelper {
             'content' => SanitizeUtils::sanitizeInput($_POST['content']),
             'excerpt' => SanitizeUtils::sanitizeInput($_POST['excerpt']),
             'status' => $status,
-            'type' => 'post',
+            'type' => $type,
             'author_id' => $_SESSION['user_id'],
         ];
     }

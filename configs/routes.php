@@ -47,13 +47,18 @@ $routes = [
     'admin/post-new' => 'admin/PostController/create',
     'admin/post/edit_id=(.+)' => 'admin/PostController/edit/$1',
     'admin/post/delete' => 'admin/PostController/delete',
+
     // PageController
     'admin/page' => 'admin/PageController',
     'admin/page-new' => 'admin/PageController/create',
+    'admin/page/edit_id=(.+)' => 'admin/PageController/edit/$1',
+    'admin/page/delete' => 'admin/PageController/delete',
 
     // ProductController
     'admin/product' => 'admin/ProductController',
     'admin/product-new' => 'admin/ProductController/create',
+    'admin/product/edit_id=(.+)' => 'admin/ProductController/edit/$1',
+    'admin/product/delete' => 'admin/ProductController/delete',
 
     // CategoryController
     'admin/category' => 'admin/taxonomy/CategoryController/index',

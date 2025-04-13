@@ -1,12 +1,10 @@
 <?php
-//require_once 'utils/image_helper.php';
+require_once __DIR_ROOT__ . '/app/services/ProductService.php';
 class ProductController extends Controller {
     public array $data = [];
-    public $categories;
-    public $products;
+    private ProductService $productService;
     public function __construct() {
-        $this->categories = $this->model('CategoriesModelBk');
-        $this->products = $this->model('ProductsModel');
+        $this->productService = new ProductService();
     }
 
     public function index() {
@@ -15,23 +13,14 @@ class ProductController extends Controller {
         $this->data['content'] = 'backend/products/product';
         $this->render('backend/admin_layout', $this->data);
     }
-
-    function viewProductById($id) {
-        $this->data['sub_content']['page_title'] = "Trang chủ";
-        $this->data['sub_content']['product'] = $this->products->find($id);
-        $this->data['sub_content']['terms'] = $this->categories->getListCategory();
-        $this->data['content'] = 'backend/products/product_detail';
-        $this->render('backend/dashboard', $this->data);
-    }
-    /**
-     * Thêm mới sản phẩm
-     * @return void
-     */
+    // Thêm mới sản phẩm
     public function create(){
         $this->data['sub_content']['page_title'] = "Thêm mới sản phẩm";
 //        $this->data['sub_content']['terms'] = $this->categories->getListCategory();
-        $this->data['content'] = 'backend/products/add_product';
-        $this->render('backend/admin_layout', $this->data);
+        $this->data['text-add-form'] = [
+            'routes' => 'post-new',
+            'button' => 'Xuất bản',
+        ];
         try {
             if (isset($_POST['uploadProduct'])) :
                 $title = isset($_POST['title']) ? $_POST['title'] : '';
@@ -54,14 +43,24 @@ class ProductController extends Controller {
                     'discount' => $discount,
                     'category_id' => $category_id
                 ];
-                $this->products->addProduct($data);
+                $this->productService->saveProduct(null, $data);
                 header('Location: ' . __WEB_ROOT__ . 'admin/san-pham');
                 exit();
             endif;
         } catch (PDOException $e) {
 
         }
+        $this->data['content'] = 'backend/products/add_product';
+        $this->render('backend/admin_layout', $this->data);
     }
+    function viewProductById($id) {
+        $this->data['sub_content']['page_title'] = "Trang chủ";
+        $this->data['sub_content']['product'] = $this->products->find($id);
+        $this->data['sub_content']['terms'] = $this->categories->getListCategory();
+        $this->data['content'] = 'backend/products/product_detail';
+        $this->render('backend/dashboard', $this->data);
+    }
+
     public function edit($id){
         // Lấy thông tin sản phẩm hiện tại
         $product = $this->products->find($id);
