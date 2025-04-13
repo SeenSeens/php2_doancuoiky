@@ -1,0 +1,68 @@
+{
+  "categories" : [
+    {
+      "id" : 1,
+      "name" : "Fresh Meat"
+    },
+    {
+      "id" : 2,
+      "name" : "Vegetables"
+    },
+    {
+      "id" : 3,
+      "name" : "Fruit & Nut Gifts"
+    },
+    {
+      "id" : 4,
+      "name" : "Fresh Berries"
+    },
+    {
+      "id" : 5,
+      "name" : "Ocean Foods"
+    },
+    {
+      "id" : 6,
+      "name" : "Butter & Eggs"
+    },
+    {
+      "id" : 7,
+      "name" : "Fastfood"
+    },
+    {
+      "id" : 8,
+      "name" : "Fresh Onion"
+    },
+    {
+      "id" : 9,
+      "name" : "Papayaya & Crisps"
+    },
+    {
+      "id" : 10,
+      "name" : "Oatmeal"
+    },
+    {
+      "id" : 11,
+      "name" : "Fresh Bananas"
+    }
+  ],
+  "products" : [
+    {
+      "id" : 1,
+      "title" : "Crab Pool Security",
+      "slug" : "crab-pool-security",
+      "description" : "",
+      "excerpt" : "",
+      "thumbnail": "",
+      "price": 40,
+      "discount" : "",
+      "outstanding" : "false",
+      "trending" : "false",
+      "hot" : "false",
+      "bestseller" : "false",
+      "category_id" : 1,
+      "created_at" : "",
+      "updated_at" : ""
+    }
+
+  ]
+}
