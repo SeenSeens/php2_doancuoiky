@@ -1,117 +1,68 @@
-<?php $this->render('frontend/layout/header'); ?>
-<!-- Hero Section Begin -->
-<section class="hero hero-normal">
+<!-- breadcrumb-section -->
+<?php $this->render('frontend/components/breadcrumb'); ?>
+<!-- end breadcrumb section -->
+
+<!-- contact form -->
+<div class="contact-from-section mt-150 mb-150">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
-                <?php $this->render('frontend/layout/header/hero__categories') ?>
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="form-title">
+                    <h2>Have you any question?</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, ratione! Laboriosam est, assumenda. Perferendis, quo alias quaerat aliquid. Corporis ipsum minus voluptate? Dolore, esse natus!</p>
+                </div>
+                <div id="form_status"></div>
+                <div class="contact-form">
+                    <form type="POST" id="fruitkha-contact" onSubmit="return valid_datas( this );">
+                        <p>
+                            <input type="text" placeholder="Name" name="name" id="name">
+                            <input type="email" placeholder="Email" name="email" id="email">
+                        </p>
+                        <p>
+                            <input type="tel" placeholder="Phone" name="phone" id="phone">
+                            <input type="text" placeholder="Subject" name="subject" id="subject">
+                        </p>
+                        <p><textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea></p>
+                        <input type="hidden" name="token" value="FsWga4&@f6aw" />
+                        <p><input type="submit" value="Submit"></p>
+                    </form>
+                </div>
             </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div>
-                            <input type="text" placeholder="What do yo u need?">
-                            <button type="submit" class="site-btn">SEARCH</button>
-                        </form>
+            <div class="col-lg-4">
+                <div class="contact-form-wrap">
+                    <div class="contact-form-box">
+                        <h4><i class="fas fa-map"></i> Shop Address</h4>
+                        <p>34/8, East Hukupara <br> Gifirtok, Sadan. <br> Country Name</p>
                     </div>
-                    <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+65 11.188.888</h5>
-                            <span>support 24/7 time</span>
-                        </div>
+                    <div class="contact-form-box">
+                        <h4><i class="far fa-clock"></i> Shop Hours</h4>
+                        <p>MON - FRIDAY: 8 to 9 PM <br> SAT - SUN: 10 to 8 PM </p>
+                    </div>
+                    <div class="contact-form-box">
+                        <h4><i class="fas fa-address-book"></i> Contact</h4>
+                        <p>Phone: +00 111 222 3333 <br> Email: support@fruitkha.com</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section End -->
-<!-- Breadcrumb Section Begin -->
-<?php $this->render('frontend/layout/breadcrumb') ?>
-<!-- Breadcrumb Section End -->
-<!-- Contact Section Begin -->
-<section class="contact spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                <div class="contact__widget">
-                    <span class="icon_phone"></span>
-                    <h4>Phone</h4>
-                    <p>0385 573 558</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                <div class="contact__widget">
-                    <span class="icon_pin_alt"></span>
-                    <h4>Address</h4>
-                    <p>303/41 Tân Sơn Nhì</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                <div class="contact__widget">
-                    <span class="icon_clock_alt"></span>
-                    <h4>Open time</h4>
-                    <p>08:00 am to 17:00 pm</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                <div class="contact__widget">
-                    <span class="icon_mail_alt"></span>
-                    <h4>Email</h4>
-                    <p>truongtuan829@gmail.com</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Contact Section End -->
-<!-- Map Begin -->
-<div class="map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d125420.78863964338!2d106.6401792!3d10.780672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1svi!2s!4v1716321313399!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <div class="map-inside">
-        <i class="icon_pin"></i>
-        <div class="inside-widget">
-            <h4>Tân Phú</h4>
-            <ul>
-                <li>Phone: 0385 573 558</li>
-                <li>Add: 303/41 Tân Sơn Nhì</li>
-            </ul>
         </div>
     </div>
 </div>
-<!-- Map End -->
-<!-- Contact Form Begin -->
-<div class="contact-form spad">
+<!-- end contact form -->
+
+<!-- find our location -->
+<div class="find-location blue-bg">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="contact__form__title">
-                    <h2>Leave Message</h2>
-                </div>
+            <div class="col-lg-12 text-center">
+                <p> <i class="fas fa-map-marker-alt"></i> Find Our Location</p>
             </div>
         </div>
-        <form action="#">
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <input type="text" placeholder="Your name">
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <input type="text" placeholder="Your Email">
-                </div>
-                <div class="col-lg-12 text-center">
-                    <textarea placeholder="Your message"></textarea>
-                    <button type="submit" class="site-btn">SEND MESSAGE</button>
-                </div>
-            </div>
-        </form>
     </div>
 </div>
-<!-- Contact Form End -->
-<?php $this->render('frontend/layout/footer'); ?>
+<!-- end find our location -->
+
+<!-- google map section -->
+<div class="embed-responsive embed-responsive-21by9">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26432.42324808999!2d-118.34398767954286!3d34.09378509738966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bf07045279bf%3A0xf67a9a6797bdfae4!2sHollywood%2C%20Los%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1576846473265!5m2!1sen!2sbd" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" class="embed-responsive-item"></iframe>
+</div>
+<!-- end google map section -->

@@ -1,3 +1,5 @@
+<link href="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/select2/css/select2.min.css'; ?>" rel="stylesheet" />
+<link href="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/select2/css/select2-bootstrap4.css'; ?>" rel="stylesheet" />
 <?php
 require_once __DIR_ROOT__ . '/helper/PostHelper.php'; // Gọi hàm lấy trạng thái
 $this->render('backend/components/breadcrumb');
@@ -73,7 +75,7 @@ endif;
             <div class="card">
                 <div class="card-header fw-bold">Danh mục</div>
                 <div class="card-body">
-                    <select class="form-select" name="category">
+                    <select class="form-select multiple-select" name="category" multiple="multiple" data-placeholder="Choose anything">
                         <?php foreach ($categories as $category) : ?>
                             <option value="<?= $category['id'] ?>" <?= $category['name'] == $category ? 'selected' : '' ?>><?= $category['name'] ?></option>
                         <?php endforeach; ?>
@@ -96,3 +98,12 @@ endif;
         </div>
     </form>
 </div>
+<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/select2/js/select2.min.js'; ?>"></script>
+<script>
+    $('.multiple-select').select2({
+        theme: 'bootstrap4',
+        width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+        placeholder: $(this).data('placeholder'),
+        allowClear: Boolean($(this).data('allow-clear')),
+    });
+</script>

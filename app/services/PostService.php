@@ -1,13 +1,13 @@
 <?php
 require_once __DIR_ROOT__ . '/app/services/BaseService.php';
 require_once __DIR_ROOT__ . '/app/repositories/PostRepository.php';
-require_once __DIR_ROOT__ . '/app/repositories/TermRelationshipRepository.php';
+require_once __DIR_ROOT__ . '/app/repositories/PostTermRelationshipRepository.php';
 class PostService extends BaseService {
     protected PostRepository $postRepository;
-    protected TermRelationshipRepository $termRelationshipRepository;
+    protected PostTermRelationshipRepository $postTermRelationshipRepository;
     public function __construct() {
         $this->postRepository = new PostRepository();
-        $this->termRelationshipRepository = new TermRelationshipRepository();
+        $this->postTermRelationshipRepository = new PostTermRelationshipRepository();
     }
     public function getPost( $type ){
         return $this->postRepository->getPost( $type );
@@ -67,7 +67,7 @@ class PostService extends BaseService {
         $tag_ids = SanitizeUtils::sanitizeInputArray($_POST['tag'] ?? []);
         $term_taxonomy_ids = array_merge($category_ids, $tag_ids);
         // Gán term cho bài viết
-        $this->termRelationshipRepository->attachTermsToPost($post_id, $term_taxonomy_ids);
+        $this->postTermRelationshipRepository->attachTermsToPost($post_id, $term_taxonomy_ids);
     }
 }
 

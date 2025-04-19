@@ -15,7 +15,7 @@ $web_root = $web_root . '/' . $folder;
 define('__WEB_ROOT__', $web_root);
 
 if (php_sapi_name() !== 'cli' && empty($_SERVER['HTTP_X_REQUESTED_WITH'])) :
-    echo "<script>window.data = { __WEB_ROOT__: '" . __WEB_ROOT__ . "' };</script>";
+//    echo "<script>window.data = { __WEB_ROOT__: '" . __WEB_ROOT__ . "' };</script>";
 endif;
 
 // Load dotenv

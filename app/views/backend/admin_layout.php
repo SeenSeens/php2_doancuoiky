@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -63,8 +63,10 @@
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/simplebar/js/simplebar.min.js' ?>"></script>
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/metismenu/js/metisMenu.min.js' ?>"></script>
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js' ?>"></script>
-
+<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/tinymce/tinymce.min.js' ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/tinymce-jquery.min.js' ?>"></script>
 <!--app JS-->
+<script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/tinymce.js' ?>"></script>
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/app.js' ?>"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {

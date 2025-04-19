@@ -1,43 +1,16 @@
 <?php
-$routes['default_controller'] = 'home';
-$routes['cua-hang'] = 'products/store';
-$routes['lien-he'] = 'contact';
-$routes['san-pham'] = 'products';
-$routes['san-pham/(.+)'] = 'products/getProductDetailById/$1';
-$routes['danh-muc-san-pham/(.+)'] = 'products/ProductCategory/$1';
-
-//$routes['add-to-cart'] = 'shop/addToCart';
-$routes['gio-hang'] = 'shop/shopingCart';
-$routes['thanh-toan'] = 'shop/checkout';
-$routes['dat-hang'] = 'shop/order';
-
-
-
-/**
- * Route admin
- */
-
-//$routes['admin'] = 'admin/DashboardController';
-
-//$routes['admin/chuyen-muc-san-pham'] = 'admin/productcategory';
-//$routes['admin/chuyen-muc-san-pham/them-moi'] = 'admin/productcategory/insert';
-//$routes['admin/chuyen-muc-san-pham/sua-chuyen-muc'] = 'admin/productcategory/update';
-//$routes['admin/chuyen-muc-san-pham/xoa-chuyen-muc'] = 'admin/productcategory/delete';
-
-
-//$routes['admin/san-pham/(.+)'] = 'admin/product/viewProductById/$1';
-
-//$routes['admin/san-pham/xoa-san-pham/(.+)'] = 'admin/product/delete/$1';
-//$routes['admin/san-pham/sua-san-pham/(.+)'] = 'admin/product/edit/$1';
-
-//$routes['admin/don-hang'] = 'admin/product/orders';
-
-//$routes['admin/upload'] = 'admin/upload/uploadimage';
-
-//$routes['admin/comments'] = 'admin/comment';
-
-// Cải tiến
 $routes = [
+    'default_controller' => 'HomeController',
+    'gioi-thieu' => 'AboutController',
+    'lien-he' => 'ContactController',
+    'tin-tuc' => 'NewsController',
+    'tin-tuc/(:any)' => 'NewsController',
+    'tin-tuc/(:any)/(:any)' => 'NewsController',
+    'cua-hang' => 'ShopController',
+
+
+
+
     // Dashboard
     'admin' => 'admin/DashboardController',
     'admin/dashboard' => 'DashboardController/index',

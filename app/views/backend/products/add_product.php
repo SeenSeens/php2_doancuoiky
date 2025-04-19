@@ -219,7 +219,6 @@ endif;
             </div>
         </div>
     </form>
-
 </div>
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/jquery.min.js' ?>"></script>
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/fancy-file-uploader/jquery.ui.widget.js' ?>"></script>

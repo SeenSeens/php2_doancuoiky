@@ -1,20 +1,22 @@
 <?php
 
 class App {
-    private $__controller, $__action, $__params, $__routes, $__db;
-    static public $app;
+    private Database $__db;
+    private Route $__routes;
+    private array $__params = [];
+    private string $__action = 'index';
+    private mixed $__controller = '';
+    static public App $app;
+
     public function __construct() {
         global $routes, $config;
         self::$app = $this;
 
         $this->__routes = new Route();
 
-        if( !empty( $routes['default_controller'] )) :
-            $this->__controller = $routes['default_controller'];
-        endif;
-
-        $this->__action = 'index';
-        $this->__params = [];
+        $this->__controller = !empty($routes['default_controller'])
+            ? $routes['default_controller']
+            : 'Home';
 
         if (class_exists('DB')) {
             $dbObject = new DB();
@@ -22,110 +24,92 @@ class App {
         }
 
         $this->handleUrl();
-
     }
 
-    /**
-     * REQUEST_URI
-     * PATH_INFO
-     */
-    public function getUrl() {
+    public function getUrl(): string {
         $url = $_SERVER['REQUEST_URI'] ?? '/';
         $scriptName = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
-        
+
         if ($scriptName !== '/') {
             $url = str_replace($scriptName, '', $url);
         }
-        
+
         return rtrim($url, '/');
     }
 
-    public function handleUrl() {
-        $url = $this->getUrl();
-        $url = $this->__routes->handleRoute($url);
-
-        $urlArr = array_values( array_filter( explode( '/', $url ) ) );
-
+    public function handleUrl(): void {
+        $url = $this->__routes->handleRoute($this->getUrl());
+        $urlArr = array_values(array_filter(explode('/', $url)));
         $urlCheck = '';
-        if( !empty( $urlArr )) {
-            foreach ( $urlArr as $key => $item) {
+
+        if (!empty($urlArr)) {
+            foreach ($urlArr as $key => $item) {
                 $urlCheck .= $item . '/';
-                $fileCheck = rtrim( $urlCheck, '/');
+                $fileCheck = rtrim($urlCheck, '/');
                 $fileArr = explode('/', $fileCheck);
-                $fileArr[ count($fileArr) - 1 ] = ucfirst( $fileArr[ count($fileArr) - 1] );
+                $fileArr[count($fileArr) - 1] = ucfirst(end($fileArr));
                 $fileCheck = implode('/', $fileArr);
 
-                if( !empty( $urlArr[ $key - 1] ) ) {
-                    unset( $urlArr[ $key - 1]);
+                if (!empty($urlArr[$key - 1])) {
+                    unset($urlArr[$key - 1]);
                 }
 
-                $checkFilePath = 'app/controllers/' . $fileCheck . '.php';
-                if ( file_exists( $checkFilePath )) {
+                $controllerPath = "app/controllers/$fileCheck.php";
+                if (file_exists($controllerPath)) {
                     $urlCheck = $fileCheck;
                     break;
                 }
             }
-            $urlArr = array_values( $urlArr );
+
+            $urlArr = array_values($urlArr);
         }
 
+        // Set controller name
+        $this->__controller = !empty($urlArr[0])
+            ? ucfirst($urlArr[0])
+            : ucfirst($this->__controller);
 
-        /**
-         * Xử lý controller
-         */
-        if ( !empty( $urlArr[0]) ) :
-            $this->__controller = ucfirst( $urlArr[0] );
-        else:
-            $this->__controller = ucfirst( $this->__controller);
-        endif;
-
-        /**
-         * Xử lý khi $urlCheck rỗng
-         */
-        if( empty( $urlCheck) ) {
+        if (empty($urlCheck)) {
             $urlCheck = $this->__controller;
         }
 
-        $controllerFilePath = 'app/controllers/' . $urlCheck . '.php';
-        if( file_exists( $controllerFilePath )) :
+        $controllerFilePath = "app/controllers/$urlCheck.php";
+        if (file_exists($controllerFilePath)) {
             require_once $controllerFilePath;
-            // Kiểm tra class $this->__controller tồn tại
-            if( class_exists( $this->__controller ) ) :
-                $this->__controller = new $this->__controller();
-                unset( $urlArr[0] );
-                if (!empty($this->__db)) :
-                    $this->__controller = new $this->__controller($this->__db);
-                else:
-                    $this->__controller = new $this->__controller();
-                endif;
-            else:
-                $this->loadError();
-            endif;
-        else:
-            $this->loadError();
-        endif;
-        /**
-         * Xử lý action
-         */
-        if( !empty($urlArr[1]) ) :
-            $this->__action = $urlArr[1];
-            unset( $urlArr[1] );
-        endif;
 
-        /**
-         * Xử lý param
-         */
-        $this->__params = array_values( $urlArr );
-        // Kiểm tra xem action có tồn tại trong controller không
-        if ( method_exists($this->__controller, $this->__action) ) :
-            call_user_func_array([ $this->__controller, $this->__action ], $this->__params );
-        else:
+            if (class_exists($this->__controller)) {
+                unset($urlArr[0]);
+
+                $this->__controller = !empty($this->__db)
+                    ? new $this->__controller($this->__db)
+                    : new $this->__controller();
+            } else {
+                $this->loadError();
+                return;
+            }
+        } else {
             $this->loadError();
-        endif;
+            return;
+        }
+
+        // Set action
+        if (!empty($urlArr[1])) {
+            $this->__action = $urlArr[1];
+            unset($urlArr[1]);
+        }
+
+        // Set params
+        $this->__params = array_values($urlArr);
+
+        if (method_exists($this->__controller, $this->__action)) {
+            call_user_func_array([$this->__controller, $this->__action], $this->__params);
+        } else {
+            $this->loadError();
+        }
     }
 
-    public function loadError($name = '404', $data = [] ) {
-        extract( $data );
-//        require_once  'errors/' . $name . '.php';
+    public function loadError(string $name = '404', array $data = []): void {
+        extract($data);
+        // require_once "errors/$name.php";
     }
 }
-?>
