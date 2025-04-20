@@ -199,6 +199,25 @@ trait QueryBuilder{
         return $stmt->execute();
     }
 
+    // Trong BaseQueryBuilder hoặc trait QueryBuilder
+    public function paginate($limit = 10, $page = 1) {
+        $offset = ($page - 1) * $limit;
+
+        $totalQuery = clone $this;
+        $total = $totalQuery->count(); // tổng số dòng
+
+        $this->limit($limit)->offset($offset);
+        $data = $this->get();
+
+        return [
+            'data' => $data,
+            'total' => $total,
+            'perPage' => $limit,
+            'currentPage' => $page,
+            'totalPages' => ceil($total / $limit),
+        ];
+    }
+
     public function resetQuery(){
         $this->tableName = '';
         $this->where = '';

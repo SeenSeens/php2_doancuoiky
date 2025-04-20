@@ -22,13 +22,13 @@ endif;
             <div class="card">
                 <div class="card-header fw-bold">Tên bài viết</div>
                 <div class="card-body">
-                    <input type="text" class="form-control" placeholder="Thêm tiêu đề" name="title" value="<?= $post['title'] ?? ''; ?>" required>
+                    <input type="text" class="form-control" placeholder="Thêm tiêu đề" id="title" name="title" value="<?= $post['title'] ?? ''; ?>" required>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header fw-bold">Đường dẫn</div>
                 <div class="card-body">
-                    <input type="text" class="form-control" placeholder="Thêm đường dẫn" name="slug" value="<?= $post['slug'] ?? ''; ?>" required>
+                    <input type="text" class="form-control" placeholder="Thêm đường dẫn" id="slug" name="slug" value="<?= $post['slug'] ?? ''; ?>">
                 </div>
             </div>
             <div class="card">

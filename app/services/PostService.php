@@ -9,8 +9,16 @@ class PostService extends BaseService {
         $this->postRepository = new PostRepository();
         $this->postTermRelationshipRepository = new PostTermRelationshipRepository();
     }
-    public function getPost( $type ){
-        return $this->postRepository->getPost( $type );
+    public function getPostExcerpt( $type ){
+        return $this->postRepository->getPostExcerpt( $type );
+    }
+    public function getPaginatedPosts(int $limit = 10, int $page = 1, array $conditions = []) {
+        return $this->postRepository->paginate($limit, $page, $conditions);
+    }
+
+
+    public function findPostBySlug( $type, $slug ){
+        return $this->postRepository->findPostBySlug( $type, $slug );
     }
     public function findPost( $id ) {
         return $this->postRepository->findPost( $id );

@@ -4,8 +4,7 @@ $routes = [
     'gioi-thieu' => 'AboutController',
     'lien-he' => 'ContactController',
     'tin-tuc' => 'NewsController',
-    'tin-tuc/(:any)' => 'NewsController',
-    'tin-tuc/(:any)/(:any)' => 'NewsController',
+    'tin-tuc/(.*)' => 'NewsController/detail/$1',
     'cua-hang' => 'ShopController',
 
 

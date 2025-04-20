@@ -27,9 +27,9 @@ class PostTermRelationshipRepository extends BaseRepository {
         $valueString = implode(", ", $values);
 
         // Cập nhật chính nó để tránh lỗi duplicate mà vẫn đúng logic
-        $sql = "INSERT INTO $this->table ( post_id, term_taxonomy_id ) 
+        $sql = "INSERT INTO $this->table ( object_id, term_taxonomy_id ) 
             VALUES $valueString
-            ON DUPLICATE KEY UPDATE post_id = VALUES(post_id), term_taxonomy_id = VALUES(term_taxonomy_id)";
+            ON DUPLICATE KEY UPDATE object_id = VALUES(object_id), term_taxonomy_id = VALUES(term_taxonomy_id)";
 
         $this->db->query($sql); // Dùng query thô vì không cần prepare
     }
