@@ -110,6 +110,7 @@ class App {
 
     public function loadError(string $name = '404', array $data = []): void {
         extract($data);
-        // require_once "errors/$name.php";
+//         require_once "errors/$name.php";
+         require_once "app/views/frontend/$name.php";
     }
 }

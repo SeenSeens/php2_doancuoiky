@@ -1,14 +1,15 @@
 <?php
 $routes = [
     'default_controller' => 'HomeController',
+
     'gioi-thieu' => 'AboutController',
     'lien-he' => 'ContactController',
     'tin-tuc' => 'NewsController',
     'tin-tuc/(.*)' => 'NewsController/detail/$1',
     'cua-hang' => 'ShopController',
-
-
-
+    'gio-hang' => 'ShopController/cart',
+    'danh-muc' => 'ProductController',
+    'san-pham' => 'ProductController/detail',
 
     // Dashboard
     'admin' => 'admin/DashboardController',
