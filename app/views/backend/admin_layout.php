@@ -65,8 +65,8 @@
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js' ?>"></script>
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/tinymce/tinymce.min.js' ?>"></script>
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/tinymce-jquery.min.js' ?>"></script>
-<!--app JS-->
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/tinymce.js' ?>"></script>
+<!--app JS-->
 <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/app.js' ?>"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
