@@ -33,5 +33,4 @@ class PostTermRelationshipRepository extends BaseRepository {
 
         $this->db->query($sql); // Dùng query thô vì không cần prepare
     }
-
 }

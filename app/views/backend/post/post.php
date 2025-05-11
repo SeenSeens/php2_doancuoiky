@@ -10,7 +10,7 @@ if( !empty( $this->data['post'] ) ) :
     $post = $this->data['post'];
     $post = $post[0];
     $status = PostHelper::getStatusText( $post['status'] );
-    $category = $post['categories'];
+    $selectedCategories = array_map('trim', explode(',', $post['categories']));
     $tag = $post['tags'];
 else:
     $text = $this->data['text-add-form'];
@@ -75,11 +75,22 @@ endif;
             <div class="card">
                 <div class="card-header fw-bold">Danh mục</div>
                 <div class="card-body">
-                    <select class="form-select multiple-select" name="category" multiple="multiple" data-placeholder="Choose anything">
-                        <?php foreach ($categories as $category) : ?>
-                            <option value="<?= $category['id'] ?>" <?= $category['name'] == $category ? 'selected' : '' ?>><?= $category['name'] ?></option>
-                        <?php endforeach; ?>
-                    </select>
+                    <!--<select class="form-select multiple-select" name="category" multiple data-placeholder="Choose anything">
+                        <?php /*foreach ($categories as $category) : */?>
+                            <option value="<?php /*= $category['id'] */?>" <?php /*= $category['name'] == $category ? 'selected' : '' */?>><?php /*= $category['name'] */?></option>
+                        <?php /*endforeach; */?>
+                    </select>-->
+                    <?php foreach ($categories as $category) : ?>
+                        <input type="checkbox"
+                            name="category"
+                            value="<?= $category['id'] ?>"
+                            id="category_<?= $category['id'] ?>"
+                            class="form-check-input"
+                            <?= !empty($selectedCategories) && in_array($category['name'], $selectedCategories) ? 'checked' : '' ?>
+                        >
+                        <label for="category_<?= $category['id'] ?>"><?= $category['name'] ?></label><br>
+                    <?php endforeach; ?>
+
                 </div>
             </div>
             <div class="card">

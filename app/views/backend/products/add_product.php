@@ -14,18 +14,18 @@ else:
 endif;
 ?>
 <div class="container-fluid" >
-    <form class="row" action="<?= __WEB_ROOT__ . '/admin/product/add' ?>" method="POST" enctype="multipart/form-data" >
+    <form class="row" action="<?= __WEB_ROOT__ . '/admin/product-new' ?>" method="POST" enctype="multipart/form-data" >
         <div class="col-8">
             <div class="card">
                 <div class="card-header fw-bold">Tên sản phẩm</div>
                 <div class="card-body">
-                    <input type="text" class="form-control" placeholder="Tên sản phẩm" name="title">
+                    <input type="text" class="form-control" placeholder="Tên sản phẩm" name="title" id="title" required>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header fw-bold">Đường dẫn</div>
                 <div class="card-body">
-                    <input type="text" class="form-control" placeholder="Thêm đường dẫn" name="slug" value="<?= $post['slug'] ?? ''; ?>" required>
+                    <input type="text" class="form-control" placeholder="Thêm đường dẫn" name="slug" id="slug" required>
                 </div>
             </div>
             <div class="card">
@@ -57,7 +57,7 @@ endif;
                                 <div class="row gy-3">
                                     <div class="col-md-4">Giá bán thường</div>
                                     <div class="col-md-8">
-                                        <input type="number" class="form-control" placeholder="Giá bán thường" name="">
+                                        <input type="number" class="form-control" placeholder="Giá bán thường" name="price">
                                     </div>
                                     <div class="col-md-4">Giá khuyến mãi</div>
                                     <div class="col-md-8">

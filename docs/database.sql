@@ -22,7 +22,7 @@ CREATE TABLE user_meta (
 CREATE TABLE posts (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
-    slug VARCHAR(255) UNIQUE NOT NULL,
+    slug VARCHAR(255) NOT NULL,
     content LONGTEXT NOT NULL,
     excerpt TEXT NULL,
     status ENUM('publish', 'draft', 'pending', 'private', 'trash') NOT NULL DEFAULT 'draft',
@@ -46,12 +46,15 @@ CREATE TABLE products (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     slug VARCHAR(255) UNIQUE NOT NULL,
-    description LONGTEXT NOT NULL,
+    description LONGTEXT NULL,
+    excerpt TEXT NULL,
     price DECIMAL(10,2) NOT NULL,
     stock BIGINT UNSIGNED DEFAULT 0,
     status ENUM('in_stock', 'out_of_stock', 'pre_order') DEFAULT 'in_stock',
+    author_id BIGINT UNSIGNED NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE product_images (

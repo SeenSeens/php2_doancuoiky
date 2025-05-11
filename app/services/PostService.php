@@ -77,6 +77,7 @@ class PostService extends BaseService {
         // Gán term cho bài viết
         $this->postTermRelationshipRepository->attachTermsToPost($post_id, $term_taxonomy_ids);
     }
+
 }
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 require_once __DIR_ROOT__ . '/app/services/BaseService.php';
 require_once __DIR_ROOT__ . '/app/repositories/ProductRepository.php';
-
+require_once __DIR_ROOT__ . '/app/repositories/ProductTermRelationshipRepository.php';
 class ProductService extends BaseService{
     protected ProductRepository $productRepository;
 
@@ -11,8 +11,21 @@ class ProductService extends BaseService{
     public function saveProduct($id, $routes){
         try {
             if ($_SERVER['REQUEST_METHOD'] == 'POST') :
-                $data = FormInputHelper::inputValuePost();
-
+                $title = SanitizeUtils::sanitizeInput($_POST['title']);
+                $slug = SanitizeUtils::sanitizeInput($_POST['slug']);
+                $description = SanitizeUtils::sanitizeInput($_POST['description']);
+                $excerpt = SanitizeUtils::sanitizeInput($_POST['excerpt']);
+                $price = SanitizeUtils::sanitizeInput($_POST['price']);
+                $author_id = $_SESSION['user_id'];
+//                $data = FormInputHelper::inputValueProduct();
+                $data = [
+                    'title' => $title,
+                    'slug' => $slug,
+                    'description' => $description,
+                    'excerpt' => $excerpt,
+                    'price' => $price,
+                    'author_id' => $author_id,
+                ];
                 if (!empty($id)) {
                     $this->productRepository->updateProduct($data, $id);
                     $message = "Cập nhật thành công!";

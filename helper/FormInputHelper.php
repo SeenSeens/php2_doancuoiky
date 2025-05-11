@@ -32,4 +32,15 @@ class FormInputHelper {
             'author_id' => $_SESSION['user_id'],
         ];
     }
+
+    public static function inputValueProduct() {
+        return [
+            'title' => SanitizeUtils::sanitizeInput($_POST['title']),
+            'slug' => SanitizeUtils::sanitizeInput($_POST['slug']),
+            'description' => SanitizeUtils::sanitizeInput($_POST['description']),
+//            'excerpt' => SanitizeUtils::sanitizeInput($_POST['excerpt']),
+            'price' => SanitizeUtils::sanitizeInput($_POST['price']),
+            'author_id' => $_SESSION['user_id'],
+        ];
+    }
 }

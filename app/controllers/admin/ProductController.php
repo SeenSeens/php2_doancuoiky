@@ -21,35 +21,7 @@ class ProductController extends Controller {
             'routes' => 'post-new',
             'button' => 'Xuất bản',
         ];
-        try {
-            if (isset($_POST['uploadProduct'])) :
-                $title = isset($_POST['title']) ? $_POST['title'] : '';
-                $description= !empty($_POST['description']) ? $_POST['description'] : '';
-                $excerpt = !empty($_POST['excerpt']) ? $_POST['excerpt'] : '';
-                $price = !empty($_POST['price']) ? intval($_POST['price']) : 0;
-                $discount = !empty($_POST['discount']) ? intval($_POST['discount']) : 0;
-                $category_id = !empty($_POST['terms']) ? $_POST['terms'] : '';
-
-                // Sử dụng lớp ImageUpload
-                $imageUpload = new ImageUpload();
-                $thumbnail = $imageUpload->upload();
-
-                $data = [
-                    'title' => $title,
-                    'description' => $description,
-                    'excerpt' => $excerpt,
-                    'thumbnail' => basename($thumbnail),
-                    'price' => $price,
-                    'discount' => $discount,
-                    'category_id' => $category_id
-                ];
-                $this->productService->saveProduct(null, $data);
-                header('Location: ' . __WEB_ROOT__ . 'admin/san-pham');
-                exit();
-            endif;
-        } catch (PDOException $e) {
-
-        }
+        $this->productService->saveProduct(null, 'product-new');
         $this->data['content'] = 'backend/products/add_product';
         $this->render('backend/admin_layout', $this->data);
     }
