@@ -105,11 +105,16 @@ endif;
             </div>
             <div class="card">
                 <div class="card-header">Ảnh đại diện</div>
+                <div class="card-body">
+                    <input type="file" class="form-control mt-2" name="thumbnail">
+                    <button onclick="window.open('<?= __WEB_ROOT__ . '/elfinder-popup' ?>', 'File Manager', 'width=900,height=500')">Quản lý file</button>
+
+                </div>
             </div>
         </div>
     </form>
 </div>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/select2/js/select2.min.js'; ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/admin/plugins/select2/js/select2.min.js'; ?>"></script>
 <script>
     $('.multiple-select').select2({
         theme: 'bootstrap4',

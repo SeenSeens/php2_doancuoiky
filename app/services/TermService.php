@@ -11,8 +11,14 @@ class TermService extends BaseService {
     public function getTerms( $taxonomy ){
         return $this->termRepository->getTerms( $taxonomy );
     }
+    public function menuItems( $taxonomy ){
+        return $this->termRepository->menuItems( $taxonomy );
+    }
     public function findTerm( $id ) {
         return $this->termRepository->findTerm( $id );
+    }
+    public function findTermBySlug( $slug ) {
+        return $this->termRepository->findTermBySlug( $slug );
     }
     public function saveTerm($id, $taxonomy, $routes) {
         try {

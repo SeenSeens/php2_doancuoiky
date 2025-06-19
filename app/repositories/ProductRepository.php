@@ -28,26 +28,36 @@ class ProductRepository extends BaseRepository{
             ->select('p.category_id')
             ->get();
     }
-    public function allProduct() {
-        return $this->db->table('products as p')
-            ->join('categories as c', 'p.category_id = c.id')
-            ->select('p.id, p.title, p.thumbnail, p.price, p.description, c.name as category_name')
+    // Lấy tất cả sản phẩm
+    public function getAll() {
+        return $this->db->table( $this->table )
+            ->select('products.title, products.slug, products.description, products.excerpt, products.price, products.thumbnail, terms.name, terms.slug as term_slug')
+            ->join('product_term_relationships', 'products.id = product_term_relationships.object_id')
+            ->join('term_taxonomy', 'product_term_relationships.term_taxonomy_id = term_taxonomy.id')
+            ->join('terms', 'term_taxonomy.term_id = terms.id')
             ->get();
     }
-    // Lấy ra sản phẩm theo chuyên mục
-    public function getProductCategory($id){
-        return $this->db->table('products as p')
-            ->where('p.category_id', '=', $id)
+    // Lấy ra 1 sản phẩm theo slug
+    public function findProductBySlug( $slug ) {
+        return $this->db->table( $this->table )
+            ->where('slug', '=', $slug)
+            ->first();
+    }
+    // Lấy ra sản phẩm theo chuyên mục nhất định
+    public function getProductCategory( $id ){
+        return $this->db->table('product_term_relationships')
+            ->join('products', 'product_term_relationships.object_id = products.id')
+            ->join('term_taxonomy', 'product_term_relationships.term_taxonomy_id = term_taxonomy.id')
+            ->where('product_term_relationships.term_taxonomy_id', '=', $id)
             ->get();
     }
 
     // Lấy sản phẩm mới nhất
     public function latestProducts() {
-        return $this->db->table('products')
+        return $this->db->table( $this->table )
             ->limit(3)
             ->get();
     }
-
     // Lấy sản phẩm liên quan theo chuyên mục
     public function relatedProduct($catId, $proId) {
         return $this->db->table('products as p')

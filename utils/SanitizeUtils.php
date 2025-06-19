@@ -1,7 +1,7 @@
 <?php
 class SanitizeUtils {
     public static function sanitizeInput( $input ) {
-        return isset( $input ) ? trim(htmlspecialchars(strip_tags( $input ), ENT_QUOTES, 'UTF-8')) : '';
+        return isset( $input ) ? trim( $input ) : '';
     }
 
     public static function sanitizeInputArray( $input ) {

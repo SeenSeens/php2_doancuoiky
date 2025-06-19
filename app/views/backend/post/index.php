@@ -7,36 +7,34 @@ $posts = $this->data['sub_content']['posts'];
     <div class="card-body">
         <table class="table">
             <thead>
-            <tr>
-                <th>STT</th>
-                <th>Tiêu đề</th>
-                <th>Tác giả</th>
-                <th><?= !empty($posts[0]['categories']) ? 'Chuyên mục' : ''; ?></th>
-                <th><?= !empty($posts[0]['tags']) ? 'Thẻ' : ''; ?></th>
-                <th>Trạng thái</th>
-                <th></th>
-            </tr>
+                <tr>
+                    <th>STT</th>
+                    <th>Hình ảnh</th>
+                    <th>Tiêu đề</th>
+                    <th>Trạng thái</th>
+                    <th></th>
+                </tr>
             </thead>
             <tbody>
             <?php foreach ($posts as $index => $post) : ?>
-                <tr id="row-<?= $post['id']; ?>">
-                    <td><?= $index + 1; ?></td>
+                <tr id="row-<?= $post['id'] ?>">
+                    <td><?= $index + 1 ?></td>
+                    <td><img src="<?= !empty($post['thumbnail']) ? __WEB_ROOT__ . '/public/uploads/' . $post['thumbnail'] : __WEB_ROOT__ . '/public/admin/images/no-image.png' ?>" alt="" class="img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;"></td>
                     <td><?= $post['title']; ?></td>
-                    <td><?= $post['username']; ?></td>
-                    <?php if( !empty( $post['type'] == 'post' )) : ?>
-                    <td><?= $post['categories']; ?></td>
-                    <td><?= $post['tags']; ?></td>
-                    <?php endif; ?>
                     <td><?= PostHelper::getStatusText($post['status']); ?></td>
                     <td>
-                        <?php if( !empty( $post['type']  == 'post' )) : ?>
-                            <a href="#" class="btn btn-sm btn-primary">View</a>
-                            <a href="<?= __WEB_ROOT__ . '/admin/post/edit_id=' . $post['id']; ?>" class="btn btn-sm btn-warning ">Edit</a>
-                            <button class="btn btn-sm btn-danger delete-post"  data-id="<?= $post['id']; ?>">Delete</button>
+                        <?php if( !empty( $post['type']  === 'post' )) : ?>
+                            <div class="d-flex order-actions">
+                                <a href="#" class="text-primary"><i class="lni lni-eye"></i></a>
+                                <a href="<?= __WEB_ROOT__ . '/admin/post/edit_id=' . $post['id']; ?>" class="mx-2 text-warning"><i class="bx bxs-edit"></i></a>
+                                <a class="text-danger delete-post"  data-id="<?= $post['id']; ?>"><i class="bx bxs-trash"></i></a>
+                            </div>
                         <?php else: ?>
-                            <a href="#" class="btn btn-sm btn-primary">View</a>
-                            <a href="<?= __WEB_ROOT__ . '/admin/page/edit_id=' . $post['id']; ?>" class="btn btn-sm btn-warning ">Edit</a>
-                            <button class="btn btn-sm btn-danger delete-post"  data-id="<?= $post['id']; ?>">Delete</button>
+                            <div class="d-flex order-actions">
+                                <a href="#" class="text-primary"><i class="lni lni-eye"></i></a>
+                                <a href="<?= __WEB_ROOT__ . '/admin/page/edit_id=' . $post['id']; ?>" class="mx-2 text-warning"><i class="bx bxs-edit"></i></a>
+                                <a class="text-danger delete-post"  data-id="<?= $post['id']; ?>"><i class="bx bxs-trash"></i></a>
+                            </div>
                         <?php endif; ?>
                     </td>
                 </tr>

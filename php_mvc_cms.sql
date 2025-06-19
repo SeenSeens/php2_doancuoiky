@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th4 19, 2025 lúc 04:33 PM
--- Phiên bản máy phục vụ: 10.11.11-MariaDB-0ubuntu0.24.04.2
+-- Thời gian đã tạo: Th6 07, 2025 lúc 04:56 PM
+-- Phiên bản máy phục vụ: 10.11.13-MariaDB-0ubuntu0.24.04.1
 -- Phiên bản PHP: 8.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -20,102 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `php_mvc_cms`
 --
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `ai_logs`
---
-
-CREATE TABLE `ai_logs` (
-  `id` bigint(20) NOT NULL,
-  `request_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `prompt` text DEFAULT NULL,
-  `response_time_ms` bigint(20) DEFAULT NULL,
-  `token_usage` bigint(20) DEFAULT NULL,
-  `error_message` text DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `ai_requests`
---
-
-CREATE TABLE `ai_requests` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `content_type` varchar(50) DEFAULT NULL,
-  `target_id` bigint(20) DEFAULT NULL,
-  `prompt` text DEFAULT NULL,
-  `model` varchar(100) DEFAULT NULL,
-  `status` varchar(20) DEFAULT 'pending',
-  `created_at` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `ai_results`
---
-
-CREATE TABLE `ai_results` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `request_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `raw_content` longtext DEFAULT NULL,
-  `summary` text DEFAULT NULL,
-  `status` varchar(20) DEFAULT 'draft',
-  `word_count` bigint(20) DEFAULT NULL,
-  `score` decimal(5,2) DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `ai_review_queue`
---
-
-CREATE TABLE `ai_review_queue` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `result_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `reviewer_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `review_status` varchar(20) DEFAULT 'pending',
-  `feedback` text DEFAULT NULL,
-  `reviewed_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `ai_templates`
---
-
-CREATE TABLE `ai_templates` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `content_type` varchar(50) DEFAULT NULL,
-  `template` text DEFAULT NULL,
-  `description` text DEFAULT NULL,
-  `is_active` tinyint(1) DEFAULT 1,
-  `created_at` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `ai_versions`
---
-
-CREATE TABLE `ai_versions` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `result_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `version_number` bigint(20) DEFAULT NULL,
-  `content` longtext DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -289,6 +193,52 @@ CREATE TABLE `media_relationships` (
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `menus`
+--
+
+CREATE TABLE `menus` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `location` varchar(50) DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `menus`
+--
+
+INSERT INTO `menus` (`id`, `name`, `location`, `created_at`, `updated_at`) VALUES
+(1, 'Main Menu', 'main', '2025-06-07 00:24:39', '2025-06-07 00:24:39');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `menu_items`
+--
+
+CREATE TABLE `menu_items` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `menu_id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `reference_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `parent_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `position` int(11) DEFAULT 0,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `menu_items`
+--
+
+INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `reference_id`, `parent_id`, `position`, `created_at`, `updated_at`) VALUES
+(1, 1, 'asdasd', '#', NULL, NULL, 0, '2025-06-07 10:02:13', '2025-06-07 10:02:13');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `notifications`
 --
 
@@ -399,10 +349,22 @@ CREATE TABLE `posts` (
   `excerpt` text DEFAULT NULL,
   `status` enum('publish','draft','pending','private','trash') NOT NULL DEFAULT 'draft',
   `type` enum('post','page','attachment') NOT NULL DEFAULT 'post',
+  `thumbnail` varchar(255) DEFAULT NULL,
   `author_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `posts`
+--
+
+INSERT INTO `posts` (`id`, `title`, `slug`, `content`, `excerpt`, `status`, `type`, `thumbnail`, `author_id`, `created_at`, `updated_at`) VALUES
+(1, 'Hướng dẫn cách bật NFC trên TCL 60 NXTPAPER để kết nối và thanh toán một chạm', 'huong-dan-cach-bat-nfc-tren-tcl-60-nxtpaper-de-ket-noi-va-thanh-toan-mot-cham', '', '', 'publish', 'post', 'huawei-watch-fit-4-74.jpg', 1, '2025-06-06 18:43:28', '2025-06-06 20:02:31'),
+(2, 'YouTube ngừng hỗ trợ iPhone 7 và loạt thiết bị Apple đời cũ, người dùng cần lưu ý', 'youtube-ngung-ho-tro-iphone-7-va-loat-thiet-bi-apple-doi-cu-nguoi-dung-can-luu-y', '', '', 'publish', 'post', 'iPK638847398117012259.jpg', 1, '2025-06-06 18:43:43', '2025-06-06 19:54:05'),
+(3, 'TOP những tính năng Gemini Live “hạng A” nhất định bạn phải thử trên Galaxy A Series', 'top-nhung-tinh-nang-gemini-live-hang-a-nhat-dinh-ban-phai-thu-tren-galaxy-a-series', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'publish', 'post', 'samsung-galaxy-a36-15.jpg', 1, '2025-06-06 18:44:01', '2025-06-06 19:58:26'),
+(4, 'Trên tay pin sạc dự phòng Xmobile SnapGo GS-M3: Nhỏ gọn, sạc nhanh, tích hợp AI và cả loa Bluetooth cực tiện lợi', 'tren-tay-pin-sac-du-phong-xmobile-snapgo-gs-m3-nho-gon-sac-nhanh-tich-hop-ai-va-ca-loa-bluetooth-cuc-tien-loi', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'publish', 'post', 'sapgo-gs-m3-1.jpg', 1, '2025-06-06 18:44:17', '2025-06-06 20:01:02'),
+(5, 'Quản lý công việc và cuộc sống hiệu quả hơn: Khi Microsoft 365 giúp bạn cá nhân hoá từng ngày', 'quan-ly-cong-viec-va-cuoc-song-hieu-qua-hon-khi-microsoft-365-giup-ban-ca-nhan-hoa-tung-ngay', '<div>\r\n<h2>Lorem Ipsum l&agrave; g&igrave;?</h2>\r\n<p><strong>Lorem Ipsum</strong>&nbsp;chỉ đơn giản l&agrave; một đoạn văn bản giả, được d&ugrave;ng v&agrave;o việc tr&igrave;nh b&agrave;y v&agrave; d&agrave;n trang phục vụ cho in ấn. Lorem Ipsum đ&atilde; được sử dụng như một văn bản chuẩn cho ng&agrave;nh c&ocirc;ng nghiệp in ấn từ những năm 1500, khi một họa sĩ v&ocirc; danh gh&eacute;p nhiều đoạn văn bản với nhau để tạo th&agrave;nh một bản mẫu văn bản. Đoạn văn bản n&agrave;y kh&ocirc;ng những đ&atilde; tồn tại năm thế kỉ, m&agrave; khi được &aacute;p dụng v&agrave;o tin học văn ph&ograve;ng, nội dung của n&oacute; vẫn kh&ocirc;ng hề bị thay đổi. N&oacute; đ&atilde; được phổ biến trong những năm 1960 nhờ việc b&aacute;n những bản giấy Letraset in những đoạn Lorem Ipsum, v&agrave; gần đ&acirc;y hơn, được sử dụng trong c&aacute;c ứng dụng d&agrave;n trang, như Aldus PageMaker.</p>\r\n</div>\r\n<div>\r\n<h2>Tại sao lại sử dụng n&oacute;?</h2>\r\n<p>Ch&uacute;ng ta vẫn biết rằng, l&agrave;m việc với một đoạn văn bản dễ đọc v&agrave; r&otilde; nghĩa dễ g&acirc;y rối tr&iacute; v&agrave; cản trở việc tập trung v&agrave;o yếu tố tr&igrave;nh b&agrave;y văn bản. Lorem Ipsum c&oacute; ưu điểm hơn so với đoạn văn bản chỉ gồm nội dung kiểu \"Nội dung, nội dung, nội dung\" l&agrave; n&oacute; khiến văn bản giống thật hơn, b&igrave;nh thường hơn. Nhiều phần mềm thiết kế giao diện web v&agrave; d&agrave;n trang ng&agrave;y nay đ&atilde; sử dụng Lorem Ipsum l&agrave;m đoạn văn bản giả, v&agrave; nếu bạn thử t&igrave;m c&aacute;c đoạn \"Lorem ipsum\" tr&ecirc;n mạng th&igrave; sẽ kh&aacute;m ph&aacute; ra nhiều trang web hiện vẫn đang trong qu&aacute; tr&igrave;nh x&acirc;y dựng. C&oacute; nhiều phi&ecirc;n bản kh&aacute;c nhau đ&atilde; xuất hiện, đ&ocirc;i khi do v&ocirc; t&igrave;nh, nhiều khi do cố &yacute; (xen th&ecirc;m v&agrave;o những c&acirc;u h&agrave;i hước hay th&ocirc;ng tục).</p>\r\n</div>\r\n<p>&nbsp;</p>\r\n<div>\r\n<h2>N&oacute; đến từ đ&acirc;u?</h2>\r\n<p>Tr&aacute;i với quan điểm chung của số đ&ocirc;ng, Lorem Ipsum kh&ocirc;ng phải chỉ l&agrave; một đoạn văn bản ngẫu nhi&ecirc;n. Người ta t&igrave;m thấy nguồn gốc của n&oacute; từ những t&aacute;c phẩm văn học la-tinh cổ điển xuất hiện từ năm 45 trước C&ocirc;ng Nguy&ecirc;n, nghĩa l&agrave; n&oacute; đ&atilde; c&oacute; khoảng hơn 2000 tuổi. Một gi&aacute;o sư của trường Hampden-Sydney College (bang Virginia - Mỹ) quan t&acirc;m tới một trong những từ la-tinh kh&oacute; hiểu nhất, \"consectetur\", tr&iacute;ch từ một đoạn của Lorem Ipsum, v&agrave; đ&atilde; nghi&ecirc;n cứu tất cả c&aacute;c ứng dụng của từ n&agrave;y trong văn học cổ điển, để từ đ&oacute; t&igrave;m ra nguồn gốc kh&ocirc;ng thể chối c&atilde;i của Lorem Ipsum. Thật ra, n&oacute; được t&igrave;m thấy trong c&aacute;c đoạn 1.10.32 v&agrave; 1.10.33 của \"De Finibus Bonorum et Malorum\" (Đỉnh tối thượng của C&aacute;i Tốt v&agrave; C&aacute;i Xấu) viết bởi Cicero v&agrave;o năm 45 trước C&ocirc;ng Nguy&ecirc;n. Cuốn s&aacute;ch n&agrave;y l&agrave; một luận thuyết đạo l&iacute; rất phổ biến trong thời k&igrave; Phục Hưng. D&ograve;ng đầu ti&ecirc;n của Lorem Ipsum, \"Lorem ipsum dolor sit amet...\" được tr&iacute;ch từ một c&acirc;u trong đoạn thứ 1.10.32.</p>\r\n<p>Tr&iacute;ch đoạn chuẩn của Lorem Ipsum được sử dụng từ thế kỉ thứ 16 v&agrave; được t&aacute;i bản sau đ&oacute; cho những người quan t&acirc;m đến n&oacute;. Đoạn 1.10.32 v&agrave; 1.10.33 trong cuốn \"De Finibus Bonorum et Malorum\" của Cicero cũng được t&aacute;i bản lại theo đ&uacute;ng cấu tr&uacute;c gốc, k&egrave;m theo phi&ecirc;n bản tiếng Anh được dịch bởi H. Rackham v&agrave;o năm 1914.</p>\r\n</div>\r\n<div>\r\n<h2>L&agrave;m thế n&agrave;o để c&oacute; n&oacute;?</h2>\r\n<p>C&oacute; rất nhiều biến thể của Lorem Ipsum m&agrave; bạn c&oacute; thể t&igrave;m thấy, nhưng đa số được biến đổi bằng c&aacute;ch th&ecirc;m c&aacute;c yếu tố h&agrave;i hước, c&aacute;c từ ngẫu nhi&ecirc;n c&oacute; khi kh&ocirc;ng c&oacute; vẻ g&igrave; l&agrave; c&oacute; &yacute; nghĩa. Nếu bạn định sử dụng một đoạn Lorem Ipsum, bạn n&ecirc;n kiểm tra kĩ để chắn chắn l&agrave; kh&ocirc;ng c&oacute; g&igrave; nhạy cảm được giấu ở giữa đoạn văn bản. Tất cả c&aacute;c c&ocirc;ng cụ sản xuất văn bản mẫu Lorem Ipsum đều được l&agrave;m theo c&aacute;ch lặp đi lặp lại c&aacute;c đoạn chữ cho tới đủ th&igrave; th&ocirc;i, khiến cho lipsum.com trở th&agrave;nh c&ocirc;ng cụ sản xuất Lorem Ipsum đ&aacute;ng gi&aacute; nhất tr&ecirc;n mạng. Trang web n&agrave;y sử dụng hơn 200 từ la-tinh, kết hợp thuần thục nhiều cấu tr&uacute;c c&acirc;u để tạo ra văn bản Lorem Ipsum tr&ocirc;ng c&oacute; vẻ thật sự hợp l&iacute;. Nhờ thế, văn bản Lorem Ipsum được tạo ra m&agrave; kh&ocirc;ng cần một sự lặp lại n&agrave;o, cũng kh&ocirc;ng cần ch&egrave;n th&ecirc;m c&aacute;c từ ngữ h&oacute;m hỉnh hay thiếu trật tự.</p>\r\n</div>', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>', 'publish', 'post', '', 1, '2025-06-06 18:44:37', '2025-06-07 16:14:00');
 
 -- --------------------------------------------------------
 
@@ -438,13 +400,29 @@ CREATE TABLE `products` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
-  `description` longtext NOT NULL,
+  `description` longtext DEFAULT NULL,
+  `excerpt` text DEFAULT NULL,
   `price` decimal(10,2) NOT NULL,
   `stock` bigint(20) UNSIGNED DEFAULT 0,
   `status` enum('in_stock','out_of_stock','pre_order') DEFAULT 'in_stock',
+  `thumbnail` varchar(255) DEFAULT NULL,
+  `author_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `products`
+--
+
+INSERT INTO `products` (`id`, `title`, `slug`, `description`, `excerpt`, `price`, `stock`, `status`, `thumbnail`, `author_id`, `created_at`, `updated_at`) VALUES
+(2, 'Điện thoại Samsung Galaxy S25 Edge 5G 12GB/512GB', 'dien-thoai-samsung-galaxy-s25-edge-5g-12gb512gb', '', '', 11490000.00, 0, 'in_stock', 'samsung-galaxy-s25-edge-sliver-thumb-600x600.jpg', 1, '2025-06-06 18:01:11', '2025-06-07 07:16:42'),
+(3, 'Điện thoại Samsung Galaxy A56 5G 12GB/256GB', 'dien-thoai-samsung-galaxy-a56-5g-12gb256gb', '', '', 11490000.00, 0, 'in_stock', NULL, 1, '2025-06-06 18:02:08', '2025-06-06 18:02:08'),
+(4, 'Điện thoại Samsung Galaxy A06 5G 6GB/128GB', 'dien-thoai-samsung-galaxy-a06-5g-6gb128gb', '', '', 4290000.00, 0, 'in_stock', NULL, 1, '2025-06-06 18:02:42', '2025-06-06 18:02:42'),
+(5, 'Điện thoại iPhone 16 Pro Max 256GB', 'dien-thoai-iphone-16-pro-max-256gb', '', '', 30590000.00, 0, 'in_stock', 'iphone-16-pro-max-sa-mac-thumb-1-600x600.jpg', 1, '2025-06-06 18:03:26', '2025-06-07 07:20:07'),
+(6, 'Điện thoại iPhone 16 Pro 128GB', 'dien-thoai-iphone-16-pro-128gb', '', '', 25090000.00, 0, 'in_stock', NULL, 1, '2025-06-06 18:04:03', '2025-06-06 18:04:03'),
+(7, 'Điện thoại Xiaomi 15 5G 12GB/512GB', 'dien-thoai-xiaomi-15-5g-12gb512gb', '', '', 24990000.00, 0, 'in_stock', NULL, 1, '2025-06-06 18:05:18', '2025-06-06 18:05:18'),
+(8, 'Điện thoại Xiaomi Redmi 13x 6GB/128GB', 'dien-thoai-xiaomi-redmi-13x-6gb128gb', '', '', 4290000.00, 0, 'in_stock', NULL, 1, '2025-06-06 18:05:54', '2025-06-06 18:05:54');
 
 -- --------------------------------------------------------
 
@@ -482,6 +460,14 @@ CREATE TABLE `product_term_relationships` (
   `object_id` bigint(20) UNSIGNED NOT NULL,
   `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `product_term_relationships`
+--
+
+INSERT INTO `product_term_relationships` (`object_id`, `term_taxonomy_id`) VALUES
+(2, 4),
+(5, 5);
 
 -- --------------------------------------------------------
 
@@ -589,6 +575,7 @@ CREATE TABLE `terms` (
   `name` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
   `description` text DEFAULT NULL,
+  `thumbnail` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -596,8 +583,16 @@ CREATE TABLE `terms` (
 -- Đang đổ dữ liệu cho bảng `terms`
 --
 
-INSERT INTO `terms` (`id`, `name`, `slug`, `description`, `created_at`) VALUES
-(1, 'Chưa phân loại', 'chua-phan-loai', 'Danh mục mặc định cho các bài viết chưa phân loại', '2025-04-19 22:47:56');
+INSERT INTO `terms` (`id`, `name`, `slug`, `description`, `thumbnail`, `created_at`) VALUES
+(1, 'Chưa phân loại', 'chua-phan-loai', 'Danh mục mặc định cho các bài viết chưa phân loại', NULL, '2025-06-07 00:24:39'),
+(2, 'Samsung', 'sam-sung', NULL, 'samsung.png', '2025-06-07 00:27:33'),
+(3, 'Iphone', 'iphone', NULL, 'iphone-brand.jpg', '2025-06-07 00:27:33'),
+(4, 'Samsung', 'sam-sung', '', '', '2025-06-07 00:28:15'),
+(5, 'Xiaomi', 'Xiaomi', NULL, NULL, '2025-06-07 00:28:15'),
+(8, 'Realme', 'realme', NULL, NULL, '2025-06-07 00:29:19'),
+(9, 'Vivo', 'vivo', NULL, NULL, '2025-06-07 00:29:19'),
+(10, 'Honor', 'Honor', NULL, NULL, '2025-06-07 00:29:54'),
+(11, 'Nokia', 'nokia', '', '', '2025-06-07 00:29:54');
 
 -- --------------------------------------------------------
 
@@ -619,7 +614,15 @@ CREATE TABLE `term_taxonomy` (
 
 INSERT INTO `term_taxonomy` (`id`, `term_id`, `taxonomy`, `parent`, `count`) VALUES
 (1, 1, 'category', NULL, 0),
-(2, 1, 'product_cat', NULL, 0);
+(2, 1, 'product_cat', NULL, 0),
+(4, 2, 'product_cat', NULL, 0),
+(5, 3, 'product_cat', NULL, 0),
+(6, 4, 'product_cat', NULL, 0),
+(7, 5, 'product_cat', NULL, 0),
+(8, 8, 'product_cat', NULL, 0),
+(9, 9, 'product_cat', NULL, 0),
+(10, 10, 'product_cat', NULL, 0),
+(11, 11, 'product_cat', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -643,7 +646,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', '$2y$12$i.UP3ni7MWUXYall7PGsoegAaYzvIQXXeRsyCTV/he2IlvlS/H9rS', 'admin', 'active', '2025-04-19 16:04:47', '2025-04-19 16:04:55');
+(1, 'admin', 'truongtuan829@gmail.com', '$2y$12$BdGzSXOFtzwQlNiRkF8LUefxQVqLOdfcIhnX7qLAcRGeXzKUlaBiO', 'admin', 'active', '2025-06-06 17:25:40', '2025-06-06 17:26:17');
 
 -- --------------------------------------------------------
 
@@ -679,48 +682,6 @@ CREATE TABLE `user_sessions` (
 --
 -- Chỉ mục cho các bảng đã đổ
 --
-
---
--- Chỉ mục cho bảng `ai_logs`
---
-ALTER TABLE `ai_logs`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `request_id` (`request_id`);
-
---
--- Chỉ mục cho bảng `ai_requests`
---
-ALTER TABLE `ai_requests`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
-
---
--- Chỉ mục cho bảng `ai_results`
---
-ALTER TABLE `ai_results`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `request_id` (`request_id`);
-
---
--- Chỉ mục cho bảng `ai_review_queue`
---
-ALTER TABLE `ai_review_queue`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `result_id` (`result_id`),
-  ADD KEY `reviewer_id` (`reviewer_id`);
-
---
--- Chỉ mục cho bảng `ai_templates`
---
-ALTER TABLE `ai_templates`
-  ADD PRIMARY KEY (`id`);
-
---
--- Chỉ mục cho bảng `ai_versions`
---
-ALTER TABLE `ai_versions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `result_id` (`result_id`);
 
 --
 -- Chỉ mục cho bảng `audit_logs`
@@ -798,6 +759,20 @@ ALTER TABLE `media_relationships`
   ADD KEY `media_id` (`media_id`);
 
 --
+-- Chỉ mục cho bảng `menus`
+--
+ALTER TABLE `menus`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `menu_items`
+--
+ALTER TABLE `menu_items`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `menu_id` (`menu_id`),
+  ADD KEY `parent_id` (`parent_id`);
+
+--
 -- Chỉ mục cho bảng `notifications`
 --
 ALTER TABLE `notifications`
@@ -853,7 +828,6 @@ ALTER TABLE `payment_methods`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `slug` (`slug`),
   ADD KEY `author_id` (`author_id`);
 
 --
@@ -875,7 +849,8 @@ ALTER TABLE `post_term_relationships`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `slug` (`slug`);
+  ADD UNIQUE KEY `slug` (`slug`),
+  ADD KEY `author_id` (`author_id`);
 
 --
 -- Chỉ mục cho bảng `product_images`
@@ -982,42 +957,6 @@ ALTER TABLE `user_sessions`
 --
 
 --
--- AUTO_INCREMENT cho bảng `ai_logs`
---
-ALTER TABLE `ai_logs`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `ai_requests`
---
-ALTER TABLE `ai_requests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `ai_results`
---
-ALTER TABLE `ai_results`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `ai_review_queue`
---
-ALTER TABLE `ai_review_queue`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `ai_templates`
---
-ALTER TABLE `ai_templates`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `ai_versions`
---
-ALTER TABLE `ai_versions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT cho bảng `audit_logs`
 --
 ALTER TABLE `audit_logs`
@@ -1078,6 +1017,18 @@ ALTER TABLE `media_relationships`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT cho bảng `menus`
+--
+ALTER TABLE `menus`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `menu_items`
+--
+ALTER TABLE `menu_items`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT cho bảng `notifications`
 --
 ALTER TABLE `notifications`
@@ -1123,7 +1074,7 @@ ALTER TABLE `payment_methods`
 -- AUTO_INCREMENT cho bảng `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `post_meta`
@@ -1135,7 +1086,7 @@ ALTER TABLE `post_meta`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `product_images`
@@ -1189,13 +1140,13 @@ ALTER TABLE `sitemap_entries`
 -- AUTO_INCREMENT cho bảng `terms`
 --
 ALTER TABLE `terms`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `term_taxonomy`
 --
 ALTER TABLE `term_taxonomy`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
@@ -1218,37 +1169,6 @@ ALTER TABLE `user_sessions`
 --
 -- Ràng buộc đối với các bảng kết xuất
 --
-
---
--- Ràng buộc cho bảng `ai_logs`
---
-ALTER TABLE `ai_logs`
-  ADD CONSTRAINT `ai_logs_ibfk_1` FOREIGN KEY (`request_id`) REFERENCES `ai_requests` (`id`);
-
---
--- Ràng buộc cho bảng `ai_requests`
---
-ALTER TABLE `ai_requests`
-  ADD CONSTRAINT `ai_requests_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL;
-
---
--- Ràng buộc cho bảng `ai_results`
---
-ALTER TABLE `ai_results`
-  ADD CONSTRAINT `ai_results_ibfk_1` FOREIGN KEY (`request_id`) REFERENCES `ai_requests` (`id`);
-
---
--- Ràng buộc cho bảng `ai_review_queue`
---
-ALTER TABLE `ai_review_queue`
-  ADD CONSTRAINT `ai_review_queue_ibfk_1` FOREIGN KEY (`result_id`) REFERENCES `ai_results` (`id`),
-  ADD CONSTRAINT `ai_review_queue_ibfk_2` FOREIGN KEY (`reviewer_id`) REFERENCES `users` (`id`);
-
---
--- Ràng buộc cho bảng `ai_versions`
---
-ALTER TABLE `ai_versions`
-  ADD CONSTRAINT `ai_versions_ibfk_1` FOREIGN KEY (`result_id`) REFERENCES `ai_results` (`id`);
 
 --
 -- Ràng buộc cho bảng `audit_logs`
@@ -1308,6 +1228,13 @@ ALTER TABLE `media_relationships`
   ADD CONSTRAINT `media_relationships_ibfk_1` FOREIGN KEY (`media_id`) REFERENCES `media` (`id`) ON DELETE CASCADE;
 
 --
+-- Ràng buộc cho bảng `menu_items`
+--
+ALTER TABLE `menu_items`
+  ADD CONSTRAINT `menu_items_ibfk_1` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`),
+  ADD CONSTRAINT `menu_items_ibfk_2` FOREIGN KEY (`parent_id`) REFERENCES `menu_items` (`id`) ON DELETE CASCADE;
+
+--
 -- Ràng buộc cho bảng `notifications`
 --
 ALTER TABLE `notifications`
@@ -1358,6 +1285,12 @@ ALTER TABLE `post_meta`
 ALTER TABLE `post_term_relationships`
   ADD CONSTRAINT `post_term_relationships_ibfk_1` FOREIGN KEY (`object_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `post_term_relationships_ibfk_2` FOREIGN KEY (`term_taxonomy_id`) REFERENCES `term_taxonomy` (`id`) ON DELETE CASCADE;
+
+--
+-- Ràng buộc cho bảng `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Ràng buộc cho bảng `product_images`

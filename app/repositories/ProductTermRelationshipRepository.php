@@ -6,5 +6,4 @@ class ProductTermRelationshipRepository extends BaseRepository {
         parent::__construct('ProductTermRelationshipsModel');
     }
 
-
 }

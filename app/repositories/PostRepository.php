@@ -88,7 +88,7 @@ class PostRepository extends BaseRepository {
 
     public function allPosts( $type ) {
         return $this->db->table( $this->table )
-            ->select('posts.id, posts.title, posts.status, posts.type, users.username')
+            ->select('posts.id, posts.title, posts.status, posts.type, posts.thumbnail, users.username')
             ->where('posts.type', '=', $type )
             ->join('users', 'posts.author_id = users.id')
             ->leftJoin('post_term_relationships', 'posts.id = post_term_relationships.object_id')
@@ -99,7 +99,33 @@ class PostRepository extends BaseRepository {
             ->groupBy('posts.id')
             ->orderBy('posts.created_at', 'DESC')
             ->get();
+    }
+    public function allPostsWithExcerpt( $type, $status ) {
+        return $this->db->table( $this->table )
+            ->select('posts.id, posts.title, posts.slug, posts.excerpt, posts.status, posts.type, posts.thumbnail')
+            ->where('posts.type', '=', $type )
+            ->where('posts.status', '=', $status )
+            ->groupBy('posts.id')
+            ->orderBy('posts.created_at', 'DESC')
+            ->get();
+    }
+    public function menuItems( $type ) {
+        return $this->db->table( $this->table )
+            ->select('posts.id, posts.title, posts.slug, posts.status, posts.type')
+            ->where('posts.type', '=', $type )
+            ->where('posts.status', '=', 'publish' )
+            ->get();
 
+    }
+
+    // Lấy ra bài viết với số lượng nhất định
+    public function getPostLimit( $type, $limit = 10 ) {
+        return $this->db->table( $this->table )
+            ->select('posts.id, posts.title, posts.slug, posts.excerpt, posts.thumbnail, posts.created_at')
+            ->where('type', '=', $type )
+            ->limit($limit)
+            ->orderBy('posts.created_at', 'DESC')
+            ->get();
     }
     public function insertPost( $data ) {
         try {
@@ -130,5 +156,7 @@ class PostRepository extends BaseRepository {
         return $this->db->table('posts')
             ->lastInsertId();
     }
+
+
 }
 ?>

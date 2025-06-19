@@ -15,6 +15,10 @@ $text = $this->data['text-edit-form'];
         <textarea class="form-control" rows="10" placeholder="Thêm nội dung" name="description"><?= $term['description']; ?></textarea>
     </div>
     <div class="col">
+        <label for="">Ảnh đại diện</label>
+        <input type="file" class="form-control mt-2" name="thumbnail">
+    </div>
+    <div class="col">
         <button type="submit" class="btn btn-primary px-5" name="submit"><?= $text['button']; ?></button>
     </div>
 </form>

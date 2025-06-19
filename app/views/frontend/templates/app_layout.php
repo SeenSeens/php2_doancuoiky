@@ -5,24 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= (!empty( $this->data['sub_content']['page_title'] )) ? $this->data['sub_content']['page_title'] : '' ?></title>
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
-    <!-- Icon Font Stylesheet -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="<?= __WEB_ROOT__ . '/public/frontend/lib/lightbox/css/lightbox.min.css'; ?>" rel="stylesheet">
-    <link href="<?= __WEB_ROOT__ . '/public/frontend/lib/owlcarousel/assets/owl.carousel.min.css'; ?>" rel="stylesheet">
-
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="<?= __WEB_ROOT__ . '/public/frontend/css/bootstrap.min.css'; ?>" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="<?= __WEB_ROOT__ . '/public/frontend/css/style.css'; ?>" rel="stylesheet">
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/frontend/css/bootstrap.min.css'; ?>" type="text/css">
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/frontend/css/font-awesome.min.css' ?>" type="text/css">
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/frontend/css/elegant-icons.css'; ?>" type="text/css">
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/frontend/css/nice-select.css'; ?>" type="text/css">
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/frontend/css/jquery-ui.min.css'; ?>" type="text/css">
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/frontend/css/owl.carousel.min.css'; ?>" type="text/css">
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/frontend/css/slicknav.min.css'; ?>" type="text/css">
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/frontend/css/style.css'; ?>" type="text/css">
 </head>
 <body>
 <?php $this->render('frontend/header'); ?>
@@ -31,15 +25,14 @@
 
 <?php $this->render('frontend/footer'); ?>
 
-<!-- JavaScript Libraries -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="<?= __WEB_ROOT__ . '/public/frontend/lib/easing/easing.min.js'; ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/frontend/lib/waypoints/waypoints.min.js'; ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/frontend/lib/lightbox/js/lightbox.min.js'; ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/frontend/lib/owlcarousel/owl.carousel.min.js'; ?>"></script>
-
-<!-- Template Javascript -->
+<!-- Js Plugins -->
+<script src="<?= __WEB_ROOT__ . '/public/frontend/js/jquery-3.3.1.min.js'; ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/frontend/js/bootstrap.min.js'; ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/frontend/js/jquery.nice-select.min.js'; ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/frontend/js/jquery-ui.min.js'; ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/frontend/js/jquery.slicknav.js'; ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/frontend/js/mixitup.min.js'; ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/frontend/js/owl.carousel.min.js'; ?>"></script>
 <script src="<?= __WEB_ROOT__ . '/public/frontend/js/main.js'; ?>"></script>
 </body>
 </html>

@@ -17,8 +17,11 @@
             <td class="col-2"><?= $term['slug']; ?></td>
             <td class="text-wrap"><?= $term['description']; ?></td>
             <td class="col-3">
-                <a href="<?= __WEB_ROOT__ . '/admin/' . $this->data['taxonomy'] .'/edit_id=' . $term['term_id']; ?>" class="btn btn-sm btn-warning ">Edit</a>
-                <button class="btn btn-sm btn-danger delete-term"  data-id="<?= $term['term_id']; ?>">Delete</button>
+                <div class="d-flex order-actions">
+                    <a href="#" class="text-primary"><i class="lni lni-eye"></i></a>
+                    <a href="<?= __WEB_ROOT__ . '/admin/' . $this->data['taxonomy'] .'/edit_id=' . $term['term_id']; ?>" class="mx-2 text-warning"><i class="bx bxs-edit"></i></a>
+                    <a class="text-danger delete-term"  data-id="<?= $term['term_id']; ?>"><i class="bx bxs-trash"></i></a>
+                </div>
             </td>
         </tr>
     <?php endforeach; ?>

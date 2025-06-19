@@ -59,19 +59,20 @@ class ProductService extends BaseService{
             exit;
         }
     }
-    public function getPost($type){
-        return $this->productRepository->getPost($type);
+    // Lấy tất cả sản phẩm
+    public function getAll(){
+        return $this->productRepository->getAll();
     }
 
-    public function findPost($id){
-        return $this->productRepository->findPost($id);
+    // Lấy ra 1 sản phẩm
+    public function findProductBySlug( $slug ){
+        return $this->productRepository->findProductBySlug( $slug );
     }
 
-    public function allPosts($type)
-    {
-        return $this->productRepository->allPosts($type);
+    // Lấy ra sản phẩm theo chuyên mục
+    public function getProductCategory( $id ){
+        return $this->productRepository->getProductCategory($id);
     }
-
 
 
 

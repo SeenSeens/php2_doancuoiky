@@ -1,10 +1,12 @@
 <?php
 class FormInputHelper {
+
     public static function inputValueTerm(){
         return [
             'name' => SanitizeUtils::sanitizeInput($_POST['name']),
             'slug' => SanitizeUtils::sanitizeInput($_POST['slug']),
             'description' => SanitizeUtils::sanitizeInput($_POST['description']),
+            'thumbnail' => self::handleUploadThumbnail(),
         ];
     }
 
@@ -29,6 +31,7 @@ class FormInputHelper {
             'excerpt' => SanitizeUtils::sanitizeInput($_POST['excerpt']),
             'status' => $status,
             'type' => $type,
+            'thumbnail' => self::handleUploadThumbnail(),
             'author_id' => $_SESSION['user_id'],
         ];
     }
@@ -43,4 +46,11 @@ class FormInputHelper {
             'author_id' => $_SESSION['user_id'],
         ];
     }
+
+    protected static function handleUploadThumbnail() {
+        $imageUpload = new ImageUpload();
+        $path = $imageUpload->upload();
+        return $path ? basename($path) : '';
+    }
+
 }

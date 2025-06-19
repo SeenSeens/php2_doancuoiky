@@ -11,10 +11,23 @@ class TermRepository extends BaseRepository {
             ->where('term_taxonomy.taxonomy', '=', $taxonomy )
             ->get();
     }
+    public function menuItems( $taxonomy ) {
+        return $this->db->table( $this->table )
+            ->select('terms.id, terms.name, terms.slug, term_taxonomy.taxonomy')
+            ->join('term_taxonomy', 'terms.id = term_taxonomy.term_id')
+            ->where('term_taxonomy.taxonomy', '=', $taxonomy )
+            ->get();
+    }
     public function findTerm( $id ) {
         return $this->db->table( $this->table  )
             ->join('term_taxonomy', 'terms.id = term_taxonomy.term_id')
             ->where('terms.id', '=', $id)
+            ->first();
+    }
+    public function findTermBySlug( $slug ) {
+        return $this->db->table( $this->table  )
+            ->join('term_taxonomy', 'terms.id = term_taxonomy.term_id')
+            ->where('terms.slug', '=', $slug)
             ->first();
     }
     public function insertTerm( $data, $taxonomy = '' ){

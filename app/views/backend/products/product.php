@@ -16,9 +16,9 @@
                     <td>{{ product.discount }}</td>
                     <td>{{ product.category_name }}</td>
                     <td class="text-center">
-                        <a href="<?= __WEB_ROOT__ . '/admin/san-pham/{{ product.id }}' ?>" class="btn-sm btn-primary">View</a>
-                        <a href="<?= __WEB_ROOT__ . '/admin/san-pham/sua-san-pham/{{ product.id }}' ?>" class="btn-sm btn-warning">Edit</a>
-                        <a href="<?= __WEB_ROOT__ . '/admin/san-pham/xoa-san-pham/{{ product.id }}' ?>" class="btn-sm btn-danger">Delete</a>
+                        <a href="<?= __WEB_ROOT__ . '/admin/san-pham/{{ product.id }}' ?>" class="btn-sm btn-primary"><i class="lni lni-eye"></i></a>
+                        <a href="<?= __WEB_ROOT__ . '/admin/san-pham/sua-san-pham/{{ product.id }}' ?>" class="btn-sm btn-warning"><i class="bx bxs-edit"></i></a>
+                        <a href="<?= __WEB_ROOT__ . '/admin/san-pham/xoa-san-pham/{{ product.id }}' ?>" class="btn-sm btn-danger"><i class="bx bxs-trash"></i></a>
                     </td>
                 </tr>
                 </tbody>

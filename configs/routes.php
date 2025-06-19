@@ -3,14 +3,17 @@ $routes = [
     'default_controller' => 'HomeController',
 
     'gioi-thieu' => 'AboutController',
-    'lien-he' => 'ContactController',
-    'tin-tuc' => 'NewsController',
-    'tin-tuc/(.*)' => 'NewsController/detail/$1',
+    'lien-he' => 'PageController/contact',
+    'tin-tuc' => 'PageController/news',
+    'tin-tuc/(.*)' => 'PageController/detail/$1',
     'cua-hang' => 'ShopController',
     'gio-hang' => 'ShopController/cart',
-    'danh-muc' => 'ProductController',
-    'san-pham' => 'ProductController/detail',
-
+    'san-pham/(.*)' => 'ProductController/detail/$1',
+    'danh-muc-san-pham/(.*)' => 'ProductController/category/$1',
+    'upload' => 'UploadController/uploadImage',
+    'postacceptor' => 'UploadController/postAcceptor',
+    'elfinder'       => 'UploadController/elfinder',
+    'elfinder-popup' => 'UploadController/elfinderView',
     // Dashboard
     'admin' => 'admin/DashboardController',
     'admin/dashboard' => 'DashboardController/index',
@@ -88,6 +91,10 @@ $routes = [
     'admin/register' => 'admin/AuthController/register',
     'admin/forgot-password' => 'admin/AuthController/forgotPassword',
     'admin/logout' => 'admin/AuthController/logout',
+
+    // Menu
+    'admin/menu' => 'admin/MenuController',
+    'admin/menu/add' => 'admin/MenuController/create',
 ];
 
 ?>

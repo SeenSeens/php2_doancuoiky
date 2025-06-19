@@ -456,6 +456,30 @@ CREATE TABLE ai_templates (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+/*Menu*/
+CREATE TABLE menus (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,       -- ví dụ: Main Menu, Footer Menu
+    location VARCHAR(50), -- ví dụ: main, footer, mobile
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE menu_items (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    menu_id BIGINT UNSIGNED NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    url VARCHAR(255) NOT NULL,
+    reference_id BIGINT UNSIGNED DEFAULT NULL,
+    parent_id BIGINT UNSIGNED DEFAULT NULL,
+    position INT DEFAULT 0,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (menu_id) REFERENCES menus(id),
+    FOREIGN KEY (parent_id) REFERENCES menu_items(id) ON DELETE CASCADE
+);
+
 INSERT INTO terms (name, slug, description)
 VALUES ('Chưa phân loại', 'chua-phan-loai', 'Danh mục mặc định cho các bài viết chưa phân loại');
 
@@ -469,3 +493,4 @@ INSERT INTO term_taxonomy (term_id, taxonomy)
 VALUES
     ((SELECT id FROM terms WHERE slug = 'chua-phan-loai'), 'product_cat');
 
+INSERT INTO menus(name, location) VALUES ('Main Menu', 'main')

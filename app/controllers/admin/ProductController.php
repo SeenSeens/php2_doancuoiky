@@ -1,10 +1,13 @@
 <?php
 require_once __DIR_ROOT__ . '/app/services/ProductService.php';
+require_once __DIR_ROOT__ . '/app/services/TermService.php';
 class ProductController extends Controller {
     public array $data = [];
     private ProductService $productService;
+    private TermService $termService;
     public function __construct() {
         $this->productService = new ProductService();
+        $this->termService = new TermService();
     }
 
     public function index() {
@@ -16,7 +19,7 @@ class ProductController extends Controller {
     // Thêm mới sản phẩm
     public function create(){
         $this->data['sub_content']['page_title'] = "Thêm mới sản phẩm";
-//        $this->data['sub_content']['terms'] = $this->categories->getListCategory();
+        $this->data['sub_content']['terms'] = $this->termService->getTerms('product_cat');
         $this->data['text-add-form'] = [
             'routes' => 'post-new',
             'button' => 'Xuất bản',

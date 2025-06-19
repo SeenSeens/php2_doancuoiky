@@ -26,9 +26,12 @@ class PostService extends BaseService {
     public function allPosts( $type ) {
         return $this->postRepository->allPosts( $type );
     }
+    public function menuItems( $type ) {
+        return $this->postRepository->menuItems( $type );
+    }
     public function savePost( $id, $type, $routes ) {
         try {
-            if( $_SERVER['REQUEST_METHOD'] == 'POST' ) :
+            if( $_SERVER['REQUEST_METHOD'] === 'POST' ) :
                 $data = FormInputHelper::inputValuePost( $type );
 
                 if ( !empty( $id )) {
@@ -70,6 +73,13 @@ class PostService extends BaseService {
         }
     }
 
+    // Lấy ra sản phẩm với số lượng nhất định
+    public function getPostLimit( $type, $limit = 10 ){
+        return $this->postRepository->getPostLimit( $type, $limit );
+    }
+    public function allPostsWithExcerpt( $type, $status ) {
+        return $this->postRepository->allPostsWithExcerpt( $type, $status );
+    }
     private function handleTerms(int $post_id) {
         $category_ids = SanitizeUtils::sanitizeInputArray($_POST['category'] ?? []);
         $tag_ids = SanitizeUtils::sanitizeInputArray($_POST['tag'] ?? []);

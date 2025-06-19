@@ -1,5 +1,5 @@
 <link href="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/Drag-And-Drop/dist/imageuploadify.min.css' ?>" rel="stylesheet" />
-<?php //$categories =  $this->data['sub_content']['terms']; ?>
+<?php $categories =  $this->data['sub_content']['terms']; ?>
 <?php $this->render('backend/components/breadcrumb'); ?>
 <?php
 if( !empty( $this->data['post'] ) ) :

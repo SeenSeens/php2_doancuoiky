@@ -29,16 +29,7 @@ class NewsController extends Controller {
     }
 
 
-    public function detail ($slug = '') {
-        $post = $this->postService->findPostBySlug('post', $slug);
-        if (!$post) {
-            return;
-        }
-        $this->data['sub_content']['page_title'] = $post['title'];
-        $this->data['sub_content']['post'] = $post;
-        $this->data['content'] = 'frontend/pages/single'; // truyền dữ liệu qua bên view
-        $this->render('frontend/templates/app_layout', $this->data);
-    }
+
 }
 
 ?>

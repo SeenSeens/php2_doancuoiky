@@ -6,7 +6,7 @@ class ImageUpload {
     }
     // Hàm upload file
     public function upload() {
-        if (isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] == 0) {
+        if (isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] === 0) {
             $target_file = $this->uploadDir . basename($_FILES["thumbnail"]["name"]);
 
             // Move uploaded file to target directory

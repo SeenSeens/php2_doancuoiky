@@ -1,7 +1,7 @@
 <div class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
-            <img src="<?= __WEB_ROOT__ . '/public/admin/assets/images/logo-icon.png' ?>" class="logo-icon" alt="logo icon">
+            <img src="<?= __WEB_ROOT__ . '/public/admin/images/logo-icon.png' ?>" class="logo-icon" alt="logo icon">
         </div>
         <div>
             <h4 class="logo-text">Rukada</h4>
@@ -12,31 +12,30 @@
     <ul class="metismenu" id="menu">
         <li>
             <a href="<?= __WEB_ROOT__ . '/admin' ?>">
-                <div class="parent-icon"><i class='bx bx-home-circle'></i>
-                </div>
+                <div class="parent-icon"><i class='lni lni-dashboard'></i></div>
                 <div class="menu-title">Trang quản trị</div>
             </a>
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bi bi-signpost"></i></div>
+                <div class="parent-icon"><i class="lni lni-empty-file"></i></div>
                 <div class="menu-title">Bài viết</div>
             </a>
             <ul>
                 <li><a href="<?= __WEB_ROOT__ . '/admin/posts' ?>"><i class="bx bx-right-arrow-alt"></i>Tất cả bài viết</a></li>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/post-new' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm bài viết</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/post-new' ?>"><i class="lni lni-pencil-alt"></i>Thêm bài viết</a></li>
                 <li><a href="<?= __WEB_ROOT__ . '/admin/category' ?>"><i class="bx bx-right-arrow-alt"></i>Danh mục</a></li>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/post-tag' ?>"><i class="bx bx-right-arrow-alt"></i>Thẻ</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/post-tag' ?>"><i class="lni lni-tag"></i>Thẻ</a></li>
             </ul>
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bi bi-signpost"></i></div>
+                <div class="parent-icon"><i class="fadeIn animated bx bx-images"></i></div>
                 <div class="menu-title">Media</div>
             </a>
             <ul>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/upload' ?>"><i class="bx bx-right-arrow-alt"></i>Thư viện</a></li>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/media-new' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm tệp tin mới</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/upload' ?>"><i class="lni lni-folder"></i>Thư viện</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/media-new' ?>"><i class="fadeIn animated bx bx-image-add"></i>Thêm tệp tin mới</a></li>
             </ul>
         </li>
         <li>
@@ -46,12 +45,12 @@
             </a>
             <ul>
                 <li><a href="<?= __WEB_ROOT__ . '/admin/page' ?>"><i class="bx bx-right-arrow-alt"></i>Tất cả các trang</a></li>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/page-new' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm trang mới</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/page-new' ?>"><i class="lni lni-pencil-alt"></i>Thêm trang mới</a></li>
             </ul>
         </li>
         <li>
             <a href="<?= __WEB_ROOT__ . '/admin/comments' ?>">
-                <div class="parent-icon"><i class='bx bx-home-circle'></i></div>
+                <div class="parent-icon"><i class='fadeIn animated bx bx-comment-detail'></i></div>
                 <div class="menu-title">Bình luận</div>
             </a>
         </li>
@@ -88,24 +87,34 @@
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bx bx-user-circle"></i></div>
-                <div class="menu-title">Thành viên</div>
+                <div class="parent-icon"><i class="lni lni-layout"></i></div>
+                <div class="menu-title">Giao diện</div>
             </a>
             <ul>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/user' ?>"><i class="bx bx-right-arrow-alt"></i>Tất cả người dùng</a></li>
-                <li><a href="<?= __WEB_ROOT__ . '/admin/user/add-user' ?>"><i class="bx bx-right-arrow-alt"></i>Thêm người dùng mới</a></li>
-                <li> <a href="<?= __WEB_ROOT__ . '/admin/user/profile'?>"><i class="bx bx-right-arrow-alt"></i>Hồ sơ</a></li>
+                <li><a href="#"><i class="lni lni-layers"></i>Tiện ích</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/menu' ?>"><i class="lni lni-menu"></i>Menu</a></li>
             </ul>
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-user-circle"></i></div>
+                <div class="menu-title">Thành viên</div>
+            </a>
+            <ul>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/user' ?>"><i class="fadeIn animated bx bx-group"></i>Tất cả người dùng</a></li>
+                <li><a href="<?= __WEB_ROOT__ . '/admin/user/add-user' ?>"><i class="fadeIn animated bx bx-user-plus"></i>Thêm người dùng mới</a></li>
+                <li> <a href="<?= __WEB_ROOT__ . '/admin/user/profile'?>"><i class="fadeIn animated bx bx-user"></i>Hồ sơ</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="fadeIn animated bx bx-wrench"></i></div>
                 <div class="menu-title">Công cụ</div>
             </a>
             <ul>
                 <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Các công cụ có sẵn</a></li>
-                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Nhập dữ liệu</a></li>
-                <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Xuất dữ liệu</a></li>
+                <li><a href="#"><i class="fadeIn animated bx bx-upload"></i>Nhập dữ liệu</a></li>
+                <li><a href="#"><i class="fadeIn animated bx bx-export"></i>Xuất dữ liệu</a></li>
                 <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Tình trạng website</a></li>
                 <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Xuất dữ liệu cá nhân</a></li>
                 <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Xóa dữ liệu cá nhân</a></li>
@@ -113,7 +122,7 @@
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bx bx-user-circle"></i></div>
+                <div class="parent-icon"><i class="lni lni-cogs"></i></div>
                 <div class="menu-title">Cài đặt</div>
             </a>
             <ul>

@@ -6,26 +6,27 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--favicon-->
-    <link rel="icon" href="<?= __WEB_ROOT__ . '/public/admin/assets/images/favicon-32x32.png'; ?>" type="image/png" />
+    <link rel="icon" href="<?= __WEB_ROOT__ . '/public/admin/images/favicon-32x32.png'; ?>" type="image/png" />
     <!--plugins-->
-    <link href="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/simplebar/css/simplebar.css'; ?>" rel="stylesheet" />
-    <link href="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css'; ?>" rel="stylesheet" />
-    <link href="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/metismenu/css/metisMenu.min.css'; ?>" rel="stylesheet" />
+    <link href="<?= __WEB_ROOT__ . '/public/admin/plugins/simplebar/css/simplebar.css'; ?>" rel="stylesheet" />
+    <link href="<?= __WEB_ROOT__ . '/public/admin/plugins/perfect-scrollbar/css/perfect-scrollbar.css'; ?>" rel="stylesheet" />
+    <link href="<?= __WEB_ROOT__ . '/public/admin/plugins/metismenu/css/metisMenu.min.css'; ?>" rel="stylesheet" />
     <!-- loader-->
-    <link href="<?= __WEB_ROOT__ . '/public/admin/assets/css/pace.min.css' ?>" rel="stylesheet" />
-    <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/pace.min.js' ?>"></script>
+    <link href="<?= __WEB_ROOT__ . '/public/admin/css/pace.min.css' ?>" rel="stylesheet" />
+    <script src="<?= __WEB_ROOT__ . '/public/admin/js/pace.min.js' ?>"></script>
     <!-- Bootstrap CSS -->
-    <link href="<?= __WEB_ROOT__ . '/public/admin/assets/css/bootstrap.min.css' ?>" rel="stylesheet">
+    <link href="<?= __WEB_ROOT__ . '/public/admin/css/bootstrap.min.css' ?>" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="<?= __WEB_ROOT__ . '/public/admin/assets/css/app.css' ?>" rel="stylesheet">
-    <link href="<?= __WEB_ROOT__ . '/public/admin/assets/css/icons.css' ?>" rel="stylesheet">
+    <link href="<?= __WEB_ROOT__ . '/public/admin/css/app.css' ?>" rel="stylesheet">
+    <link href="<?= __WEB_ROOT__ . '/public/admin/css/icons.css' ?>" rel="stylesheet">
     <!-- Theme Style CSS -->
-    <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/admin/assets/css/dark-theme.css' ?>" />
-    <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/admin/assets/css/semi-dark.css' ?>" />
-    <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/admin/assets/css/header-colors.css' ?>" />
-    <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/jquery.min.js' ?>"></script>
-    <script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/angular.min.js' ?>"></script>
-    <script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/notifications/js/lobibox.min.js'; ?>"></script>
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/admin/css/dark-theme.css' ?>" />
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/admin/css/semi-dark.css' ?>" />
+    <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/admin/css/header-colors.css' ?>" />
+    <script src="<?= __WEB_ROOT__ . '/public/admin/js/jquery.min.js' ?>"></script>
+    <script src="<?= __WEB_ROOT__ . '/public/admin/js/angular.min.js' ?>"></script>
+    <script src="<?= __WEB_ROOT__ . '/public/admin/plugins/notifications/js/lobibox.min.js'; ?>"></script>
+    <link rel="stylesheet" type="text/css" href="<?= __WEB_ROOT__ . '/public/admin/plugins/elfinder/css/elfinder.min.css' ?>">
     <title><?= $this->data['sub_content']['page_title']; ?></title>
 </head>
 <body>
@@ -58,16 +59,22 @@
 <?php $this->render('backend/layout/switcher') ?>
 <!--end switcher-->
 <!-- Bootstrap JS -->
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/bootstrap.bundle.min.js' ?>"></script>
+<script>
+    const BASE_URL = '<?= __WEB_ROOT__ ?>';
+    console.log( BASE_URL)
+</script>
+<script src="<?= __WEB_ROOT__ . '/public/admin/js/bootstrap.bundle.min.js' ?>"></script>
 <!--plugins-->
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/simplebar/js/simplebar.min.js' ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/metismenu/js/metisMenu.min.js' ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js' ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/tinymce/tinymce.min.js' ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/tinymce-jquery.min.js' ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/tinymce.js' ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/admin/plugins/simplebar/js/simplebar.min.js' ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/admin/plugins/metismenu/js/metisMenu.min.js' ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/admin/plugins/perfect-scrollbar/js/perfect-scrollbar.js' ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/admin/plugins/tinymce/tinymce.min.js' ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/admin/js/tinymce-jquery.min.js' ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/admin/js/tinymce.js' ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/admin/js/axios.min.js' ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/admin/plugins/elFinder/js/elfinder.min.js' ?>"></script>
 <!--app JS-->
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/app.js' ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/admin/js/app.js' ?>"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         <?php if (!empty($_SESSION['error'])) : ?>
@@ -118,6 +125,19 @@
         const slug = ChangeToSlug(title);
         document.getElementById('slug').value = slug;
     });
+
+
+
+        $().ready(function () {
+        $('#elfinder').elfinder({
+            url: <?= __WEB_ROOT__ ?> + '/elfinder', // connector route
+            getFileCallback: function (file) {
+                window.opener.tinymce.activeEditor.insertContent('<img src="' + file.url + '"/>');
+                window.close();
+            }
+        });
+    });
+
 
 
 </script>
