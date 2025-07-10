@@ -1,8 +1,6 @@
 <!-- Single Page Header start -->
 <?php $this->render('frontend/template-parts/breadcrumb'); ?>
 <!-- Single Page Header End -->
-
-
 <!-- Cart Page Start -->
 <section class="shoping-cart spad">
     <div class="container">
