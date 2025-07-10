@@ -14,6 +14,8 @@ $routes = [
     'postacceptor' => 'UploadController/postAcceptor',
     'elfinder'       => 'UploadController/elfinder',
     'elfinder-popup' => 'UploadController/elfinderView',
+
+
     // Dashboard
     'admin' => 'admin/DashboardController',
     'admin/dashboard' => 'DashboardController/index',
@@ -33,6 +35,7 @@ $routes = [
     // ProductController
     'admin/product' => 'admin/ProductController',
     'admin/product-new' => 'admin/ProductController/create',
+    'admin/product/view=(.+)' => 'admin/ProductController/view/$1',
     'admin/product/edit_id=(.+)' => 'admin/ProductController/edit/$1',
     'admin/product/delete' => 'admin/ProductController/delete',
 
@@ -75,6 +78,7 @@ $routes = [
     // MediaController
     'admin/upload' => 'admin/MediaController',
     'admin/media-new' => 'admin/MediaController/create',
+    'admin/media/connector' => 'admin/MediaController/connector',
 
     // UserController
     'admin/user' => 'admin/UserController',

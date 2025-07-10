@@ -1,5 +1,4 @@
 <?php
-$product = $this->data['sub_content']['product'];
 $categories = $this->data['sub_content']['terms'];
 ?>
 <!--breadcrumb-->
@@ -31,7 +30,7 @@ $categories = $this->data['sub_content']['terms'];
 <div class="card">
     <div class="row g-0">
         <div class="col-md-4 border-end">
-            <img src="<?= __WEB_ROOT__ . '/public/uploads/' . $product['thumbnail']; ?>" class="img-fluid" alt="...">
+            <img src="<?= !empty($product['thumbnail']) ? __WEB_ROOT__ . '/public/uploads/' . $product['thumbnail'] : __WEB_ROOT__ . '/public/admin/images/no-image.png' ?>" class="img-fluid" alt="...">
         </div>
         <div class="col-md-8">
             <div class="card-body">
@@ -48,7 +47,7 @@ $categories = $this->data['sub_content']['terms'];
                 <dl class="row">
                     <dt class="col-sm-3">Chuyên mục</dt>
                     <?php foreach ($categories as $category) : ?>
-                    <dd class="col-sm-9"><?= $product['category_id'] == $category['id'] ? $category['name'] : '' ?></dd>
+                        <dd class="col-sm-9"><?= $product['term_taxonomy_id'] === $category['id'] ? $category['name'] : '' ?></dd>
                     <?php endforeach; ?>
                 </dl>
                 <hr>
@@ -88,5 +87,35 @@ $categories = $this->data['sub_content']['terms'];
             </div>
         </div>
     </div>
-
+</div>
+<h6 class="text-uppercase mb-0">Sản phẩm liên quan</h6>
+<hr/>
+<div class="row row-cols-1 row-cols-lg-3">
+    <?php foreach ($related_products as $relatedProduct) : ?>
+    <div class="col">
+        <div class="card">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <a href="<?= __WEB_ROOT__ . '/admin/product/view=' . $relatedProduct['id'] ?>">
+                        <img src="<?= !empty($relatedProduct['thumbnail']) ? __WEB_ROOT__ . '/public/uploads/' . $relatedProduct['thumbnail'] : __WEB_ROOT__ . '/public/admin/images/no-image.png' ?>" class="img-fluid" alt="...">
+                    </a>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h6 class="card-title"><a href="<?= __WEB_ROOT__ . '/admin/product/view=' . $relatedProduct['id'] ?>"><?= $product['title'] ?></a></h6>
+                        <div class="clearfix">
+                            <p class="mb-0 float-start fw-bold">
+                                <?php if( !empty( $product['price'])) : ?>
+                                    <span><?= $product['price'] ?></span>
+                                <?php else: ?>
+                                    <span>Liên hệ</span>
+                                <?php endif; ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endforeach; ?>
 </div>

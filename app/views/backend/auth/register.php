@@ -5,7 +5,7 @@
             <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-2">
                 <div class="col mx-auto">
                     <div class="my-4 text-center">
-                        <img src="<?= __WEB_ROOT__ . '/public/admin/assets/images/logo-img.png'; ?>" width="180" alt="" />
+                        <img src="<?= __WEB_ROOT__ . '/public/admin/images/logo-img.png'; ?>" width="180" alt="" />
                     </div>
                     <div class="card">
                         <div class="card-body">
@@ -17,7 +17,7 @@
                                 <div class="d-grid">
                                     <a class="btn my-4 shadow-sm btn-white" href="javascript:;">
                                         <span class="d-flex justify-content-center align-items-center">
-                                            <img class="me-2" src="<?= __WEB_ROOT__ . '/public/admin/assets/icons/search.svg'; ?>" width="16" alt="Image Description">
+                                            <img class="me-2" src="<?= __WEB_ROOT__ . '/public/admin/icons/search.svg'; ?>" width="16" alt="Image Description">
                                             <span>Đăng ký với Google</span>
                                         </span>
                                     </a>

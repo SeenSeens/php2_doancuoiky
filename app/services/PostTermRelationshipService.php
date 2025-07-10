@@ -7,4 +7,7 @@ class PostTermRelationshipService extends BaseService {
     public function __construct() {
         $this->postTermRelationshipRepository = new PostTermRelationshipRepository();
     }
+    public function getSelectedTermIds($post_id, $taxonomy) {
+        return $this->postTermRelationshipRepository->getTermIdsByPostAndTaxonomy($post_id, $taxonomy);
+    }
 }

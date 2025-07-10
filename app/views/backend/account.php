@@ -35,34 +35,11 @@
 <script src="<?= __WEB_ROOT__ . '/public/admin/plugins/notifications/js/lobibox.min.js'; ?>"></script>
 <!--app JS-->
 <script src="<?= __WEB_ROOT__ . '/public/admin/js/app.js' ?>"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        <?php if (!empty($_SESSION['error'])) : ?>
-        Lobibox.notify('error', {
-            size: 'mini',
-            rounded: true,
-            delay: 3000,
-            sound: false,
-            title: 'Lỗi',
-            msg: "<?php echo $_SESSION['error']; ?>"
-        });
-        <?php unset($_SESSION['error']); ?>
-        <?php endif; ?>
 
-        <?php if (!empty($_SESSION['success'])) : ?>
-        Lobibox.notify('success', {
-            size: 'mini',
-            rounded: true,
-            delay: 3000,
-            sound: false,
-            title: 'Thành công',
-            msg: "<?php echo $_SESSION['success']; ?>"
-        });
-        <?php unset($_SESSION['success']); ?>
-        <?php endif; ?>
-    });
-</script>
-
+<?php
+require_once __DIR_ROOT__ . '/helper/FlashMessage.php';
+FlashMessage::display();
+?>
 </body>
 
 </html>

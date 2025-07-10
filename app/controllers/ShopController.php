@@ -13,7 +13,7 @@ class ShopController extends Controller {
 
     public function index(){
         $this->data['sub_content']['page_title'] = "Cửa hàng";
-        $this->data['sub_content']['product_categories'] = $this->termService->getTerms('product_cat');
+        $this->categories();
         $this->data['sub_content']['products'] = $this->productService->getAll();
         $this->data['content'] = 'frontend/woocommerce/archive'; // truyền dữ liệu qua bên view
         $this->render('frontend/templates/app_layout', $this->data);
@@ -21,8 +21,12 @@ class ShopController extends Controller {
     // Trang giỏ hàng
     public function cart() {
         $this->data['sub_content']['page_title'] = "Giỏ hàng";
-        $this->data['content'] = 'frontend//woocommerce/cart/cart';
+        $this->data['content'] = 'frontend/woocommerce/cart/cart';
         $this->render('frontend/templates/app_layout', $this->data);
+    }
+
+    private function categories (){
+        return $this->data['sub_content']['categories'] = $this->termService->getTerms('product_cat');
     }
 }
 

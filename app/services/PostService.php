@@ -2,6 +2,7 @@
 require_once __DIR_ROOT__ . '/app/services/BaseService.php';
 require_once __DIR_ROOT__ . '/app/repositories/PostRepository.php';
 require_once __DIR_ROOT__ . '/app/repositories/PostTermRelationshipRepository.php';
+require_once __DIR_ROOT__ . '/helper/FlashMessage.php';
 class PostService extends BaseService {
     protected PostRepository $postRepository;
     protected PostTermRelationshipRepository $postTermRelationshipRepository;
@@ -38,22 +39,23 @@ class PostService extends BaseService {
                     $this->postRepository->updatePost($data, $id);
                     $post_id = $id;
                     $message = "Cập nhật thành công!";
+
                 } else {
                     $this->postRepository->insertPost($data);
                     $post_id = $this->postRepository->getLastId();
-                    $message = "Đăng ký thành công!";
+                    $message = "Thêm thành công!";
                 }
 
                 $this->handleTerms($post_id);
 
                 // Trả về kết quả
-                $result = ['success' => true, 'message' => $message];
+                FlashMessage::set('success', $message);
 
                 header("Location: " . __WEB_ROOT__ . "/admin/" . $routes);
                 exit();
             endif;
         } catch( Exception $e ) {
-            return ['success' => false, 'message' => "Có lỗi xảy ra: " . $e->getMessage()];
+            FlashMessage::set('error', "Có lỗi xảy ra: " . $e->getMessage());
         }
     }
 

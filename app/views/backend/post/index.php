@@ -1,24 +1,23 @@
 <?php
 require_once __DIR_ROOT__ . '/helper/PostHelper.php'; // Gọi hàm lấy trạng thái
 $this->render('backend/components/breadcrumb');
-$posts = $this->data['sub_content']['posts'];
 ?>
 <div class="card">
     <div class="card-body">
-        <table class="table">
+        <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th>STT</th>
-                    <th>Hình ảnh</th>
+                    <th style="width: 0;">STT</th>
+                    <th style="width: 100px;">Hình ảnh</th>
                     <th>Tiêu đề</th>
-                    <th>Trạng thái</th>
-                    <th></th>
+                    <th style="width: 100px;">Trạng thái</th>
+                    <th style="width: 0;"></th>
                 </tr>
             </thead>
             <tbody>
-            <?php foreach ($posts as $index => $post) : ?>
+            <?php $index = 0; foreach ($posts as $post) : ?>
                 <tr id="row-<?= $post['id'] ?>">
-                    <td><?= $index + 1 ?></td>
+                    <td><?= ++$index; ?></td>
                     <td><img src="<?= !empty($post['thumbnail']) ? __WEB_ROOT__ . '/public/uploads/' . $post['thumbnail'] : __WEB_ROOT__ . '/public/admin/images/no-image.png' ?>" alt="" class="img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;"></td>
                     <td><?= $post['title']; ?></td>
                     <td><?= PostHelper::getStatusText($post['status']); ?></td>
@@ -43,42 +42,9 @@ $posts = $this->data['sub_content']['posts'];
         </table>
     </div>
 </div>
+<script src="<?= __WEB_ROOT__ . '/public/admin/js/delete.js' ?>"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        document.querySelectorAll('.delete-post').forEach(button => {
-            button.addEventListener('click', function() {
-                let postId = this.getAttribute('data-id');
-                let url = '<?= __WEB_ROOT__ . '/admin/post/delete'; ?>'
-
-                if (confirm("Bạn có chắc chắn muốn xóa bài viết này?")) {
-                    fetch(url, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                            'X-Requested-With': 'XMLHttpRequest'  // Quan trọng để nhận diện đây là yêu cầu AJAX
-                        },
-                        body: 'id=' + postId
-                    })
-                        .then(response => response.text()) // Lấy text trước khi parse JSON
-                        .then(text => {
-                            try {
-                                // Chỉ lấy phần JSON, bỏ HTML/script nếu có
-                                let jsonStart = text.indexOf('{');
-                                let jsonText = text.substring(jsonStart);
-                                let data = JSON.parse(jsonText);
-                                if (data.success) {
-                                    document.getElementById('row-' + postId).remove();
-                                } else {
-                                    alert("Lỗi: " + data.message);
-                                }
-                            } catch (error) {
-                                console.error("Không thể parse JSON:", text);
-                                alert("Phản hồi từ server không hợp lệ!");
-                            }
-                        })
-                        .catch(error => console.error('Lỗi:', error));
-                }
-            });
-        });
+        new DeleteHandler('.delete-post', '<?= __WEB_ROOT__ ?>/admin/post/delete', 'Bạn có chắc chắn muốn xóa bài viết này?').init();
     });
 </script>

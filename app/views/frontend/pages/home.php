@@ -1,8 +1,6 @@
 <?php
-$categories = $this->data['sub_content']['product_categories'];
-$products = $this->data['sub_content']['products'];
+
 $product_categories = $this->data['sub_content']['pro_cats'];
-$news = $this->data['sub_content']['news'];
 ?>
 <!-- Hero Section Begin -->
 <section class="hero">
@@ -15,9 +13,15 @@ $news = $this->data['sub_content']['news'];
                         <span>Danh mục</span>
                     </div>
                     <ul>
-                        <?php foreach ($categories as $category) : ?>
+                        <?php
+                        foreach ($categories as $category) :
+                            if ( $category['slug'] !== 'chua-phan-loai') :
+                        ?>
                             <li><a href="<?= __WEB_ROOT__ . '/danh-muc-san-pham/'. $category['slug']; ?>"><?= $category['name'] ?></a></li>
-                        <?php endforeach; ?>
+                        <?php
+                            endif;
+                        endforeach;
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -58,13 +62,19 @@ $news = $this->data['sub_content']['news'];
     <div class="container">
         <div class="row">
             <div class="categories__slider owl-carousel">
-                <?php foreach ($categories as $category) : ?>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="<?= __WEB_ROOT__ . '/public/uploads/' . $category['thumbnail'] ?>">
-                        <h5><a href="#"><?= $category['name'] ?></a></h5>
-                    </div>
-                </div>
-                <?php endforeach; ?>
+                <?php
+                foreach ($categories as $category) :
+                    if ( $category['slug'] !== 'chua-phan-loai') :
+                ?>
+                        <div class="col-lg-3">
+                            <div class="categories__item set-bg img-fluid" data-setbg="<?= __WEB_ROOT__ . '/public/uploads/' . $category['thumbnail'] ?>">
+                                <h5><a href="#"><?= $category['name'] ?></a></h5>
+                            </div>
+                        </div>
+                <?php
+                    endif;
+                endforeach;
+                ?>
             </div>
         </div>
     </div>
@@ -82,15 +92,24 @@ $news = $this->data['sub_content']['news'];
                 <div class="featured__controls">
                     <ul>
                         <li class="active" data-filter="*">All</li>
-                        <?php foreach ($categories as $category) : ?>
+                        <?php
+                        foreach ($categories as $category) :
+                            if ( $category['slug'] !== 'chua-phan-loai') :
+                        ?>
                         <li data-filter=".<?= $category['slug'] ?>"><?= $category['name'] ?></li>
-                        <?php endforeach; ?>
+                        <?php
+                            endif;
+                        endforeach;
+                        ?>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="row featured__filter">
-            <?php foreach ($products as $product) :  ?>
+            <?php
+            foreach ($products as $product) :
+                if ( $category['slug'] !== 'chua-phan-loai') :
+            ?>
             <div class="col-lg-3 col-md-4 col-sm-6 mix <?= $product['term_slug'] ?>">
                 <div class="featured__item">
                     <div class="featured__item__pic set-bg" data-setbg="<?= __WEB_ROOT__ . '/public/uploads/' . $product['thumbnail'] ?>">
@@ -102,11 +121,14 @@ $news = $this->data['sub_content']['news'];
                     </div>
                     <div class="featured__item__text">
                         <h6><a href="<?= __WEB_ROOT__ . '/san-pham/' . $product['slug'] ?>"><?= $product['title'] ?></a></h6>
-                        <h5><?= $product['price'] ?></h5>
+                        <h5><?= isset($product['price']) ? number_format($product['price'] , 0, ',', '.') . ' VND' : 'Liên hệ' ?></h5>
                     </div>
                 </div>
             </div>
-            <?php endforeach; ?>
+            <?php
+                endif;
+            endforeach;
+            ?>
         </div>
     </div>
 </section>
@@ -118,12 +140,12 @@ $news = $this->data['sub_content']['news'];
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="banner__pic">
-                    <img src="<?= __WEB_ROOT__ . '/public/frontend/img/banner/banner-1.jpg' ?>" alt="">
+                    <img src="<?= __WEB_ROOT__ . '/public/frontend/img/832579c2124e299add4f74bad36d4300.png' ?>" alt="">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="banner__pic">
-                    <img src="<?= __WEB_ROOT__ . '/public/frontend/img/banner/banner-2.jpg' ?>" alt="">
+                    <img src="<?= __WEB_ROOT__ . '/public/frontend/img/e46831b09c5ba4ecb1edf3faf92a176c.png' ?>" alt="">
                 </div>
             </div>
         </div>
@@ -350,7 +372,11 @@ $news = $this->data['sub_content']['news'];
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="blog__item">
                     <div class="blog__item__pic">
-                        <img src="<?= __WEB_ROOT__ . '/public/uploads/' . $new['thumbnail']; ?>" alt="">
+                        <?php if ( !empty($new['thumbnail'])) : ?>
+                            <img src="<?= __WEB_ROOT__ . '/public/uploads/' . $new['thumbnail']; ?>" alt="">
+                        <?php else: ?>
+                            <img src="<?= __WEB_ROOT__ ?>" alt="">
+                        <?php endif; ?>
                     </div>
                     <div class="blog__item__text">
                         <ul>

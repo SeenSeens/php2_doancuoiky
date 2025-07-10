@@ -1,12 +1,11 @@
 <?php $terms = $this->data['sub_content']['terms']; ?>
-<table class="table">
+<table class="table table-striped table-bordered">
     <thead>
     <tr>
-        <th>STT</th>
+        <th style="width: 0;">STT</th>
         <th>Tên</th>
-        <th>Đường dẫn</th>
         <th>Mô tả</th>
-        <th></th>
+        <th style="width: 0"></th>
     </tr>
     </thead>
     <tbody>
@@ -14,9 +13,8 @@
         <tr id="row-<?= $term['term_id']; ?>">
             <td><?= $index + 1; ?></td>
             <td><?= $term['name']; ?></td>
-            <td class="col-2"><?= $term['slug']; ?></td>
             <td class="text-wrap"><?= $term['description']; ?></td>
-            <td class="col-3">
+            <td >
                 <div class="d-flex order-actions">
                     <a href="#" class="text-primary"><i class="lni lni-eye"></i></a>
                     <a href="<?= __WEB_ROOT__ . '/admin/' . $this->data['taxonomy'] .'/edit_id=' . $term['term_id']; ?>" class="mx-2 text-warning"><i class="bx bxs-edit"></i></a>
@@ -27,43 +25,9 @@
     <?php endforeach; ?>
     </tbody>
 </table>
+<script src="<?= __WEB_ROOT__ . '/public/admin/js/delete.js' ?>"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        document.querySelectorAll('.delete-term').forEach(button => {
-            button.addEventListener('click', function() {
-                let termId = this.getAttribute('data-id');
-                let url = '<?= __WEB_ROOT__ . '/admin/' . $this->data['taxonomy'] . '/delete'; ?>'
-
-                if (confirm("Bạn có chắc chắn muốn xóa term này?")) {
-                    fetch(url, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                            'X-Requested-With': 'XMLHttpRequest'  // Quan trọng để nhận diện đây là yêu cầu AJAX
-                        },
-                        body: 'id=' + termId
-                    })
-                        .then(response => response.text()) // Lấy text trước khi parse JSON
-                        .then(text => {
-                            try {
-                                // Chỉ lấy phần JSON, bỏ HTML/script nếu có
-                                let jsonStart = text.indexOf('{');
-                                let jsonText = text.substring(jsonStart);
-                                let data = JSON.parse(jsonText);
-                                if (data.success) {
-                                    document.getElementById('row-' + termId).remove();
-                                } else {
-                                    alert("Lỗi: " + data.message);
-                                }
-                            } catch (error) {
-                                console.error("Không thể parse JSON:", text);
-                                alert("Phản hồi từ server không hợp lệ!");
-                            }
-                        })
-                        .catch(error => console.error('Lỗi:', error));
-
-                }
-            });
-        });
+        new DeleteHandler('.delete-term', '<?= __WEB_ROOT__ ?>/admin/<?= $this->data['taxonomy'] ?>/delete', 'Bạn có chắc chắn muốn xóa term này?').init();
     });
 </script>

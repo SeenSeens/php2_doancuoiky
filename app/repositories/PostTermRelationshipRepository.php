@@ -6,16 +6,10 @@ class PostTermRelationshipRepository extends BaseRepository {
         parent::__construct('PostTermRelationshipsModel');
     }
 
-    /*public function attachTermsToPost($post_id, array $term_taxonomy_ids) {
-        foreach ($term_taxonomy_ids as $term_id) {
-            $this->db->table('term_relationships')
-                ->insertOrUpdate([
-                    'post_id' => $post_id,
-                    'term_taxonomy_id' => $term_id,
-                ]);
-        }
-    }*/
     public function attachTermsToPost($post_id, array $term_taxonomy_ids) {
+        // Xóa toàn bộ term cũ trước khi thêm mới
+        $this->db->query("DELETE FROM $this->table WHERE object_id = ?", [$post_id]);
+
         if (empty($term_taxonomy_ids)) return;
 
         $values = [];
@@ -32,5 +26,15 @@ class PostTermRelationshipRepository extends BaseRepository {
             ON DUPLICATE KEY UPDATE object_id = VALUES(object_id), term_taxonomy_id = VALUES(term_taxonomy_id)";
 
         $this->db->query($sql); // Dùng query thô vì không cần prepare
+    }
+
+    public function getTermIdsByPostAndTaxonomy($post_id, $taxonomy) {
+        $result = $this->db->table( $this->table )
+            ->select('term_taxonomy_id')
+            ->join('term_taxonomy', $this->table.'.term_taxonomy_id = term_taxonomy.id')
+            ->where($this->table.'.object_id', '=', $post_id )
+            ->where('term_taxonomy.taxonomy', '=', $taxonomy)
+            ->get();
+        return array_column($result ?: [], 'term_taxonomy_id');
     }
 }

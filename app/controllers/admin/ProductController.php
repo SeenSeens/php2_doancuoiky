@@ -1,86 +1,65 @@
 <?php
 require_once __DIR_ROOT__ . '/app/services/ProductService.php';
 require_once __DIR_ROOT__ . '/app/services/TermService.php';
+require_once __DIR_ROOT__ . '/app/services/ProductTermRelationshipService.php';
 class ProductController extends Controller {
     public array $data = [];
     private ProductService $productService;
     private TermService $termService;
+    private ProductTermRelationshipService $productTermRelationshipService;
     public function __construct() {
         $this->productService = new ProductService();
         $this->termService = new TermService();
+        $this->productTermRelationshipService = new ProductTermRelationshipService();
     }
 
     public function index() {
         $this->data['sub_content']['page_title'] = "Sản phẩm";
-//        $this->data['sub_content']['product'] = $this->products->allProduct();
-        $this->data['content'] = 'backend/products/product';
+        $this->data['sub_content']['products'] = $this->productService->getAll();
+        $this->data['content'] = 'backend/product/index';
         $this->render('backend/admin_layout', $this->data);
     }
     // Thêm mới sản phẩm
     public function create(){
         $this->data['sub_content']['page_title'] = "Thêm mới sản phẩm";
-        $this->data['sub_content']['terms'] = $this->termService->getTerms('product_cat');
+        $this->data['sub_content']['categories'] = $this->termService->getTerms('product_cat');
         $this->data['text-add-form'] = [
-            'routes' => 'post-new',
+            'routes' => 'product-new',
             'button' => 'Xuất bản',
         ];
         $this->productService->saveProduct(null, 'product-new');
-        $this->data['content'] = 'backend/products/add_product';
+        $this->data['content'] = 'backend/product/add_product';
         $this->render('backend/admin_layout', $this->data);
     }
-    function viewProductById($id) {
+    function view($id) {
         $this->data['sub_content']['page_title'] = "Trang chủ";
-        $this->data['sub_content']['product'] = $this->products->find($id);
-        $this->data['sub_content']['terms'] = $this->categories->getListCategory();
-        $this->data['content'] = 'backend/products/product_detail';
-        $this->render('backend/dashboard', $this->data);
+        $this->data['sub_content']['product'] = $this->productService->findProductById($id);
+        $this->data['sub_content']['terms'] = $this->termService->getTerms('product_cat');
+        // Lấy sản phẩm liên quan
+        $cat_id = $this->data['sub_content']['product']['term_taxonomy_id'];
+        $this->data['sub_content']['related_products'] = $this->productService->relatedProductById($cat_id, $id, 3);
+        $this->data['content'] = 'backend/product/product_detail';
+        $this->render('backend/admin_layout', $this->data);
     }
 
     public function edit($id){
         // Lấy thông tin sản phẩm hiện tại
-        $product = $this->products->find($id);
+        $product = $this->productService->findProductById($id);
         $this->data['sub_content']['page_title'] = "Sửa sản phẩm";
         $this->data['sub_content']['product'] = $product;
-        $this->data['sub_content']['terms'] = $this->categories->getListCategory();
-        $this->data['content'] = 'backend/pages/products/edit_product';
-        $this->render('backend/dashboard', $this->data);
-        try {
-            if(isset($_POST['editProduct'])) {
-                $title = !empty($_POST['title']) ? $_POST['title'] : '';
-                $description= !empty($_POST['description']) ? $_POST['description'] : '';
-                $excerpt = !empty($_POST['excerpt']) ? $_POST['excerpt'] : '';
-                $price = !empty($_POST['price']) ? intval($_POST['price']) : 0;
-                $discount = !empty($_POST['discount']) ? intval($_POST['discount']) : 0;
-                $category_id = !empty($_POST['terms']) ? $_POST['terms'] : '';
+        $this->data['sub_content']['terms'] = $this->termService->getTerms('product_cat');
+        $this->data['sub_content']['selected_category_ids'] = $this->productTermRelationshipService->getSelectedTermIds($id, 'product_cat');
 
-                // Sử dụng lớp ImageUpload để xử lý ảnh mới
-                $imageUpload = new ImageUpload();
-                $thumbnail = $imageUpload->upload();
-                // Nếu không có ảnh mới, giữ lại ảnh cũ
-                if (empty($thumbnail)) {
-                    $thumbnail = $product['thumbnail'];
-                }
-
-                $data = [
-                    'title' => $title,
-                    'description' => $description,
-                    'excerpt' => $excerpt,
-                    'thumbnail' => $thumbnail,
-                    'price' => $price,
-                    'discount' => $discount,
-                    'category_id' => $category_id
-                ];
-                $this->products->editProduct($data, $id);
-                header('Location: ' . __WEB_ROOT__ . '/admin/san-pham');
-                exit();
-            }
-
-        } catch (PDOException $e) {
-
-        }
+        $this->data['text-edit-form'] = [
+            'routes' => 'product/edit_id=' . $id,
+            'button' => 'Cập nhập',
+        ];
+        $this->productService->saveProduct($id, 'product/edit_id=' . $id);
+        $this->data['content'] = 'backend/product/add_product';
+        $this->render('backend/admin_layout', $this->data);
     }
-    public function delete($id){
-        try {
+    public function delete(){
+        /*try {
             if ( !empty($id)) :
                 $product = $this->products->find($id);
                 // Lấy đường dẫn ảnh của sản phẩm
@@ -104,12 +83,21 @@ class ProductController extends Controller {
             endif;
         } catch (\PDOException $e) {
             return 'Đã xảy ra lỗi khi xóa sản phẩm ';
+        }*/
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['id'])) {
+            echo json_encode(['success' => false, 'message' => 'Yêu cầu không hợp lệ!']);
+            exit;
         }
+        $postId = intval($_POST['id']);
+        $deleted = $this->productService->deleteProduct($postId);
+        echo json_encode(['success' => $deleted, 'message' => $deleted ? 'Xóa thành công' : 'Xóa thất bại']);
+        ob_clean();
+        exit;
     }
 
     function orders(){
         $this->data['sub_content']['page_title'] = "Trang chủ";
-        $this->data['content'] = 'backend/pages/products/order';
+        $this->data['content'] = 'backend//product/order';
         $this->render('backend/dashboard', $this->data);
     }
 }

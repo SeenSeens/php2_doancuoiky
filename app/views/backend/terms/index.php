@@ -6,13 +6,7 @@ $this->render('backend/components/breadcrumb');
         <div class="col-4">
             <div class="card">
                 <div class="card-body">
-                    <?php
-                    if (!empty($this->data['term'])) {
-                        $this->render('backend/terms/update');
-                    } else {
-                        $this->render('backend/terms/create');
-                    }
-                    ?>
+                    <?php $this->render('backend/terms/form'); ?>
                 </div>
             </div>
         </div>

@@ -21,7 +21,7 @@
 <body>
 <?php $this->render('frontend/header'); ?>
 
-<?php $this->render($content); ?>
+<?php $this->render($content, $sub_content); ?>
 
 <?php $this->render('frontend/footer'); ?>
 

@@ -6,7 +6,7 @@ class FormInputHelper {
             'name' => SanitizeUtils::sanitizeInput($_POST['name']),
             'slug' => SanitizeUtils::sanitizeInput($_POST['slug']),
             'description' => SanitizeUtils::sanitizeInput($_POST['description']),
-            'thumbnail' => self::handleUploadThumbnail(),
+            'thumbnail' => self::processingThumbnail(),
         ];
     }
 
@@ -31,7 +31,7 @@ class FormInputHelper {
             'excerpt' => SanitizeUtils::sanitizeInput($_POST['excerpt']),
             'status' => $status,
             'type' => $type,
-            'thumbnail' => self::handleUploadThumbnail(),
+            'thumbnail' => self::processingThumbnail(),
             'author_id' => $_SESSION['user_id'],
         ];
     }
@@ -41,16 +41,26 @@ class FormInputHelper {
             'title' => SanitizeUtils::sanitizeInput($_POST['title']),
             'slug' => SanitizeUtils::sanitizeInput($_POST['slug']),
             'description' => SanitizeUtils::sanitizeInput($_POST['description']),
-//            'excerpt' => SanitizeUtils::sanitizeInput($_POST['excerpt']),
-            'price' => SanitizeUtils::sanitizeInput($_POST['price']),
+            'excerpt' => SanitizeUtils::sanitizeInput($_POST['excerpt']),
+//            'price' => SanitizeUtils::sanitizeInput($_POST['price']),
+//            'stock' => SanitizeUtils::sanitizeInput($_POST['stock']),
+//            'status' => SanitizeUtils::sanitizeInput($_POST['status']),
             'author_id' => $_SESSION['user_id'],
         ];
     }
 
-    protected static function handleUploadThumbnail() {
+    private static function processingThumbnail  () {
+        $thumbnail = null;
+        if (!empty($_FILES['thumbnail']['name'])) {
+            $thumbnail = self::handleUploadThumbnail();
+        } else {
+            $thumbnail = $_POST['old_thumbnail'] ?? null;
+        }
+        return $thumbnail;
+    }
+    private static function handleUploadThumbnail(): string{
         $imageUpload = new ImageUpload();
         $path = $imageUpload->upload();
         return $path ? basename($path) : '';
     }
-
 }

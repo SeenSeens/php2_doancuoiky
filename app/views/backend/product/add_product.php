@@ -1,43 +1,38 @@
 <link href="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/Drag-And-Drop/dist/imageuploadify.min.css' ?>" rel="stylesheet" />
-<?php $categories =  $this->data['sub_content']['terms']; ?>
 <?php $this->render('backend/components/breadcrumb'); ?>
 <?php
-if( !empty( $this->data['post'] ) ) :
+if( !empty( $product ) ) :
     $text = $this->data['text-edit-form'];
-    $post = $this->data['post'];
-    $post = $post[0];
-    $status = PostHelper::getStatusText( $post['status'] );
-    $category = $post['categories'];
-    $tag = $post['tags'];
 else:
     $text = $this->data['text-add-form'];
 endif;
 ?>
+
 <div class="container-fluid" >
-    <form class="row" action="<?= __WEB_ROOT__ . '/admin/product-new' ?>" method="POST" enctype="multipart/form-data" >
+    <form class="row" action="<?= empty( $product ) ? __WEB_ROOT__ . '/admin/' . $text['routes'] : __WEB_ROOT__ . '/admin/' .  $text['routes'] ?>" method="POST" enctype="multipart/form-data" >
         <div class="col-8">
             <div class="card">
                 <div class="card-header fw-bold">Tên sản phẩm</div>
                 <div class="card-body">
-                    <input type="text" class="form-control" placeholder="Tên sản phẩm" name="title" id="title" required>
+                    <input type="text" class="form-control" placeholder="Tên sản phẩm" name="title" id="title" value="<?= empty( $product ) ? '' : $product['title'] ?>" required>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header fw-bold">Đường dẫn</div>
                 <div class="card-body">
-                    <input type="text" class="form-control" placeholder="Thêm đường dẫn" name="slug" id="slug" required>
+                    <input type="text" class="form-control" placeholder="Thêm đường dẫn" name="slug" id="slug" value="<?= empty( $product ) ? '' : $product['slug'] ?>" required>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header fw-bold">Mô tả sản phẩm</div>
                 <div class="card-body">
-                    <textarea class="form-control" rows="10" placeholder="Mô tả sản phẩm" name="description"></textarea>
+                    <textarea class="form-control" rows="10" placeholder="Mô tả sản phẩm" name="description"><?= empty( $product ) ? '' : $product['description'] ?></textarea>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header fw-bold">Mô tả ngắn của sản phẩm</div>
                 <div class="card-body">
-                    <textarea class="form-control" rows="10" placeholder="Mô tả ngắn của sản phẩm" name="excerpt"></textarea>
+                    <textarea class="form-control" rows="10" placeholder="Mô tả ngắn của sản phẩm" name="excerpt"><?= empty( $product ) ? '' : $product['excerpt'] ?></textarea>
                 </div>
             </div>
             <div class="card">
@@ -57,7 +52,7 @@ endif;
                                 <div class="row gy-3">
                                     <div class="col-md-4">Giá bán thường</div>
                                     <div class="col-md-8">
-                                        <input type="number" class="form-control" placeholder="Giá bán thường" name="price">
+                                        <input type="number" class="form-control" placeholder="Giá bán thường" name="price" value="<?= empty( $product ) ? '' : $product['price'] ?>">
                                     </div>
                                     <div class="col-md-4">Giá khuyến mãi</div>
                                     <div class="col-md-8">
@@ -201,9 +196,12 @@ endif;
             <div class="card">
                 <div class="card-header fw-bold">Danh mục sản phẩm</div>
                 <div class="card-body">
-                    <select class="form-select" name="category">
+                    <select class="form-select multiple-select" name="category[]" multiple>
                         <?php foreach ($categories as $category) : ?>
-                            <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                            <option value="<?= $category['id'] ?>"
+                                <?= in_array($category['id'], $selected_category_ids ?? [], true) ? 'selected' : '' ?>>
+                                <?= $category['name'] ?>
+                            </option>
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -220,23 +218,12 @@ endif;
         </div>
     </form>
 </div>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/js/jquery.min.js' ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/fancy-file-uploader/jquery.ui.widget.js' ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/fancy-file-uploader/jquery.fileupload.js' ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/fancy-file-uploader/jquery.iframe-transport.js' ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/fancy-file-uploader/jquery.fancy-fileupload.js' ?>"></script>
-<script src="<?= __WEB_ROOT__ . '/public/admin/assets/plugins/Drag-And-Drop/dist/imageuploadify.min.js' ?>"></script>
+<script src="<?= __WEB_ROOT__ . '/public/admin/plugins/select2/js/select2.min.js' ?>"></script>
 <script>
-    $('#fancy-file-upload').FancyFileUpload({
-        params: {
-            action: 'fileuploader'
-        },
-        maxfilesize: 1000000
+    $('.multiple-select').select2({
+        theme: 'bootstrap4',
+        width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+        placeholder: $(this).data('placeholder'),
+        allowClear: Boolean($(this).data('allow-clear')),
     });
-</script>
-<script>
-
-    $(document).ready(function () {
-        $('#image-uploadify').imageuploadify();
-    })
 </script>

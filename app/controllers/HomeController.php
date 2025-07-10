@@ -14,7 +14,7 @@ class HomeController extends Controller {
     }
     public function index () {
         $this->data['sub_content']['page_title'] = "Trang chủ";
-        $this->data['sub_content']['product_categories'] = $this->termService->getTerms('product_cat');
+        $this->data['sub_content']['categories'] = $this->termService->getTerms('product_cat');
         $this->data['sub_content']['products'] = $this->productService->getAll(); // Lấy tất cả sản phẩm
         $this->data['sub_content']['pro_cats'] = $this->productService->getProductCategory('2'); // Lấy sản phẩm theo danh mục
         $this->data['sub_content']['news'] = $this->postService->getPostLimit('post', '3');

@@ -11,6 +11,11 @@ class ProductRepository extends BaseRepository{
     public function insertProduct($data) {
         return $this->db->table( $this->table )->insert($data);
     }
+    public function getLastId(){
+        return $this->db->table($this->table)
+            ->lastInsertId();
+    }
+
     public function updateProduct($data, $id) {
         return $this->db->table( $this->table )
             ->where('id', '=', $id )
@@ -31,15 +36,23 @@ class ProductRepository extends BaseRepository{
     // Lấy tất cả sản phẩm
     public function getAll() {
         return $this->db->table( $this->table )
-            ->select('products.title, products.slug, products.description, products.excerpt, products.price, products.thumbnail, terms.name, terms.slug as term_slug')
+            ->select('products.id, products.title, products.slug, products.description, products.excerpt, products.price, products.thumbnail, terms.name, terms.slug as term_slug')
             ->join('product_term_relationships', 'products.id = product_term_relationships.object_id')
             ->join('term_taxonomy', 'product_term_relationships.term_taxonomy_id = term_taxonomy.id')
             ->join('terms', 'term_taxonomy.term_id = terms.id')
             ->get();
     }
+    // Lấy ra 1 sản phẩm theo id
+    public function findProductById( $id ) {
+        return $this->db->table( $this->table )
+            ->join('product_term_relationships', 'products.id = product_term_relationships.object_id')
+            ->where('id', '=', $id)
+            ->first();
+    }
     // Lấy ra 1 sản phẩm theo slug
     public function findProductBySlug( $slug ) {
         return $this->db->table( $this->table )
+            ->join('product_term_relationships', 'products.id = product_term_relationships.object_id')
             ->where('slug', '=', $slug)
             ->first();
     }
@@ -58,16 +71,24 @@ class ProductRepository extends BaseRepository{
             ->limit(3)
             ->get();
     }
-    // Lấy sản phẩm liên quan theo chuyên mục
-    public function relatedProduct($catId, $proId) {
-        return $this->db->table('products as p')
-            ->join('categories as c', 'p.category_id = c.id')
-            ->where('p.id', '!=', $proId)
-            ->where('c.id', '=', $catId )
-            ->limit(4)
+    // Lấy sản phẩm liên quan theo chuyên mục bằng id sản phẩm
+    public function relatedProductById($cat_id, $product_id, $number) {
+        return $this->db->table( $this->table )
+            ->join('product_term_relationships', 'products.id = product_term_relationships.object_id')
+            ->where('products.id', '!=', $product_id)
+            ->where('product_term_relationships.term_taxonomy_id', '=', $product_id )
+            ->limit($number)
             ->get();
     }
-
+    // Lấy sản phẩm liên quan theo chuyên mục bằng slug sản phẩm
+    public function relatedProductBySlug($cat_id, $product_slug, $number) {
+        return $this->db->table( $this->table )
+            ->join('product_term_relationships', 'products.id = product_term_relationships.object_id')
+            ->where('products.slug', '!=', $product_slug)
+            ->where('product_term_relationships.term_taxonomy_id', '=', $cat_id )
+            ->limit($number)
+            ->get();
+    }
 
 }
 

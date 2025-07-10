@@ -23,7 +23,7 @@ class UploadController extends Controller{
                 }
 
                 echo json_encode([
-                    "location" => "/php2_doancuoiky/public/uploads/" . $filename
+                    "location" => __WEB_ROOT__ . "/public/uploads/" . $filename
                 ]);
             } else {
                 echo json_encode(["error" => "Upload failed."]);
@@ -34,12 +34,18 @@ class UploadController extends Controller{
     }
 
     // Cho TinyMCE kiểu khác sử dụng postAcceptor
+
+    /**
+     * @throws JsonException
+     */
     function postAcceptor() {
         header('Content-Type: application/json');
         if (isset($_FILES['file'])) {
             $target_dir = __DIR_ROOT__ . "/public/uploads/";
             if (!is_dir($target_dir)) {
-                mkdir($target_dir, 0755, true);
+                if (!mkdir($target_dir, 0755, true) && !is_dir($target_dir)) {
+                    throw new \RuntimeException(sprintf('Directory "%s" was not created', $target_dir));
+                }
             }
 
             $filename = basename($_FILES["file"]["name"]);
@@ -47,13 +53,13 @@ class UploadController extends Controller{
 
             if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
                 echo json_encode([
-                    "location" => "/php2_doancuoiky/public/uploads/" . $filename
-                ]);
+                    "location" =>  __WEB_ROOT__ . "/public/uploads/" . $filename
+                ], JSON_THROW_ON_ERROR);
             } else {
-                echo json_encode(["error" => "Upload failed."]);
+                echo json_encode(["error" => "Upload failed."], JSON_THROW_ON_ERROR);
             }
         } else {
-            echo json_encode(["error" => "Invalid request."]);
+            echo json_encode(["error" => "Invalid request."], JSON_THROW_ON_ERROR);
         }
     }
 

@@ -13,29 +13,29 @@
             <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                 <div class="contact__widget">
                     <span class="icon_phone"></span>
-                    <h4>Phone</h4>
-                    <p>+01-3-8888-6868</p>
+                    <h4>Điện thoại</h4>
+                    <p>0385 573 558</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                 <div class="contact__widget">
                     <span class="icon_pin_alt"></span>
-                    <h4>Address</h4>
-                    <p>60-49 Road 11378 New York</p>
+                    <h4>Địa chỉ</h4>
+                    <p>303/41 Tân Sơn Nhì, Tân Phú</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                 <div class="contact__widget">
                     <span class="icon_clock_alt"></span>
-                    <h4>Open time</h4>
-                    <p>10:00 am to 23:00 pm</p>
+                    <h4>Giờ mở cửa</h4>
+                    <p>08:00 đến 19:00</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                 <div class="contact__widget">
                     <span class="icon_mail_alt"></span>
                     <h4>Email</h4>
-                    <p>hello@colorlib.com</p>
+                    <p>truongtuan829@gmail.com</p>
                 </div>
             </div>
         </div>
@@ -45,16 +45,14 @@
 
 <!-- Map Begin -->
 <div class="map">
-    <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49116.39176087041!2d-86.41867791216099!3d39.69977417971648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886ca48c841038a1%3A0x70cfba96bf847f0!2sPlainfield%2C%20IN%2C%20USA!5e0!3m2!1sen!2sbd!4v1586106673811!5m2!1sen!2sbd"
-            height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3138.42001787902!2d106.62876877392773!3d10.796148858831899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752955af7d87b3%3A0x64c4e80d8d5e6273!2zMzAzIMSQLiBUw6JuIFPGoW4gTmjDrCwgVMOibiBTxqFuIE5ow6wsIFTDom4gUGjDuiwgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e1!3m2!1svi!2s!4v1750438615141!5m2!1svi!2s" height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
     <div class="map-inside">
         <i class="icon_pin"></i>
         <div class="inside-widget">
-            <h4>New York</h4>
+            <h4>Tân Phú</h4>
             <ul>
-                <li>Phone: +12-345-6789</li>
-                <li>Add: 16 Creek Ave. Farmingdale, NY</li>
+                <li>Điện thoại: 0385 573 558</li>
+                <li>Địa chỉ: 303/41 Tân Sơn Nhì, Tân Phú</li>
             </ul>
         </div>
     </div>
@@ -67,21 +65,21 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="contact__form__title">
-                    <h2>Leave Message</h2>
+                    <h2>Để lại tin nhắn</h2>
                 </div>
             </div>
         </div>
         <form action="#">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
-                    <input type="text" placeholder="Your name">
+                    <input type="text" placeholder="Tên của bạn">
                 </div>
                 <div class="col-lg-6 col-md-6">
-                    <input type="text" placeholder="Your Email">
+                    <input type="text" placeholder="Email của bạn">
                 </div>
                 <div class="col-lg-12 text-center">
-                    <textarea placeholder="Your message"></textarea>
-                    <button type="submit" class="site-btn">SEND MESSAGE</button>
+                    <textarea placeholder="Tin nhắn của bạn "></textarea>
+                    <button type="submit" class="site-btn">Gửi tin nhắn</button>
                 </div>
             </div>
         </form>

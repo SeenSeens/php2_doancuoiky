@@ -1,7 +1,3 @@
-<?php
-$products = $this->data['sub_content']['products'];
-$categories = $this->data['sub_content']['product_categories'];
-?>
 <!-- Hero Section Begin -->
 <?php $this->render('frontend/template-parts/hero__categories'); ?>
 <!-- Hero Section End -->
@@ -329,7 +325,7 @@ $categories = $this->data['sub_content']['product_categories'];
                                 </div>
                                 <div class="product__item__text">
                                     <h6><a href="<?= __WEB_ROOT__ . '/san-pham/' . $product['slug'] ?>"><?= $product['title'] ?></a></h6>
-                                    <h5>$30.00</h5>
+                                    <h5><?= isset($product['price']) ? number_format($product['price'] , 0, ',', '.') . ' VND' : 'Liên hệ' ?></h5>
                                 </div>
                             </div>
                         </div>

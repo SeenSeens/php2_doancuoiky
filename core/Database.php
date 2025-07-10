@@ -67,14 +67,14 @@ class Database {
 
 
     // Hàm truy vấn câu lệnh SQL
-    public function query( $sql ) {
+    public function query( $sql, $params = [] ) {
         try {
             if ($this->__conn === null) {
                 throw new Exception('Database connection is null.');
             }
 
             $statement = $this->__conn->prepare($sql);
-            $statement->execute();
+            $statement->execute($params);
             return $statement;
         } catch (Exception $exception) {
             $mess = $exception->getMessage();

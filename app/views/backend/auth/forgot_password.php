@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="p-4 rounded  border">
                     <div class="text-center">
-                        <img src="<?= __WEB_ROOT__ . '/public/admin/assets/icons/forgot-2.png'; ?>" width="120" alt="" />
+                        <img src="<?= __WEB_ROOT__ . '/public/admin/icons/forgot-2.png'; ?>" width="120" alt="" />
                     </div>
                     <h4 class="mt-5 font-weight-bold">Forgot Password?</h4>
                     <p class="text-muted">Enter your registered email ID to reset the password</p>

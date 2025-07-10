@@ -1,5 +1,5 @@
 <?php
-$categories = $this->data['sub_content']['product_categories'];
+
 $news = $this->data['sub_content']['news'];
 ?>
 <!-- Hero Section Begin -->

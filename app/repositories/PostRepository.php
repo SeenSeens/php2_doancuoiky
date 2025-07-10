@@ -73,7 +73,7 @@ class PostRepository extends BaseRepository {
     }
     public function findPost($id) {
         return $this->db->table( $this->table )
-            ->select('posts.id, posts.title, posts.slug, posts.content, posts.excerpt, posts.status, users.username')
+            ->select('posts.id, posts.title, posts.slug, posts.content, posts.excerpt, posts.status, posts.thumbnail, users.username')
             ->where('posts.id', '=', $id )
             ->join('users', 'posts.author_id = users.id')
             ->leftJoin('post_term_relationships', 'posts.id = post_term_relationships.object_id')

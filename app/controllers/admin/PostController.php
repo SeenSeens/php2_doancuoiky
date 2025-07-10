@@ -1,14 +1,17 @@
 <?php
 require_once __DIR_ROOT__ . '/app/services/TermService.php';
 require_once __DIR_ROOT__ . '/app/services/PostService.php';
+require_once __DIR_ROOT__ . '/app/services/PostTermRelationshipService.php';
 class PostController extends Controller {
     public array $data = [];
     private PostService $postService;
     private TermService $termService;
+    private PostTermRelationshipService $postTermRelationshipService;
     private mixed $post, $term_relationships, $term_taxonomy;
     public function __construct() {
         $this->postService = new PostService();
         $this->termService = new TermService();
+        $this->postTermRelationshipService = new PostTermRelationshipService();
     }
 
     public function index() {
@@ -31,10 +34,11 @@ class PostController extends Controller {
     }
 
     public function edit($id){
-        $this->data['post'] = $this->postService->findPost( $id );
+        $this->data['sub_content']['post'] = $this->postService->findPost( $id );
         $this->data['sub_content']['page_title'] = "Sửa bài viết";
         $this->categories();
         $this->tags();
+        $this->data['sub_content']['selected_category_ids'] = $this->postTermRelationshipService->getSelectedTermIds($id, 'category');
         $this->data['text-edit-form'] = [
             'routes' => 'post/edit_id=' . $id,
             'button' => 'Cập nhập',
@@ -57,11 +61,11 @@ class PostController extends Controller {
     }
 
     private function categories(){
-        $this->data['categories'] = $this->termService->getTerms('category');
+        $this->data['sub_content']['categories'] = $this->termService->getTerms('category');
     }
 
     private function tags() {
-        $this->data['tags'] = $this->termService->getTerms('tag');
+        $this->data['sub_content']['tags'] = $this->termService->getTerms('tag');
     }
 }
 ?>

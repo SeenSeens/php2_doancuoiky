@@ -3,14 +3,10 @@
 <?php
 require_once __DIR_ROOT__ . '/helper/PostHelper.php'; // Gọi hàm lấy trạng thái
 $this->render('backend/components/breadcrumb');
-$categories = $this->data['categories'];
-$tags = $this->data['tags'];
-if( !empty( $this->data['post'] ) ) :
+if( !empty( $post ) ) :
     $text = $this->data['text-edit-form'];
-    $post = $this->data['post'];
     $post = $post[0];
     $status = PostHelper::getStatusText( $post['status'] );
-    $selectedCategories = array_map('trim', explode(',', $post['categories']));
     $tag = $post['tags'];
 else:
     $text = $this->data['text-add-form'];
@@ -75,22 +71,14 @@ endif;
             <div class="card">
                 <div class="card-header fw-bold">Danh mục</div>
                 <div class="card-body">
-                    <!--<select class="form-select multiple-select" name="category" multiple data-placeholder="Choose anything">
-                        <?php /*foreach ($categories as $category) : */?>
-                            <option value="<?php /*= $category['id'] */?>" <?php /*= $category['name'] == $category ? 'selected' : '' */?>><?php /*= $category['name'] */?></option>
-                        <?php /*endforeach; */?>
-                    </select>-->
-                    <?php foreach ($categories as $category) : ?>
-                        <input type="checkbox"
-                            name="category"
-                            value="<?= $category['id'] ?>"
-                            id="category_<?= $category['id'] ?>"
-                            class="form-check-input"
-                            <?= !empty($selectedCategories) && in_array($category['name'], $selectedCategories) ? 'checked' : '' ?>
-                        >
-                        <label for="category_<?= $category['id'] ?>"><?= $category['name'] ?></label><br>
-                    <?php endforeach; ?>
-
+                    <select class="form-select multiple-select" name="category[]" multiple data-placeholder="Choose anything">
+                        <?php foreach ($categories as $category) : ?>
+                            <option value="<?= $category['id'] ?>"
+                                <?= in_array($category['id'], $selected_category_ids ?? [], true) ? 'selected' : '' ?>>
+                                <?= $category['name'] ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
             </div>
             <div class="card">
@@ -98,7 +86,7 @@ endif;
                 <div class="card-body">
                     <select class="form-select" name="tag">
                         <?php foreach ($tags as $tag) : ?>
-                            <option value="<?= $tag['id'] ?>" <?= $tag['name'] == $tag ? 'selected' : '' ?>><?= $tag['name'] ?></option>
+                            <option value="<?= $tag['id'] ?>" <?= $tag['name'] === $tag ? 'selected' : '' ?>><?= $tag['name'] ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -106,6 +94,13 @@ endif;
             <div class="card">
                 <div class="card-header">Ảnh đại diện</div>
                 <div class="card-body">
+                    <?php if ( !empty($post['thumbnail'])) : ?>
+                        <!-- Hiển thị ảnh hiện tại -->
+                        <img src="<?= __WEB_ROOT__ . '/public/uploads/' . $post['thumbnail'] ?>" alt="" class="img-thumbnail">
+                        <!-- Giữ giá trị ảnh thumbnail cũ -->
+                        <input type="hidden" name="old_thumbnail" value="<?= $post['thumbnail'] ?>">
+                    <?php endif; ?>
+                    <!-- Upload ảnh mới -->
                     <input type="file" class="form-control mt-2" name="thumbnail">
                     <button onclick="window.open('<?= __WEB_ROOT__ . '/elfinder-popup' ?>', 'File Manager', 'width=900,height=500')">Quản lý file</button>
 

@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--favicon-->
     <link rel="icon" href="<?= __WEB_ROOT__ . '/public/admin/images/favicon-32x32.png'; ?>" type="image/png" />
@@ -11,6 +10,8 @@
     <link href="<?= __WEB_ROOT__ . '/public/admin/plugins/simplebar/css/simplebar.css'; ?>" rel="stylesheet" />
     <link href="<?= __WEB_ROOT__ . '/public/admin/plugins/perfect-scrollbar/css/perfect-scrollbar.css'; ?>" rel="stylesheet" />
     <link href="<?= __WEB_ROOT__ . '/public/admin/plugins/metismenu/css/metisMenu.min.css'; ?>" rel="stylesheet" />
+    <link href="<?= __WEB_ROOT__ . '/public/admin/plugins/select2/css/select2.min.css'; ?>" rel="stylesheet" />
+    <link href="<?= __WEB_ROOT__ . '/public/admin/plugins/select2/css/select2-bootstrap4.css'; ?>" rel="stylesheet" />
     <!-- loader-->
     <link href="<?= __WEB_ROOT__ . '/public/admin/css/pace.min.css' ?>" rel="stylesheet" />
     <script src="<?= __WEB_ROOT__ . '/public/admin/js/pace.min.js' ?>"></script>
@@ -20,13 +21,10 @@
     <link href="<?= __WEB_ROOT__ . '/public/admin/css/app.css' ?>" rel="stylesheet">
     <link href="<?= __WEB_ROOT__ . '/public/admin/css/icons.css' ?>" rel="stylesheet">
     <!-- Theme Style CSS -->
-    <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/admin/css/dark-theme.css' ?>" />
-    <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/admin/css/semi-dark.css' ?>" />
-    <link rel="stylesheet" href="<?= __WEB_ROOT__ . '/public/admin/css/header-colors.css' ?>" />
-    <script src="<?= __WEB_ROOT__ . '/public/admin/js/jquery.min.js' ?>"></script>
+    <script src="<?= __WEB_ROOT__ . '/public/admin/js/jquery-3.7.1.min.js' ?>"></script>
     <script src="<?= __WEB_ROOT__ . '/public/admin/js/angular.min.js' ?>"></script>
     <script src="<?= __WEB_ROOT__ . '/public/admin/plugins/notifications/js/lobibox.min.js'; ?>"></script>
-    <link rel="stylesheet" type="text/css" href="<?= __WEB_ROOT__ . '/public/admin/plugins/elfinder/css/elfinder.min.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?= __WEB_ROOT__ . '/public/admin/plugins/elFinder/css/elfinder.min.css' ?>">
     <title><?= $this->data['sub_content']['page_title']; ?></title>
 </head>
 <body>
@@ -55,13 +53,10 @@
     </footer>
 </div>
 <!--end wrapper-->
-<!--start switcher-->
-<?php $this->render('backend/layout/switcher') ?>
-<!--end switcher-->
+
 <!-- Bootstrap JS -->
 <script>
     const BASE_URL = '<?= __WEB_ROOT__ ?>';
-    console.log( BASE_URL)
 </script>
 <script src="<?= __WEB_ROOT__ . '/public/admin/js/bootstrap.bundle.min.js' ?>"></script>
 <!--plugins-->
@@ -73,34 +68,14 @@
 <script src="<?= __WEB_ROOT__ . '/public/admin/js/tinymce.js' ?>"></script>
 <script src="<?= __WEB_ROOT__ . '/public/admin/js/axios.min.js' ?>"></script>
 <script src="<?= __WEB_ROOT__ . '/public/admin/plugins/elFinder/js/elfinder.min.js' ?>"></script>
+
+<!--notification js -->
+<script src="<?= __WEB_ROOT__ . '/public/admin/plugins/notifications/js/lobibox.min.js' ?>"></script>
 <!--app JS-->
 <script src="<?= __WEB_ROOT__ . '/public/admin/js/app.js' ?>"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        <?php if (!empty($_SESSION['error'])) : ?>
-        Lobibox.notify('error', {
-            size: 'mini',
-            rounded: true,
-            delay: 3000,
-            sound: false,
-            title: 'Lỗi',
-            msg: "<?php echo $_SESSION['error']; ?>"
-        });
-        <?php unset($_SESSION['error']); ?>
-        <?php endif; ?>
 
-        <?php if (!empty($_SESSION['success'])) : ?>
-        Lobibox.notify('success', {
-            size: 'mini',
-            rounded: true,
-            delay: 3000,
-            sound: false,
-            title: 'Thành công',
-            msg: "<?php echo $_SESSION['success']; ?>"
-        });
-        <?php unset($_SESSION['success']); ?>
-        <?php endif; ?>
-    });
+
+<script>
 
     function ChangeToSlug(text) {
         let slug = text.toLowerCase();
@@ -128,18 +103,11 @@
 
 
 
-        $().ready(function () {
-        $('#elfinder').elfinder({
-            url: <?= __WEB_ROOT__ ?> + '/elfinder', // connector route
-            getFileCallback: function (file) {
-                window.opener.tinymce.activeEditor.insertContent('<img src="' + file.url + '"/>');
-                window.close();
-            }
-        });
-    });
-
-
 
 </script>
+<?php
+require_once __DIR_ROOT__ . '/helper/FlashMessage.php';
+FlashMessage::display();
+?>
 </body>
 </html>
