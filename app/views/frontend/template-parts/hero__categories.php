@@ -1,3 +1,4 @@
+<?php $categories = $this->data['sub_content']['product_categories']; ?>
 <section class="hero hero-normal">
     <div class="container">
         <div class="row">
@@ -9,7 +10,7 @@
                     </div>
                     <ul>
                         <?php
-                        foreach ($this->data['sub_content']['categories'] as $category) :
+                        foreach ($categories as $category) :
                             if ( $category['slug'] !== 'chua-phan-loai') :
                         ?>
                             <li><a href="<?= __WEB_ROOT__ . '/danh-muc-san-pham/'. $category['slug']; ?>"><?= $category['name'] ?></a></li>

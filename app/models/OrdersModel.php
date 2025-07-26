@@ -1,19 +1,16 @@
 <?php
 class OrdersModel extends Model {
-
-    #[\Override] function tableFill()
-    {
-        // TODO: Implement tableFill() method.
+    public string $__table = 'orders';
+    function tableFill(){
+        return $this->__table;
     }
 
-    #[\Override] function fieldFill()
-    {
-        // TODO: Implement fieldFill() method.
+    function fieldFill(){
+        return '*';
     }
 
-    #[\Override] function primaryKey()
-    {
-        // TODO: Implement primaryKey() method.
+    function primaryKey(){
+        return 'id';
     }
     public function insertOrder($data): void {
         $this->db->table('orders')->insert($data);

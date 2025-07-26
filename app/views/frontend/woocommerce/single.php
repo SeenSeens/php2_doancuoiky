@@ -47,7 +47,14 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="primary-btn">ADD TO CARD</a>
+                    <button class="primary-btn add-to-cart-btn"
+                            data-id="<?= $product['id'] ?>"
+                            data-name="<?= $product['title'] ?>"
+                            data-price="<?= $product['price'] ?>"
+                            data-image="<?= $product['thumbnail'] ?>">
+                        🛒 Thêm vào giỏ
+                    </button>
+
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
                         <li><b>Availability</b> <span>In Stock</span></li>
@@ -119,3 +126,35 @@
     </div>
 </section>
 <!-- Related Product Section End -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const btn = document.querySelector(".add-to-cart-btn");
+        const qtyInput = document.querySelector(".pro-qty input");
+
+        if (!btn) return;
+
+        btn.addEventListener("click", function () {
+            const product = {
+                id: parseInt(this.dataset.id),
+                name: this.dataset.name,
+                price: parseInt(this.dataset.price),
+                image: this.dataset.image,
+                quantity: parseInt(qtyInput.value) || 1
+            };
+
+            // Load cart from localStorage
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            const index = cart.findIndex(item => item.id === product.id);
+            if (index !== -1) {
+                cart[index].quantity += product.quantity;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("✅ Đã thêm vào giỏ hàng!");
+        });
+    });
+</script>
+

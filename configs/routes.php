@@ -8,13 +8,17 @@ $routes = [
     'tin-tuc/(.*)' => 'PageController/detail/$1',
     'cua-hang' => 'ShopController',
     'gio-hang' => 'ShopController/cart',
+    'thanh-toan' => 'ShopController/checkout',
+    'dat-hang' => 'ShopController/order',
     'san-pham/(.*)' => 'ProductController/detail/$1',
     'danh-muc-san-pham/(.*)' => 'ProductController/category/$1',
     'upload' => 'UploadController/uploadImage',
     'postacceptor' => 'UploadController/postAcceptor',
     'elfinder'       => 'UploadController/elfinder',
     'elfinder-popup' => 'UploadController/elfinderView',
-
+    'location/provinces' => 'LocationController/provinces',
+    'location/districts' => 'LocationController/districts',
+    'location/wards' => 'LocationController/wards',
 
     // Dashboard
     'admin' => 'admin/DashboardController',

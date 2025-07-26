@@ -45,10 +45,19 @@ class FormInputHelper {
 //            'price' => SanitizeUtils::sanitizeInput($_POST['price']),
 //            'stock' => SanitizeUtils::sanitizeInput($_POST['stock']),
 //            'status' => SanitizeUtils::sanitizeInput($_POST['status']),
+            'thumbnail' => self::processingThumbnail(),
             'author_id' => $_SESSION['user_id'],
         ];
     }
 
+    public static function inputValueCustomer() {
+        return [
+            'name' => SanitizeUtils::sanitizeInput($_POST['name']),
+            'email' => SanitizeUtils::sanitizeInput($_POST['email']),
+            'phone' => SanitizeUtils::sanitizeInput($_POST['phone']),
+            'address' => SanitizeUtils::sanitizeInput($_POST['address']),
+        ];
+    }
     private static function processingThumbnail  () {
         $thumbnail = null;
         if (!empty($_FILES['thumbnail']['name'])) {

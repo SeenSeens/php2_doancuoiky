@@ -24,7 +24,7 @@ class ProductController extends Controller{
         }
         $this->data['sub_content']['page_title'] = $product['title'];
         $this->data['sub_content']['product'] = $product;
-        $this->data['sub_content']['categories'] = $this->termService->getTerms('product_cat');
+        $this->data['sub_content']['product_categories'] = $this->termService->getTerms('product_cat');
         $this->data['sub_content']['related_products'] = $this->productService->relatedProductBySlug($product['object_id'], $slug, 3);
         $this->data['content'] = 'frontend/woocommerce/single'; // truyền dữ liệu qua bên view
         $this->render('frontend/templates/app_layout', $this->data);

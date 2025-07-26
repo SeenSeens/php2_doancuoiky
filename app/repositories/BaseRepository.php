@@ -1,5 +1,5 @@
 <?php
-class BaseRepository {
+class  BaseRepository {
     protected $model, $db;
     public function __construct( $model ) {
         $this->model = $model;
@@ -7,7 +7,7 @@ class BaseRepository {
         
     }
     // Lấy tất cả bản ghi
-    /*public function all() {
+    public function all() {
         $tableName = $this->model->tableFill();
         $fieldSelect = $this->model->fieldFill();
         if( empty( $fieldSelect )) {
@@ -19,10 +19,10 @@ class BaseRepository {
             return $query->fetchAll( PDO::FETCH_ASSOC );
         }
         return false;
-    }*/
+    }
 
     // Lấy 1 bản ghi
-    /*public function find($id) {
+    public function find($id) {
         $tableName = $this->model->tableFill();
         $fieldSelect = $this->model->fieldFill();
         $primaryKey = $this->model->primaryKey();
@@ -35,9 +35,9 @@ class BaseRepository {
             return $query->fetch( PDO::FETCH_ASSOC );
         }
         return false;
-    }*/
+    }
 
-    /*public function paginate($perPage = 10, $currentPage = 1) {
+    public function paginate($perPage = 10, $currentPage = 1) {
         $tableName = $this->model->tableFill();
         $fieldSelect = $this->model->fieldFill();
         $primaryKey = $this->model->primaryKey();
@@ -69,6 +69,6 @@ class BaseRepository {
             ];
         }
         return false;
-    }*/
+    }
 
 }

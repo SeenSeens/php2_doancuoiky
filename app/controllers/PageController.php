@@ -12,7 +12,8 @@ class PageController extends Controller {
 
     public function contact(){
         $this->data['sub_content']['page_title'] = 'Liên hệ';
-        $this->categories();
+        //$this->categories();
+        $this->data['sub_content']['product_categories'] = $this->termService->getTerms('product_cat');
         $this->data['content'] = 'frontend/pages/contact';
         $this->render('frontend/templates/app_layout', $this->data);
     }
@@ -37,6 +38,6 @@ class PageController extends Controller {
     }
 
     private function categories (){
-        return $this->data['sub_content']['categories'] = $this->termService->getTerms('product_cat');
+        return $this->data['sub_content']['product_categories'] = $this->termService->getTerms('product_cat');
     }
 }

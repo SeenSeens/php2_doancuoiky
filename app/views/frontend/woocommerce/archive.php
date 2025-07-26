@@ -1,3 +1,4 @@
+<?php $categories = $this->data['sub_content']['product_categories']; ?>
 <!-- Hero Section Begin -->
 <?php $this->render('frontend/template-parts/hero__categories'); ?>
 <!-- Hero Section End -->
@@ -342,3 +343,9 @@
     </div>
 </section>
 <!-- Product Section End -->
+<?php require_once __DIR_ROOT__ . '/helper/FlashMessage.php'; ?>
+<?php if (FlashMessage::has('success')): ?>
+    <script>
+        localStorage.removeItem("cart");
+    </script>
+<?php endif; ?>
